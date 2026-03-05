@@ -1,0 +1,79 @@
+[
+  {
+    "symbol": "BTC",
+    "name": "Bitcoin",
+    "price": 71228,
+    "change": -2.3,
+    "marketCap": "1.43T",
+    "volume24h": "66.0B",
+    "high24h": 73953,
+    "low24h": 71310,
+    "image": "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400"
+  },
+  {
+    "symbol": "ETH",
+    "name": "Ethereum",
+    "price": 2071.48,
+    "change": -2.86,
+    "marketCap": "250.3B",
+    "volume24h": "28.3B",
+    "high24h": 2192.82,
+    "low24h": 2074.71,
+    "image": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628"
+  },
+  {
+    "symbol": "BNB",
+    "name": "BNB",
+    "price": 649.08,
+    "change": -1.55,
+    "marketCap": "88.7B",
+    "volume24h": "1.4B",
+    "high24h": 664.89,
+    "low24h": 649.42,
+    "image": "https://coin-images.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970"
+  },
+  {
+    "symbol": "XRP",
+    "name": "XRP",
+    "price": 1.41,
+    "change": -1.62,
+    "marketCap": "86.4B",
+    "volume24h": "3.5B",
+    "high24h": 1.47,
+    "low24h": 1.41,
+    "image": "https://coin-images.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1696501442"
+  },
+  {
+    "symbol": "SOL",
+    "name": "Solana",
+    "price": 89.13,
+    "change": -3.14,
+    "marketCap": "50.9B",
+    "volume24h": "5.7B",
+    "high24h": 93.71,
+    "low24h": 89.24,
+    "image": "https://coin-images.coingecko.com/coins/images/4128/large/solana.png?1718769756"
+  },
+  {
+    "symbol": "DOGE",
+    "name": "Dogecoin",
+    "price": 0.094301,
+    "change": -2.52,
+    "marketCap": "14.5B",
+    "volume24h": "2.4B",
+    "high24h": 0.103755,
+    "low24h": 0.094443,
+    "image": "https://coin-images.coingecko.com/coins/images/5/large/dogecoin.png?1696501409"
+  },
+  {
+    "symbol": "ADA",
+    "name": "Cardano",
+    "price": 0.270649,
+    "change": -2.34,
+    "marketCap": "10.0B",
+    "volume24h": "765M",
+    "high24h": 0.284191,
+    "low24h": 0.271071,
+    "image": "https://coin-images.coingecko.com/coins/images/975/large/cardano.png?1696502090"
+  }
+]

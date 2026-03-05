@@ -1,0 +1,29 @@
+{
+  "indices": [
+    { "symbol": "^GSPC", "name": "S&P 500", "price": 5842.18, "change": 0.72, "prevClose": 5800.25, "dayHigh": 5860.00, "dayLow": 5820.00 },
+    { "symbol": "^IXIC", "name": "NASDAQ Composite", "price": 18456.00, "change": 1.14, "prevClose": 18248.00, "dayHigh": 18520.00, "dayLow": 18380.00 },
+    { "symbol": "^DJI", "name": "Dow Jones", "price": 43128.00, "change": -0.18, "prevClose": 43206.00, "dayHigh": 43250.00, "dayLow": 43050.00 },
+    { "symbol": "^HSI", "name": "Hang Seng", "price": 22845.00, "change": 2.31, "prevClose": 22329.00, "dayHigh": 22900.00, "dayLow": 22600.00 },
+    { "symbol": "000001.SS", "name": "SSE Composite", "price": 3328.00, "change": 0.89, "prevClose": 3298.50, "dayHigh": 3340.00, "dayLow": 3310.00 },
+    { "symbol": "^N225", "name": "Nikkei 225", "price": 38912.00, "change": -0.45, "prevClose": 39088.00, "dayHigh": 39100.00, "dayLow": 38800.00 }
+  ],
+  "watchlist": [
+    { "symbol": "NVDA", "name": "NVIDIA Corporation", "price": 150.28, "change": 1.58, "pe": 30.2, "marketCap": "3.68T", "volume": 312400000, "dayHigh": 151.82, "dayLow": 147.90, "open": 148.50, "fiftyTwoWeekHigh": 195.00, "fiftyTwoWeekLow": 75.00 },
+    { "symbol": "AAPL", "name": "Apple Inc.", "price": 258.54, "change": -1.52, "pe": 33.8, "marketCap": "3.87T", "volume": 10870997, "dayHigh": 261.45, "dayLow": 258.08, "open": 260.74, "fiftyTwoWeekHigh": 288.62, "fiftyTwoWeekLow": 169.21 },
+    { "symbol": "MSFT", "name": "Microsoft Corp", "price": 398.50, "change": 0.82, "pe": 34.5, "marketCap": "2.96T", "volume": 18500000, "dayHigh": 401.20, "dayLow": 396.80, "open": 397.00, "fiftyTwoWeekHigh": 468.35, "fiftyTwoWeekLow": 362.90 },
+    { "symbol": "COST", "name": "Costco Wholesale", "price": 922.15, "change": 0.65, "pe": 52.3, "marketCap": "409.2B", "volume": 2100000, "dayHigh": 928.00, "dayLow": 918.50, "open": 920.00, "fiftyTwoWeekHigh": 1078.23, "fiftyTwoWeekLow": 689.98 },
+    { "symbol": "GOOGL", "name": "Alphabet Inc", "price": 178.32, "change": -0.45, "pe": 22.1, "marketCap": "2.19T", "volume": 22300000, "dayHigh": 180.50, "dayLow": 177.80, "open": 179.00, "fiftyTwoWeekHigh": 207.05, "fiftyTwoWeekLow": 146.46 },
+    { "symbol": "AMZN", "name": "Amazon.com Inc", "price": 208.75, "change": 1.23, "pe": 38.2, "marketCap": "2.21T", "volume": 35600000, "dayHigh": 210.50, "dayLow": 206.80, "open": 207.00, "fiftyTwoWeekHigh": 242.52, "fiftyTwoWeekLow": 166.12 },
+    { "symbol": "META", "name": "Meta Platforms", "price": 612.40, "change": 0.95, "pe": 25.8, "marketCap": "1.55T", "volume": 14200000, "dayHigh": 618.00, "dayLow": 608.50, "open": 610.00, "fiftyTwoWeekHigh": 740.91, "fiftyTwoWeekLow": 452.72 },
+    { "symbol": "TSM", "name": "Taiwan Semiconductor", "price": 185.60, "change": 2.15, "pe": 28.4, "marketCap": "960.2B", "volume": 18700000, "dayHigh": 187.50, "dayLow": 183.20, "open": 184.00, "fiftyTwoWeekHigh": 222.20, "fiftyTwoWeekLow": 130.05 },
+    { "symbol": "BRK-B", "name": "Berkshire Hathaway", "price": 478.90, "change": 0.32, "pe": 12.8, "marketCap": "1.03T", "volume": 3200000, "dayHigh": 480.50, "dayLow": 476.80, "open": 477.50, "fiftyTwoWeekHigh": 502.43, "fiftyTwoWeekLow": 390.95 },
+    { "symbol": "BABA", "name": "Alibaba Group", "price": 128.45, "change": 3.82, "pe": 18.5, "marketCap": "309.8B", "volume": 25600000, "dayHigh": 130.20, "dayLow": 125.80, "open": 126.00, "fiftyTwoWeekHigh": 148.00, "fiftyTwoWeekLow": 66.63 }
+  ],
+  "macro": [
+    { "symbol": "^TNX", "name": "10Y Treasury", "price": 4.28, "change": 0.47, "prevClose": 4.26, "dayHigh": 4.30, "dayLow": 4.25 },
+    { "symbol": "DX-Y.NYB", "name": "US Dollar Index", "price": 104.20, "change": -0.32, "prevClose": 104.53, "dayHigh": 104.60, "dayLow": 104.10 },
+    { "symbol": "GC=F", "name": "Gold Futures", "price": 2912.00, "change": 0.85, "prevClose": 2887.40, "dayHigh": 2920.00, "dayLow": 2905.00 },
+    { "symbol": "CL=F", "name": "WTI Crude", "price": 78.40, "change": -1.20, "prevClose": 79.35, "dayHigh": 79.50, "dayLow": 78.10 },
+    { "symbol": "^VIX", "name": "VIX", "price": 14.80, "change": -5.10, "prevClose": 15.60, "dayHigh": 15.20, "dayLow": 14.60 }
+  ]
+}

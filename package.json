@@ -1,0 +1,13 @@
+{
+  "name": "valuemind",
+  "version": "1.0.0",
+  "description": "AI Value Investing Intelligence - Static site with automated data updates",
+  "type": "module",
+  "scripts": {
+    "fetch": "node scripts/fetch-data.mjs",
+    "dev": "npx serve ."
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}

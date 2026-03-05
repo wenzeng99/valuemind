@@ -1,56 +1,53 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { execSync } from 'child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, '..', 'data');
 
 // --- Yahoo Finance (v8 API with crumb) ---
+function curlFetchJson(url) {
+  const cmd = `curl -s -L -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36" "${url}"`;
+  const out = execSync(cmd, { timeout: 15000 }).toString();
+  return JSON.parse(out);
+}
+
 async function fetchYahooQuote(symbols) {
-  // Try v8 API first
-  const headers = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Accept': 'application/json',
-  };
-
-  // Method 1: v8 endpoint (no auth needed for basic quotes)
-  try {
-    const results = [];
-    for (const symbol of symbols) {
+  const results = [];
+  for (const symbol of symbols) {
+    try {
       const url = `https://query2.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?range=1d&interval=1d`;
-      const res = await fetch(url, { headers, redirect: 'follow' });
-      if (res.ok) {
-        const data = await res.json();
-        const meta = data.chart?.result?.[0]?.meta;
-        if (meta) {
-          results.push({
-            symbol: meta.symbol,
-            shortName: meta.shortName || meta.symbol,
-            longName: meta.longName || meta.shortName || meta.symbol,
-            regularMarketPrice: meta.regularMarketPrice,
-            regularMarketPreviousClose: meta.chartPreviousClose || meta.previousClose,
-            regularMarketChangePercent: meta.regularMarketPrice && meta.chartPreviousClose
-              ? ((meta.regularMarketPrice - meta.chartPreviousClose) / meta.chartPreviousClose) * 100
-              : 0,
-            regularMarketDayHigh: meta.regularMarketDayHigh,
-            regularMarketDayLow: meta.regularMarketDayLow,
-            regularMarketOpen: meta.regularMarketPrice, // Approximate
-            regularMarketVolume: meta.regularMarketVolume,
-            trailingPE: null,
-            marketCap: null,
-            fiftyTwoWeekHigh: meta.fiftyTwoWeekHigh,
-            fiftyTwoWeekLow: meta.fiftyTwoWeekLow,
-          });
-        }
+      const data = curlFetchJson(url);
+      const meta = data.chart?.result?.[0]?.meta;
+      if (meta) {
+        results.push({
+          symbol: meta.symbol,
+          shortName: meta.shortName || meta.symbol,
+          longName: meta.longName || meta.shortName || meta.symbol,
+          regularMarketPrice: meta.regularMarketPrice,
+          regularMarketPreviousClose: meta.chartPreviousClose || meta.previousClose,
+          regularMarketChangePercent: meta.regularMarketPrice && meta.chartPreviousClose
+            ? ((meta.regularMarketPrice - meta.chartPreviousClose) / meta.chartPreviousClose) * 100
+            : 0,
+          regularMarketDayHigh: meta.regularMarketDayHigh,
+          regularMarketDayLow: meta.regularMarketDayLow,
+          regularMarketOpen: meta.regularMarketPrice,
+          regularMarketVolume: meta.regularMarketVolume,
+          trailingPE: null,
+          marketCap: null,
+          fiftyTwoWeekHigh: meta.fiftyTwoWeekHigh,
+          fiftyTwoWeekLow: meta.fiftyTwoWeekLow,
+        });
+        console.log(`    ✓ ${symbol}: $${meta.regularMarketPrice}`);
       }
-      // Delay to avoid rate limiting
-      await new Promise(r => setTimeout(r, 500));
+    } catch (e) {
+      console.warn(`    ⚠ ${symbol}: ${e.message}`);
     }
-    if (results.length > 0) return results;
-  } catch (e) {
-    console.warn('Yahoo v8 chart API failed:', e.message);
+    // Delay between requests
+    await new Promise(r => setTimeout(r, 1000));
   }
-
+  if (results.length > 0) return results;
   throw new Error('Yahoo Finance API unavailable');
 }
 
@@ -59,11 +56,16 @@ async function fetchMarketData() {
   const watchlistSymbols = ['NVDA', 'AAPL', 'MSFT', 'COST', 'GOOGL', 'AMZN', 'META', 'TSM', 'BRK-B', 'BABA'];
   const macroSymbols = ['^TNX', 'DX-Y.NYB', 'GC=F', 'CL=F', '^VIX'];
 
-  const [indices, watchlist, macro] = await Promise.all([
-    fetchYahooQuote(indexSymbols),
-    fetchYahooQuote(watchlistSymbols),
-    fetchYahooQuote(macroSymbols),
-  ]);
+  // Fetch sequentially to avoid rate limiting
+  console.log('  Fetching indices...');
+  const indices = await fetchYahooQuote(indexSymbols);
+  console.log(`  ✓ ${indices.length} indices`);
+  console.log('  Fetching watchlist...');
+  const watchlist = await fetchYahooQuote(watchlistSymbols);
+  console.log(`  ✓ ${watchlist.length} watchlist`);
+  console.log('  Fetching macro...');
+  const macro = await fetchYahooQuote(macroSymbols);
+  console.log(`  ✓ ${macro.length} macro`);
 
   const mapQuote = (q) => ({
     symbol: q.symbol,

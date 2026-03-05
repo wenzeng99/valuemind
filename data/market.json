@@ -1,29 +1,247 @@
 {
   "indices": [
-    { "symbol": "^GSPC", "name": "S&P 500", "price": 5842.18, "change": 0.72, "prevClose": 5800.25, "dayHigh": 5860.00, "dayLow": 5820.00 },
-    { "symbol": "^IXIC", "name": "NASDAQ Composite", "price": 18456.00, "change": 1.14, "prevClose": 18248.00, "dayHigh": 18520.00, "dayLow": 18380.00 },
-    { "symbol": "^DJI", "name": "Dow Jones", "price": 43128.00, "change": -0.18, "prevClose": 43206.00, "dayHigh": 43250.00, "dayLow": 43050.00 },
-    { "symbol": "^HSI", "name": "Hang Seng", "price": 22845.00, "change": 2.31, "prevClose": 22329.00, "dayHigh": 22900.00, "dayLow": 22600.00 },
-    { "symbol": "000001.SS", "name": "SSE Composite", "price": 3328.00, "change": 0.89, "prevClose": 3298.50, "dayHigh": 3340.00, "dayLow": 3310.00 },
-    { "symbol": "^N225", "name": "Nikkei 225", "price": 38912.00, "change": -0.45, "prevClose": 39088.00, "dayHigh": 39100.00, "dayLow": 38800.00 }
+    {
+      "symbol": "^GSPC",
+      "name": "S&P 500",
+      "price": 6809.19,
+      "change": -0.88,
+      "prevClose": 6869.5,
+      "dayHigh": 6870.43,
+      "dayLow": 6806.71
+    },
+    {
+      "symbol": "^IXIC",
+      "name": "NASDAQ Composite",
+      "price": 22672.99,
+      "change": -0.59,
+      "prevClose": 22807.484,
+      "dayHigh": 22877.023,
+      "dayLow": 22624.559
+    },
+    {
+      "symbol": "^DJI",
+      "name": "Dow Jones Industrial Average",
+      "price": 47953.04,
+      "change": -1.61,
+      "prevClose": 48739.41,
+      "dayHigh": 48526.73,
+      "dayLow": 47934.61
+    },
+    {
+      "symbol": "^HSI",
+      "name": "HANG SENG INDEX",
+      "price": 25321.34,
+      "change": 0.28,
+      "prevClose": 25249.48,
+      "dayHigh": 25736.6,
+      "dayLow": 25236.68
+    },
+    {
+      "symbol": "000001.SS",
+      "name": "SSE Composite Index",
+      "price": 4108.567,
+      "change": -0.34,
+      "prevClose": 4122.68,
+      "dayHigh": 4125.617,
+      "dayLow": 4090.621
+    },
+    {
+      "symbol": "^N225",
+      "name": "Nikkei 225",
+      "price": 55278.06,
+      "change": 1.9,
+      "prevClose": 54245.54,
+      "dayHigh": 56619.98,
+      "dayLow": 54910.33
+    }
   ],
   "watchlist": [
-    { "symbol": "NVDA", "name": "NVIDIA Corporation", "price": 150.28, "change": 1.58, "pe": 30.2, "marketCap": "3.68T", "volume": 312400000, "dayHigh": 151.82, "dayLow": 147.90, "open": 148.50, "fiftyTwoWeekHigh": 195.00, "fiftyTwoWeekLow": 75.00 },
-    { "symbol": "AAPL", "name": "Apple Inc.", "price": 258.54, "change": -1.52, "pe": 33.8, "marketCap": "3.87T", "volume": 10870997, "dayHigh": 261.45, "dayLow": 258.08, "open": 260.74, "fiftyTwoWeekHigh": 288.62, "fiftyTwoWeekLow": 169.21 },
-    { "symbol": "MSFT", "name": "Microsoft Corp", "price": 398.50, "change": 0.82, "pe": 34.5, "marketCap": "2.96T", "volume": 18500000, "dayHigh": 401.20, "dayLow": 396.80, "open": 397.00, "fiftyTwoWeekHigh": 468.35, "fiftyTwoWeekLow": 362.90 },
-    { "symbol": "COST", "name": "Costco Wholesale", "price": 922.15, "change": 0.65, "pe": 52.3, "marketCap": "409.2B", "volume": 2100000, "dayHigh": 928.00, "dayLow": 918.50, "open": 920.00, "fiftyTwoWeekHigh": 1078.23, "fiftyTwoWeekLow": 689.98 },
-    { "symbol": "GOOGL", "name": "Alphabet Inc", "price": 178.32, "change": -0.45, "pe": 22.1, "marketCap": "2.19T", "volume": 22300000, "dayHigh": 180.50, "dayLow": 177.80, "open": 179.00, "fiftyTwoWeekHigh": 207.05, "fiftyTwoWeekLow": 146.46 },
-    { "symbol": "AMZN", "name": "Amazon.com Inc", "price": 208.75, "change": 1.23, "pe": 38.2, "marketCap": "2.21T", "volume": 35600000, "dayHigh": 210.50, "dayLow": 206.80, "open": 207.00, "fiftyTwoWeekHigh": 242.52, "fiftyTwoWeekLow": 166.12 },
-    { "symbol": "META", "name": "Meta Platforms", "price": 612.40, "change": 0.95, "pe": 25.8, "marketCap": "1.55T", "volume": 14200000, "dayHigh": 618.00, "dayLow": 608.50, "open": 610.00, "fiftyTwoWeekHigh": 740.91, "fiftyTwoWeekLow": 452.72 },
-    { "symbol": "TSM", "name": "Taiwan Semiconductor", "price": 185.60, "change": 2.15, "pe": 28.4, "marketCap": "960.2B", "volume": 18700000, "dayHigh": 187.50, "dayLow": 183.20, "open": 184.00, "fiftyTwoWeekHigh": 222.20, "fiftyTwoWeekLow": 130.05 },
-    { "symbol": "BRK-B", "name": "Berkshire Hathaway", "price": 478.90, "change": 0.32, "pe": 12.8, "marketCap": "1.03T", "volume": 3200000, "dayHigh": 480.50, "dayLow": 476.80, "open": 477.50, "fiftyTwoWeekHigh": 502.43, "fiftyTwoWeekLow": 390.95 },
-    { "symbol": "BABA", "name": "Alibaba Group", "price": 128.45, "change": 3.82, "pe": 18.5, "marketCap": "309.8B", "volume": 25600000, "dayHigh": 130.20, "dayLow": 125.80, "open": 126.00, "fiftyTwoWeekHigh": 148.00, "fiftyTwoWeekLow": 66.63 }
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
+      "price": 183.43,
+      "change": 0.21,
+      "pe": null,
+      "marketCap": "—",
+      "volume": 60488889,
+      "dayHigh": 184.06,
+      "dayLow": 180.81,
+      "open": 183.43,
+      "fiftyTwoWeekHigh": 212.19,
+      "fiftyTwoWeekLow": 86.62
+    },
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "price": 259.82,
+      "change": -1.03,
+      "pe": null,
+      "marketCap": "—",
+      "volume": 14331231,
+      "dayHigh": 261.45,
+      "dayLow": 258.075,
+      "open": 259.82,
+      "fiftyTwoWeekHigh": 288.62,
+      "fiftyTwoWeekLow": 169.21
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
+      "price": 405.73,
+      "change": 0.13,
+      "pe": null,
+      "marketCap": "—",
+      "volume": 11663126,
+      "dayHigh": 411.61,
+      "dayLow": 404.4,
+      "open": 405.73,
+      "fiftyTwoWeekHigh": 555.45,
+      "fiftyTwoWeekLow": 344.79
+    },
+    {
+      "symbol": "COST",
+      "name": "Costco Wholesale Corporation",
+      "price": 982.62,
+      "change": -2.4,
+      "pe": null,
+      "marketCap": "—",
+      "volume": 720882,
+      "dayHigh": 999.25,
+      "dayLow": 980.29,
+      "open": 982.62,
+      "fiftyTwoWeekHigh": 1067.08,
+      "fiftyTwoWeekLow": 844.06
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "Alphabet Inc.",
+      "price": 299.04,
+      "change": -1.35,
+      "pe": null,
+      "marketCap": "—",
+      "volume": 12059722,
+      "dayHigh": 303.27,
+      "dayLow": 298.72,
+      "open": 299.04,
+      "fiftyTwoWeekHigh": 349,
+      "fiftyTwoWeekLow": 140.53
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "price": 216.38,
+      "change": -0.2,
+      "pe": null,
+      "marketCap": "—",
+      "volume": 21646533,
+      "dayHigh": 220.47,
+      "dayLow": 215.59,
+      "open": 216.38,
+      "fiftyTwoWeekHigh": 258.6,
+      "fiftyTwoWeekLow": 161.38
+    },
+    {
+      "symbol": "META",
+      "name": "Meta Platforms, Inc.",
+      "price": 658.29,
+      "change": -1.41,
+      "pe": null,
+      "marketCap": "—",
+      "volume": 3624056,
+      "dayHigh": 670.7,
+      "dayLow": 656.32,
+      "open": 658.29,
+      "fiftyTwoWeekHigh": 796.25,
+      "fiftyTwoWeekLow": 479.8
+    },
+    {
+      "symbol": "TSM",
+      "name": "Taiwan Semiconductor Manufactur",
+      "price": 353.53,
+      "change": -1.09,
+      "pe": null,
+      "marketCap": "—",
+      "volume": 5366670,
+      "dayHigh": 359.47,
+      "dayLow": 352.8,
+      "open": 353.53,
+      "fiftyTwoWeekHigh": 390.21,
+      "fiftyTwoWeekLow": 134.25
+    },
+    {
+      "symbol": "BRK-B",
+      "name": "Berkshire Hathaway Inc. New",
+      "price": 494.52,
+      "change": 1.44,
+      "pe": null,
+      "marketCap": "—",
+      "volume": 2150227,
+      "dayHigh": 498.48,
+      "dayLow": 492.52,
+      "open": 494.52,
+      "fiftyTwoWeekHigh": 542.07,
+      "fiftyTwoWeekLow": 455.19
+    },
+    {
+      "symbol": "BABA",
+      "name": "Alibaba Group Holding Limited",
+      "price": 129.66,
+      "change": -2.71,
+      "pe": null,
+      "marketCap": "—",
+      "volume": 8542356,
+      "dayHigh": 131.635,
+      "dayLow": 128.61,
+      "open": 129.66,
+      "fiftyTwoWeekHigh": 192.67,
+      "fiftyTwoWeekLow": 95.73
+    }
   ],
   "macro": [
-    { "symbol": "^TNX", "name": "10Y Treasury", "price": 4.28, "change": 0.47, "prevClose": 4.26, "dayHigh": 4.30, "dayLow": 4.25 },
-    { "symbol": "DX-Y.NYB", "name": "US Dollar Index", "price": 104.20, "change": -0.32, "prevClose": 104.53, "dayHigh": 104.60, "dayLow": 104.10 },
-    { "symbol": "GC=F", "name": "Gold Futures", "price": 2912.00, "change": 0.85, "prevClose": 2887.40, "dayHigh": 2920.00, "dayLow": 2905.00 },
-    { "symbol": "CL=F", "name": "WTI Crude", "price": 78.40, "change": -1.20, "prevClose": 79.35, "dayHigh": 79.50, "dayLow": 78.10 },
-    { "symbol": "^VIX", "name": "VIX", "price": 14.80, "change": -5.10, "prevClose": 15.60, "dayHigh": 15.20, "dayLow": 14.60 }
+    {
+      "symbol": "^TNX",
+      "name": "CBOE Interest Rate 10 Year T No",
+      "price": 4.133,
+      "change": 1.3,
+      "prevClose": 4.08,
+      "dayHigh": 4.148,
+      "dayLow": 4.123
+    },
+    {
+      "symbol": "DX-Y.NYB",
+      "name": "ICE US Dollar Index - Index - C",
+      "price": 99.194,
+      "change": 0.43,
+      "prevClose": 98.769,
+      "dayHigh": 99.32,
+      "dayLow": 98.667
+    },
+    {
+      "symbol": "GC=F",
+      "name": "Gold Apr 26",
+      "price": 5109.3,
+      "change": -0.49,
+      "prevClose": 5134.7,
+      "dayHigh": 5204.3,
+      "dayLow": 5065.5
+    },
+    {
+      "symbol": "CL=F",
+      "name": "Crude Oil Apr 26",
+      "price": 78.72,
+      "change": 5.44,
+      "prevClose": 74.66,
+      "dayHigh": 79.05,
+      "dayLow": 74.97
+    },
+    {
+      "symbol": "^VIX",
+      "name": "CBOE Volatility Index",
+      "price": 22.5,
+      "change": 6.38,
+      "prevClose": 21.15,
+      "dayHigh": 23.58,
+      "dayLow": 20.55
+    }
   ]
 }

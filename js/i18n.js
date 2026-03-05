@@ -1,20 +1,13 @@
 // ========== ValueMind i18n ==========
 export const translations = {
   zh: {
-    // Nav
     'nav.recap': '每日速递',
     'nav.signal': '信号墙',
     'nav.deep': '深度分析',
-    // Recap
     'recap.title': '今日市场速递',
     'recap.subtitle': '全球头条、宏观信号、价投解读。每日开盘前更新。',
     'recap.snapshot': '市场快照',
-    'recap.fear': '恐惧贪婪',
-    'recap.greed': '贪婪',
-    'recap.neutral': '中性',
-    'recap.fear_label': '恐惧',
-    'recap.extreme_greed': '极度贪婪',
-    'recap.extreme_fear': '极度恐惧',
+    'recap.fear': '恐惧贪婪指数',
     'recap.headlines': '全球财经头条',
     'recap.headlines_sub': 'Bloomberg / Reuters / FT / WSJ / CNBC',
     'recap.impact': '影响分析',
@@ -25,46 +18,50 @@ export const translations = {
     'recap.vitake': '价投视角',
     'recap.market_temp': '市场温度',
     'recap.action': '今日策略',
+    'recap.action_val': '观望，不追高',
+    'recap.action_note': '市场偏贵但尚未恐慌。建立观察清单。',
     'recap.opp': '机会雷达',
+    'recap.opp_val': '恒指反弹+中国刺激政策=关注BABA、BYD支撑位。NVDA回调至$130=DYP入场区间。',
+    'recap.commentary': '<p class="mb-6"><strong>10Y上升 + VIX低位</strong> — 晚周期自满情绪。Buffett $373B现金：市场偏贵。</p><p class="mb-6"><strong>DXY走弱 + 黄金新高</strong> — 通胀对冲轮动。有定价权的企业更具吸引力。</p><p><strong>中国政策 + 关税</strong> — 两股力量对拉。DYP框架：只投你理解的且能持有10年的企业。</p>',
     'recap.no_news': '暂无实时新闻',
     'recap.last_updated': '最后更新',
-    // Signal
     'signal.title': '每日信号墙',
     'signal.subtitle': 'AI模拟价投大师视角，覆盖全球市场。',
     'signal.green': '看得懂的机会',
     'signal.yellow': '能力圈边界',
     'signal.red': '不碰清单',
     'signal.analyze': '分析',
-    // Deep
     'deep.btn': '分析 →',
     'deep.overview': '概览',
     'deep.chart': '走势图',
     'deep.financials': '财务数据',
-    'deep.news': '相关新闻',
     'deep.analysis': '价值分析',
     'deep.perspective': '分析视角',
     'deep.stop': 'Stop Doing 检查',
+    'deep.no_short': '不做空',
+    'deep.no_margin': '不加杠杆',
+    'deep.understand': '看得懂',
+    'deep.not_policy': '非政策驱动',
     'deep.q_title': '三个终极问题',
     'deep.cross': '大师交叉验证',
     'deep.verdict': '最终判决',
     'deep.valuation': '估值指标',
     'deep.profitability': '盈利能力',
-    // Footer
+    'deep.rev_growth': '营收增速',
+    'deep.revenue': '营收增速',
+    'deep.segment': '核心业务',
+    'deep.valuation_level': '估值水平',
     'footer': 'AI生成分析，不构成投资建议。',
+    'about': '<strong>ValueMind</strong> 是一款AI驱动的价值投资分析工具，实时追踪美股、加密货币、宏观指标，并通过段永平、巴菲特、芒格三位大师的投资框架，对每日市场信号进行智能解读。数据每日自动更新，帮助投资者做出更理性的决策。',
   },
   en: {
     'nav.recap': "Today's Recap",
     'nav.signal': 'Signal Wall',
     'nav.deep': 'Deep Analysis',
     'recap.title': "Today's Market Recap",
-    'recap.subtitle': 'Global headlines, macro signals, and what matters for value investors. Updated daily before market open.',
+    'recap.subtitle': 'Global headlines, macro signals, and value investor insights. Updated daily before market open.',
     'recap.snapshot': 'Market Snapshot',
     'recap.fear': 'Fear & Greed',
-    'recap.greed': 'Greed',
-    'recap.neutral': 'Neutral',
-    'recap.fear_label': 'Fear',
-    'recap.extreme_greed': 'Extreme Greed',
-    'recap.extreme_fear': 'Extreme Fear',
     'recap.headlines': 'Global Headlines',
     'recap.headlines_sub': 'Bloomberg / Reuters / FT / WSJ / CNBC',
     'recap.impact': 'Impact Analysis',
@@ -75,7 +72,11 @@ export const translations = {
     'recap.vitake': "Value Investor's Take",
     'recap.market_temp': 'Market Temperature',
     'recap.action': "Today's Stance",
+    'recap.action_val': 'Observe, Don\'t Chase',
+    'recap.action_note': 'Market expensive but not panicking. Build watchlists.',
     'recap.opp': 'Opportunity Radar',
+    'recap.opp_val': 'HSI bounce + China stimulus = watch BABA, BYD at support. NVDA pullback to $130 = DYP entry zone.',
+    'recap.commentary': '<p class="mb-6"><strong>10Y rising + VIX low</strong> — Late-cycle complacency. Buffett\'s $373B cash: market is expensive.</p><p class="mb-6"><strong>DXY weakening + Gold ATH</strong> — Inflation hedge rotation. Pricing-power businesses become attractive.</p><p><strong>China policy + tariff</strong> — Two forces pulling opposite. DYP framework: only invest if you understand the business AND can hold 10 years.</p>',
     'recap.no_news': 'No live news available',
     'recap.last_updated': 'Last Updated',
     'signal.title': 'Daily Signal Wall',
@@ -88,27 +89,43 @@ export const translations = {
     'deep.overview': 'Overview',
     'deep.chart': 'Chart',
     'deep.financials': 'Financials',
-    'deep.news': 'News',
     'deep.analysis': 'Value Analysis',
     'deep.perspective': 'Perspective',
     'deep.stop': 'Stop Doing Checklist',
+    'deep.no_short': 'No Shorting',
+    'deep.no_margin': 'No Margin',
+    'deep.understand': 'Understand Biz',
+    'deep.not_policy': 'Not Policy-Driven',
     'deep.q_title': 'Three Ultimate Questions',
     'deep.cross': 'Cross-Validation',
     'deep.verdict': 'Final Verdict',
     'deep.valuation': 'Valuation',
     'deep.profitability': 'Profitability',
+    'deep.rev_growth': 'Revenue Growth',
+    'deep.revenue': 'Revenue Growth',
+    'deep.segment': 'Key Segment',
+    'deep.valuation_level': 'Valuation Level',
     'footer': 'AI-generated analysis. Not investment advice.',
+    'about': '<strong>ValueMind</strong> is an AI-powered value investing intelligence tool that tracks US equities, crypto, and macro indicators in real-time. It provides daily market signals interpreted through the investment frameworks of Duan Yongping, Warren Buffett, and Charlie Munger. Data updates automatically to help investors make more rational decisions.',
   }
 };
 
 let currentLang = 'zh';
 
+const htmlKeys = new Set(['recap.commentary', 'about']);
+
 export function setLang(lang) {
   currentLang = lang;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    const t = translations[lang]?.[key];
-    if (t) el.textContent = t;
+    const val = translations[lang]?.[key];
+    if (val) {
+      if (htmlKeys.has(key)) {
+        el.innerHTML = val;
+      } else {
+        el.textContent = val;
+      }
+    }
   });
 }
 

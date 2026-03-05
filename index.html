@@ -33,18 +33,108 @@
       </div>
     </div>
     <nav class="main-tabs">
-      <button class="main-tab active" id="mainTab-deep" onclick="vmApp.switchMainTab('deep')" data-i18n="nav.deep">深度分析</button>
-      <button class="main-tab" id="mainTab-recap" onclick="vmApp.switchMainTab('recap')" data-i18n="nav.recap">每日速递</button>
+      <button class="main-tab active" id="mainTab-recap" onclick="vmApp.switchMainTab('recap')" data-i18n="nav.recap">每日速递</button>
+      <button class="main-tab" id="mainTab-deep" onclick="vmApp.switchMainTab('deep')" data-i18n="nav.deep">深度分析</button>
       <button class="main-tab" id="mainTab-signal" onclick="vmApp.switchMainTab('signal')" data-i18n="nav.signal">信号墙</button>
     </nav>
   </div>
 </header>
 
-<!-- ===== Tab: Deep Analysis (DEFAULT) ===== -->
-<div id="page-deep" class="page active">
+<!-- ===== Tab: Today's Recap (DEFAULT) ===== -->
+<div id="page-recap" class="page active">
+  <div class="container">
+    <div class="mb-20 pt-20">
+      <div class="section-label mono" id="dateLabel"></div>
+      <h1 class="section-title" data-i18n="recap.title">今日市场速递</h1>
+      <div class="section-subtitle" data-i18n="recap.subtitle">全球头条、宏观信号、价投解读。每日开盘前更新。</div>
+    </div>
+
+    <div class="section-label" data-i18n="recap.snapshot">市场快照</div>
+    <div class="snapshot-grid" id="snapshotGrid"></div>
+    <div class="snapshot-grid snapshot-grid-5" id="snapshotGrid2"></div>
+
+    <div class="sentiment-bar">
+      <div>
+        <div class="sentiment-label" data-i18n="recap.fear">恐惧贪婪</div>
+        <div class="flex items-center gap-6">
+          <span class="sentiment-value mono" id="fgValue">—</span>
+          <span id="fgLabel" class="text-yellow">—</span>
+        </div>
+      </div>
+      <div class="sentiment-track">
+        <div class="sentiment-fill" id="fgFill" style="width:50%"></div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 class="section-heading" data-i18n="recap.headlines">全球财经头条</h2>
+    <div class="section-subtitle" data-i18n="recap.headlines_sub">Bloomberg / Reuters / FT / WSJ / CNBC</div>
+    <div class="news-list" id="newsContainer">
+      <div class="loading">Loading...</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 class="section-heading" data-i18n="recap.impact">影响分析</h2>
+    <table class="impact-table">
+      <thead>
+        <tr>
+          <th data-i18n="recap.th_event">事件</th>
+          <th data-i18n="recap.th_assets">相关资产</th>
+          <th class="text-center" data-i18n="recap.th_dir">方向</th>
+          <th class="hide-mobile" data-i18n="recap.th_logic">传导逻辑</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>NVDA earnings beat</td><td class="mono text-muted">NVDA, AMD, TSM</td><td class="text-center"><span class="text-green fw-600">Bullish</span></td><td class="hide-mobile text-muted">AI capex cycle accelerating</td></tr>
+        <tr><td>Strong NFP data</td><td class="mono text-muted">10Y, DXY, SPY</td><td class="text-center"><span class="text-yellow fw-600">Mixed</span></td><td class="hide-mobile text-muted">Strong economy but delays rate cuts</td></tr>
+        <tr><td>China stimulus</td><td class="mono text-muted">HSI, BABA, BYD</td><td class="text-center"><span class="text-green fw-600">Bullish</span></td><td class="hide-mobile text-muted">Policy boost for consumer + EV</td></tr>
+        <tr><td>Tariff escalation</td><td class="mono text-muted">AAPL, TSLA, FXI</td><td class="text-center"><span class="text-red fw-600">Bearish</span></td><td class="hide-mobile text-muted">Supply chain disruption</td></tr>
+        <tr><td>BTC ETF inflows</td><td class="mono text-muted">BTC, ETH, COIN</td><td class="text-center"><span class="text-green fw-600">Bullish</span></td><td class="hide-mobile text-muted">Institutional adoption</td></tr>
+      </tbody>
+    </table>
+
+    <div class="divider"></div>
+
+    <div class="vi-card">
+      <div class="vi-card-header">
+        <span class="section-num-lg">&sect;</span>
+        <h2 class="section-heading" data-i18n="recap.vitake">价投视角</h2>
+      </div>
+      <div class="vi-grid">
+        <div class="vi-box">
+          <div class="vi-box-label" data-i18n="recap.market_temp">市场温度</div>
+          <div class="flex items-center gap-6">
+            <span class="mono text-yellow vi-temp-value">72</span>
+            <span class="text-yellow vi-temp-unit">/100</span>
+          </div>
+          <div class="text-muted vi-note mt-4">BRK cash $373B (ATH) + F&G 22 + VIX 22.5</div>
+        </div>
+        <div class="vi-box">
+          <div class="vi-box-label" data-i18n="recap.action">今日策略</div>
+          <div class="text-yellow vi-action" data-i18n="recap.action_val">观望，不追高</div>
+          <div class="text-muted vi-note mt-4" data-i18n="recap.action_note">市场偏贵但尚未恐慌。建立观察清单。</div>
+        </div>
+        <div class="vi-box">
+          <div class="vi-box-label" data-i18n="recap.opp">机会雷达</div>
+          <div class="vi-note lh-16" data-i18n="recap.opp_val">恒指反弹+中国刺激政策=关注BABA、BYD支撑位。NVDA回调至$130=DYP入场区间。</div>
+        </div>
+      </div>
+      <div class="vi-commentary" data-i18n="recap.commentary">
+        <p class="mb-6"><strong>10Y上升 + VIX低位</strong> — 晚周期自满情绪。Buffett $373B现金：市场偏贵。</p>
+        <p class="mb-6"><strong>DXY走弱 + 黄金新高</strong> — 通胀对冲轮动。有定价权的企业更具吸引力。</p>
+        <p><strong>中国政策 + 关税</strong> — 两股力量对拉。DYP框架：只投你理解的且能持有10年的企业。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Tab: Deep Analysis ===== -->
+<div id="page-deep" class="page">
   <div class="container">
     <div class="search-bar mt-20">
-      <input id="tickerInput" type="text" class="search-input" placeholder="输入股票代码，如 NVDA, AAPL, MSFT..." value="NVDA"
+      <input id="tickerInput" type="text" class="search-input" placeholder="NVDA, COST, AAPL, MSFT..." value="NVDA"
         onkeydown="if(event.key==='Enter')vmApp.runAnalysis()">
       <button class="btn-search" onclick="vmApp.runAnalysis()" data-i18n="deep.btn">分析 →</button>
     </div>
@@ -55,7 +145,7 @@
         <div>
           <div class="flex items-center gap-8">
             <span class="quote-symbol" id="deepSymbol">NVDA</span>
-            <span class="quote-exchange">NASDAQ</span>
+            <span class="quote-exchange" id="deepExchange">NASDAQ</span>
           </div>
           <div class="quote-name" id="deepName">NVIDIA Corporation</div>
         </div>
@@ -78,7 +168,6 @@
       <button class="deep-tab active" data-dtab="overview" onclick="vmApp.switchDeepTab('overview')" data-i18n="deep.overview">概览</button>
       <button class="deep-tab" data-dtab="chart" onclick="vmApp.switchDeepTab('chart')" data-i18n="deep.chart">走势图</button>
       <button class="deep-tab" data-dtab="financials" onclick="vmApp.switchDeepTab('financials')" data-i18n="deep.financials">财务数据</button>
-      <button class="deep-tab" data-dtab="news" onclick="vmApp.switchDeepTab('news')" data-i18n="deep.news">相关新闻</button>
       <button class="deep-tab" data-dtab="analysis" onclick="vmApp.switchDeepTab('analysis')" data-i18n="deep.analysis">价值分析</button>
     </div>
 
@@ -87,41 +176,41 @@
       <div id="dpanel-overview" class="deep-panel active">
         <div class="ai-summary">
           <div class="ai-badge">AI SUMMARY</div>
-          <div class="ai-text" id="aiSummaryText">NVDA is the dominant AI infrastructure play. Q4 revenue of $39.3B (+78% YoY) crushed estimates, with Blackwell ramping ahead of schedule. PEG of 0.6 suggests growth is digesting premium valuation. However, at 75th percentile valuation, the margin of safety is thin. <strong>Verdict: Great business, but wait for $120-130 entry.</strong></div>
+          <div class="ai-text" id="aiSummaryText">—</div>
         </div>
         <div class="metrics-grid">
-          <div class="metric-box"><div class="metric-label">Market Cap</div><div class="metric-value mono" id="ovMktCap">$3.68T</div><div class="metric-note text-muted">#1 by Mkt Cap</div></div>
-          <div class="metric-box"><div class="metric-label">P/E Ratio</div><div class="metric-value mono">30.2x</div><div class="metric-note text-yellow">75th pctl</div></div>
-          <div class="metric-box"><div class="metric-label">Revenue Growth</div><div class="metric-value mono text-green">+78%</div><div class="metric-note text-green">YoY</div></div>
-          <div class="metric-box"><div class="metric-label">Gross Margin</div><div class="metric-value mono">73.0%</div><div class="metric-note text-green">Stable</div></div>
+          <div class="metric-box"><div class="metric-label">Market Cap</div><div class="metric-value mono" id="ovMktCap">—</div></div>
+          <div class="metric-box"><div class="metric-label">P/E Ratio</div><div class="metric-value mono" id="ovPE">—</div></div>
+          <div class="metric-box"><div class="metric-label" data-i18n="deep.rev_growth">营收增速</div><div class="metric-value mono text-green" id="ovRevGrowth">—</div></div>
+          <div class="metric-box"><div class="metric-label">Gross Margin</div><div class="metric-value mono" id="ovGrossMargin">—</div></div>
         </div>
         <div class="range-bar">
           <div class="section-label">52-Week Range</div>
-          <div class="flex items-center gap-8 text-10">
-            <span class="mono text-muted">$75.00</span>
+          <div class="flex items-center gap-8">
+            <span class="mono text-muted" id="range52Low">—</span>
             <div class="range-track flex-1">
-              <div class="range-fill" style="width:62%"></div>
-              <div class="range-marker" style="left:62%"></div>
+              <div class="range-fill" id="range52Fill" style="width:50%"></div>
+              <div class="range-marker" id="range52Marker" style="left:50%"></div>
             </div>
-            <span class="mono text-muted">$195.00</span>
+            <span class="mono text-muted" id="range52High">—</span>
           </div>
         </div>
         <div class="stats-grid">
           <div class="stats-box">
             <div class="stats-box-title" data-i18n="deep.valuation">估值指标</div>
-            <div class="stat-row"><span class="stat-label">P/E (TTM)</span><span class="stat-value">30.2x</span></div>
-            <div class="stat-row"><span class="stat-label">Forward P/E</span><span class="stat-value">24.8x</span></div>
-            <div class="stat-row"><span class="stat-label">PEG</span><span class="stat-value text-green">0.60</span></div>
-            <div class="stat-row"><span class="stat-label">EV/EBITDA</span><span class="stat-value">28.5x</span></div>
-            <div class="stat-row"><span class="stat-label">P/S</span><span class="stat-value">28.2x</span></div>
+            <div class="stat-row"><span class="stat-label">P/E (TTM)</span><span class="stat-value" id="statPE">—</span></div>
+            <div class="stat-row"><span class="stat-label">Forward P/E</span><span class="stat-value" id="statFwdPE">—</span></div>
+            <div class="stat-row"><span class="stat-label">PEG</span><span class="stat-value" id="statPEG">—</span></div>
+            <div class="stat-row"><span class="stat-label">EV/EBITDA</span><span class="stat-value" id="statEV">—</span></div>
+            <div class="stat-row"><span class="stat-label">P/S</span><span class="stat-value" id="statPS">—</span></div>
           </div>
           <div class="stats-box">
             <div class="stats-box-title" data-i18n="deep.profitability">盈利能力</div>
-            <div class="stat-row"><span class="stat-label">Gross Margin</span><span class="stat-value">73.0%</span></div>
-            <div class="stat-row"><span class="stat-label">Net Margin</span><span class="stat-value">55.8%</span></div>
-            <div class="stat-row"><span class="stat-label">ROE</span><span class="stat-value text-green">115%</span></div>
-            <div class="stat-row"><span class="stat-label">FCF Yield</span><span class="stat-value">1.8%</span></div>
-            <div class="stat-row"><span class="stat-label">Div Yield</span><span class="stat-value">0.02%</span></div>
+            <div class="stat-row"><span class="stat-label">Gross Margin</span><span class="stat-value" id="statGrossMargin">—</span></div>
+            <div class="stat-row"><span class="stat-label">Net Margin</span><span class="stat-value" id="statNetMargin">—</span></div>
+            <div class="stat-row"><span class="stat-label">ROE</span><span class="stat-value" id="statROE">—</span></div>
+            <div class="stat-row"><span class="stat-label">FCF Yield</span><span class="stat-value" id="statFCF">—</span></div>
+            <div class="stat-row"><span class="stat-label">Div Yield</span><span class="stat-value" id="statDiv">—</span></div>
           </div>
         </div>
       </div>
@@ -135,7 +224,6 @@
             <button class="chart-period-btn active" onclick="vmApp.switchChartPeriod('1M')">1M</button>
             <button class="chart-period-btn" onclick="vmApp.switchChartPeriod('3M')">3M</button>
             <button class="chart-period-btn" onclick="vmApp.switchChartPeriod('1Y')">1Y</button>
-            <button class="chart-period-btn" onclick="vmApp.switchChartPeriod('5Y')">5Y</button>
           </div>
           <div class="chart-legend">
             <span><span class="legend-dot legend-green"></span>SMA 20</span>
@@ -143,40 +231,20 @@
           </div>
         </div>
         <svg id="chartSvg" class="chart-svg"></svg>
-        <div class="ai-summary mt-12">
-          <div class="ai-badge">CHART SUMMARY</div>
-          <div class="ai-text">1M trend: Strong uptrend from $125 to $165, followed by a 10% pullback to $150 support. Currently consolidating above SMA 20. Volume spiked on earnings (1.3x avg). Key levels: Support $140 (SMA 50), Resistance $165 (prior high).</div>
-        </div>
       </div>
 
       <!-- Financials Panel -->
       <div id="dpanel-financials" class="deep-panel">
-        <div class="ai-summary">
-          <div class="ai-badge">FINANCIALS SUMMARY</div>
-          <div class="ai-text">NVDA delivered a blowout Q4: Revenue $39.3B (+78% YoY) beat estimates by 5%, driven by Data Center at $35.1B (+93%). Gross margin stable at 73%. Guidance for Q1 is $43B, signaling continued acceleration.</div>
-        </div>
         <div class="metrics-grid">
-          <div class="metric-box"><div class="metric-label">Revenue</div><div class="metric-value mono">$39.3B</div><div class="metric-note text-green">+78% YoY</div></div>
-          <div class="metric-box"><div class="metric-label">EPS</div><div class="metric-value mono">$0.89</div><div class="metric-note text-green">vs est $0.84</div></div>
-          <div class="metric-box"><div class="metric-label">Gross Margin</div><div class="metric-value mono">73.0%</div><div class="metric-note text-muted">Stable</div></div>
-          <div class="metric-box"><div class="metric-label">Data Center</div><div class="metric-value mono">$35.1B</div><div class="metric-note text-green">+93% YoY</div></div>
-        </div>
-        <div class="stats-grid">
-          <div class="stats-box">
-            <div class="stats-box-title">Guidance</div>
-            <div class="ai-text text-12">Q1 FY2026: $43B (±2%). Blackwell ramp + sovereign AI demand driving acceleration.</div>
-          </div>
-          <div class="stats-box">
-            <div class="stats-box-title">Upcoming Earnings</div>
-            <div class="stat-row"><span>NVDA Q1</span><span class="mono text-muted text-11">May 28</span></div>
-            <div class="stat-row"><span>COST Q3</span><span class="mono text-muted text-11">Mar 6</span></div>
-            <div class="stat-row"><span>AAPL Q2</span><span class="mono text-muted text-11">Apr 24</span></div>
-          </div>
+          <div class="metric-box"><div class="metric-label" data-i18n="deep.revenue">营收增速</div><div class="metric-value mono" id="finRevenue">—</div></div>
+          <div class="metric-box"><div class="metric-label">EPS</div><div class="metric-value mono" id="finEPS">—</div></div>
+          <div class="metric-box"><div class="metric-label">Gross Margin</div><div class="metric-value mono" id="finMargin">—</div></div>
+          <div class="metric-box"><div class="metric-label" data-i18n="deep.segment">核心业务</div><div class="metric-value mono" id="finSegment">—</div></div>
         </div>
         <div class="range-bar">
-          <div class="flex justify-between text-11 mb-6">
-            <span class="text-muted fw-600">Valuation</span>
-            <span class="text-yellow fw-600">75th pctl — Expensive</span>
+          <div class="flex justify-between mb-6">
+            <span class="text-muted fw-600" data-i18n="deep.valuation_level">估值水平</span>
+            <span id="valPctlLabel" class="text-yellow fw-600">—</span>
           </div>
           <div class="valuation-thermo">
             <div class="valuation-thermo-track">
@@ -184,52 +252,7 @@
               <div class="valuation-thermo-yellow"></div>
               <div class="valuation-thermo-red"></div>
             </div>
-            <div class="range-marker" style="left:72%;z-index:1;"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- News Panel -->
-      <div id="dpanel-news" class="deep-panel">
-        <div class="ai-summary">
-          <div class="ai-badge">NEWS SUMMARY</div>
-          <div class="ai-text">Sentiment is overwhelmingly bullish after Q4 earnings beat. Morgan Stanley raised PT to $200. Key risk: Google TPU v6 launch and tightening export controls on China.</div>
-        </div>
-        <div class="news-list" id="deepNewsContainer">
-          <div class="news-item">
-            <div class="news-time">2h ago</div>
-            <div class="news-content">
-              <a class="news-title" href="https://www.reuters.com/technology/" target="_blank" rel="noopener noreferrer">NVIDIA beats Q4 estimates: Revenue $39.3B, Blackwell ramp ahead of schedule</a>
-              <div class="news-meta"><span class="news-tag tag-positive">Earnings</span><span class="news-source">Reuters</span></div>
-            </div>
-          </div>
-          <div class="news-item">
-            <div class="news-time">5h ago</div>
-            <div class="news-content">
-              <a class="news-title" href="https://www.bloomberg.com/technology" target="_blank" rel="noopener noreferrer">Jensen Huang: "Blackwell demand is insane" — sovereign AI orders from 15+ nations</a>
-              <div class="news-meta"><span class="news-tag tag-default">CEO Remarks</span><span class="news-source">Bloomberg</span></div>
-            </div>
-          </div>
-          <div class="news-item">
-            <div class="news-time">8h ago</div>
-            <div class="news-content">
-              <a class="news-title" href="https://www.cnbc.com/technology/" target="_blank" rel="noopener noreferrer">Morgan Stanley raises NVDA target to $200: "Best positioned in AI capex cycle"</a>
-              <div class="news-meta"><span class="news-tag tag-positive">Upgrade</span><span class="news-source">CNBC</span></div>
-            </div>
-          </div>
-          <div class="news-item">
-            <div class="news-time">1d ago</div>
-            <div class="news-content">
-              <a class="news-title" href="https://www.theverge.com/tech" target="_blank" rel="noopener noreferrer">Google unveils TPU v6 "Ironhide" — NVIDIA's moat faces new challenger</a>
-              <div class="news-meta"><span class="news-tag tag-neutral">Competition</span><span class="news-source">The Verge</span></div>
-            </div>
-          </div>
-          <div class="news-item">
-            <div class="news-time">2d ago</div>
-            <div class="news-content">
-              <a class="news-title" href="https://www.wsj.com/tech" target="_blank" rel="noopener noreferrer">Export controls tighten: US restricts H20 chip sales to China amid AI race</a>
-              <div class="news-meta"><span class="news-tag tag-negative">Regulation</span><span class="news-source">WSJ</span></div>
-            </div>
+            <div class="range-marker" id="valMarker" style="left:50%;z-index:1;"></div>
           </div>
         </div>
       </div>
@@ -249,14 +272,14 @@
         <div class="analysis-section mb-12">
           <div class="flex items-center gap-10 mb-12">
             <span class="section-num">01</span>
-            <span class="text-13 fw-600" data-i18n="deep.stop">Stop Doing 检查</span>
-            <span class="news-tag tag-positive text-10">4/4 Passed</span>
+            <span class="fw-600" data-i18n="deep.stop">Stop Doing 检查</span>
+            <span class="news-tag tag-positive">4/4 Passed</span>
           </div>
           <div class="checklist-grid">
-            <div class="checklist-item"><span class="check-icon">✓</span>No Shorting</div>
-            <div class="checklist-item"><span class="check-icon">✓</span>No Margin</div>
-            <div class="checklist-item"><span class="check-icon">✓</span>Understand Biz</div>
-            <div class="checklist-item"><span class="check-icon">✓</span>Not Policy-Driven</div>
+            <div class="checklist-item"><span class="check-icon">✓</span><span data-i18n="deep.no_short">不做空</span></div>
+            <div class="checklist-item"><span class="check-icon">✓</span><span data-i18n="deep.no_margin">不加杠杆</span></div>
+            <div class="checklist-item"><span class="check-icon">✓</span><span data-i18n="deep.understand">看得懂</span></div>
+            <div class="checklist-item"><span class="check-icon">✓</span><span data-i18n="deep.not_policy">非政策驱动</span></div>
           </div>
         </div>
 
@@ -264,162 +287,30 @@
         <div class="analysis-section mb-12">
           <div class="flex items-center gap-10 mb-12">
             <span class="section-num">02</span>
-            <span class="text-13 fw-600" data-i18n="deep.q_title">三个终极问题</span>
-            <span class="news-tag tag-neutral text-10">2/3 Certain</span>
+            <span class="fw-600" data-i18n="deep.q_title">三个终极问题</span>
           </div>
-          <div class="question-item positive">
-            <div class="question-header text-green">Profitable in 10yr? — Yes</div>
-            <div class="question-answer">AI compute = structural demand. Like Levi's in the Gold Rush.</div>
-          </div>
-          <div class="question-item uncertain">
-            <div class="question-header text-yellow">Earning more? — Uncertain</div>
-            <div class="question-answer">50%+ YoY unsustainable. Growth normalizes to 15-20%. Key risk: competition.</div>
-          </div>
-          <div class="question-item positive">
-            <div class="question-header text-green">Moat? — Strong (3-5yr)</div>
-            <div class="question-answer">CUDA ecosystem is the moat. Watch in-house chips (Google, Amazon, Meta).</div>
-          </div>
+          <div id="questionsContainer"></div>
         </div>
 
         <!-- Cross-Validation -->
         <div class="analysis-section mb-12">
           <div class="flex items-center gap-10 mb-12">
             <span class="section-num">03</span>
-            <span class="text-13 fw-600" data-i18n="deep.cross">大师交叉验证</span>
+            <span class="fw-600" data-i18n="deep.cross">大师交叉验证</span>
           </div>
-          <div class="cross-item cross-green">
-            <div class="flex justify-between items-center mb-4">
-              <span class="cross-name">DYP</span>
-              <span class="cross-verdict tag-positive">Wait $120-130</span>
-            </div>
-            <div class="cross-quote">"NVDA = selling shovels. CUDA = moat. +1,110% position increase. But need margin of safety."</div>
-          </div>
-          <div class="cross-item cross-yellow">
-            <div class="flex justify-between items-center mb-4">
-              <span class="cross-name">Buffett</span>
-              <span class="cross-verdict tag-neutral">Outside circle</span>
-            </div>
-            <div class="cross-quote">"Great company, but I don't understand chip iteration. $373B cash is patient."</div>
-          </div>
-          <div class="cross-item cross-green">
-            <div class="flex justify-between items-center mb-4">
-              <span class="cross-name">Munger</span>
-              <span class="cross-verdict tag-positive">Fair price OK</span>
-            </div>
-            <div class="cross-quote">"NVDA in AI = Microsoft in PCs. PEG 0.6 = growth digesting valuation. Control size."</div>
-          </div>
+          <div id="crossValContainer"></div>
         </div>
 
         <!-- Final Verdict -->
         <div class="verdict-box">
           <div class="flex items-center gap-10 mb-12">
             <span class="section-num">04</span>
-            <span class="text-13 fw-600" data-i18n="deep.verdict">最终判决</span>
+            <span class="fw-600" data-i18n="deep.verdict">最终判决</span>
           </div>
           <div class="verdict-code">
-            <div><span class="text-muted">IF</span> profitable_10yr = <span class="text-green fw-600">TRUE</span></div>
-            <div><span class="text-muted">AND</span> earning_more = <span class="text-yellow fw-600">PROBABLE</span></div>
-            <div><span class="text-muted">AND</span> moat = <span class="text-green fw-600">TRUE</span></div>
-            <div><span class="text-muted">AND</span> valuation = <span class="text-yellow fw-600">STRETCHED</span></div>
-            <div class="divider"></div>
-            <div><span class="text-muted">THEN</span> <span class="fw-700 text-yellow">WATCH — Wait $120-130</span></div>
-          </div>
-          <div class="verdict-grid">
-            <div class="verdict-cell"><div class="text-10 text-muted">DYP</div><div class="text-green fw-600">Wait</div></div>
-            <div class="verdict-cell"><div class="text-10 text-muted">Buffett</div><div class="text-yellow fw-600">Pass</div></div>
-            <div class="verdict-cell"><div class="text-10 text-muted">Munger</div><div class="text-green fw-600">Small OK</div></div>
+            <div><span class="text-muted">THEN</span> <span id="verdictResult" class="fw-700 text-yellow">—</span></div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ===== Tab: Today's Recap ===== -->
-<div id="page-recap" class="page">
-  <div class="container">
-    <div class="mb-20 pt-20">
-      <div class="section-label mono" id="dateLabel"></div>
-      <h1 class="section-title" data-i18n="recap.title">今日市场速递</h1>
-      <div class="section-subtitle" data-i18n="recap.subtitle">全球头条、宏观信号、价投解读。每日开盘前更新。</div>
-    </div>
-
-    <div class="section-label" data-i18n="recap.snapshot">市场快照</div>
-    <div class="snapshot-grid" id="snapshotGrid"></div>
-    <div class="snapshot-grid snapshot-grid-5" id="snapshotGrid2"></div>
-
-    <div class="sentiment-bar">
-      <div>
-        <div class="sentiment-label" data-i18n="recap.fear">恐惧贪婪</div>
-        <div class="flex items-center gap-6">
-          <span class="sentiment-value mono" id="fgValue">—</span>
-          <span id="fgLabel" class="text-yellow text-12 fw-500">—</span>
-        </div>
-      </div>
-      <div class="sentiment-track">
-        <div class="sentiment-fill" id="fgFill" style="width:50%"></div>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <h2 class="text-18 fw-600 mb-4" data-i18n="recap.headlines">全球财经头条</h2>
-    <div class="section-subtitle" data-i18n="recap.headlines_sub">Bloomberg / Reuters / FT / WSJ / CNBC</div>
-    <div class="news-list" id="newsContainer">
-      <div class="loading">Loading news...</div>
-    </div>
-
-    <div class="divider"></div>
-
-    <h2 class="text-18 fw-600 mb-12" data-i18n="recap.impact">影响分析</h2>
-    <table class="impact-table">
-      <thead>
-        <tr>
-          <th data-i18n="recap.th_event">事件</th>
-          <th data-i18n="recap.th_assets">相关资产</th>
-          <th class="text-center" data-i18n="recap.th_dir">方向</th>
-          <th class="hide-mobile" data-i18n="recap.th_logic">传导逻辑</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td class="fw-500">NVDA earnings beat</td><td class="mono text-muted text-12">NVDA, AMD, TSM, AVGO</td><td class="text-center"><span class="text-green fw-600">Bullish</span></td><td class="hide-mobile text-muted text-12">AI capex cycle accelerating</td></tr>
-        <tr><td class="fw-500">Strong NFP data</td><td class="mono text-muted text-12">10Y, DXY, SPY, QQQ</td><td class="text-center"><span class="text-yellow fw-600">Mixed</span></td><td class="hide-mobile text-muted text-12">Strong economy but delays rate cuts</td></tr>
-        <tr><td class="fw-500">China stimulus</td><td class="mono text-muted text-12">HSI, BABA, JD, BYD</td><td class="text-center"><span class="text-green fw-600">Bullish</span></td><td class="hide-mobile text-muted text-12">Policy boost for consumer + EV</td></tr>
-        <tr><td class="fw-500">Tariff escalation</td><td class="mono text-muted text-12">AAPL, TSLA, FXI, MP</td><td class="text-center"><span class="text-red fw-600">Bearish</span></td><td class="hide-mobile text-muted text-12">Supply chain disruption</td></tr>
-        <tr><td class="fw-500">BTC ETF inflows</td><td class="mono text-muted text-12">BTC, ETH, COIN, MSTR</td><td class="text-center"><span class="text-green fw-600">Bullish</span></td><td class="hide-mobile text-muted text-12">Institutional adoption accelerating</td></tr>
-      </tbody>
-    </table>
-
-    <div class="divider"></div>
-
-    <div class="vi-card">
-      <div class="vi-card-header">
-        <span class="section-num-lg">&sect;</span>
-        <h2 class="text-18 fw-600" data-i18n="recap.vitake">价投视角</h2>
-      </div>
-      <div class="vi-grid">
-        <div class="vi-box">
-          <div class="vi-box-label" data-i18n="recap.market_temp">市场温度</div>
-          <div class="flex items-center gap-6">
-            <span class="mono text-yellow text-24 fw-700">72</span>
-            <span class="text-yellow text-11">/100</span>
-          </div>
-          <div class="text-muted text-11 mt-4">BRK cash $373B (ATH) + F&G 62 + VIX 14.8</div>
-        </div>
-        <div class="vi-box">
-          <div class="vi-box-label" data-i18n="recap.action">今日策略</div>
-          <div class="text-yellow text-16 fw-700">Observe, Don't Chase</div>
-          <div class="text-muted text-11 mt-4">Market expensive but not panicking. Build watchlists.</div>
-        </div>
-        <div class="vi-box">
-          <div class="vi-box-label" data-i18n="recap.opp">机会雷达</div>
-          <div class="text-12 lh-16">HSI bounce + China stimulus = watch BABA, BYD at support. NVDA pullback to $130 = DYP entry zone.</div>
-        </div>
-      </div>
-      <div class="text-13 lh-18 vi-commentary">
-        <p class="mb-6"><strong>10Y rising + VIX low</strong> — Late-cycle complacency. Buffett's $373B cash: market is expensive.</p>
-        <p class="mb-6"><strong>DXY weakening + Gold ATH</strong> — Inflation hedge rotation. Pricing-power businesses become attractive.</p>
-        <p><strong>China policy + tariff</strong> — Two forces pulling opposite. DYP framework: only invest if you understand the business AND can hold 10 years.</p>
       </div>
     </div>
   </div>
@@ -447,6 +338,9 @@
   <div class="footer">
     <span>ValueMind Intelligence</span>
     <span data-i18n="footer">AI生成分析，不构成投资建议。</span>
+  </div>
+  <div class="about-section" data-i18n="about">
+    <strong>ValueMind</strong> 是一款AI驱动的价值投资分析工具，实时追踪美股、加密货币、宏观指标，并通过段永平、巴菲特、芒格三位大师的投资框架，对每日市场信号进行智能解读。数据每日自动更新，帮助投资者做出更理性的决策。
   </div>
   <div class="last-updated" id="lastUpdated"></div>
 </div>

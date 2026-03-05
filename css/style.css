@@ -854,6 +854,209 @@ a.news-title { cursor: pointer; }
 .vi-commentary { color: #555; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 50px; }
 
+/* ===== Headline Summary ===== */
+.headline-summary {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-top: none;
+  padding: 16px;
+}
+.headline-summary-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+.headline-summary-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555;
+}
+.headline-summary-text strong { color: var(--text-primary); }
+
+/* Sector Tags */
+.sector-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 0;
+}
+.sector-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 500;
+  background: var(--bg);
+  transition: all 0.15s;
+}
+.sector-tag:hover { border-color: var(--text-primary); }
+.sector-tag .sector-dot { width: 6px; height: 6px; border-radius: 50%; }
+.sector-tag-hot { border-color: var(--red); }
+.sector-tag-hot .sector-dot { background: var(--red); }
+.sector-tag-active { border-color: var(--green); }
+.sector-tag-active .sector-dot { background: var(--green); }
+.sector-tag-neutral .sector-dot { background: var(--yellow); }
+
+/* ===== Earnings Panel ===== */
+.earnings-header {
+  font-size: 13px;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.earnings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.earnings-item {
+  border: 1px solid var(--border);
+  padding: 14px;
+  background: var(--bg);
+}
+.earnings-metric {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.earnings-val {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  margin-bottom: 4px;
+}
+.earnings-val span { font-size: 14px; font-weight: 600; }
+.earnings-beat {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.earnings-note {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}
+.earnings-guidance, .earnings-highlight, .earnings-risk {
+  padding: 10px 14px;
+  border-left: 3px solid var(--border);
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+.earnings-guidance { border-left-color: var(--green); background: var(--green-bg); }
+.earnings-highlight { border-left-color: var(--yellow); background: var(--yellow-bg); }
+.earnings-risk { border-left-color: var(--red); background: var(--red-bg); }
+
+/* ===== Financial Health ===== */
+.fin-health-grid {
+  border: 1px solid var(--border);
+  padding: 12px;
+  margin-bottom: 12px;
+}
+.fin-health-summary {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555;
+  padding: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+}
+
+/* ===== Moat Analysis ===== */
+.moat-header {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.moat-type {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.moat-analysis {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 12px;
+}
+.moat-risk {
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 10px 14px;
+  background: var(--red-bg);
+  border-left: 3px solid var(--red);
+}
+
+/* ===== Valuation Methods ===== */
+.valuation-methods {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.val-method {
+  border: 1px solid var(--border);
+  padding: 14px;
+}
+.val-method-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.val-method-value {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  margin-bottom: 4px;
+}
+.val-method-detail {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.val-method-note {
+  font-size: 12px;
+  line-height: 1.4;
+}
+.val-margin {
+  font-size: 14px;
+  padding: 10px 14px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+.val-verdict {
+  font-size: 14px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  line-height: 1.6;
+}
+
+/* ===== Responsive additions ===== */
+@media (max-width: 768px) {
+  .earnings-grid { grid-template-columns: 1fr; }
+  .valuation-methods { grid-template-columns: 1fr; }
+}
+
 /* ===== Animation ===== */
 .fade-in {
   animation: fadeIn 0.4s ease;

@@ -73,6 +73,8 @@
     <div class="news-list" id="newsContainer">
       <div class="loading">Loading...</div>
     </div>
+    <div class="headline-summary" id="headlineSummary"></div>
+    <div class="sector-tags" id="sectorTags"></div>
 
     <div class="divider"></div>
 
@@ -166,13 +168,13 @@
 
     <div class="deep-tabs">
       <button class="deep-tab active" data-dtab="overview" onclick="vmApp.switchDeepTab('overview')" data-i18n="deep.overview">概览</button>
-      <button class="deep-tab" data-dtab="chart" onclick="vmApp.switchDeepTab('chart')" data-i18n="deep.chart">走势图</button>
-      <button class="deep-tab" data-dtab="financials" onclick="vmApp.switchDeepTab('financials')" data-i18n="deep.financials">财务数据</button>
+      <button class="deep-tab" data-dtab="earnings" onclick="vmApp.switchDeepTab('earnings')" data-i18n="deep.earnings">财报解读</button>
+      <button class="deep-tab" data-dtab="financials" onclick="vmApp.switchDeepTab('financials')" data-i18n="deep.financials">财务健康</button>
       <button class="deep-tab" data-dtab="analysis" onclick="vmApp.switchDeepTab('analysis')" data-i18n="deep.analysis">价值分析</button>
     </div>
 
     <div class="deep-content">
-      <!-- Overview Panel -->
+      <!-- Overview Panel (keep existing) -->
       <div id="dpanel-overview" class="deep-panel active">
         <div class="ai-summary">
           <div class="ai-badge" data-i18n="deep.ai_summary">AI 摘要</div>
@@ -215,8 +217,26 @@
         </div>
       </div>
 
-      <!-- Chart Panel -->
-      <div id="dpanel-chart" class="deep-panel">
+      <!-- Earnings Panel (NEW - 财报解读) -->
+      <div id="dpanel-earnings" class="deep-panel">
+        <div class="analysis-section mb-12">
+          <div class="flex items-center gap-10 mb-12">
+            <span class="section-num">01</span>
+            <span class="fw-600" data-i18n="deep.earnings_title">最新季度财报解读</span>
+          </div>
+          <div id="earningsContainer"></div>
+        </div>
+        <div class="analysis-section mb-12">
+          <div class="flex items-center gap-10 mb-12">
+            <span class="section-num">02</span>
+            <span class="fw-600" data-i18n="deep.fin_health">财务健康度</span>
+          </div>
+          <div id="finHealthContainer"></div>
+        </div>
+      </div>
+
+      <!-- Chart Panel (keep existing but move to be a sub-area, not main tab) -->
+      <div id="dpanel-chart" class="deep-panel" style="display:none;">
         <div class="chart-controls">
           <div>
             <button class="chart-period-btn" onclick="vmApp.switchChartPeriod('1D')">1D</button>
@@ -233,7 +253,7 @@
         <svg id="chartSvg" class="chart-svg"></svg>
       </div>
 
-      <!-- Financials Panel -->
+      <!-- Financials Panel (RESTRUCTURED - now focused on financial health) -->
       <div id="dpanel-financials" class="deep-panel">
         <div class="metrics-grid">
           <div class="metric-box"><div class="metric-label" data-i18n="deep.revenue">营收增速</div><div class="metric-value mono" id="finRevenue">—</div></div>
@@ -257,7 +277,7 @@
         </div>
       </div>
 
-      <!-- Value Analysis Panel -->
+      <!-- Value Analysis Panel (ENHANCED) -->
       <div id="dpanel-analysis" class="deep-panel">
         <div class="flex items-center gap-12 mb-16" id="masterSelector-deep">
           <span class="section-label mb-0" data-i18n="deep.perspective">分析视角</span>
@@ -283,19 +303,37 @@
           </div>
         </div>
 
-        <!-- Three Questions -->
+        <!-- Business Model / Moat Analysis (NEW - per master) -->
         <div class="analysis-section mb-12">
           <div class="flex items-center gap-10 mb-12">
             <span class="section-num">02</span>
+            <span class="fw-600" data-i18n="deep.moat">商业模式与护城河</span>
+          </div>
+          <div id="moatContainer"></div>
+        </div>
+
+        <!-- Three Questions -->
+        <div class="analysis-section mb-12">
+          <div class="flex items-center gap-10 mb-12">
+            <span class="section-num">03</span>
             <span class="fw-600" data-i18n="deep.q_title">三个终极问题</span>
           </div>
           <div id="questionsContainer"></div>
         </div>
 
+        <!-- Valuation (NEW) -->
+        <div class="analysis-section mb-12">
+          <div class="flex items-center gap-10 mb-12">
+            <span class="section-num">04</span>
+            <span class="fw-600" data-i18n="deep.val_section">估值分析</span>
+          </div>
+          <div id="valuationContainer"></div>
+        </div>
+
         <!-- Cross-Validation -->
         <div class="analysis-section mb-12">
           <div class="flex items-center gap-10 mb-12">
-            <span class="section-num">03</span>
+            <span class="section-num">05</span>
             <span class="fw-600" data-i18n="deep.cross">大师交叉验证</span>
           </div>
           <div id="crossValContainer"></div>
@@ -304,7 +342,7 @@
         <!-- Final Verdict -->
         <div class="verdict-box">
           <div class="flex items-center gap-10 mb-12">
-            <span class="section-num">04</span>
+            <span class="section-num">06</span>
             <span class="fw-600" data-i18n="deep.verdict">最终判决</span>
           </div>
           <div class="verdict-code">

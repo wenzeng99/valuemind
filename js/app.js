@@ -73,24 +73,33 @@ async function loadJSON(path) {
 }
 
 async function loadAllData() {
-  const [market, crypto, news, fg, meta] = await Promise.all([
-    loadJSON('data/market.json'),
-    loadJSON('data/crypto.json'),
-    loadJSON('data/news.json'),
-    loadJSON('data/fear-greed.json'),
-    loadJSON('data/meta.json'),
-  ]);
-  marketData = market;
-  cryptoData = crypto;
-  newsData = news;
-  fearGreedData = fg;
-  metaData = meta;
+  try {
+    const [market, crypto, news, fg, meta] = await Promise.all([
+      loadJSON('data/market.json'),
+      loadJSON('data/crypto.json'),
+      loadJSON('data/news.json'),
+      loadJSON('data/fear-greed.json'),
+      loadJSON('data/meta.json'),
+    ]);
+    marketData = market;
+    cryptoData = crypto;
+    newsData = news;
+    fearGreedData = fg;
+    metaData = meta;
 
-  renderTicker();
-  renderMarketSnapshot();
-  renderFearGreed();
-  renderNews();
-  renderLastUpdate();
+    renderTicker();
+    renderMarketSnapshot();
+    renderFearGreed();
+    renderNews();
+    renderLastUpdate();
+    renderTickerSuggestions();
+
+    // Auto-render deep analysis for default ticker
+    const defaultTk = document.getElementById('tickerInput')?.value || 'NVDA';
+    renderDeepAnalysis(defaultTk);
+  } catch (err) {
+    console.error('loadAllData error:', err);
+  }
 }
 
 // ========== Ticker Tape ==========
@@ -312,11 +321,11 @@ function renderDeepAnalysis(symbol) {
 
 // ========== Tab Switching ==========
 function switchMainTab(tab) {
-  ['recap', 'signal', 'deep'].forEach(t => {
-    const page = document.getElementById('page-' + t);
-    const btn = document.getElementById('mainTab-' + t);
-    if (page) page.classList.toggle('active', t === tab);
-    if (btn) btn.classList.toggle('active', t === tab);
+  ['recap', 'signal', 'deep'].forEach(tabId => {
+    const page = document.getElementById('page-' + tabId);
+    const btn = document.getElementById('mainTab-' + tabId);
+    if (page) page.classList.toggle('active', tabId === tab);
+    if (btn) btn.classList.toggle('active', tabId === tab);
   });
   if (tab === 'signal') renderSignals(currentMaster.signal);
   if (tab === 'deep') renderDeepAnalysis(document.getElementById('tickerInput')?.value || 'NVDA');
@@ -363,6 +372,39 @@ function runAnalysis() {
   const tk = document.getElementById('tickerInput')?.value.trim().toUpperCase();
   if (!tk) return;
   renderDeepAnalysis(tk);
+}
+
+// ========== Ticker Suggestions ==========
+function renderTickerSuggestions() {
+  const container = document.getElementById('tickerSuggestions');
+  if (!container) return;
+
+  // Build suggestion list from watchlist + crypto
+  const suggestions = [];
+  if (marketData?.watchlist) {
+    marketData.watchlist.forEach(s => {
+      const cls = s.change >= 0 ? 'text-green' : 'text-red';
+      const sign = s.change >= 0 ? '+' : '';
+      suggestions.push({ symbol: s.symbol, change: s.change, cls, sign });
+    });
+  }
+  // Sort by absolute change — most volatile first
+  suggestions.sort((a, b) => Math.abs(b.change) - Math.abs(a.change));
+
+  let html = '';
+  suggestions.slice(0, 8).forEach(s => {
+    html += `<button class="ticker-chip" onclick="vmApp.quickTicker('${s.symbol}')">
+      <span class="ticker-chip-symbol">${s.symbol}</span>
+      <span class="${s.cls}">${s.sign}${s.change.toFixed(1)}%</span>
+    </button>`;
+  });
+  container.innerHTML = html;
+}
+
+function quickTicker(symbol) {
+  const input = document.getElementById('tickerInput');
+  if (input) input.value = symbol;
+  renderDeepAnalysis(symbol);
 }
 
 // ========== Helpers ==========
@@ -416,9 +458,17 @@ function initLang() {
 }
 
 // Expose to global scope for onclick handlers
-window.vmApp = { switchMainTab, switchMaster, switchDeepTab, switchChartPeriod, goDeepDive, runAnalysis };
+window.vmApp = { switchMainTab, switchMaster, switchDeepTab, switchChartPeriod, goDeepDive, runAnalysis, quickTicker };
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Init date display
+  const d = new Date();
+  const dateStr = `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+  const dateEl = document.getElementById('dateDisplay');
+  if (dateEl) dateEl.textContent = dateStr;
+  const dateLabel = document.getElementById('dateLabel');
+  if (dateLabel) dateLabel.textContent = d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
   initLang();
   setLang('zh');
   loadAllData();

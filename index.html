@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ValueMind — AI Value Investing Intelligence">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; connect-src 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; connect-src 'self';">
 <title>ValueMind — AI Value Investing Intelligence</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -44,10 +44,11 @@
 <div id="page-deep" class="page active">
   <div class="container">
     <div class="search-bar mt-20">
-      <input id="tickerInput" type="text" class="search-input" placeholder="NVDA, COST, AAPL, BTC..." value="NVDA"
+      <input id="tickerInput" type="text" class="search-input" placeholder="输入股票代码，如 NVDA, AAPL, MSFT..." value="NVDA"
         onkeydown="if(event.key==='Enter')vmApp.runAnalysis()">
       <button class="btn-search" onclick="vmApp.runAnalysis()" data-i18n="deep.btn">分析 →</button>
     </div>
+    <div class="ticker-suggestions" id="tickerSuggestions"></div>
 
     <div class="quote-header">
       <div class="quote-main">
@@ -451,13 +452,5 @@
 </div>
 
 <script type="module" src="js/app.js"></script>
-<script>
-  const d = new Date();
-  const dateStr = `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
-  const el = document.getElementById('dateDisplay');
-  if (el) el.textContent = dateStr;
-  const dl = document.getElementById('dateLabel');
-  if (dl) dl.textContent = d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-</script>
 </body>
 </html>

@@ -1,146 +1,118 @@
 [
   {
-    "title": "Bombing of Tehran intensifies as war enters day six",
-    "source": "Reuters/Twitter",
-    "url": "https://www.reuters.com/world/asia-pacific/iran-launches-wave-missiles-israel-us-republicans-block-measure-halt-us-air-2026-03-05/",
+    "title": "SoFi taps BitGo to provide infrastructure for bank-issued stablecoin",
+    "source": "Cointelegraph",
+    "url": "https://cointelegraph.com/news/sofi-bitgo-bank-issued-stablecoin-sofiusd",
     "time": "1m ago",
     "tags": [
-      "Geopolitics",
-      "Oil"
+      "Stablecoin",
+      "DeFi"
     ],
-    "sentiment": "negative",
-    "score": 95
+    "sentiment": "positive",
+    "score": 65
   },
   {
-    "title": "UAE Tells Dubai Residents to Seek Immediate Shelter",
-    "source": "Bloomberg",
-    "url": "https://www.bloomberg.com/",
+    "title": "Pudgy Penguins NFT Apparel Sparks Trademark Lawsuit From Penguin",
+    "source": "Bloomberg Law",
+    "url": "https://news.bloomberglaw.com/ip-law/pudgy-penguins-nft-apparel-sparks-trademark-lawsuit-from-penguin",
+    "time": "2m ago",
+    "tags": [
+      "NFT",
+      "Legal"
+    ],
+    "sentiment": "neutral",
+    "score": 65
+  },
+  {
+    "title": "Bitwise Asset Management Allocates $233K to Support Bitcoin Core Development",
+    "source": "FinanceFeeds",
+    "url": "https://financefeeds.com/bitwise-asset-management-allocates-233k/",
+    "time": "5m ago",
+    "tags": [
+      "BTC"
+    ],
+    "sentiment": "positive",
+    "score": 65
+  },
+  {
+    "title": "Trump says he must be involved in selection of Iran next leader",
+    "source": "AP News",
+    "url": "https://apnews.com/live/iran-war-israel-trump-lebanon-march-05-2026",
     "time": "5m ago",
     "tags": [
       "Geopolitics"
     ],
-    "sentiment": "negative",
-    "score": 95
+    "sentiment": "neutral",
+    "score": 50
   },
   {
-    "title": "Explosions Heard in Various Parts of Iranian Capital Tehran",
-    "source": "Reuters",
-    "url": "https://www.reuters.com/",
-    "time": "8m ago",
-    "tags": [
-      "Geopolitics",
-      "Oil"
-    ],
-    "sentiment": "negative",
-    "score": 95
-  },
-  {
-    "title": "Federal Contractor's Son Arrested, Charged With Stealing $46M From US Crypto Stockpile",
-    "source": "Decrypt",
-    "url": "https://decrypt.co/360120/federal-contractors-son-arrested-charged-with-stealing-46-million-from-us-crypto-stockpile",
-    "time": "10m ago",
-    "tags": [
-      "BTC",
-      "Regulation"
-    ],
-    "sentiment": "negative",
-    "score": 80
-  },
-  {
-    "title": "Eric Trump's American Bitcoin Shares Surge 11% After Adding 500+ BTC",
-    "source": "Twitter",
-    "url": "https://twitter.com/erictrump/status/2029589659437957350",
-    "time": "12m ago",
-    "tags": [
-      "BTC",
-      "Mining"
-    ],
-    "sentiment": "positive",
-    "score": 80
-  },
-  {
-    "title": "Wall Street Desperately Seeks Details On Trump's Plan To Unclog Hormuz Chokepoint",
-    "source": "ZeroHedge",
-    "url": "https://www.zerohedge.com/geopolitical/wall-street-desperately-seeks-details-trumps-plan-unclog-chokepoint",
-    "time": "15m ago",
+    "title": "Bahrain says an Iranian missile hit a state-run oil refinery",
+    "source": "AP News",
+    "url": "https://apnews.com/live/iran-war-israel-trump-lebanon-march-05-2026",
+    "time": "3m ago",
     "tags": [
       "Oil",
-      "Macro"
-    ],
-    "sentiment": "neutral",
-    "score": 65
-  },
-  {
-    "title": "European Shares Extend Decline; STOXX 600 Last Down 1%",
-    "source": "Reuters",
-    "url": "https://www.reuters.com/",
-    "time": "18m ago",
-    "tags": [
-      "Stocks",
-      "EU"
+      "Geopolitics"
     ],
     "sentiment": "negative",
     "score": 60
   },
   {
-    "title": "Travala Launches Global Car Rentals with BTC, ETH, SOL Payments",
-    "source": "Crypto Briefing",
-    "url": "https://cryptobriefing.com/crypto-car-rentals-travala-partners/",
-    "time": "20m ago",
+    "title": "How crypto is becoming a massive divorce problem",
+    "source": "DLNews",
+    "url": "https://www.dlnews.com/articles/regulation/how-crypto-is-becoming-a-massive-divorce-problem/",
+    "time": "5m ago",
     "tags": [
-      "BTC",
-      "ETH",
-      "SOL"
-    ],
-    "sentiment": "positive",
-    "score": 60
-  },
-  {
-    "title": "FBI Investigation Leads to Arrest of $46M Crypto Thief from US Marshals Service",
-    "source": "Wu Blockchain",
-    "url": "https://twitter.com/WuBlockchain/status/2029589969061413092",
-    "time": "10m ago",
-    "tags": [
-      "BTC",
       "Regulation"
-    ],
-    "sentiment": "neutral",
-    "score": 78
-  },
-  {
-    "title": "Iran Mission to UN: Claims About Iran Blocking Strait of Hormuz Are Baseless",
-    "source": "TASS",
-    "url": "https://tass.ru/",
-    "time": "6m ago",
-    "tags": [
-      "Geopolitics",
-      "Oil"
     ],
     "sentiment": "neutral",
     "score": 65
   },
   {
-    "title": "Simcluster Enters Arbitrum Ecosystem, Expanding AI-Blockchain Integration",
-    "source": "Medium",
-    "url": "https://offchain.medium.com/21629c98a34f",
-    "time": "14m ago",
+    "title": "Drone Strikes Target Iranian Opposition Camp in Iraqi Kurdistan",
+    "source": "Reuters",
+    "url": "",
+    "time": "6m ago",
+    "tags": [
+      "Geopolitics"
+    ],
+    "sentiment": "negative",
+    "score": 30
+  },
+  {
+    "title": "Onchain Labs partners with Simcluster for AI gamified social app on Arbitrum",
+    "source": "Twitter",
+    "url": "https://twitter.com/Offchain/status/2029597374092562810",
+    "time": "8m ago",
     "tags": [
       "ARB",
-      "AI"
+      "AI",
+      "Gaming"
     ],
     "sentiment": "positive",
+    "score": 55
+  },
+  {
+    "title": "Curve Finance releases weekly top yields and key metrics",
+    "source": "Curve Finance",
+    "url": "https://news.curve.finance/curve-best-yields-key-metrics-week-10-2026/",
+    "time": "10m ago",
+    "tags": [
+      "DeFi",
+      "CRV"
+    ],
+    "sentiment": "neutral",
     "score": 20
   },
   {
-    "title": "Will We Hear From Donald Trump Today?",
-    "source": "BBC",
-    "url": "https://www.bbc.co.uk/news/live/c62gg44d53xt",
-    "time": "15m ago",
+    "title": "Oura acquires Doublepoint, a gesture recognition technology startup",
+    "source": "TechCrunch",
+    "url": "https://techcrunch.com/2026/03/05/oura-acquires-doublepoint-a-startup-that-specializes-in-gesture-recognition-technology/",
+    "time": "10m ago",
     "tags": [
-      "TRUMP",
-      "Politics"
+      "Tech"
     ],
     "sentiment": "neutral",
-    "score": 10
+    "score": 20
   }
 ]

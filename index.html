@@ -87,11 +87,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>NVDA earnings beat</td><td class="mono text-muted">NVDA, AMD, TSM</td><td class="text-center"><span class="text-green fw-600">Bullish</span></td><td class="hide-mobile text-muted">AI capex cycle accelerating</td></tr>
-        <tr><td>Strong NFP data</td><td class="mono text-muted">10Y, DXY, SPY</td><td class="text-center"><span class="text-yellow fw-600">Mixed</span></td><td class="hide-mobile text-muted">Strong economy but delays rate cuts</td></tr>
-        <tr><td>China stimulus</td><td class="mono text-muted">HSI, BABA, BYD</td><td class="text-center"><span class="text-green fw-600">Bullish</span></td><td class="hide-mobile text-muted">Policy boost for consumer + EV</td></tr>
-        <tr><td>Tariff escalation</td><td class="mono text-muted">AAPL, TSLA, FXI</td><td class="text-center"><span class="text-red fw-600">Bearish</span></td><td class="hide-mobile text-muted">Supply chain disruption</td></tr>
-        <tr><td>BTC ETF inflows</td><td class="mono text-muted">BTC, ETH, COIN</td><td class="text-center"><span class="text-green fw-600">Bullish</span></td><td class="hide-mobile text-muted">Institutional adoption</td></tr>
+        <tr><td data-i18n="impact.nvda">NVDA财报超预期</td><td class="mono text-muted">NVDA, AMD, TSM</td><td class="text-center"><span class="text-green fw-600" data-i18n="impact.bullish">看多</span></td><td class="hide-mobile text-muted" data-i18n="impact.nvda_logic">AI资本开支周期加速</td></tr>
+        <tr><td data-i18n="impact.nfp">非农数据强劲</td><td class="mono text-muted">10Y, DXY, SPY</td><td class="text-center"><span class="text-yellow fw-600" data-i18n="impact.mixed">混合</span></td><td class="hide-mobile text-muted" data-i18n="impact.nfp_logic">经济强劲但推迟降息</td></tr>
+        <tr><td data-i18n="impact.china">中国刺激政策</td><td class="mono text-muted">HSI, BABA, BYD</td><td class="text-center"><span class="text-green fw-600" data-i18n="impact.bullish">看多</span></td><td class="hide-mobile text-muted" data-i18n="impact.china_logic">消费+新能源车政策利好</td></tr>
+        <tr><td data-i18n="impact.tariff">关税升级</td><td class="mono text-muted">AAPL, TSLA, FXI</td><td class="text-center"><span class="text-red fw-600" data-i18n="impact.bearish">看空</span></td><td class="hide-mobile text-muted" data-i18n="impact.tariff_logic">供应链中断风险</td></tr>
+        <tr><td data-i18n="impact.btc">BTC ETF资金流入</td><td class="mono text-muted">BTC, ETH, COIN</td><td class="text-center"><span class="text-green fw-600" data-i18n="impact.bullish">看多</span></td><td class="hide-mobile text-muted" data-i18n="impact.btc_logic">机构化加速</td></tr>
       </tbody>
     </table>
 
@@ -155,12 +155,12 @@
         </div>
       </div>
       <div class="quote-stats">
-        <div class="quote-stat"><div class="quote-stat-label">Open</div><div class="quote-stat-value" id="deepOpen">—</div></div>
-        <div class="quote-stat"><div class="quote-stat-label">High</div><div class="quote-stat-value" id="deepHigh">—</div></div>
-        <div class="quote-stat"><div class="quote-stat-label">Low</div><div class="quote-stat-value" id="deepLow">—</div></div>
-        <div class="quote-stat"><div class="quote-stat-label">Volume</div><div class="quote-stat-value" id="deepVolume">—</div></div>
-        <div class="quote-stat"><div class="quote-stat-label">Mkt Cap</div><div class="quote-stat-value" id="deepMktCap">—</div></div>
-        <div class="quote-stat"><div class="quote-stat-label">P/E</div><div class="quote-stat-value" id="deepPE">—</div></div>
+        <div class="quote-stat"><div class="quote-stat-label" data-i18n="deep.stat.open">开盘</div><div class="quote-stat-value" id="deepOpen">—</div></div>
+        <div class="quote-stat"><div class="quote-stat-label" data-i18n="deep.stat.high">最高</div><div class="quote-stat-value" id="deepHigh">—</div></div>
+        <div class="quote-stat"><div class="quote-stat-label" data-i18n="deep.stat.low">最低</div><div class="quote-stat-value" id="deepLow">—</div></div>
+        <div class="quote-stat"><div class="quote-stat-label" data-i18n="deep.stat.volume">成交量</div><div class="quote-stat-value" id="deepVolume">—</div></div>
+        <div class="quote-stat"><div class="quote-stat-label" data-i18n="deep.stat.mktcap">总市值</div><div class="quote-stat-value" id="deepMktCap">—</div></div>
+        <div class="quote-stat"><div class="quote-stat-label" data-i18n="deep.stat.pe">市盈率</div><div class="quote-stat-value" id="deepPE">—</div></div>
       </div>
     </div>
 
@@ -175,17 +175,17 @@
       <!-- Overview Panel -->
       <div id="dpanel-overview" class="deep-panel active">
         <div class="ai-summary">
-          <div class="ai-badge">AI SUMMARY</div>
+          <div class="ai-badge" data-i18n="deep.ai_summary">AI 摘要</div>
           <div class="ai-text" id="aiSummaryText">—</div>
         </div>
         <div class="metrics-grid">
-          <div class="metric-box"><div class="metric-label">Market Cap</div><div class="metric-value mono" id="ovMktCap">—</div></div>
-          <div class="metric-box"><div class="metric-label">P/E Ratio</div><div class="metric-value mono" id="ovPE">—</div></div>
+          <div class="metric-box"><div class="metric-label" data-i18n="deep.metric.mktcap">总市值</div><div class="metric-value mono" id="ovMktCap">—</div></div>
+          <div class="metric-box"><div class="metric-label" data-i18n="deep.metric.pe">市盈率</div><div class="metric-value mono" id="ovPE">—</div></div>
           <div class="metric-box"><div class="metric-label" data-i18n="deep.rev_growth">营收增速</div><div class="metric-value mono text-green" id="ovRevGrowth">—</div></div>
-          <div class="metric-box"><div class="metric-label">Gross Margin</div><div class="metric-value mono" id="ovGrossMargin">—</div></div>
+          <div class="metric-box"><div class="metric-label" data-i18n="deep.metric.gross_margin">毛利率</div><div class="metric-value mono" id="ovGrossMargin">—</div></div>
         </div>
         <div class="range-bar">
-          <div class="section-label">52-Week Range</div>
+          <div class="section-label" data-i18n="deep.52week">52周范围</div>
           <div class="flex items-center gap-8">
             <span class="mono text-muted" id="range52Low">—</span>
             <div class="range-track flex-1">
@@ -198,19 +198,19 @@
         <div class="stats-grid">
           <div class="stats-box">
             <div class="stats-box-title" data-i18n="deep.valuation">估值指标</div>
-            <div class="stat-row"><span class="stat-label">P/E (TTM)</span><span class="stat-value" id="statPE">—</span></div>
-            <div class="stat-row"><span class="stat-label">Forward P/E</span><span class="stat-value" id="statFwdPE">—</span></div>
-            <div class="stat-row"><span class="stat-label">PEG</span><span class="stat-value" id="statPEG">—</span></div>
-            <div class="stat-row"><span class="stat-label">EV/EBITDA</span><span class="stat-value" id="statEV">—</span></div>
-            <div class="stat-row"><span class="stat-label">P/S</span><span class="stat-value" id="statPS">—</span></div>
+            <div class="stat-row"><span class="stat-label" data-i18n="deep.stat.pe">市盈率</span><span class="stat-value" id="statPE">—</span></div>
+            <div class="stat-row"><span class="stat-label" data-i18n="deep.stat.fwd_pe">远期PE</span><span class="stat-value" id="statFwdPE">—</span></div>
+            <div class="stat-row"><span class="stat-label" data-i18n="deep.stat.peg">PEG</span><span class="stat-value" id="statPEG">—</span></div>
+            <div class="stat-row"><span class="stat-label" data-i18n="deep.stat.ev_ebitda">EV/EBITDA</span><span class="stat-value" id="statEV">—</span></div>
+            <div class="stat-row"><span class="stat-label" data-i18n="deep.stat.ps">P/S</span><span class="stat-value" id="statPS">—</span></div>
           </div>
           <div class="stats-box">
             <div class="stats-box-title" data-i18n="deep.profitability">盈利能力</div>
-            <div class="stat-row"><span class="stat-label">Gross Margin</span><span class="stat-value" id="statGrossMargin">—</span></div>
-            <div class="stat-row"><span class="stat-label">Net Margin</span><span class="stat-value" id="statNetMargin">—</span></div>
-            <div class="stat-row"><span class="stat-label">ROE</span><span class="stat-value" id="statROE">—</span></div>
-            <div class="stat-row"><span class="stat-label">FCF Yield</span><span class="stat-value" id="statFCF">—</span></div>
-            <div class="stat-row"><span class="stat-label">Div Yield</span><span class="stat-value" id="statDiv">—</span></div>
+            <div class="stat-row"><span class="stat-label" data-i18n="deep.stat.gross_margin">毛利率</span><span class="stat-value" id="statGrossMargin">—</span></div>
+            <div class="stat-row"><span class="stat-label" data-i18n="deep.stat.net_margin">净利率</span><span class="stat-value" id="statNetMargin">—</span></div>
+            <div class="stat-row"><span class="stat-label" data-i18n="deep.stat.roe">ROE</span><span class="stat-value" id="statROE">—</span></div>
+            <div class="stat-row"><span class="stat-label" data-i18n="deep.stat.fcf">FCF收益率</span><span class="stat-value" id="statFCF">—</span></div>
+            <div class="stat-row"><span class="stat-label" data-i18n="deep.stat.div">股息率</span><span class="stat-value" id="statDiv">—</span></div>
           </div>
         </div>
       </div>
@@ -237,8 +237,8 @@
       <div id="dpanel-financials" class="deep-panel">
         <div class="metrics-grid">
           <div class="metric-box"><div class="metric-label" data-i18n="deep.revenue">营收增速</div><div class="metric-value mono" id="finRevenue">—</div></div>
-          <div class="metric-box"><div class="metric-label">EPS</div><div class="metric-value mono" id="finEPS">—</div></div>
-          <div class="metric-box"><div class="metric-label">Gross Margin</div><div class="metric-value mono" id="finMargin">—</div></div>
+          <div class="metric-box"><div class="metric-label" data-i18n="deep.fin.eps">EPS</div><div class="metric-value mono" id="finEPS">—</div></div>
+          <div class="metric-box"><div class="metric-label" data-i18n="deep.fin.margin">毛利率</div><div class="metric-value mono" id="finMargin">—</div></div>
           <div class="metric-box"><div class="metric-label" data-i18n="deep.segment">核心业务</div><div class="metric-value mono" id="finSegment">—</div></div>
         </div>
         <div class="range-bar">
@@ -273,7 +273,7 @@
           <div class="flex items-center gap-10 mb-12">
             <span class="section-num">01</span>
             <span class="fw-600" data-i18n="deep.stop">Stop Doing 检查</span>
-            <span class="news-tag tag-positive">4/4 Passed</span>
+            <span class="news-tag tag-positive" data-i18n="deep.passed">4/4 通过</span>
           </div>
           <div class="checklist-grid">
             <div class="checklist-item"><span class="check-icon">✓</span><span data-i18n="deep.no_short">不做空</span></div>

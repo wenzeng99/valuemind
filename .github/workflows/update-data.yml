@@ -2,20 +2,18 @@ name: Update Market Data
 
 on:
   schedule:
-    - cron: '0 1 * * *'    # UTC 01:00 = CST 09:00
-    - cron: '0 13 * * *'   # UTC 13:00 = CST 21:00
+    # US market hours (ET → UTC), weekdays only
+    - cron: '30 14 * * 1-5'   # Market open  9:30 AM ET = UTC 14:30
+    - cron: '0 17 * * 1-5'    # Mid-day     12:00 PM ET = UTC 17:00
+    - cron: '0 21 * * 1-5'    # Market close 4:00 PM ET = UTC 21:00
+    - cron: '0 22 * * 1-5'    # After-hours  5:00 PM ET = UTC 22:00
   workflow_dispatch:
-    inputs:
-      force_analysis:
-        description: 'Force regenerate AI analysis for all stocks'
-        type: boolean
-        default: false
 
 permissions:
   contents: write
 
 jobs:
-  fetch:
+  update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,18 +29,22 @@ jobs:
       - run: npm install
       - run: pip install yfinance
 
-      - name: Fetch latest data
+      # Step 1: Fetch all raw data (market prices, news, stock details)
+      - name: Fetch market data
         run: node scripts/fetch-data.mjs
-        env:
-          OPENNEWS_API_KEY: ${{ secrets.OPENNEWS_API_KEY }}
 
-      - name: Generate AI analysis
-        if: ${{ secrets.ANTHROPIC_API_KEY != '' }}
-        run: node scripts/generate-analysis.mjs ${{ inputs.force_analysis && '--force' || '' }}
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      # Step 2: Merge real financial data into stock-analysis.json
+      - name: Update analysis with real data
+        run: node scripts/update-analysis.mjs
 
+      # Step 3: Commit updated data
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'data: update market data + AI analysis'
+          commit_message: 'data: auto-sync market data [skip ci]'
           file_pattern: 'data/*.json'
+
+      # Step 4: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler pages deploy . --project-name=valuemind --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

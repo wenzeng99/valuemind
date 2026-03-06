@@ -4,7 +4,12 @@ on:
   schedule:
     - cron: '0 1 * * *'    # UTC 01:00 = CST 09:00
     - cron: '0 13 * * *'   # UTC 13:00 = CST 21:00
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      force_analysis:
+        description: 'Force regenerate AI analysis for all stocks'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -31,7 +36,13 @@ jobs:
         env:
           OPENNEWS_API_KEY: ${{ secrets.OPENNEWS_API_KEY }}
 
+      - name: Generate AI analysis
+        if: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+        run: node scripts/generate-analysis.mjs ${{ inputs.force_analysis && '--force' || '' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'data: update market data'
+          commit_message: 'data: update market data + AI analysis'
           file_pattern: 'data/*.json'

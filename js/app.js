@@ -1,11 +1,11 @@
 // ========== ValueMind — Main App ==========
 import { translations, setLang, t, getLang } from './i18n.js';
 import { generateCandleData, renderCandlestickChart } from './chart.js';
-import { stockAnalysis } from './stock-analysis-data.js';
+// stockAnalysis loaded dynamically from data/stock-analysis.json (falls back to empty)
+let stockAnalysis = {};
 
 // ========== State ==========
 let marketData = null;
-// cryptoData removed — app focuses on US equities only
 let newsData = null;
 let fearGreedData = null;
 let metaData = null;
@@ -60,7 +60,7 @@ function getDefaultAnalysis(symbol, stock) {
 }
 
 // ========== Signal Data ==========
-const signalData = {
+let signalData = {
   zh: {
     duan: [
       { type:'green', cat:'AI算力', title:'NVIDIA市值破$5T，AI资本开支持续超预期', tk:'NVDA', q:'卖铲子的生意。加仓1110%，但这个价格不追。' },
@@ -114,18 +114,22 @@ async function loadJSON(path) {
 
 async function loadAllData() {
   try {
-    const [market, news, fg, meta, stockDetails] = await Promise.all([
+    const [market, news, fg, meta, stockDetails, analysisData, recapData] = await Promise.all([
       loadJSON('data/market.json'),
       loadJSON('data/news.json'),
       loadJSON('data/fear-greed.json'),
       loadJSON('data/meta.json'),
       loadJSON('data/stock-details.json'),
+      loadJSON('data/stock-analysis.json'),
+      loadJSON('data/daily-recap.json'),
     ]);
     marketData = market;
     newsData = news;
     fearGreedData = fg;
     metaData = meta;
     stockDetailsData = stockDetails;
+    if (analysisData && Object.keys(analysisData).length > 0) stockAnalysis = analysisData;
+    if (recapData?.signals) signalData = recapData.signals;
 
     renderTicker();
     renderMarketSnapshot();

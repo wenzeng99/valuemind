@@ -6,7 +6,9 @@ import { execSync } from 'child_process';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, '..', 'data');
 
-// --- Yahoo Finance (v8 API with crumb) ---
+const WATCHLIST = ['NVDA', 'AAPL', 'MSFT', 'COST', 'GOOGL', 'AMZN', 'META', 'TSM', 'BRK-B', 'BABA', 'AMD', 'CVX', 'COIN', 'CRM', 'UNH', 'XOM'];
+
+// --- Yahoo Finance (v8 API) ---
 function curlFetchJson(url) {
   const cmd = `curl -s -L -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36" "${url}"`;
   const out = execSync(cmd, { timeout: 15000 }).toString();
@@ -44,7 +46,6 @@ async function fetchYahooQuote(symbols) {
     } catch (e) {
       console.warn(`    ⚠ ${symbol}: ${e.message}`);
     }
-    // Delay between requests
     await new Promise(r => setTimeout(r, 1000));
   }
   if (results.length > 0) return results;
@@ -53,15 +54,13 @@ async function fetchYahooQuote(symbols) {
 
 async function fetchMarketData() {
   const indexSymbols = ['^GSPC', '^IXIC', '^DJI', '^HSI', '000001.SS', '^N225'];
-  const watchlistSymbols = ['NVDA', 'AAPL', 'MSFT', 'COST', 'GOOGL', 'AMZN', 'META', 'TSM', 'BRK-B', 'BABA'];
   const macroSymbols = ['^TNX', 'DX-Y.NYB', 'GC=F', 'CL=F', '^VIX'];
 
-  // Fetch sequentially to avoid rate limiting
   console.log('  Fetching indices...');
   const indices = await fetchYahooQuote(indexSymbols);
   console.log(`  ✓ ${indices.length} indices`);
   console.log('  Fetching watchlist...');
-  const watchlist = await fetchYahooQuote(watchlistSymbols);
+  const watchlist = await fetchYahooQuote(WATCHLIST.slice(0, 10)); // top 10 for market.json
   console.log(`  ✓ ${watchlist.length} watchlist`);
   console.log('  Fetching macro...');
   const macro = await fetchYahooQuote(macroSymbols);
@@ -106,8 +105,7 @@ function formatMarketCap(val) {
   return String(val);
 }
 
-// --- Fear & Greed Index (VIX-based US stock market proxy) ---
-// Maps VIX to 0-100 scale: VIX 12 → 90 (Extreme Greed), VIX 35 → 10 (Extreme Fear)
+// --- Fear & Greed (VIX-based) ---
 async function fetchFearGreed(marketData) {
   const vix = marketData?.macro?.find(m => m.symbol === '^VIX');
   if (!vix) return { value: 50, label: 'Neutral', source: 'unavailable' };
@@ -122,21 +120,20 @@ async function fetchFearGreed(marketData) {
   return { value: val, label, vix: vixPrice, source: 'VIX-based', timestamp: new Date().toISOString() };
 }
 
-// --- News (OpenNews HTTP API or fallback) ---
+// --- News (OpenNews HTTP API) ---
+const OPENNEWS_BASE = 'https://opennews.newstool.ai';
+
+function newsHeaders() {
+  const apiKey = process.env.OPENNEWS_API_KEY;
+  return apiKey ? { 'Authorization': `Bearer ${apiKey}` } : {};
+}
+
 async function fetchNews() {
   try {
-    // Try OpenNews API
-    const apiKey = process.env.OPENNEWS_API_KEY;
-    const baseUrl = 'https://opennews.newstool.ai';
-
-    // Fetch latest high-score news
-    const newsRes = await fetch(`${baseUrl}/api/news/latest?limit=20`, {
-      headers: apiKey ? { 'Authorization': `Bearer ${apiKey}` } : {}
-    });
-
-    if (newsRes.ok) {
-      const newsData = await newsRes.json();
-      const articles = (newsData.data || newsData || []).slice(0, 15);
+    const res = await fetch(`${OPENNEWS_BASE}/api/news/latest?limit=20`, { headers: newsHeaders() });
+    if (res.ok) {
+      const data = await res.json();
+      const articles = (data.data || data || []).slice(0, 15);
       return articles.map(a => ({
         title: a.title || a.text || '',
         source: a.source || a.engine_type || 'News',
@@ -148,11 +145,41 @@ async function fetchNews() {
       }));
     }
   } catch (e) {
-    console.warn('OpenNews fetch failed, using fallback:', e.message);
+    console.warn('OpenNews latest fetch failed:', e.message);
   }
-
-  // Fallback: return empty array (frontend will show "No live news")
   return [];
+}
+
+// --- Stock-specific News (search per ticker) ---
+async function fetchStockNews() {
+  const stockNews = {};
+  const headers = newsHeaders();
+  console.log('  Fetching stock-specific news...');
+  for (const symbol of WATCHLIST) {
+    try {
+      const res = await fetch(`${OPENNEWS_BASE}/api/news/search?keyword=${encodeURIComponent(symbol)}&limit=5`, { headers });
+      if (res.ok) {
+        const data = await res.json();
+        const articles = (data.data || data || []);
+        if (articles.length > 0) {
+          stockNews[symbol] = articles.map(a => ({
+            title: a.title || a.text || '',
+            source: a.source || a.engine_type || 'News',
+            url: a.link || a.url || '#',
+            time: a.created_at || a.timestamp || '',
+            score: a.ai_score || null,
+            signal: a.signal || 'neutral',
+          }));
+          console.log(`    ✓ ${symbol}: ${stockNews[symbol].length} articles`);
+        }
+      }
+    } catch (e) {
+      // skip silently
+    }
+    await new Promise(r => setTimeout(r, 300));
+  }
+  console.log(`  ✓ stock-news for ${Object.keys(stockNews).length} tickers`);
+  return stockNews;
 }
 
 function formatNewsTime(ts) {
@@ -192,17 +219,17 @@ async function main() {
   const results = await Promise.allSettled([
     fetchMarketData(),
     fetchNews(),
+    fetchStockNews(),
     fetchStockDetails(),
   ]);
 
-  const [marketResult, newsResult, stockResult] = results;
+  const [marketResult, newsResult, stockNewsResult, stockResult] = results;
 
   // Write market.json
   if (marketResult.status === 'fulfilled') {
     await fs.writeFile(path.join(DATA_DIR, 'market.json'), JSON.stringify(marketResult.value, null, 2));
     console.log('✓ market.json');
 
-    // Compute Fear & Greed from VIX (requires market data)
     const fg = await fetchFearGreed(marketResult.value);
     await fs.writeFile(path.join(DATA_DIR, 'fear-greed.json'), JSON.stringify(fg, null, 2));
     console.log(`✓ fear-greed.json (VIX=${fg.vix} → F&G=${fg.value} ${fg.label})`);
@@ -213,9 +240,17 @@ async function main() {
   // Write news.json
   if (newsResult.status === 'fulfilled') {
     await fs.writeFile(path.join(DATA_DIR, 'news.json'), JSON.stringify(newsResult.value, null, 2));
-    console.log('✓ news.json');
+    console.log(`✓ news.json (${newsResult.value.length} articles)`);
   } else {
     console.error('✗ news.json failed:', newsResult.reason?.message);
+  }
+
+  // Write stock-news.json
+  if (stockNewsResult.status === 'fulfilled') {
+    await fs.writeFile(path.join(DATA_DIR, 'stock-news.json'), JSON.stringify(stockNewsResult.value, null, 2));
+    console.log(`✓ stock-news.json (${Object.keys(stockNewsResult.value).length} tickers)`);
+  } else {
+    console.error('✗ stock-news.json failed:', stockNewsResult.reason?.message);
   }
 
   // Write stock-details.json
@@ -231,9 +266,8 @@ async function main() {
     lastUpdated: new Date().toISOString(),
     sources: {
       market: marketResult.status === 'fulfilled' ? 'ok' : 'error',
-      crypto: cryptoResult.status === 'fulfilled' ? 'ok' : 'error',
-      fearGreed: fgResult.status === 'fulfilled' ? 'ok' : 'error',
       news: newsResult.status === 'fulfilled' ? 'ok' : 'error',
+      stockNews: stockNewsResult.status === 'fulfilled' ? 'ok' : 'error',
       stockDetails: stockResult.status === 'fulfilled' ? 'ok' : 'error',
     }
   };

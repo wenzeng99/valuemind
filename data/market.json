@@ -12,11 +12,11 @@
     {
       "symbol": "^IXIC",
       "name": "NASDAQ Composite",
-      "price": 22748.99,
+      "price": 22748.986,
       "change": -0.26,
-      "prevClose": 22807.48,
-      "dayHigh": 22877.02,
-      "dayLow": 22500.29
+      "prevClose": 22807.484,
+      "dayHigh": 22877.023,
+      "dayLow": 22500.293
     },
     {
       "symbol": "^DJI",
@@ -30,28 +30,28 @@
     {
       "symbol": "^HSI",
       "name": "HANG SENG INDEX",
-      "price": 25588.78,
-      "change": 1.06,
+      "price": 25757.29,
+      "change": 1.72,
       "prevClose": 25321.34,
-      "dayHigh": 25633.44,
+      "dayHigh": 25806.72,
       "dayLow": 25267.63
     },
     {
       "symbol": "000001.SS",
       "name": "SSE Composite Index",
-      "price": 4116.87,
-      "change": 0.2,
-      "prevClose": 4108.57,
-      "dayHigh": 4116.98,
-      "dayLow": 4085.9
+      "price": 4124.194,
+      "change": 1.02,
+      "prevClose": 4082.47,
+      "dayHigh": 4129.465,
+      "dayLow": 4085.896
     },
     {
       "symbol": "^N225",
       "name": "Nikkei 225",
-      "price": 55490.04,
-      "change": 0.38,
+      "price": 55620.84,
+      "change": 0.62,
       "prevClose": 55278.06,
-      "dayHigh": 55498.18,
+      "dayHigh": 55686.56,
       "dayLow": 54513.43
     }
   ],
@@ -62,7 +62,7 @@
       "price": 183.34,
       "change": 0.16,
       "pe": null,
-      "marketCap": "\u2014",
+      "marketCap": "—",
       "volume": 190766610,
       "dayHigh": 184.06,
       "dayLow": 177.89,
@@ -76,7 +76,7 @@
       "price": 260.29,
       "change": -0.85,
       "pe": null,
-      "marketCap": "\u2014",
+      "marketCap": "—",
       "volume": 49424671,
       "dayHigh": 261.555,
       "dayLow": 257.25,
@@ -90,7 +90,7 @@
       "price": 410.68,
       "change": 1.35,
       "pe": null,
-      "marketCap": "\u2014",
+      "marketCap": "—",
       "volume": 38460684,
       "dayHigh": 411.61,
       "dayLow": 404.4,
@@ -99,12 +99,26 @@
       "fiftyTwoWeekLow": 344.79
     },
     {
+      "symbol": "COST",
+      "name": "Costco Wholesale Corporation",
+      "price": 982.57,
+      "change": -2.4,
+      "pe": null,
+      "marketCap": "—",
+      "volume": 2752865,
+      "dayHigh": 999.25,
+      "dayLow": 978.81,
+      "open": 982.57,
+      "fiftyTwoWeekHigh": 1067.08,
+      "fiftyTwoWeekLow": 844.06
+    },
+    {
       "symbol": "GOOGL",
       "name": "Alphabet Inc.",
       "price": 300.88,
       "change": -0.74,
       "pe": null,
-      "marketCap": "\u2014",
+      "marketCap": "—",
       "volume": 35513981,
       "dayHigh": 303.27,
       "dayLow": 297.99,
@@ -118,7 +132,7 @@
       "price": 218.94,
       "change": 0.98,
       "pe": null,
-      "marketCap": "\u2014",
+      "marketCap": "—",
       "volume": 60693507,
       "dayHigh": 220.47,
       "dayLow": 215.59,
@@ -132,7 +146,7 @@
       "price": 660.57,
       "change": -1.07,
       "pe": null,
-      "marketCap": "\u2014",
+      "marketCap": "—",
       "volume": 13249534,
       "dayHigh": 670.7,
       "dayLow": 650.31,
@@ -142,11 +156,11 @@
     },
     {
       "symbol": "TSM",
-      "name": "Taiwan Semiconductor (TSMC)",
+      "name": "Taiwan Semiconductor Manufactur",
       "price": 353.86,
       "change": -1,
       "pe": null,
-      "marketCap": "\u2014",
+      "marketCap": "—",
       "volume": 16200662,
       "dayHigh": 359.47,
       "dayLow": 343.8,
@@ -160,7 +174,7 @@
       "price": 500.4,
       "change": 2.65,
       "pe": null,
-      "marketCap": "\u2014",
+      "marketCap": "—",
       "volume": 8898408,
       "dayHigh": 500.84,
       "dayLow": 492.52,
@@ -174,27 +188,13 @@
       "price": 130.35,
       "change": -2.19,
       "pe": null,
-      "marketCap": "\u2014",
+      "marketCap": "—",
       "volume": 18462532,
       "dayHigh": 131.635,
       "dayLow": 128.61,
       "open": 130.35,
       "fiftyTwoWeekHigh": 192.67,
       "fiftyTwoWeekLow": 95.73
-    },
-    {
-      "symbol": "COST",
-      "name": "Costco Wholesale Corporation",
-      "price": 982.57,
-      "change": -2.4,
-      "pe": null,
-      "marketCap": "\u2014",
-      "volume": 2752865,
-      "dayHigh": 999.25,
-      "dayLow": 978.81,
-      "open": 996.5,
-      "fiftyTwoWeekHigh": 1067.08,
-      "fiftyTwoWeekLow": 844.06
     }
   ],
   "macro": [
@@ -204,23 +204,23 @@
       "price": 4.146,
       "change": 1.62,
       "prevClose": 4.08,
-      "dayHigh": 4.148,
-      "dayLow": 4.123
+      "dayHigh": 0,
+      "dayLow": 0
     },
     {
       "symbol": "DX-Y.NYB",
       "name": "ICE US Dollar Index - Index - C",
-      "price": 98.963,
-      "change": -0.36,
+      "price": 99.228,
+      "change": -0.09,
       "prevClose": 99.317,
-      "dayHigh": 99.048,
+      "dayHigh": 99.299,
       "dayLow": 98.942
     },
     {
       "symbol": "GC=F",
       "name": "Gold Apr 26",
-      "price": 5139,
-      "change": 1.19,
+      "price": 5092.5,
+      "change": 0.27,
       "prevClose": 5078.7,
       "dayHigh": 5151.3,
       "dayLow": 5074
@@ -228,20 +228,20 @@
     {
       "symbol": "CL=F",
       "name": "Crude Oil Apr 26",
-      "price": 79.37,
-      "change": -2.02,
+      "price": 84.12,
+      "change": 3.84,
       "prevClose": 81.01,
-      "dayHigh": 79.91,
+      "dayHigh": 84.9,
       "dayLow": 78.24
     },
     {
       "symbol": "^VIX",
       "name": "CBOE Volatility Index",
-      "price": 23.75,
-      "change": 12.29,
-      "prevClose": 21.15,
-      "dayHigh": 25.84,
-      "dayLow": 20.55
+      "price": 24.25,
+      "change": 2.11,
+      "prevClose": 23.75,
+      "dayHigh": 24.87,
+      "dayLow": 22.92
     }
   ]
 }

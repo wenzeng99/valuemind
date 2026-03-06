@@ -1086,3 +1086,128 @@ a.news-title { cursor: pointer; }
   vertical-align: middle;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== Headline Summary (Value Investing Signals) ===== */
+.headline-summary-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.summary-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.summary-item:last-child { border-bottom: none; }
+.summary-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.summary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.summary-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.summary-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.summary-text strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ===== Sector Tags (Expandable) ===== */
+.sector-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.sector-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  cursor: pointer;
+  transition: all 0.15s;
+  border-radius: 2px;
+}
+.sector-tag:hover { background: var(--bg-secondary); }
+.sector-tag-open { background: var(--bg-secondary); border-color: var(--text-primary); }
+.sector-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+}
+.sector-tag-hot .sector-dot { background: var(--red); }
+.sector-tag-active .sector-dot { background: var(--green); }
+.sector-tag-neutral .sector-dot { background: var(--yellow); }
+.sector-arrow {
+  font-size: 8px;
+  color: var(--text-secondary);
+  margin-left: 2px;
+}
+.sector-stock-list {
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+.sector-stock-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.sector-stock-item:last-child { border-bottom: none; }
+.sector-stock-item:hover { background: var(--bg-secondary); }
+.sector-stock-tk {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text-primary);
+  min-width: 50px;
+}
+.sector-stock-note {
+  font-size: 12px;
+  color: var(--text-secondary);
+  flex: 1;
+}
+.sector-stock-arrow {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* ===== Impact Table Clickable Tickers ===== */
+.impact-ticker {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.impact-ticker:hover {
+  color: var(--green);
+  text-decoration: underline;
+}

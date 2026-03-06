@@ -189,6 +189,21 @@ function formatNewsTime(ts) {
   return `${diffDay}d ago`;
 }
 
+// --- Stock Details (via yfinance Python script) ---
+async function fetchStockDetails() {
+  try {
+    const scriptPath = path.join(__dirname, 'fetch-stock-details.py');
+    console.log('  Running yfinance Python script...');
+    const out = execSync(`python3 "${scriptPath}"`, { timeout: 120000 }).toString();
+    const data = JSON.parse(out);
+    console.log(`  ✓ ${Object.keys(data).length} stock details fetched`);
+    return data;
+  } catch (e) {
+    console.error('  ⚠ Stock details fetch failed:', e.message);
+    return {};
+  }
+}
+
 // --- Main ---
 async function main() {
   console.log('Fetching market data...');
@@ -199,9 +214,10 @@ async function main() {
     fetchCryptoData(),
     fetchFearGreed(),
     fetchNews(),
+    fetchStockDetails(),
   ]);
 
-  const [marketResult, cryptoResult, fgResult, newsResult] = results;
+  const [marketResult, cryptoResult, fgResult, newsResult, stockResult] = results;
 
   // Write market.json
   if (marketResult.status === 'fulfilled') {
@@ -235,6 +251,14 @@ async function main() {
     console.error('✗ news.json failed:', newsResult.reason?.message);
   }
 
+  // Write stock-details.json
+  if (stockResult.status === 'fulfilled') {
+    await fs.writeFile(path.join(DATA_DIR, 'stock-details.json'), JSON.stringify(stockResult.value, null, 2));
+    console.log('✓ stock-details.json');
+  } else {
+    console.error('✗ stock-details.json failed:', stockResult.reason?.message);
+  }
+
   // Write meta.json
   const meta = {
     lastUpdated: new Date().toISOString(),
@@ -243,6 +267,7 @@ async function main() {
       crypto: cryptoResult.status === 'fulfilled' ? 'ok' : 'error',
       fearGreed: fgResult.status === 'fulfilled' ? 'ok' : 'error',
       news: newsResult.status === 'fulfilled' ? 'ok' : 'error',
+      stockDetails: stockResult.status === 'fulfilled' ? 'ok' : 'error',
     }
   };
   await fs.writeFile(path.join(DATA_DIR, 'meta.json'), JSON.stringify(meta, null, 2));

@@ -49,6 +49,14 @@
       <div class="section-subtitle" data-i18n="recap.subtitle">全球头条、宏观信号、价投解读。每日开盘前更新。</div>
     </div>
 
+    <!-- 今日要点总结 (TOP PRIORITY) -->
+    <div class="headline-summary" id="headlineSummary"></div>
+
+    <!-- 关联重点板块 (clickable + expandable) -->
+    <div class="sector-tags-wrapper" id="sectorTags"></div>
+
+    <div class="divider"></div>
+
     <div class="section-label" data-i18n="recap.snapshot">市场快照</div>
     <div class="snapshot-grid" id="snapshotGrid"></div>
     <div class="snapshot-grid snapshot-grid-5" id="snapshotGrid2"></div>
@@ -68,34 +76,16 @@
 
     <div class="divider"></div>
 
+    <h2 class="section-heading" data-i18n="recap.impact">影响分析</h2>
+    <div id="impactTableContainer"></div>
+
+    <div class="divider"></div>
+
     <h2 class="section-heading" data-i18n="recap.headlines">全球财经头条</h2>
     <div class="section-subtitle" data-i18n="recap.headlines_sub">Bloomberg / Reuters / FT / WSJ / CNBC</div>
     <div class="news-list" id="newsContainer">
       <div class="loading">Loading...</div>
     </div>
-    <div class="headline-summary" id="headlineSummary"></div>
-    <div class="sector-tags" id="sectorTags"></div>
-
-    <div class="divider"></div>
-
-    <h2 class="section-heading" data-i18n="recap.impact">影响分析</h2>
-    <table class="impact-table">
-      <thead>
-        <tr>
-          <th data-i18n="recap.th_event">事件</th>
-          <th data-i18n="recap.th_assets">相关资产</th>
-          <th class="text-center" data-i18n="recap.th_dir">方向</th>
-          <th class="hide-mobile" data-i18n="recap.th_logic">传导逻辑</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td data-i18n="impact.nvda">NVDA财报超预期</td><td class="mono text-muted">NVDA, AMD, TSM</td><td class="text-center"><span class="text-green fw-600" data-i18n="impact.bullish">看多</span></td><td class="hide-mobile text-muted" data-i18n="impact.nvda_logic">AI资本开支周期加速</td></tr>
-        <tr><td data-i18n="impact.nfp">非农数据强劲</td><td class="mono text-muted">10Y, DXY, SPY</td><td class="text-center"><span class="text-yellow fw-600" data-i18n="impact.mixed">混合</span></td><td class="hide-mobile text-muted" data-i18n="impact.nfp_logic">经济强劲但推迟降息</td></tr>
-        <tr><td data-i18n="impact.china">中国刺激政策</td><td class="mono text-muted">HSI, BABA, BYD</td><td class="text-center"><span class="text-green fw-600" data-i18n="impact.bullish">看多</span></td><td class="hide-mobile text-muted" data-i18n="impact.china_logic">消费+新能源车政策利好</td></tr>
-        <tr><td data-i18n="impact.tariff">关税升级</td><td class="mono text-muted">AAPL, TSLA, FXI</td><td class="text-center"><span class="text-red fw-600" data-i18n="impact.bearish">看空</span></td><td class="hide-mobile text-muted" data-i18n="impact.tariff_logic">供应链中断风险</td></tr>
-        <tr><td data-i18n="impact.btc">BTC ETF资金流入</td><td class="mono text-muted">BTC, ETH, COIN</td><td class="text-center"><span class="text-green fw-600" data-i18n="impact.bullish">看多</span></td><td class="hide-mobile text-muted" data-i18n="impact.btc_logic">机构化加速</td></tr>
-      </tbody>
-    </table>
 
     <div class="divider"></div>
 

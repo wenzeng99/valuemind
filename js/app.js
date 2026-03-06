@@ -8,6 +8,7 @@ let cryptoData = null;
 let newsData = null;
 let fearGreedData = null;
 let metaData = null;
+let stockDetailsData = null;
 let currentMaster = { signal: 'duan', deep: 'duan' };
 let currentDeepTab = 'overview';
 
@@ -439,18 +440,20 @@ async function loadJSON(path) {
 
 async function loadAllData() {
   try {
-    const [market, crypto, news, fg, meta] = await Promise.all([
+    const [market, crypto, news, fg, meta, stockDetails] = await Promise.all([
       loadJSON('data/market.json'),
       loadJSON('data/crypto.json'),
       loadJSON('data/news.json'),
       loadJSON('data/fear-greed.json'),
       loadJSON('data/meta.json'),
+      loadJSON('data/stock-details.json'),
     ]);
     marketData = market;
     cryptoData = crypto;
     newsData = news;
     fearGreedData = fg;
     metaData = meta;
+    stockDetailsData = stockDetails;
 
     renderTicker();
     renderMarketSnapshot();
@@ -458,6 +461,7 @@ async function loadAllData() {
     renderNews();
     renderHeadlineSummary();
     renderSectorTags();
+    renderImpactTable();
     renderLastUpdate();
     renderTickerSuggestions();
 
@@ -674,9 +678,14 @@ function renderValuation(analysis, lang) {
 // ========== Deep Analysis — FULLY DYNAMIC ==========
 function renderDeepAnalysis(symbol) {
   const stock = marketData?.watchlist?.find(s => s.symbol === symbol);
+  const sd = stockDetailsData?.[symbol]; // real-time financial data from Yahoo
   const analysis = stockAnalysis[symbol] || getDefaultAnalysis(symbol, stock);
   const lang = getLang();
   const el = (id) => document.getElementById(id);
+
+  // Helper: use real data (sd) when available, fallback to hardcoded (analysis)
+  const fmtPct = (v) => v != null ? (v * 100).toFixed(1) + '%' : '—';
+  const fmtRatio = (v, suffix) => v != null ? v.toFixed(1) + (suffix || 'x') : '—';
 
   // Quote header
   el('deepSymbol').textContent = symbol;
@@ -695,6 +704,20 @@ function renderDeepAnalysis(symbol) {
     el('deepVolume').textContent = formatVolume(stock.volume);
     el('deepMktCap').textContent = stock.marketCap || '—';
     el('deepPE').textContent = stock.pe ? stock.pe + 'x' : '—';
+  } else if (sd) {
+    // Use stock-details data when watchlist doesn't have it
+    el('deepPrice').textContent = sd.price?.toFixed(2) || '—';
+    const sdChange = sd.change || 0;
+    const sdCls = sdChange >= 0 ? 'text-green' : 'text-red';
+    const sdSign = sdChange >= 0 ? '+' : '';
+    el('deepChange').className = `quote-change ${sdCls}`;
+    el('deepChange').textContent = `${sdSign}${sdChange.toFixed(2)}%`;
+    el('deepOpen').textContent = '—';
+    el('deepHigh').textContent = '—';
+    el('deepLow').textContent = '—';
+    el('deepVolume').textContent = '—';
+    el('deepMktCap').textContent = sd.marketCap ? '$' + sd.marketCap : '—';
+    el('deepPE').textContent = sd.pe != null ? sd.pe.toFixed(1) + 'x' : '—';
   } else {
     el('deepPrice').textContent = '—';
     el('deepChange').className = 'quote-change text-muted';
@@ -702,11 +725,14 @@ function renderDeepAnalysis(symbol) {
     ['deepOpen','deepHigh','deepLow','deepVolume','deepMktCap','deepPE'].forEach(id => el(id).textContent = '—');
   }
 
-  // 52-week range
-  if (stock?.fiftyTwoWeekLow && stock?.fiftyTwoWeekHigh) {
-    const pct = ((stock.price - stock.fiftyTwoWeekLow) / (stock.fiftyTwoWeekHigh - stock.fiftyTwoWeekLow) * 100).toFixed(0);
-    el('range52Low').textContent = '$' + stock.fiftyTwoWeekLow.toFixed(2);
-    el('range52High').textContent = '$' + stock.fiftyTwoWeekHigh.toFixed(2);
+  // 52-week range (prefer stock-details, fallback to watchlist)
+  const w52Low = sd?.fiftyTwoWeekLow || stock?.fiftyTwoWeekLow;
+  const w52High = sd?.fiftyTwoWeekHigh || stock?.fiftyTwoWeekHigh;
+  const curPrice = stock?.price || sd?.price;
+  if (w52Low && w52High && curPrice) {
+    const pct = ((curPrice - w52Low) / (w52High - w52Low) * 100).toFixed(0);
+    el('range52Low').textContent = '$' + w52Low.toFixed(2);
+    el('range52High').textContent = '$' + w52High.toFixed(2);
     el('range52Fill').style.width = pct + '%';
     el('range52Marker').style.left = pct + '%';
   }
@@ -714,23 +740,23 @@ function renderDeepAnalysis(symbol) {
   // AI Summary
   el('aiSummaryText').textContent = analysis.summary[lang] || analysis.summary.en;
 
-  // Overview metrics
-  el('ovMktCap').textContent = stock?.marketCap ? '$' + stock.marketCap : '—';
-  el('ovPE').textContent = stock?.pe ? stock.pe + 'x' : '—';
-  el('ovRevGrowth').textContent = analysis.revGrowth;
-  el('ovGrossMargin').textContent = analysis.grossMargin;
+  // Overview metrics (prefer real data)
+  el('ovMktCap').textContent = sd?.marketCap ? '$' + sd.marketCap : (stock?.marketCap ? '$' + stock.marketCap : '—');
+  el('ovPE').textContent = sd?.pe != null ? fmtRatio(sd.pe) : (stock?.pe ? stock.pe + 'x' : '—');
+  el('ovRevGrowth').textContent = sd?.revenueGrowth != null ? fmtPct(sd.revenueGrowth) : analysis.revGrowth;
+  el('ovGrossMargin').textContent = sd?.grossMargin != null ? fmtPct(sd.grossMargin) : analysis.grossMargin;
 
-  // Valuation stats
-  el('statPE').textContent = stock?.pe ? stock.pe + 'x' : '—';
-  el('statFwdPE').textContent = analysis.peFwd;
-  el('statPEG').textContent = analysis.peg;
-  el('statEV').textContent = analysis.evEbitda;
-  el('statPS').textContent = analysis.ps;
-  el('statGrossMargin').textContent = analysis.grossMargin;
-  el('statNetMargin').textContent = analysis.netMargin;
-  el('statROE').textContent = analysis.roe;
-  el('statFCF').textContent = analysis.fcfYield;
-  el('statDiv').textContent = analysis.divYield;
+  // Valuation stats (prefer real data)
+  el('statPE').textContent = sd?.pe != null ? fmtRatio(sd.pe) : (stock?.pe ? stock.pe + 'x' : '—');
+  el('statFwdPE').textContent = sd?.forwardPE != null ? fmtRatio(sd.forwardPE) : analysis.peFwd;
+  el('statPEG').textContent = sd?.peg != null ? sd.peg.toFixed(2) : analysis.peg;
+  el('statEV').textContent = sd?.evEbitda != null ? fmtRatio(sd.evEbitda) : analysis.evEbitda;
+  el('statPS').textContent = sd?.ps != null ? fmtRatio(sd.ps) : analysis.ps;
+  el('statGrossMargin').textContent = sd?.grossMargin != null ? fmtPct(sd.grossMargin) : analysis.grossMargin;
+  el('statNetMargin').textContent = sd?.netMargin != null ? fmtPct(sd.netMargin) : analysis.netMargin;
+  el('statROE').textContent = sd?.roe != null ? fmtPct(sd.roe) : analysis.roe;
+  el('statFCF').textContent = sd?.fcfYield != null ? fmtPct(sd.fcfYield) : analysis.fcfYield;
+  el('statDiv').textContent = sd?.divYield != null ? fmtPct(sd.divYield) : analysis.divYield;
 
   // Financials panel
   el('finRevenue').textContent = analysis.revGrowth;
@@ -912,51 +938,115 @@ function initLang() {
   });
 }
 
-// ========== Headline Summary & Sectors ==========
+// ========== Headline Summary (Value Investing Focus) ==========
 function renderHeadlineSummary() {
   const container = document.getElementById('headlineSummary');
   if (!container) return;
   const lang = getLang();
-  if (!newsData || newsData.length === 0) { container.innerHTML = ''; return; }
   const summaryData = {
     zh: {
-      title: '今日要点总结',
-      text: '<strong>地缘政治主导市场情绪</strong> — 中东局势升级推动油价和避险资产走强。<strong>稳定币基础设施加速</strong> — SoFi+BitGo合作标志着传统银行进入稳定币赛道。<strong>从价投角度看</strong>：地缘风险是短期噪音，关注有定价权的企业（能源、军工）的现金流是否受益。稳定币是长期结构性趋势，但投资标的仍需甄别。',
+      title: '今日价投要点',
+      items: [
+        { icon: '📊', label: '财报信号', text: 'NVDA Q4营收$39.3B超预期+78%，FCF创新高$16.8B — <strong>AI算力现金流持续验证</strong>。但毛利率环比↓3pp需关注。' },
+        { icon: '💰', label: '现金流影响', text: '油价因中东局势走强 → XOM/CVX自由现金流短期受益。10Y Yield 4.15%上行 → DCF折现率↑ = 成长股估值承压。' },
+        { icon: '🛡️', label: '安全边际', text: 'F&G 22（极度恐惧）+ VIX 23.4 — 市场恐慌时寻找被错杀的优质企业。BRK-B $373B现金 = Buffett在等更便宜的价格。' },
+        { icon: '⚠️', label: '回避区域', text: '关税升级影响AAPL/TSLA供应链成本，政策驱动型标的不碰（DYP框架）。Meme币暴涨 = 投机非投资。' },
+      ]
     },
     en: {
-      title: "Today's Key Takeaways",
-      text: '<strong>Geopolitics dominating sentiment</strong> — Middle East escalation boosting oil and safe havens. <strong>Stablecoin infrastructure accelerating</strong> — SoFi+BitGo signals TradFi entering stablecoin rails. <strong>Value investor lens</strong>: Geopolitical risk is short-term noise; focus on whether pricing-power businesses (energy, defense) see improved cash flows. Stablecoins are a structural trend but investment targets need scrutiny.',
+      title: "Today's Value Investing Signals",
+      items: [
+        { icon: '📊', label: 'Earnings Signal', text: 'NVDA Q4 revenue $39.3B beat +78%, FCF record $16.8B — <strong>AI compute cash flow thesis confirmed</strong>. But GM declining 3pp QoQ needs monitoring.' },
+        { icon: '💰', label: 'Cash Flow Impact', text: 'Oil rising on Mideast tension → XOM/CVX FCF short-term boost. 10Y Yield 4.15% rising → higher discount rate = growth stock valuations compressed.' },
+        { icon: '🛡️', label: 'Margin of Safety', text: 'F&G 22 (Extreme Fear) + VIX 23.4 — look for quality businesses sold off by panic. BRK-B $373B cash = Buffett waiting for cheaper prices.' },
+        { icon: '⚠️', label: 'Avoid Zone', text: 'Tariff escalation hits AAPL/TSLA supply chain costs, avoid policy-driven names (DYP framework). Meme coin surge = speculation, not investing.' },
+      ]
     }
   };
   const s = summaryData[lang] || summaryData.en;
-  container.innerHTML = `<div class="headline-summary-title">${s.title}</div><div class="headline-summary-text">${s.text}</div>`;
+  let html = `<div class="headline-summary-title">${s.title}</div>`;
+  s.items.forEach(item => {
+    html += `<div class="summary-item"><span class="summary-icon">${item.icon}</span><div class="summary-content"><span class="summary-label">${item.label}</span><span class="summary-text">${item.text}</span></div></div>`;
+  });
+  container.innerHTML = html;
 }
+
+// ========== Sector Tags (Expandable with clickable stocks) ==========
+let expandedSector = null;
 
 function renderSectorTags() {
   const container = document.getElementById('sectorTags');
   if (!container) return;
   const lang = getLang();
-  const sectors = lang === 'zh' ? [
-    { name: 'AI算力', status: 'active', tickers: 'NVDA, AMD, TSM' },
-    { name: '能源/石油', status: 'hot', tickers: 'XOM, CVX, CL=F' },
-    { name: '加密/稳定币', status: 'active', tickers: 'BTC, ETH, COIN' },
-    { name: '消费/零售', status: 'neutral', tickers: 'COST, WMT, AAPL' },
-    { name: '军工/国防', status: 'hot', tickers: 'LMT, RTX, GD' },
-    { name: '中概股', status: 'neutral', tickers: 'BABA, PDD, BYD' },
-  ] : [
-    { name: 'AI Compute', status: 'active', tickers: 'NVDA, AMD, TSM' },
-    { name: 'Energy/Oil', status: 'hot', tickers: 'XOM, CVX, CL=F' },
-    { name: 'Crypto/Stablecoin', status: 'active', tickers: 'BTC, ETH, COIN' },
-    { name: 'Consumer/Retail', status: 'neutral', tickers: 'COST, WMT, AAPL' },
-    { name: 'Defense', status: 'hot', tickers: 'LMT, RTX, GD' },
-    { name: 'China ADR', status: 'neutral', tickers: 'BABA, PDD, BYD' },
+  const sectors = [
+    { name: lang === 'zh' ? 'AI算力' : 'AI Compute', status: 'active', stocks: [
+      { tk: 'NVDA', note: lang === 'zh' ? 'GPU龙头，Q4 FCF $16.8B' : 'GPU leader, Q4 FCF $16.8B' },
+      { tk: 'AMD', note: lang === 'zh' ? 'MI300X追赶，数据中心+32%' : 'MI300X catching up, DC +32%' },
+      { tk: 'TSM', note: lang === 'zh' ? '代工垄断，先进制程护城河' : 'Foundry monopoly, node moat' },
+    ]},
+    { name: lang === 'zh' ? '能源/石油' : 'Energy/Oil', status: 'hot', stocks: [
+      { tk: 'CVX', note: lang === 'zh' ? '股息+4%年化$6.52，FCF强劲' : 'Div +4% annualized $6.52, strong FCF' },
+      { tk: 'XOM', note: lang === 'zh' ? '全球最大石油公司，现金牛' : 'Largest oil major, cash cow' },
+    ]},
+    { name: lang === 'zh' ? '加密/Web3' : 'Crypto/Web3', status: 'active', stocks: [
+      { tk: 'COIN', note: lang === 'zh' ? 'ETF受益，Q4收入翻倍' : 'ETF beneficiary, Q4 revenue doubled' },
+    ]},
+    { name: lang === 'zh' ? '消费/零售' : 'Consumer', status: 'neutral', stocks: [
+      { tk: 'COST', note: lang === 'zh' ? '会员续费93.4%，消费者特许权' : '93.4% renewal, consumer franchise' },
+      { tk: 'AAPL', note: lang === 'zh' ? '服务毛利>70%，安装基20亿' : 'Services GM >70%, 2B installed base' },
+    ]},
+    { name: lang === 'zh' ? '企业SaaS' : 'Enterprise SaaS', status: 'neutral', stocks: [
+      { tk: 'MSFT', note: lang === 'zh' ? 'Azure AI ARR $13B，Copilot变现' : 'Azure AI ARR $13B, Copilot monetizing' },
+      { tk: 'GOOGL', note: lang === 'zh' ? '搜索+Cloud双引擎，AI投入大' : 'Search + Cloud dual engine, heavy AI spend' },
+    ]},
+    { name: lang === 'zh' ? '中概股' : 'China ADR', status: 'neutral', stocks: [
+      { tk: 'BABA', note: lang === 'zh' ? '云智能分拆+回购，估值极低' : 'Cloud spin-off + buyback, ultra cheap valuation' },
+    ]},
   ];
   const sLabel = lang === 'zh' ? '关联重点板块' : 'Key Sectors in Focus';
-  let html = `<div class="section-label">${sLabel}</div>`;
-  sectors.forEach(s => {
+  let html = `<div class="section-label">${sLabel}</div><div class="sector-tags-row">`;
+  sectors.forEach((s, i) => {
     const cls = s.status === 'hot' ? 'sector-tag-hot' : s.status === 'active' ? 'sector-tag-active' : 'sector-tag-neutral';
-    html += `<span class="sector-tag ${cls}" title="${s.tickers}"><span class="sector-dot"></span>${s.name}</span>`;
+    const isExp = expandedSector === i;
+    html += `<button class="sector-tag ${cls}${isExp ? ' sector-tag-open' : ''}" onclick="vmApp.toggleSector(${i})"><span class="sector-dot"></span>${s.name}<span class="sector-arrow">${isExp ? '▲' : '▼'}</span></button>`;
   });
+  html += '</div>';
+  if (expandedSector !== null && sectors[expandedSector]) {
+    const s = sectors[expandedSector];
+    html += '<div class="sector-stock-list">';
+    s.stocks.forEach(st => {
+      html += `<div class="sector-stock-item" onclick="vmApp.goDeepDive('${st.tk}')"><span class="sector-stock-tk">${st.tk}</span><span class="sector-stock-note">${st.note}</span><span class="sector-stock-arrow">→</span></div>`;
+    });
+    html += '</div>';
+  }
+  container.innerHTML = html;
+}
+
+function toggleSector(idx) {
+  expandedSector = expandedSector === idx ? null : idx;
+  renderSectorTags();
+}
+
+// ========== Impact Table (Dynamic, clickable tickers) ==========
+function renderImpactTable() {
+  const container = document.getElementById('impactTableContainer');
+  if (!container) return;
+  const lang = getLang();
+  const impacts = [
+    { event: lang === 'zh' ? 'NVDA财报超预期' : 'NVDA earnings beat', tickers: ['NVDA', 'AMD', 'TSM'], dir: 'bullish', logic: lang === 'zh' ? 'AI资本开支周期加速，FCF创新高验证现金流' : 'AI capex cycle accelerating, record FCF validates cash flow' },
+    { event: lang === 'zh' ? '10Y收益率上行' : '10Y yield rising', tickers: ['BRK-B', 'COST'], dir: 'mixed', logic: lang === 'zh' ? '折现率↑压缩成长股估值，利好价值股/保险浮存金' : 'Higher discount rate compresses growth; benefits value stocks/insurance float' },
+    { event: lang === 'zh' ? '中国刺激政策' : 'China stimulus', tickers: ['BABA', 'GOOGL'], dir: 'bullish', logic: lang === 'zh' ? '消费复苏利好电商，关注自由现金流改善' : 'Consumer recovery benefits e-commerce, watch FCF improvement' },
+    { event: lang === 'zh' ? '关税升级' : 'Tariff escalation', tickers: ['AAPL', 'COST'], dir: 'bearish', logic: lang === 'zh' ? '供应链成本↑ → 毛利率承压，关注定价权能否转嫁' : 'Supply chain cost ↑ → margin pressure, watch pricing power pass-through' },
+    { event: lang === 'zh' ? 'BTC ETF持续流入' : 'BTC ETF inflows', tickers: ['COIN', 'MSFT'], dir: 'bullish', logic: lang === 'zh' ? 'COIN手续费收入↑，MSFT Azure区块链服务受益' : 'COIN fee revenue ↑, MSFT Azure blockchain services benefit' },
+  ];
+  const dirMap = { bullish: { cls: 'text-green', zh: '看多', en: 'Bullish' }, bearish: { cls: 'text-red', zh: '看空', en: 'Bearish' }, mixed: { cls: 'text-yellow', zh: '混合', en: 'Mixed' } };
+  let html = `<table class="impact-table"><thead><tr><th>${t('recap.th_event')}</th><th>${t('recap.th_assets')}</th><th class="text-center">${t('recap.th_dir')}</th><th class="hide-mobile">${t('recap.th_logic')}</th></tr></thead><tbody>`;
+  impacts.forEach(imp => {
+    const tickerLinks = imp.tickers.map(tk => `<a class="impact-ticker" onclick="vmApp.goDeepDive('${tk}')">${tk}</a>`).join(', ');
+    const d = dirMap[imp.dir];
+    html += `<tr><td>${imp.event}</td><td class="mono">${tickerLinks}</td><td class="text-center"><span class="${d.cls} fw-600">${d[lang] || d.en}</span></td><td class="hide-mobile text-muted">${imp.logic}</td></tr>`;
+  });
+  html += '</tbody></table>';
   container.innerHTML = html;
 }
 
@@ -966,12 +1056,13 @@ function renderAll() {
   renderNews();
   renderHeadlineSummary();
   renderSectorTags();
+  renderImpactTable();
   renderLastUpdate();
   const tk = document.getElementById('tickerInput')?.value || 'NVDA';
   renderDeepAnalysis(tk);
 }
 
-window.vmApp = { switchMainTab, switchMaster, switchDeepTab, switchChartPeriod, goDeepDive, runAnalysis, quickTicker };
+window.vmApp = { switchMainTab, switchMaster, switchDeepTab, switchChartPeriod, goDeepDive, runAnalysis, quickTicker, toggleSector };
 
 document.addEventListener('DOMContentLoaded', () => {
   const d = new Date();

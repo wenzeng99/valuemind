@@ -134,6 +134,8 @@ async function loadAllData() {
     if (analysisData && Object.keys(analysisData).length > 0) stockAnalysis = analysisData;
     if (recapData?.signals) signalData = recapData.signals;
     if (recapData?.alphaEvents) alphaEventsData = recapData.alphaEvents;
+    if (recapData?.masterOpinions) masterOpinionsData = recapData.masterOpinions;
+    if (recapData?.impactTable) impactTableData = recapData.impactTable;
 
     renderTicker();
     renderMarketSnapshot();
@@ -1101,24 +1103,44 @@ function renderAlphaEvents() {
 
 // ========== Industry Performance Row ==========
 function getIndustryPerformance() {
+  // Try to compute from real stock-details data by sector
+  if (stockDetailsData && marketData?.watchlist) {
+    const sectorMap = {
+      'Technology': { zh: '科技', en: 'Tech', changes: [] },
+      'Communication Services': { zh: '通信', en: 'Comms', changes: [] },
+      'Consumer Defensive': { zh: '消费', en: 'Consumer', changes: [] },
+      'Consumer Cyclical': { zh: '消费', en: 'Consumer', changes: [] },
+      'Energy': { zh: '能源', en: 'Energy', changes: [] },
+      'Financial Services': { zh: '金融', en: 'Finance', changes: [] },
+      'Healthcare': { zh: '医疗', en: 'Healthcare', changes: [] },
+      'Industrials': { zh: '工业', en: 'Industrial', changes: [] },
+    };
+    for (const [sym, d] of Object.entries(stockDetailsData)) {
+      if (d.sector && sectorMap[d.sector] && d.change != null) {
+        sectorMap[d.sector].changes.push(d.change);
+      }
+    }
+    const zh = [], en = [];
+    for (const s of Object.values(sectorMap)) {
+      if (s.changes.length === 0) continue;
+      const avg = s.changes.reduce((a, b) => a + b, 0) / s.changes.length;
+      // Deduplicate Consumer entries
+      if (!zh.find(x => x.name === s.zh)) {
+        zh.push({ name: s.zh, change: avg });
+        en.push({ name: s.en, change: avg });
+      }
+    }
+    if (zh.length > 0) return { zh, en };
+  }
+  // Fallback
   return {
     zh: [
-      { name: '科技', change: 1.2 },
-      { name: '消费', change: -0.8 },
-      { name: '能源', change: 0.3 },
-      { name: '金融', change: -0.5 },
-      { name: '医疗', change: 0.1 },
-      { name: '工业', change: 0.6 },
-      { name: '地产', change: -1.1 },
+      { name: '科技', change: 0 }, { name: '消费', change: 0 },
+      { name: '能源', change: 0 }, { name: '金融', change: 0 },
     ],
     en: [
-      { name: 'Tech', change: 1.2 },
-      { name: 'Consumer', change: -0.8 },
-      { name: 'Energy', change: 0.3 },
-      { name: 'Finance', change: -0.5 },
-      { name: 'Healthcare', change: 0.1 },
-      { name: 'Industrial', change: 0.6 },
-      { name: 'Real Estate', change: -1.1 },
+      { name: 'Tech', change: 0 }, { name: 'Consumer', change: 0 },
+      { name: 'Energy', change: 0 }, { name: 'Finance', change: 0 },
     ],
   };
 }
@@ -1140,7 +1162,9 @@ function renderIndustryPerf() {
 }
 
 // ========== Master Quick Opinions Row ==========
+let masterOpinionsData = null;
 function getMasterQuickOpinions() {
+  if (masterOpinionsData) return masterOpinionsData;
   return {
     zh: [
       { name: '段永平', opinion: '高估值缩水期，应观望', style: 'text-yellow' },
@@ -1298,15 +1322,13 @@ function toggleSector(idx) {
 }
 
 // ========== Impact Table (Dynamic, clickable tickers) ==========
+let impactTableData = null;
 function renderImpactTable() {
   const container = document.getElementById('impactTableContainer');
   if (!container) return;
   const lang = getLang();
-  const impacts = [
-    { event: lang === 'zh' ? 'NVDA财报超预期' : 'NVDA earnings beat', tickers: ['NVDA', 'AMD', 'TSM'], dir: 'bullish', logic: lang === 'zh' ? 'AI资本开支周期加速，FCF创新高验证现金流' : 'AI capex cycle accelerating, record FCF validates cash flow' },
-    { event: lang === 'zh' ? '10Y收益率上行' : '10Y yield rising', tickers: ['BRK-B', 'COST'], dir: 'mixed', logic: lang === 'zh' ? '折现率↑压缩成长股估值，利好价值股/保险浮存金' : 'Higher discount rate compresses growth; benefits value stocks/insurance float' },
-    { event: lang === 'zh' ? '中国刺激政策' : 'China stimulus', tickers: ['BABA', 'GOOGL'], dir: 'bullish', logic: lang === 'zh' ? '消费复苏利好电商，关注自由现金流改善' : 'Consumer recovery benefits e-commerce, watch FCF improvement' },
-    { event: lang === 'zh' ? '关税升级' : 'Tariff escalation', tickers: ['AAPL', 'COST'], dir: 'bearish', logic: lang === 'zh' ? '供应链成本↑ → 毛利率承压，关注定价权能否转嫁' : 'Supply chain cost ↑ → margin pressure, watch pricing power pass-through' },
+  const impacts = impactTableData?.[lang] || impactTableData?.zh || [
+    { event: lang === 'zh' ? 'NVDA财报超预期' : 'NVDA earnings beat', tickers: ['NVDA', 'AMD', 'TSM'], dir: 'bullish', logic: lang === 'zh' ? 'AI资本开支周期加速' : 'AI capex cycle accelerating' },
   ];
   const dirMap = { bullish: { cls: 'text-green', zh: '看多', en: 'Bullish' }, bearish: { cls: 'text-red', zh: '看空', en: 'Bearish' }, mixed: { cls: 'text-yellow', zh: '混合', en: 'Mixed' } };
   let html = `<table class="impact-table"><thead><tr><th>${t('recap.th_event')}</th><th>${t('recap.th_assets')}</th><th class="text-center">${t('recap.th_dir')}</th><th class="hide-mobile">${t('recap.th_logic')}</th></tr></thead><tbody>`;

@@ -127,5 +127,35 @@
         { "type": "red", "cat": "Macro", "title": "S&P YTD gains wiped, Blackstone Bcred sees $1.7B net outflows", "tk": "—", "q": "Private credit redemptions + war + tariffs = triple pressure. Don't panic buy. Patience." }
       ]
     }
+  },
+  "masterOpinions": {
+    "zh": [
+      { "name": "段永平", "opinion": "战争溢价不碰，持现金等S&P回调20%再出手", "style": "text-red" },
+      { "name": "Buffett", "opinion": "CVX/XOM在战时是现金牛，BABA $130有安全边际", "style": "text-green" },
+      { "name": "Munger", "opinion": "别被恐惧驱动，COST和NVDA的护城河不因战争改变", "style": "text-yellow" }
+    ],
+    "en": [
+      { "name": "DYP", "opinion": "War premium = avoid. Hold cash, wait for S&P -20%", "style": "text-red" },
+      { "name": "Buffett", "opinion": "CVX/XOM are wartime cash cows; BABA at $130 has margin of safety", "style": "text-green" },
+      { "name": "Munger", "opinion": "Don't let fear drive you. COST & NVDA moats survive wars", "style": "text-yellow" }
+    ]
+  },
+  "impactTable": {
+    "zh": [
+      { "event": "美伊冲突+霍尔木兹封锁", "tickers": ["XOM", "CVX"], "dir": "bullish", "logic": "全球20%石油经霍尔木兹，Brent飙升13%至$82，Goldman估$18/桶风险溢价" },
+      { "event": "最高法院推翻IEEPA关税(6:3)", "tickers": ["BABA", "COST", "AAPL"], "dir": "bullish", "logic": "对华关税法律基础瓦解，但特朗普122条新10%关税部分对冲利好" },
+      { "event": "Fed继续降息立场+Kraken获支付准入", "tickers": ["NVDA", "COIN", "BRK-B"], "dir": "mixed", "logic": "降息利好成长股估值，加密合法化里程碑，但压缩BRK浮存金收益" },
+      { "event": "S&P年内涨幅归零+Stagflation担忧", "tickers": ["COST", "UNH"], "dir": "bearish", "logic": "油价推高通胀+经济放缓=滞胀，UNH营收首次下滑，消费板块承压" },
+      { "event": "NVDA获Strong Buy+CoreWeave大单", "tickers": ["NVDA", "AMD", "TSM"], "dir": "bullish", "logic": "GB200需求持续验证，AI基建支出未见拐点，算力板块整体受益" },
+      { "event": "Apple M5新品连发三天", "tickers": ["AAPL", "TSM"], "dir": "mixed", "logic": "产品升级符合预期，MacBook Air涨价$100或影响需求弹性，TSM受芯片订单利好" }
+    ],
+    "en": [
+      { "event": "US-Iran conflict + Hormuz blockade", "tickers": ["XOM", "CVX"], "dir": "bullish", "logic": "20% global oil via Hormuz; Brent surges 13% to $82, Goldman estimates $18/bbl risk premium" },
+      { "event": "Supreme Court overturns IEEPA tariffs (6:3)", "tickers": ["BABA", "COST", "AAPL"], "dir": "bullish", "logic": "China tariff legal basis collapses; Trump's Section 122 10% partially offsets" },
+      { "event": "Fed dovish + Kraken gets payment access", "tickers": ["NVDA", "COIN", "BRK-B"], "dir": "mixed", "logic": "Rate cuts support growth valuations, crypto legitimization milestone, but compress BRK float yield" },
+      { "event": "S&P YTD gains wiped + stagflation fears", "tickers": ["COST", "UNH"], "dir": "bearish", "logic": "Oil pushes inflation + slowing economy = stagflation; UNH first revenue decline, consumer pressure" },
+      { "event": "NVDA Strong Buy + CoreWeave deal", "tickers": ["NVDA", "AMD", "TSM"], "dir": "bullish", "logic": "GB200 demand validated, AI infra spend shows no inflection, compute sector benefits broadly" },
+      { "event": "Apple M5 3-day product blitz", "tickers": ["AAPL", "TSM"], "dir": "mixed", "logic": "Product refresh as expected; MacBook Air +$100 may impact demand elasticity; TSM benefits from chip orders" }
+    ]
   }
 }

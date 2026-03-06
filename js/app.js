@@ -59,6 +59,9 @@ function getDefaultAnalysis(symbol, stock) {
   };
 }
 
+// ========== Alpha Events Data ==========
+let alphaEventsData = null;
+
 // ========== Signal Data ==========
 let signalData = {
   zh: {
@@ -130,6 +133,7 @@ async function loadAllData() {
     stockDetailsData = stockDetails;
     if (analysisData && Object.keys(analysisData).length > 0) stockAnalysis = analysisData;
     if (recapData?.signals) signalData = recapData.signals;
+    if (recapData?.alphaEvents) alphaEventsData = recapData.alphaEvents;
 
     renderTicker();
     renderMarketSnapshot();
@@ -973,6 +977,8 @@ function initLang() {
 
 // ========== Alpha Events Data ==========
 function getAlphaEvents() {
+  if (alphaEventsData) return alphaEventsData;
+  // Fallback hardcoded data
   return {
     zh: [
       {

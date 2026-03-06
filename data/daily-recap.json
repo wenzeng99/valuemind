@@ -1,0 +1,131 @@
+{
+  "date": "2026-03-06",
+  "alphaEvents": {
+    "zh": [
+      {
+        "conclusion": "美以联军持续打击伊朗，哈梅内伊在空袭中身亡，霍尔木兹海峡几近关闭（周一仅2艘油轮通过，正常60艘/天）",
+        "impacts": [
+          { "asset": "XOM/CVX", "direction": "up", "note": "全球20%石油经霍尔木兹，封锁直接推升供给溢价，Brent飙升13%至$82" },
+          { "asset": "COST/消费", "direction": "down", "note": "油价飙升推高运输成本，Goldman估算已含$18/桶风险溢价" },
+          { "asset": "Gold/BTC", "direction": "up", "note": "经典避险+数字黄金叙事，黄金测试$5,400后回落至$5,170" }
+        ],
+        "priority": "urgent",
+        "tags": ["地缘政治", "能源危机"]
+      },
+      {
+        "conclusion": "美国最高法院裁定IEEPA不授予总统征收关税权力(6:3)，特朗普转用Trade Act第122条加征10%",
+        "impacts": [
+          { "asset": "BABA", "direction": "up", "note": "对华关税压力缓解，中国资产反弹预期——BABA $130仍被低估" },
+          { "asset": "AAPL", "direction": "mixed", "note": "IEEPA关税取消利好，但122条新10%关税增加供应链成本" },
+          { "asset": "COST", "direction": "up", "note": "进口商品关税不确定性下降，采购成本压力缓解" }
+        ],
+        "priority": "urgent",
+        "tags": ["政策", "关税"]
+      },
+      {
+        "conclusion": "Fed理事Miran：尽管中东冲突，继续降息仍合适；Warsh面临降息承诺兑现难题，Powell任期5月到期",
+        "impacts": [
+          { "asset": "成长股/NVDA", "direction": "up", "note": "降息预期支撑估值，NVDA获Strong Buy升级" },
+          { "asset": "BRK-B", "direction": "mixed", "note": "降息压缩浮存金收益，但当前$500仍受高利率环境支撑" },
+          { "asset": "BTC/COIN", "direction": "up", "note": "降息+Kraken获Fed支付准入=加密行业合法性里程碑" }
+        ],
+        "priority": "important",
+        "tags": ["央行", "利率"]
+      },
+      {
+        "conclusion": "S&P 500年内涨幅全部蒸发，Dow跌403点(-0.83%)，Nasdaq跌1.02%，制造业PMI 51.6温和扩张",
+        "impacts": [
+          { "asset": "S&P 500", "direction": "down", "note": "风险偏好下降，stagflation担忧加剧，年内收益归零" },
+          { "asset": "NVDA", "direction": "up", "note": "CoreWeave-Perplexity多年GPU大单验证GB200需求" },
+          { "asset": "AAPL", "direction": "mixed", "note": "连续三天发布M5新品，MacBook Air涨价$100或影响需求弹性" }
+        ],
+        "priority": "inflection",
+        "tags": ["市场情绪", "财报"]
+      }
+    ],
+    "en": [
+      {
+        "conclusion": "US-Israel strikes continue on Iran, Khamenei killed in airstrike, Hormuz Strait nearly closed (only 2 tankers Monday vs normal 60/day)",
+        "impacts": [
+          { "asset": "XOM/CVX", "direction": "up", "note": "20% of global oil transits Hormuz; Brent surges 13% to $82, Goldman estimates $18/bbl risk premium" },
+          { "asset": "COST/Consumer", "direction": "down", "note": "Oil spike raises transport costs across supply chain" },
+          { "asset": "Gold/BTC", "direction": "up", "note": "Classic safe haven + digital gold narrative; gold tested $5,400 before retreating to $5,170" }
+        ],
+        "priority": "urgent",
+        "tags": ["Geopolitics", "Energy Crisis"]
+      },
+      {
+        "conclusion": "Supreme Court rules IEEPA does not grant tariff authority (6:3); Trump pivots to Trade Act Section 122 for 10% tariffs",
+        "impacts": [
+          { "asset": "BABA", "direction": "up", "note": "China tariff pressure eased, Chinese assets rebound expected — BABA at $130 still undervalued" },
+          { "asset": "AAPL", "direction": "mixed", "note": "IEEPA tariff removal positive, but new 10% Section 122 tariff adds supply chain costs" },
+          { "asset": "COST", "direction": "up", "note": "Import tariff uncertainty reduced, procurement cost pressure easing" }
+        ],
+        "priority": "urgent",
+        "tags": ["Policy", "Tariffs"]
+      },
+      {
+        "conclusion": "Fed Governor Miran: rate cuts still appropriate despite Middle East conflict; Warsh faces rate-cut pledge challenge, Powell term expires May",
+        "impacts": [
+          { "asset": "Growth/NVDA", "direction": "up", "note": "Rate cut expectations support valuations; NVDA upgraded to Strong Buy" },
+          { "asset": "BRK-B", "direction": "mixed", "note": "Rate cuts compress float yield, but $500 still supported by current high-rate environment" },
+          { "asset": "BTC/COIN", "direction": "up", "note": "Rate cuts + Kraken gets Fed payment access = crypto legitimization milestone" }
+        ],
+        "priority": "important",
+        "tags": ["Central Bank", "Rates"]
+      },
+      {
+        "conclusion": "S&P 500 YTD gains fully erased, Dow -403pts (-0.83%), Nasdaq -1.02%; Manufacturing PMI 51.6 mild expansion",
+        "impacts": [
+          { "asset": "S&P 500", "direction": "down", "note": "Risk-off sentiment rising, stagflation fears growing, YTD returns wiped" },
+          { "asset": "NVDA", "direction": "up", "note": "CoreWeave-Perplexity multi-year GPU deal validates GB200 demand" },
+          { "asset": "AAPL", "direction": "mixed", "note": "3-day M5 product blitz; MacBook Air +$100 price hike may impact demand elasticity" }
+        ],
+        "priority": "inflection",
+        "tags": ["Sentiment", "Earnings"]
+      }
+    ]
+  },
+  "signals": {
+    "zh": {
+      "duan": [
+        { "type": "green", "cat": "能源", "title": "霍尔木兹封锁+Brent飙升13%，XOM/CVX现金流将大超预期", "tk": "XOM", "q": "能源是刚需生意。全球20%石油经霍尔木兹，封锁=暴利。但不追地缘溢价，看长期FCF。" },
+        { "type": "green", "cat": "消费零售", "title": "最高法院推翻IEEPA关税+消费韧性验证，COST受益", "tk": "COST", "q": "关税不确定性下降，会员制护城河如茅台。油价越高消费者越需要性价比。" },
+        { "type": "yellow", "cat": "AI算力", "title": "NVDA获Strong Buy+CoreWeave大单，但PE 37x仍需耐心", "tk": "NVDA", "q": "GB200需求验证是好事。但$183不追，等战争恐慌给出更好价格。" },
+        { "type": "red", "cat": "地缘风险", "title": "美伊全面战争+霍尔木兹封锁，Stagflation风险飙升", "tk": "—", "q": "战争驱动不碰。S&P年内涨幅归零是信号，持有现金等待机会。" }
+      ],
+      "buffett": [
+        { "type": "green", "cat": "能源", "title": "CVX $190远低于内在价值，油价$82+分红稳定", "tk": "CVX", "q": "石油在战争中更不可替代。CVX分红+回购=现金回报率7%+，价格合理。" },
+        { "type": "green", "cat": "中概", "title": "BABA $130获关税缓解利好，PE仅17x", "tk": "BABA", "q": "最高法院裁决让中国资产喘口气。BABA的电商+云=双引擎，这个价格有安全边际。" },
+        { "type": "yellow", "cat": "保险", "title": "Fed继续降息立场，BRK浮存金收益面临拐点", "tk": "BRK-B", "q": "降息压缩浮存金收益率。$500的BRK不便宜，但$3733亿现金是最佳防御。" },
+        { "type": "red", "cat": "医疗", "title": "UNH营收首次预期下滑，Jefferies下调至$340", "tk": "UNH", "q": "好公司遇到坏时机。医疗成本飙升+监管压力，等管理层证明能扭转。" }
+      ],
+      "munger": [
+        { "type": "green", "cat": "消费零售", "title": "Costco在stagflation环境中的反脆弱性验证", "tk": "COST", "q": "最爱。油价越高、通胀越猛，消费者越需要Costco。会员费=纯利润，完美商业模式。" },
+        { "type": "green", "cat": "AI算力", "title": "NVDA PEG合理+CoreWeave/Perplexity大单验证长期需求", "tk": "NVDA", "q": "反转思维：什么让AI支出停止？目前看不到。但战争恐慌可能给出$150以下的好价格。" },
+        { "type": "yellow", "cat": "加密", "title": "Kraken获Fed支付准入+哈萨克斯坦主权基金$3.5亿配置加密", "tk": "COIN", "q": "机构化是不可逆趋势。但COIN PE 46x太贵，等市场恐慌时再考虑。" },
+        { "type": "red", "cat": "宏观", "title": "S&P年内涨幅归零，Blackstone Bcred遭$17亿净流出", "tk": "—", "q": "私人信贷赎回+战争+关税=三重压力。别被恐惧驱动，也别逆势抄底。耐心。" }
+      ]
+    },
+    "en": {
+      "duan": [
+        { "type": "green", "cat": "Energy", "title": "Hormuz blockade + Brent surges 13%, XOM/CVX cash flow to massively beat", "tk": "XOM", "q": "Energy is essential. 20% of global oil via Hormuz = blockade profit. Don't chase geo-premium, focus on long-term FCF." },
+        { "type": "green", "cat": "Consumer", "title": "Supreme Court overturns IEEPA tariffs + consumer resilience, COST benefits", "tk": "COST", "q": "Tariff uncertainty drops. Membership moat like Moutai. Higher oil = more need for value." },
+        { "type": "yellow", "cat": "AI Compute", "title": "NVDA gets Strong Buy + CoreWeave deal, but PE 37x needs patience", "tk": "NVDA", "q": "GB200 demand validated. But don't chase $183, wait for war panic pricing." },
+        { "type": "red", "cat": "Geopolitics", "title": "US-Iran full war + Hormuz closure, stagflation risk surging", "tk": "—", "q": "War-driven = avoid. S&P YTD gains wiped is the signal. Hold cash, wait." }
+      ],
+      "buffett": [
+        { "type": "green", "cat": "Energy", "title": "CVX at $190 well below intrinsic value, oil $82+ with stable dividends", "tk": "CVX", "q": "Oil is irreplaceable in wartime. CVX div+buyback = 7%+ cash return. Fair price." },
+        { "type": "green", "cat": "China", "title": "BABA at $130 gets tariff relief, PE only 17x", "tk": "BABA", "q": "Supreme Court ruling gives Chinese assets room. BABA e-commerce+cloud = dual engine at margin of safety." },
+        { "type": "yellow", "cat": "Insurance", "title": "Fed maintains rate cut stance, BRK float yield faces inflection", "tk": "BRK-B", "q": "Rate cuts compress float yield. BRK at $500 not cheap, but $373B cash is ultimate defense." },
+        { "type": "red", "cat": "Healthcare", "title": "UNH first revenue decline in decades, Jefferies cuts to $340", "tk": "UNH", "q": "Good company, bad timing. Soaring medical costs + regulatory pressure. Wait for turnaround proof." }
+      ],
+      "munger": [
+        { "type": "green", "cat": "Consumer", "title": "Costco anti-fragility validated in stagflation environment", "tk": "COST", "q": "Favorite. Higher oil, higher inflation = more Costco demand. Membership fee = pure profit." },
+        { "type": "green", "cat": "AI Compute", "title": "NVDA PEG reasonable + CoreWeave/Perplexity deal validates long-term demand", "tk": "NVDA", "q": "Invert: what stops AI spend? Nothing visible yet. War panic may give $150 entry." },
+        { "type": "yellow", "cat": "Crypto", "title": "Kraken gets Fed payment access + Kazakhstan sovereign fund allocates $350M", "tk": "COIN", "q": "Institutionalization is irreversible. But COIN PE 46x too rich, wait for panic." },
+        { "type": "red", "cat": "Macro", "title": "S&P YTD gains wiped, Blackstone Bcred sees $1.7B net outflows", "tk": "—", "q": "Private credit redemptions + war + tariffs = triple pressure. Don't panic buy. Patience." }
+      ]
+    }
+  }
+}

@@ -257,7 +257,7 @@
         "verdict": "Fair value range $145-175. Current price bakes in optimistic scenario, needs continuous beats to sustain."
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.066Z",
+    "_updatedAt": "2026-03-06T13:04:30.140Z",
     "_price": 183.34
   },
   "AAPL": {
@@ -518,7 +518,7 @@
         "verdict": "Fair value range $200-235. Current price requires sustained Services growth + AI catch-up to justify."
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.070Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 260.29
   },
   "MSFT": {
@@ -779,7 +779,7 @@
         "verdict": "Fair value range $370-420. Current price reflects fair expectations, $360-380 pullback is a better entry."
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.070Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 410.68
   },
   "GOOGL": {
@@ -1040,7 +1040,7 @@
         "verdict": "Fair to slightly expensive — Cloud growth supports premium, but massive capex pressure suggests waiting for a 5-10% pullback"
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.070Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 300.88
   },
   "AMZN": {
@@ -1301,7 +1301,7 @@
         "verdict": "Fairly valued — PEG of 1.44 is attractive, but $200B capex return uncertainty demands a discount. Accumulate below $190."
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.070Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 218.94
   },
   "META": {
@@ -1562,7 +1562,7 @@
         "verdict": "Undervalued — PEG of 1.09 is lowest among Mag 7; AI ad growth trajectory has high certainty; Reality Labs loss peak is free optionality. Recommend active buying."
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.070Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 660.57
   },
   "TSM": {
@@ -1823,7 +1823,7 @@
         "verdict": "Fair to slightly rich — AI demand certainty supports premium, but 26x PE prices in most growth. Accumulate below $170 or build position with geopolitical hedges via options."
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 353.86
   },
   "COST": {
@@ -2084,7 +2084,7 @@
         "verdict": "Outstanding quality but expensive — hold if owned; new positions better below $850"
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.070Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 982.57
   },
   "BRK-B": {
@@ -2345,7 +2345,7 @@
         "verdict": "Fairly valued with $334B cash cushion — suitable as a long-term core holding"
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 500.4
   },
   "BABA": {
@@ -2606,7 +2606,7 @@
         "verdict": "Extremely undervalued (if political risks are discounted) — AI catalyst could trigger re-rating, but risks cannot be ignored"
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 130.35
   },
   "AMD": {
@@ -2867,7 +2867,7 @@
         "verdict": "Fair to slightly expensive; MI300X ramp must be sustained"
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 199.45
   },
   "CVX": {
@@ -3128,7 +3128,7 @@
         "verdict": "Cheap valuation; dividend + buyback provide downside protection"
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 189.9
   },
   "COIN": {
@@ -3389,7 +3389,7 @@
         "verdict": "Fairly valued but extreme volatility; better as a cycle trade than long-term hold"
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 205.71
   },
   "CRM": {
@@ -3650,7 +3650,7 @@
         "verdict": "Fairly valued; margin expansion is the core thesis; AI Agentforce provides upside optionality"
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 201.39
   },
   "UNH": {
@@ -3911,7 +3911,7 @@
         "verdict": "Clearly undervalued; social fear creating buying opportunity; long-term compounding certain"
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 288.77
   },
   "XOM": {
@@ -4172,7 +4172,7 @@
         "verdict": "Fair to slightly cheap; Pioneer integration unlocking value + Dividend Aristocrat provides long-term certainty"
       }
     },
-    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_updatedAt": "2026-03-06T13:04:30.147Z",
     "_price": 150.76
   }
 }

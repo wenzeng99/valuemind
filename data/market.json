@@ -99,20 +99,6 @@
       "fiftyTwoWeekLow": 344.79
     },
     {
-      "symbol": "COST",
-      "name": "Costco Wholesale Corporation",
-      "price": 982.57,
-      "change": -2.4,
-      "pe": null,
-      "marketCap": "—",
-      "volume": 2752865,
-      "dayHigh": 999.25,
-      "dayLow": 978.81,
-      "open": 982.57,
-      "fiftyTwoWeekHigh": 1067.08,
-      "fiftyTwoWeekLow": 844.06
-    },
-    {
       "symbol": "GOOGL",
       "name": "Alphabet Inc.",
       "price": 300.88,
@@ -153,20 +139,6 @@
       "open": 660.57,
       "fiftyTwoWeekHigh": 796.25,
       "fiftyTwoWeekLow": 479.8
-    },
-    {
-      "symbol": "TSM",
-      "name": "Taiwan Semiconductor Manufactur",
-      "price": 353.86,
-      "change": -1,
-      "pe": null,
-      "marketCap": "—",
-      "volume": 16200662,
-      "dayHigh": 359.47,
-      "dayLow": 343.8,
-      "open": 353.86,
-      "fiftyTwoWeekHigh": 390.21,
-      "fiftyTwoWeekLow": 134.25
     },
     {
       "symbol": "BRK-B",
@@ -210,37 +182,37 @@
     {
       "symbol": "DX-Y.NYB",
       "name": "ICE US Dollar Index - Index - C",
-      "price": 99.228,
-      "change": -0.09,
+      "price": 99.331,
+      "change": 0.01,
       "prevClose": 99.317,
-      "dayHigh": 99.299,
+      "dayHigh": 99.417,
       "dayLow": 98.942
     },
     {
       "symbol": "GC=F",
       "name": "Gold Apr 26",
-      "price": 5092.5,
-      "change": 0.27,
+      "price": 5095.8,
+      "change": 0.34,
       "prevClose": 5078.7,
       "dayHigh": 5151.3,
-      "dayLow": 5074
+      "dayLow": 5071
     },
     {
       "symbol": "CL=F",
       "name": "Crude Oil Apr 26",
-      "price": 84.12,
-      "change": 3.84,
+      "price": 86.52,
+      "change": 6.8,
       "prevClose": 81.01,
-      "dayHigh": 84.9,
+      "dayHigh": 86.6,
       "dayLow": 78.24
     },
     {
       "symbol": "^VIX",
       "name": "CBOE Volatility Index",
-      "price": 24.25,
-      "change": 2.11,
+      "price": 26.15,
+      "change": 10.11,
       "prevClose": 23.75,
-      "dayHigh": 24.87,
+      "dayHigh": 26.15,
       "dayLow": 22.92
     }
   ]

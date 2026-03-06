@@ -457,9 +457,12 @@ async function loadAllData() {
 
     renderTicker();
     renderMarketSnapshot();
+    renderIndustryPerf();
     renderFearGreed();
+    renderAlphaEvents();
+    renderMasterOpinions();
+    renderNewsFilterBar();
     renderNews();
-    renderHeadlineSummary();
     renderSectorTags();
     renderImpactTable();
     renderLastUpdate();
@@ -554,8 +557,25 @@ function renderNews() {
     container.innerHTML = `<div class="news-item"><div class="news-content"><div class="news-title" style="color:var(--text-secondary)">${t('recap.no_news')}</div></div></div>`;
     return;
   }
+
+  // Apply classification filter
+  let filtered = newsData.slice(0, 15);
+  if (activeNewsFilter) {
+    filtered = filtered.filter(n => {
+      const cls = n.classification || classifyNewsItem(n);
+      return cls === activeNewsFilter;
+    });
+  }
+  // Apply tag filter
+  if (activeNewsTags.size > 0) {
+    filtered = filtered.filter(n => {
+      const nTags = (n.tags || []).map(t => typeof t === 'string' ? t : t.symbol || '');
+      return [...activeNewsTags].some(ft => nTags.some(nt => nt.includes(ft)));
+    });
+  }
+
   let html = '';
-  newsData.slice(0, 10).forEach(n => {
+  filtered.slice(0, 10).forEach(n => {
     const sentCls = n.sentiment === 'positive' ? 'tag-positive' : n.sentiment === 'negative' ? 'tag-negative' : 'tag-neutral';
     const tags = (n.tags || []).slice(0, 3).map(tag =>
       `<span class="news-tag tag-default">${typeof tag === 'string' ? tag : tag.symbol || tag}</span>`
@@ -563,9 +583,39 @@ function renderNews() {
     const titleTag = n.url && n.url !== '#'
       ? `<a class="news-title" href="${escapeAttr(n.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(n.title)}</a>`
       : `<span class="news-title">${escapeHtml(n.title)}</span>`;
-    html += `<div class="news-item"><div class="news-time">${escapeHtml(n.time || '')}</div><div class="news-content">${titleTag}<div class="news-meta"><span class="news-source">${escapeHtml(n.source || '')}</span>${n.sentiment ? `<span class="news-tag ${sentCls}">${n.sentiment}</span>` : ''}${tags}</div></div></div>`;
+    // Show classification badge
+    const cls = n.classification || classifyNewsItem(n);
+    const clsBadge = getClassificationBadge(cls);
+    html += `<div class="news-item"><div class="news-time">${escapeHtml(n.time || '')}</div><div class="news-content">${titleTag}<div class="news-meta"><span class="news-source">${escapeHtml(n.source || '')}</span>${clsBadge}${n.sentiment ? `<span class="news-tag ${sentCls}">${n.sentiment}</span>` : ''}${tags}</div></div></div>`;
   });
+  if (filtered.length === 0) {
+    const lang = getLang();
+    const noMatch = lang === 'zh' ? '无匹配新闻' : 'No matching news';
+    html = `<div class="news-item"><div class="news-content"><div class="news-title" style="color:var(--text-secondary)">${noMatch}</div></div></div>`;
+  }
   container.innerHTML = html;
+}
+
+// Classify a news item based on sentiment and tags (heuristic)
+function classifyNewsItem(n) {
+  const sent = n.sentiment || '';
+  const tags = (n.tags || []).map(t => typeof t === 'string' ? t.toLowerCase() : '');
+  const title = (n.title || '').toLowerCase();
+  if (sent === 'negative' || tags.some(t => t.includes('risk') || t.includes('风险')) || title.includes('crash') || title.includes('暴跌')) return 'urgent';
+  if (sent === 'positive' || tags.some(t => t.includes('earn') || t.includes('财报') || t.includes('policy') || t.includes('政策'))) return 'important';
+  if (tags.some(t => t.includes('data') || t.includes('数据') || t.includes('inflect'))) return 'inflection';
+  return 'noise';
+}
+
+function getClassificationBadge(cls) {
+  const map = {
+    urgent: { icon: '\uD83D\uDD34', cls: 'tag-negative' },
+    important: { icon: '\uD83D\uDFE1', cls: 'tag-neutral' },
+    inflection: { icon: '\uD83D\uDCA1', cls: 'tag-default' },
+    noise: { icon: '\uD83D\uDCAC', cls: 'tag-default' },
+  };
+  const m = map[cls] || map.noise;
+  return `<span class="news-tag ${m.cls}">${m.icon}</span>`;
 }
 
 // ========== Last Update ==========
@@ -660,19 +710,136 @@ function renderMoatAnalysis(analysis, lang, master) {
   `;
 }
 
-// ========== Valuation Renderer ==========
-function renderValuation(analysis, lang) {
+// ========== Valuation Tool — Interactive DCF/PE/PEG ==========
+let currentValModel = 'dcf';
+let valSliderState = {};
+function calculateDCF(params) {
+  const { revenue, growthRate, terminalGrowth, wacc, grossMargin, sharesOutstanding } = params;
+  let fcfs = [], rev = revenue;
+  const midGrowth = (growthRate + terminalGrowth) / 2;
+  for (let yr = 1; yr <= 10; yr++) {
+    let g = yr <= 5 ? growthRate - (growthRate - midGrowth) * ((yr - 1) / 4) : midGrowth - (midGrowth - terminalGrowth) * ((yr - 5) / 5);
+    rev = rev * (1 + g); fcfs.push(rev * grossMargin * 0.7);
+  }
+  const tv = fcfs[9] * (1 + terminalGrowth) / (wacc - terminalGrowth);
+  let pv = 0;
+  for (let i = 0; i < 10; i++) pv += fcfs[i] / Math.pow(1 + wacc, i + 1);
+  pv += tv / Math.pow(1 + wacc, 10);
+  const mid = pv / sharesOutstanding;
+  return { low: mid * 0.85, mid, high: mid * 1.15 };
+}
+function getValDefaults(symbol) {
+  const sd = stockDetailsData?.[symbol];
+  if (!sd) return null;
+  const revenue = sd.revenue || 100e9, growthRate = sd.revenueGrowth != null ? sd.revenueGrowth : 0.15;
+  const grossMargin = sd.grossMargin != null ? sd.grossMargin : 0.5, price = sd.price || 100;
+  const marketCapRaw = sd.marketCapRaw || 1e12, sharesOutstanding = price > 0 ? marketCapRaw / price : 1e9;
+  const eps = sd.eps || (price / (sd.pe || 25)), pe = sd.pe || 25, forwardPE = sd.forwardPE || pe;
+  return { revenue, growthRate, grossMargin, price, sharesOutstanding, eps, pe, forwardPE, terminalGrowth: 0.03, wacc: 0.10 };
+}
+function renderValuationTool(analysis, lang, symbol) {
   const container = document.getElementById('valuationContainer');
-  if (!container || !analysis.valuation) { if(container) container.innerHTML = ''; return; }
-  const v = analysis.valuation[lang] || analysis.valuation.en;
-  container.innerHTML = `
-    <div class="valuation-methods">
-      <div class="val-method"><div class="val-method-label">DCF</div><div class="val-method-value mono fw-700">${v.dcf.value}</div><div class="val-method-detail">${v.dcf.method}</div><div class="val-method-note text-muted">${v.dcf.note}</div></div>
-      <div class="val-method"><div class="val-method-label">${lang === 'zh' ? '同行对比' : 'Peer Comp'}</div><div class="val-method-value mono fw-700">${v.peerComp.value}</div><div class="val-method-detail">${v.peerComp.method}</div><div class="val-method-note text-muted">${v.peerComp.note}</div></div>
-    </div>
-    <div class="val-margin"><span class="fw-600">${lang === 'zh' ? '安全边际' : 'Margin of Safety'}:</span> ${v.grahamMargin}</div>
-    <div class="val-verdict fw-600">${v.verdict}</div>
-  `;
+  if (!container) return;
+  const defaults = getValDefaults(symbol);
+  if (!defaults) {
+    if (!analysis.valuation) { container.innerHTML = ''; return; }
+    const v = analysis.valuation[lang] || analysis.valuation.en;
+    container.innerHTML = `<div class="valuation-methods"><div class="val-method"><div class="val-method-label">DCF</div><div class="val-method-value mono fw-700">${v.dcf.value}</div><div class="val-method-detail">${v.dcf.method}</div><div class="val-method-note text-muted">${v.dcf.note}</div></div><div class="val-method"><div class="val-method-label">${lang === 'zh' ? '同行对比' : 'Peer Comp'}</div><div class="val-method-value mono fw-700">${v.peerComp.value}</div><div class="val-method-detail">${v.peerComp.method}</div><div class="val-method-note text-muted">${v.peerComp.note}</div></div></div><div class="val-margin"><span class="fw-600">${lang === 'zh' ? '安全边际' : 'Margin of Safety'}:</span> ${v.grahamMargin}</div><div class="val-verdict fw-600">${v.verdict}</div>`;
+    return;
+  }
+  if (!valSliderState[symbol]) {
+    valSliderState[symbol] = { terminalGrowth: defaults.terminalGrowth, wacc: defaults.wacc, growthRate: Math.min(Math.max(defaults.growthRate, 0.05), 0.80), grossMargin: Math.min(Math.max(defaults.grossMargin, 0.05), 0.95), peMultiple: Math.round(defaults.forwardPE || defaults.pe || 25), forwardEPS: defaults.eps, pegGrowth: defaults.growthRate };
+  }
+  const st = valSliderState[symbol];
+  if (currentValModel === 'dcf') renderDCFPanel(container, defaults, st, symbol, lang);
+  else if (currentValModel === 'pe') renderPEPanel(container, defaults, st, symbol, lang);
+  else if (currentValModel === 'peg') renderPEGPanel(container, defaults, st, symbol, lang);
+  else if (currentValModel === 'peer') renderPeerPanel(container, defaults, symbol, lang);
+}
+function _valStatus(diff, lang) {
+  if (diff < -10) return { cls: 'undervalued', text: lang === 'zh' ? '低估' : 'Undervalued' };
+  if (diff > 10) return { cls: 'overvalued', text: lang === 'zh' ? '高估' : 'Overvalued' };
+  return { cls: 'fair', text: lang === 'zh' ? '合理' : 'Fair Value' };
+}
+function _slider(id, label, min, max, step, value, fmt, symbol) {
+  return `<div class="val-slider-group"><div class="val-slider-header"><span class="val-slider-label">${label}</span><span class="val-slider-value" id="valDisp_${id}">${fmt(value)}</span></div><div class="val-slider-range"><span class="range-label">${fmt(min)}</span><input type="range" class="val-slider-input" id="valSlider_${id}" min="${min}" max="${max}" step="${step}" value="${value}" oninput="vmApp.onSliderChange('${symbol}','${id}',this.value)"><span class="range-label">${fmt(max)}</span></div></div>`;
+}
+function renderDCFPanel(container, defaults, st, symbol, lang) {
+  const { terminalGrowth: tg, wacc, growthRate: gr, grossMargin: gm } = st;
+  const result = calculateDCF({ revenue: defaults.revenue, growthRate: gr, terminalGrowth: tg, wacc, grossMargin: gm, sharesOutstanding: defaults.sharesOutstanding });
+  const price = defaults.price, diff = ((price - result.mid) / result.mid * 100);
+  const { cls: statusCls, text: statusText } = _valStatus(diff, lang);
+  const fp = (v) => '$' + v.toFixed(0), fpct = (v) => (v * 100).toFixed(1) + '%', sign = diff >= 0 ? '+' : '';
+  const waccVals = [0.08, 0.09, 0.10, 0.11, 0.12], growthVals = [0.02, 0.025, 0.03, 0.035, 0.04];
+  let sensHTML = `<table class="sensitivity-table"><caption>${lang === 'zh' ? '敏感性分析: WACC vs 终端增长率' : 'Sensitivity: WACC vs Terminal Growth'}</caption><thead><tr><th>${lang === 'zh' ? 'WACC \\ 终端增速' : 'WACC \\ Term.G'}</th>`;
+  growthVals.forEach(g => { sensHTML += `<th>${(g*100).toFixed(1)}%</th>`; });
+  sensHTML += '</tr></thead><tbody>';
+  waccVals.forEach(w => {
+    sensHTML += `<tr><th>${(w*100).toFixed(0)}%</th>`;
+    growthVals.forEach(g => {
+      const r = calculateDCF({ revenue: defaults.revenue, growthRate: gr, terminalGrowth: g, wacc: w, grossMargin: gm, sharesOutstanding: defaults.sharesOutstanding });
+      const isHL = Math.abs(w - wacc) < 0.001 && Math.abs(g - tg) < 0.001;
+      const cd = ((price - r.mid) / r.mid * 100);
+      sensHTML += `<td class="${isHL ? 'cell-highlight' : cd < -10 ? 'cell-green' : cd > 10 ? 'cell-red' : 'cell-yellow'}">${fp(r.mid)}</td>`;
+    });
+    sensHTML += '</tr>';
+  });
+  sensHTML += '</tbody></table>';
+  const dateStr = new Date().toISOString().slice(0, 10);
+  container.innerHTML = `${_slider('tg', lang === 'zh' ? '终端增长率' : 'Terminal Growth', 0.01, 0.06, 0.005, tg, fpct, symbol)}${_slider('wacc', 'WACC', 0.06, 0.15, 0.005, wacc, fpct, symbol)}${_slider('gr', lang === 'zh' ? '近期增速' : 'Near-term Growth', 0.05, 0.80, 0.01, gr, fpct, symbol)}${_slider('gm', lang === 'zh' ? '毛利率' : 'Gross Margin', 0.10, 0.95, 0.01, gm, fpct, symbol)}<div class="val-result-box"><div class="val-result-range">${lang === 'zh' ? '估值范围' : 'Fair Value Range'}: ${fp(result.low)} - ${fp(result.high)}</div><div class="val-result-mid">${lang === 'zh' ? '中位数' : 'Midpoint'}: <span class="mid-value">${fp(result.mid)}</span></div><div class="val-result-compare ${statusCls}">${lang === 'zh' ? '当前股价' : 'Current'} ${fp(price)} ${lang === 'zh' ? '相对中位数' : 'vs mid'}: ${sign}${diff.toFixed(1)}% (${statusText})</div></div>${sensHTML}<div class="val-data-source">${lang === 'zh' ? '数据源' : 'Source'}: Yahoo Finance | ${lang === 'zh' ? '更新' : 'Updated'}: ${dateStr}</div>`;
+}
+function renderPEPanel(container, defaults, st, symbol, lang) {
+  const peVal = st.peMultiple, epsVal = st.forwardEPS, fairValue = peVal * epsVal;
+  const price = defaults.price, diff = ((price - fairValue) / fairValue * 100);
+  const { cls: statusCls, text: statusText } = _valStatus(diff, lang);
+  const sign = diff >= 0 ? '+' : '', dateStr = new Date().toISOString().slice(0, 10);
+  container.innerHTML = `<div class="val-slider-group"><div class="val-slider-header"><span class="val-slider-label">${lang === 'zh' ? '目标PE倍数' : 'Target PE Multiple'}</span><span class="val-slider-value" id="valDisp_pe">${peVal}x</span></div><div class="val-slider-range"><span class="range-label">10x</span><input type="range" class="val-slider-input" id="valSlider_pe" min="10" max="80" step="1" value="${peVal}" oninput="vmApp.onSliderChange('${symbol}','pe',this.value)"><span class="range-label">80x</span></div></div><div class="val-pe-input-group"><label>${lang === 'zh' ? '远期 EPS' : 'Forward EPS'}</label><input type="number" class="val-pe-input" id="valInput_eps" value="${epsVal.toFixed(2)}" step="0.01" onchange="vmApp.onSliderChange('${symbol}','eps',this.value)"></div><div class="val-result-box"><div class="val-result-range">${lang === 'zh' ? '公允价值' : 'Fair Value'} = ${peVal}x x $${epsVal.toFixed(2)} = <strong>$${fairValue.toFixed(0)}</strong></div><div class="val-result-compare ${statusCls}" style="margin-top:8px">${lang === 'zh' ? '当前股价' : 'Current'} $${price.toFixed(0)} vs $${fairValue.toFixed(0)}: ${sign}${diff.toFixed(1)}% (${statusText})</div></div><div class="val-data-source">${lang === 'zh' ? '数据源' : 'Source'}: Yahoo Finance | ${lang === 'zh' ? '更新' : 'Updated'}: ${dateStr}</div>`;
+}
+function renderPEGPanel(container, defaults, st, symbol, lang) {
+  const pe = defaults.pe || 25, growthPct = (st.pegGrowth * 100);
+  const peg = growthPct > 0 ? (pe / growthPct).toFixed(2) : '—';
+  const pegNum = parseFloat(peg);
+  let statusCls, statusText;
+  if (pegNum <= 1.0) { statusCls = 'undervalued'; statusText = lang === 'zh' ? '低估 (PEG<=1)' : 'Undervalued (PEG<=1)'; }
+  else if (pegNum <= 1.5) { statusCls = 'fair'; statusText = lang === 'zh' ? '合理 (1<PEG<=1.5)' : 'Fair (1<PEG<=1.5)'; }
+  else { statusCls = 'overvalued'; statusText = lang === 'zh' ? '偏高 (PEG>1.5)' : 'Expensive (PEG>1.5)'; }
+  const fpct = (v) => (v * 100).toFixed(1) + '%', dateStr = new Date().toISOString().slice(0, 10);
+  container.innerHTML = `<div class="val-slider-group"><div class="val-slider-header"><span class="val-slider-label">${lang === 'zh' ? '预期盈利增速 (EPS Growth)' : 'Expected EPS Growth'}</span><span class="val-slider-value" id="valDisp_pegGr">${fpct(st.pegGrowth)}</span></div><div class="val-slider-range"><span class="range-label">5%</span><input type="range" class="val-slider-input" id="valSlider_pegGr" min="0.05" max="1.0" step="0.01" value="${st.pegGrowth}" oninput="vmApp.onSliderChange('${symbol}','pegGr',this.value)"><span class="range-label">100%</span></div></div><div class="val-result-box"><div class="val-result-range">PE = ${pe.toFixed(1)}x, ${lang === 'zh' ? '增速' : 'Growth'} = ${growthPct.toFixed(1)}%</div><div class="val-result-mid">PEG = <span class="mid-value">${peg}</span></div><div class="val-result-compare ${statusCls}" style="margin-top:8px">${statusText}</div></div><div class="val-data-source">${lang === 'zh' ? '数据源' : 'Source'}: Yahoo Finance | ${lang === 'zh' ? '更新' : 'Updated'}: ${dateStr}</div>`;
+}
+function renderPeerPanel(container, defaults, symbol, lang) {
+  const peers = Object.entries(stockDetailsData || {}).filter(([s]) => s !== symbol).slice(0, 6);
+  const sd = stockDetailsData?.[symbol];
+  if (!sd) { container.innerHTML = ''; return; }
+  const fr = (v, s) => v != null ? v.toFixed(1) + (s || 'x') : '—', fp = (v) => v != null ? (v * 100).toFixed(1) + '%' : '—';
+  const dateStr = new Date().toISOString().slice(0, 10);
+  let rows = `<tr class="current-stock"><td class="col-symbol">${symbol}</td><td>${fr(sd.pe)}</td><td>${fr(sd.forwardPE)}</td><td>${fp(sd.revenueGrowth)}</td><td>${fp(sd.grossMargin)}</td><td>${fr(sd.evEbitda)}</td></tr>`;
+  peers.forEach(([s, d]) => { rows += `<tr onclick="vmApp.quickTicker('${s}')"><td class="col-symbol">${s}</td><td>${fr(d.pe)}</td><td>${fr(d.forwardPE)}</td><td>${fp(d.revenueGrowth)}</td><td>${fp(d.grossMargin)}</td><td>${fr(d.evEbitda)}</td></tr>`; });
+  container.innerHTML = `<table class="peer-comp-table"><thead><tr><th>${lang === 'zh' ? '代码' : 'Symbol'}</th><th>PE</th><th>${lang === 'zh' ? '远期PE' : 'Fwd PE'}</th><th>${lang === 'zh' ? '营收增速' : 'Rev Growth'}</th><th>${lang === 'zh' ? '毛利率' : 'Gross Margin'}</th><th>EV/EBITDA</th></tr></thead><tbody>${rows}</tbody></table><div class="val-data-source">${lang === 'zh' ? '数据源' : 'Source'}: Yahoo Finance | ${lang === 'zh' ? '更新' : 'Updated'}: ${dateStr}</div>`;
+}
+function switchValModel(model) {
+  currentValModel = model;
+  document.querySelectorAll('.val-model-tab').forEach(b => b.classList.toggle('active', b.dataset.vmodel === model));
+  const symbol = document.getElementById('tickerInput')?.value?.trim().toUpperCase() || 'NVDA';
+  const analysis = stockAnalysis[symbol] || getDefaultAnalysis(symbol);
+  renderValuationTool(analysis, getLang(), symbol);
+}
+function onSliderChange(symbol, param, value) {
+  const v = parseFloat(value);
+  if (!valSliderState[symbol]) return;
+  const st = valSliderState[symbol], fpct = (x) => (x * 100).toFixed(1) + '%';
+  if (param === 'tg') { st.terminalGrowth = v; const d = document.getElementById('valDisp_tg'); if(d) d.textContent = fpct(v); }
+  else if (param === 'wacc') { st.wacc = v; const d = document.getElementById('valDisp_wacc'); if(d) d.textContent = fpct(v); }
+  else if (param === 'gr') { st.growthRate = v; const d = document.getElementById('valDisp_gr'); if(d) d.textContent = fpct(v); }
+  else if (param === 'gm') { st.grossMargin = v; const d = document.getElementById('valDisp_gm'); if(d) d.textContent = fpct(v); }
+  else if (param === 'pe') { st.peMultiple = v; const d = document.getElementById('valDisp_pe'); if(d) d.textContent = v + 'x'; }
+  else if (param === 'eps') { st.forwardEPS = v; }
+  else if (param === 'pegGr') { st.pegGrowth = v; const d = document.getElementById('valDisp_pegGr'); if(d) d.textContent = fpct(v); }
+  const analysis = stockAnalysis[symbol] || getDefaultAnalysis(symbol);
+  renderValuationTool(analysis, getLang(), symbol);
+}
+function renderValuation(analysis, lang) {
+  const symbol = document.getElementById('tickerInput')?.value?.trim().toUpperCase() || 'NVDA';
+  renderValuationTool(analysis, lang, symbol);
 }
 
 // ========== Deep Analysis — FULLY DYNAMIC ==========
@@ -794,7 +961,7 @@ function renderDeepAnalysis(symbol) {
   el('verdictResult').textContent = analysis.verdict[lang] || analysis.verdict.en;
   el('verdictResult').className = 'fw-700 ' + analysis.verdictColor;
 
-  // Chart
+  // Chart (removed — K-line chart panel no longer exists)
   const svg = document.getElementById('chartSvg');
   if (svg) {
     const basePrice = stock?.price || 100;
@@ -812,7 +979,7 @@ function renderDeepAnalysis(symbol) {
 
 // ========== Tab Switching ==========
 function switchMainTab(tab) {
-  ['recap', 'signal', 'deep'].forEach(tabId => {
+  ['recap', 'signal', 'deep', 'compare'].forEach(tabId => {
     const page = document.getElementById('page-' + tabId);
     const btn = document.getElementById('mainTab-' + tabId);
     if (page) page.classList.toggle('active', tabId === tab);
@@ -820,6 +987,7 @@ function switchMainTab(tab) {
   });
   if (tab === 'signal') renderSignals(currentMaster.signal);
   if (tab === 'deep') renderDeepAnalysis(document.getElementById('tickerInput')?.value || 'NVDA');
+  if (tab === 'compare') renderComparisonPage();
 }
 
 function switchMaster(master, ctx) {
@@ -938,37 +1106,272 @@ function initLang() {
   });
 }
 
-// ========== Headline Summary (Value Investing Focus) ==========
-function renderHeadlineSummary() {
-  const container = document.getElementById('headlineSummary');
+// ========== Alpha Events Data ==========
+function getAlphaEvents() {
+  return {
+    zh: [
+      {
+        conclusion: 'NVDA Q4营收$39.3B超预期+78%，AI算力现金流持续验证',
+        impacts: [
+          { asset: 'NVDA', direction: 'up', note: 'FCF创新高$16.8B，Blackwell加速出货' },
+          { asset: 'AMD/TSM', direction: 'up', note: 'AI算力板块整体受益' },
+        ],
+        priority: 'important', // urgent / important / inflection
+        tags: ['财报', '行业动态'],
+      },
+      {
+        conclusion: '美联储官员暗示降息推迟，10Y收益率升至4.15%',
+        impacts: [
+          { asset: '成长股', direction: 'down', note: 'DCF折现率上升，估值承压' },
+          { asset: 'BRK-B/银行', direction: 'up', note: '保险浮存金/净息差受益' },
+        ],
+        priority: 'urgent',
+        tags: ['央行', '政策'],
+      },
+      {
+        conclusion: '中国出台新一轮消费刺激政策，恒指反弹2.3%',
+        impacts: [
+          { asset: 'BABA/BYD', direction: 'up', note: '电商+新能源车政策利好' },
+          { asset: 'AAPL中国', direction: 'mixed', note: '消费复苏但竞争加剧' },
+        ],
+        priority: 'important',
+        tags: ['政策', '机会'],
+      },
+      {
+        conclusion: 'BTC ETF单日净流入$12亿创纪录，机构配置加速',
+        impacts: [
+          { asset: 'BTC/ETH', direction: 'up', note: '机构化推升流动性溢价' },
+          { asset: 'COIN', direction: 'up', note: '交易手续费收入直接受益' },
+        ],
+        priority: 'inflection',
+        tags: ['行业动态', '机会'],
+      },
+      {
+        conclusion: '特朗普宣布对华关税从25%升至35%，供应链风险升级',
+        impacts: [
+          { asset: 'AAPL/TSLA', direction: 'down', note: '中国供应链成本上升' },
+          { asset: 'COST', direction: 'down', note: '进口商品成本转嫁压力' },
+        ],
+        priority: 'urgent',
+        tags: ['政策', '风险'],
+      },
+    ],
+    en: [
+      {
+        conclusion: 'NVDA Q4 revenue $39.3B beat +78%, AI compute cash flow thesis confirmed',
+        impacts: [
+          { asset: 'NVDA', direction: 'up', note: 'FCF record $16.8B, Blackwell ramping fast' },
+          { asset: 'AMD/TSM', direction: 'up', note: 'AI compute sector broadly benefits' },
+        ],
+        priority: 'important',
+        tags: ['Earnings', 'Industry'],
+      },
+      {
+        conclusion: 'Fed officials signal rate cut delay, 10Y yield rises to 4.15%',
+        impacts: [
+          { asset: 'Growth stocks', direction: 'down', note: 'Higher DCF discount rate compresses valuations' },
+          { asset: 'BRK-B/Banks', direction: 'up', note: 'Insurance float/NIM benefits' },
+        ],
+        priority: 'urgent',
+        tags: ['Central Bank', 'Policy'],
+      },
+      {
+        conclusion: 'China launches new consumer stimulus, HSI rebounds 2.3%',
+        impacts: [
+          { asset: 'BABA/BYD', direction: 'up', note: 'E-commerce + EV policy tailwind' },
+          { asset: 'AAPL China', direction: 'mixed', note: 'Consumer recovery but competition intensifies' },
+        ],
+        priority: 'important',
+        tags: ['Policy', 'Opportunity'],
+      },
+      {
+        conclusion: 'BTC ETF sees record $1.2B single-day inflow, institutional adoption accelerates',
+        impacts: [
+          { asset: 'BTC/ETH', direction: 'up', note: 'Institutional demand boosts liquidity premium' },
+          { asset: 'COIN', direction: 'up', note: 'Direct beneficiary via trading fees' },
+        ],
+        priority: 'inflection',
+        tags: ['Industry', 'Opportunity'],
+      },
+      {
+        conclusion: 'Trump raises China tariffs from 25% to 35%, supply chain risk escalates',
+        impacts: [
+          { asset: 'AAPL/TSLA', direction: 'down', note: 'China supply chain costs rising' },
+          { asset: 'COST', direction: 'down', note: 'Import cost pass-through pressure' },
+        ],
+        priority: 'urgent',
+        tags: ['Policy', 'Risk'],
+      },
+    ],
+  };
+}
+
+// ========== Alpha Events Renderer ==========
+function renderAlphaEvents() {
+  const container = document.getElementById('alphaEventsContainer');
   if (!container) return;
   const lang = getLang();
-  const summaryData = {
-    zh: {
-      title: '今日价投要点',
-      items: [
-        { icon: '📊', label: '财报信号', text: 'NVDA Q4营收$39.3B超预期+78%，FCF创新高$16.8B — <strong>AI算力现金流持续验证</strong>。但毛利率环比↓3pp需关注。' },
-        { icon: '💰', label: '现金流影响', text: '油价因中东局势走强 → XOM/CVX自由现金流短期受益。10Y Yield 4.15%上行 → DCF折现率↑ = 成长股估值承压。' },
-        { icon: '🛡️', label: '安全边际', text: 'F&G 22（极度恐惧）+ VIX 23.4 — 市场恐慌时寻找被错杀的优质企业。BRK-B $373B现金 = Buffett在等更便宜的价格。' },
-        { icon: '⚠️', label: '回避区域', text: '关税升级影响AAPL/TSLA供应链成本，政策驱动型标的不碰（DYP框架）。Meme币暴涨 = 投机非投资。' },
-      ]
-    },
-    en: {
-      title: "Today's Value Investing Signals",
-      items: [
-        { icon: '📊', label: 'Earnings Signal', text: 'NVDA Q4 revenue $39.3B beat +78%, FCF record $16.8B — <strong>AI compute cash flow thesis confirmed</strong>. But GM declining 3pp QoQ needs monitoring.' },
-        { icon: '💰', label: 'Cash Flow Impact', text: 'Oil rising on Mideast tension → XOM/CVX FCF short-term boost. 10Y Yield 4.15% rising → higher discount rate = growth stock valuations compressed.' },
-        { icon: '🛡️', label: 'Margin of Safety', text: 'F&G 22 (Extreme Fear) + VIX 23.4 — look for quality businesses sold off by panic. BRK-B $373B cash = Buffett waiting for cheaper prices.' },
-        { icon: '⚠️', label: 'Avoid Zone', text: 'Tariff escalation hits AAPL/TSLA supply chain costs, avoid policy-driven names (DYP framework). Meme coin surge = speculation, not investing.' },
-      ]
-    }
+  const events = getAlphaEvents()[lang] || getAlphaEvents().en;
+
+  const priorityMap = {
+    urgent:     { icon: '\uD83D\uDD34', zh: '急需决策', en: 'Urgent' },
+    important:  { icon: '\uD83D\uDFE1', zh: '重要监控', en: 'Important' },
+    inflection: { icon: '\uD83D\uDCA1', zh: '数据转折', en: 'Inflection' },
   };
-  const s = summaryData[lang] || summaryData.en;
-  let html = `<div class="headline-summary-title">${s.title}</div>`;
-  s.items.forEach(item => {
-    html += `<div class="summary-item"><span class="summary-icon">${item.icon}</span><div class="summary-content"><span class="summary-label">${item.label}</span><span class="summary-text">${item.text}</span></div></div>`;
+  const dirIcon = { up: '\u2191', down: '\u2193', mixed: '\u2194' };
+  const dirCls = { up: 'text-green', down: 'text-red', mixed: 'text-yellow' };
+
+  const title = lang === 'zh' ? '今日关键事件' : "Today's Key Events";
+  let html = `<div class="alpha-events-section"><div class="alpha-events-title">${title}</div><div class="alpha-events-grid">`;
+
+  events.forEach(ev => {
+    const p = priorityMap[ev.priority] || priorityMap.important;
+    const priorityLabel = `${p.icon} ${lang === 'zh' ? p.zh : p.en}`;
+    const tagsHtml = ev.tags.map(tag => `<span class="news-tag tag-default">#${tag}</span>`).join('');
+
+    let impactsHtml = '';
+    ev.impacts.forEach(imp => {
+      impactsHtml += `<div class="alpha-impact-item"><span class="alpha-impact-asset mono">${escapeHtml(imp.asset)}</span><span class="alpha-impact-dir ${dirCls[imp.direction]}">${dirIcon[imp.direction]}</span><span class="alpha-impact-note">${escapeHtml(imp.note)}</span></div>`;
+    });
+
+    html += `<div class="alpha-event-card alpha-priority-${ev.priority} fade-in">
+      <div class="alpha-event-priority">${priorityLabel}</div>
+      <div class="alpha-event-conclusion">${escapeHtml(ev.conclusion)}</div>
+      <div class="alpha-event-impacts">${impactsHtml}</div>
+      <div class="alpha-event-tags">${tagsHtml}</div>
+    </div>`;
+  });
+
+  html += '</div></div>';
+  container.innerHTML = html;
+}
+
+// ========== Industry Performance Row ==========
+function getIndustryPerformance() {
+  return {
+    zh: [
+      { name: '科技', change: 1.2 },
+      { name: '消费', change: -0.8 },
+      { name: '能源', change: 0.3 },
+      { name: '金融', change: -0.5 },
+      { name: '医疗', change: 0.1 },
+      { name: '工业', change: 0.6 },
+      { name: '地产', change: -1.1 },
+    ],
+    en: [
+      { name: 'Tech', change: 1.2 },
+      { name: 'Consumer', change: -0.8 },
+      { name: 'Energy', change: 0.3 },
+      { name: 'Finance', change: -0.5 },
+      { name: 'Healthcare', change: 0.1 },
+      { name: 'Industrial', change: 0.6 },
+      { name: 'Real Estate', change: -1.1 },
+    ],
+  };
+}
+
+function renderIndustryPerf() {
+  const container = document.getElementById('industryPerfRow');
+  if (!container) return;
+  const lang = getLang();
+  const data = getIndustryPerformance()[lang] || getIndustryPerformance().en;
+  const label = lang === 'zh' ? '行业表现' : 'Sector Performance';
+  let html = `<span class="industry-perf-label">${label}</span>`;
+  data.forEach((s, i) => {
+    const cls = s.change >= 0 ? 'text-green' : 'text-red';
+    const sign = s.change >= 0 ? '+' : '';
+    if (i > 0) html += '<span class="industry-perf-sep">|</span>';
+    html += `<span class="industry-perf-item"><span class="industry-perf-name">${s.name}</span> <span class="${cls} mono">${sign}${s.change.toFixed(1)}%</span></span>`;
   });
   container.innerHTML = html;
+}
+
+// ========== Master Quick Opinions Row ==========
+function getMasterQuickOpinions() {
+  return {
+    zh: [
+      { name: '段永平', opinion: '高估值缩水期，应观望', style: 'text-yellow' },
+      { name: 'Buffett', opinion: '现金充足，等待机会', style: 'text-green' },
+      { name: 'Munger', opinion: '优质公司值得长期持有', style: 'text-green' },
+    ],
+    en: [
+      { name: 'DYP', opinion: 'High valuation contraction, stay patient', style: 'text-yellow' },
+      { name: 'Buffett', opinion: 'Cash heavy, waiting for opportunities', style: 'text-green' },
+      { name: 'Munger', opinion: 'Quality businesses worth holding long-term', style: 'text-green' },
+    ],
+  };
+}
+
+function renderMasterOpinions() {
+  const container = document.getElementById('masterOpinionsRow');
+  if (!container) return;
+  const lang = getLang();
+  const data = getMasterQuickOpinions()[lang] || getMasterQuickOpinions().en;
+  const title = lang === 'zh' ? '大师观点' : 'Master Opinions';
+  let html = `<div class="master-opinions-title">${title}</div><div class="master-opinions-grid">`;
+  data.forEach(m => {
+    html += `<div class="master-opinion-item"><span class="master-opinion-name">${escapeHtml(m.name)}</span><span class="master-opinion-text ${m.style}">${escapeHtml(m.opinion)}</span></div>`;
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+// ========== News Classification Filter ==========
+let activeNewsFilter = null; // null = show all
+let activeNewsTags = new Set();
+
+function renderNewsFilterBar() {
+  const container = document.getElementById('newsFilterBar');
+  if (!container) return;
+  const lang = getLang();
+
+  const filters = [
+    { key: 'urgent',     icon: '\uD83D\uDD34', zh: '急需决策', en: 'Urgent' },
+    { key: 'important',  icon: '\uD83D\uDFE1', zh: '重要监控', en: 'Important' },
+    { key: 'inflection', icon: '\uD83D\uDCA1', zh: '数据转折', en: 'Inflection' },
+    { key: 'noise',      icon: '\uD83D\uDCAC', zh: '媒体噪声', en: 'Noise' },
+  ];
+
+  const tags = [
+    { key: '政策', en: 'Policy' },
+    { key: '央行', en: 'Central Bank' },
+    { key: '财报', en: 'Earnings' },
+    { key: '并购', en: 'M&A' },
+    { key: '风险', en: 'Risk' },
+    { key: '机会', en: 'Opportunity' },
+    { key: '行业动态', en: 'Industry' },
+  ];
+
+  let html = '<div class="news-filter-buttons">';
+  filters.forEach(f => {
+    const active = activeNewsFilter === f.key ? ' news-filter-active' : '';
+    const label = lang === 'zh' ? f.zh : f.en;
+    html += `<button class="news-filter-btn${active}" onclick="vmApp.filterNews('${f.key}')">${f.icon} ${label}</button>`;
+  });
+  html += '</div><div class="news-filter-tags">';
+  tags.forEach(tag => {
+    const tagLabel = lang === 'zh' ? tag.key : tag.en;
+    const active = activeNewsTags.has(tag.key) ? ' news-tag-active' : '';
+    html += `<button class="news-tag-pill${active}" onclick="vmApp.toggleNewsTag('${tag.key}')">#${tagLabel}</button>`;
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function filterNews(key) {
+  activeNewsFilter = activeNewsFilter === key ? null : key;
+  renderNewsFilterBar();
+  renderNews();
+}
+
+function toggleNewsTag(tag) {
+  if (activeNewsTags.has(tag)) {
+    activeNewsTags.delete(tag);
+  } else {
+    activeNewsTags.add(tag);
+  }
+  renderNewsFilterBar();
+  renderNews();
 }
 
 // ========== Sector Tags (Expandable with clickable stocks) ==========
@@ -1053,8 +1456,11 @@ function renderImpactTable() {
 function renderAll() {
   renderSignals(currentMaster.signal);
   renderFearGreed();
+  renderAlphaEvents();
+  renderIndustryPerf();
+  renderMasterOpinions();
+  renderNewsFilterBar();
   renderNews();
-  renderHeadlineSummary();
   renderSectorTags();
   renderImpactTable();
   renderLastUpdate();
@@ -1062,7 +1468,258 @@ function renderAll() {
   renderDeepAnalysis(tk);
 }
 
-window.vmApp = { switchMainTab, switchMaster, switchDeepTab, switchChartPeriod, goDeepDive, runAnalysis, quickTicker, toggleSector };
+// ========== Compare Page (行业对标) ==========
+const industryGroups = {
+  all: { zh: '全部', en: 'All', symbols: [] }, // populated dynamically
+  ai_chip: { zh: 'AI/芯片', en: 'AI/Chips', symbols: ['NVDA', 'AMD', 'TSM'] },
+  tech_giant: { zh: '科技巨头', en: 'Tech Giants', symbols: ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'META'] },
+  consumer: { zh: '消费', en: 'Consumer', symbols: ['COST', 'BABA'] },
+  energy: { zh: '能源', en: 'Energy', symbols: ['CVX', 'XOM'] },
+  fin_health: { zh: '金融/医疗', en: 'Finance/Health', symbols: ['BRK-B', 'UNH', 'COIN', 'CRM'] },
+};
+
+let currentIndustry = 'all';
+let compareSortCol = 'pe';
+let compareSortAsc = true;
+
+function getCompareStocks(industry) {
+  if (!stockDetailsData) return [];
+  const allSymbols = Object.keys(stockDetailsData);
+  industryGroups.all.symbols = allSymbols;
+  const symbols = industryGroups[industry]?.symbols || allSymbols;
+  return symbols.filter(s => stockDetailsData[s]).map(symbol => {
+    const d = stockDetailsData[symbol];
+    return {
+      symbol,
+      price: d.price,
+      pe: d.pe,
+      forwardPE: d.forwardPE,
+      peg: d.peg,
+      evEbitda: d.evEbitda,
+      grossMargin: d.grossMargin,
+      revenueGrowth: d.revenueGrowth,
+      roe: d.roe,
+      marketCap: d.marketCap,
+    };
+  });
+}
+
+function getValuationStatus(pe, stocks) {
+  const lang = getLang();
+  const validPEs = stocks.map(s => s.pe).filter(v => v && v > 0);
+  if (!pe || pe <= 0 || validPEs.length === 0) return { label: '—', cls: 'status-fair' };
+  validPEs.sort((a, b) => a - b);
+  const median = validPEs[Math.floor(validPEs.length / 2)];
+  if (pe < median * 0.8) return { label: lang === 'zh' ? '💰 便宜' : '💰 Cheap', cls: 'status-cheap' };
+  if (pe > median * 1.2) return { label: lang === 'zh' ? '⚠️ 偏贵' : '⚠️ Expensive', cls: 'status-expensive' };
+  return { label: lang === 'zh' ? '✓ 合理' : '✓ Fair', cls: 'status-fair' };
+}
+
+function renderComparisonPage() {
+  renderIndustrySelector();
+  renderComparisonTable();
+  renderScatterPlot();
+}
+
+function renderIndustrySelector() {
+  const container = document.getElementById('industrySelector');
+  if (!container) return;
+  const lang = getLang();
+  let html = '';
+  Object.entries(industryGroups).forEach(([key, group]) => {
+    const active = currentIndustry === key ? ' active' : '';
+    const label = lang === 'zh' ? group.zh : group.en;
+    html += `<button class="compare-industry-btn${active}" onclick="vmApp.switchIndustry('${key}')">${label}</button>`;
+  });
+  container.innerHTML = html;
+}
+
+function switchIndustry(industry) {
+  currentIndustry = industry;
+  renderComparisonPage();
+}
+
+function sortCompareTable(col) {
+  if (compareSortCol === col) {
+    compareSortAsc = !compareSortAsc;
+  } else {
+    compareSortCol = col;
+    compareSortAsc = true;
+  }
+  renderComparisonTable();
+}
+
+function renderComparisonTable() {
+  const container = document.getElementById('compareTableContainer');
+  if (!container) return;
+  const lang = getLang();
+  let stocks = getCompareStocks(currentIndustry);
+  if (stocks.length === 0) {
+    container.innerHTML = '<div class="loading">Loading stock data...</div>';
+    return;
+  }
+
+  // Sort
+  stocks.sort((a, b) => {
+    let va = a[compareSortCol], vb = b[compareSortCol];
+    if (va == null) va = compareSortAsc ? Infinity : -Infinity;
+    if (vb == null) vb = compareSortAsc ? Infinity : -Infinity;
+    if (compareSortCol === 'symbol') {
+      return compareSortAsc ? String(va).localeCompare(String(vb)) : String(vb).localeCompare(String(va));
+    }
+    return compareSortAsc ? va - vb : vb - va;
+  });
+
+  const cols = [
+    { key: 'symbol', label: lang === 'zh' ? '公司' : 'Company' },
+    { key: 'price', label: lang === 'zh' ? '股价' : 'Price' },
+    { key: 'pe', label: 'PE' },
+    { key: 'forwardPE', label: lang === 'zh' ? '远期PE' : 'Fwd PE' },
+    { key: 'evEbitda', label: 'EV/EBITDA' },
+    { key: 'grossMargin', label: lang === 'zh' ? '毛利率' : 'Gross Margin' },
+    { key: 'revenueGrowth', label: lang === 'zh' ? '增速' : 'Growth' },
+    { key: 'roe', label: 'ROE' },
+    { key: 'status', label: lang === 'zh' ? '状态' : 'Status' },
+  ];
+
+  let html = '<table class="compare-table"><thead><tr>';
+  cols.forEach(col => {
+    const isActive = compareSortCol === col.key ? ' sort-active' : '';
+    const arrow = compareSortCol === col.key ? (compareSortAsc ? '▲' : '▼') : '↕';
+    if (col.key === 'status') {
+      html += `<th>${col.label}</th>`;
+    } else {
+      html += `<th class="${isActive}" onclick="vmApp.sortCompareTable('${col.key}')">${col.label} <span class="sort-arrow">${arrow}</span></th>`;
+    }
+  });
+  html += '</tr></thead><tbody>';
+
+  stocks.forEach(s => {
+    const status = getValuationStatus(s.pe, stocks);
+    const fmtPct = v => v != null ? (v * 100).toFixed(1) + '%' : '—';
+    const fmtNum = v => v != null ? v.toFixed(1) : '—';
+    html += `<tr onclick="vmApp.goDeepDive('${s.symbol}')">`;
+    html += `<td class="col-symbol">${s.symbol}</td>`;
+    html += `<td>$${s.price?.toFixed(2) || '—'}</td>`;
+    html += `<td>${fmtNum(s.pe)}</td>`;
+    html += `<td>${fmtNum(s.forwardPE)}</td>`;
+    html += `<td>${fmtNum(s.evEbitda)}</td>`;
+    html += `<td>${fmtPct(s.grossMargin)}</td>`;
+    html += `<td class="${s.revenueGrowth >= 0 ? 'text-green' : 'text-red'}">${fmtPct(s.revenueGrowth)}</td>`;
+    html += `<td>${fmtPct(s.roe)}</td>`;
+    html += `<td class="col-status"><span class="${status.cls}">${status.label}</span></td>`;
+    html += '</tr>';
+  });
+
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function renderScatterPlot() {
+  const container = document.getElementById('scatterPlotContainer');
+  if (!container) return;
+  const lang = getLang();
+  const stocks = getCompareStocks(currentIndustry);
+  if (stocks.length === 0) {
+    container.innerHTML = '<div class="loading">Loading...</div>';
+    return;
+  }
+
+  // Filter to stocks with valid PE and growth
+  const valid = stocks.filter(s => s.pe && s.pe > 0 && s.pe < 200 && s.revenueGrowth != null);
+  if (valid.length === 0) {
+    container.innerHTML = '<div class="text-muted text-center" style="padding:40px">No valid data for scatter plot</div>';
+    return;
+  }
+
+  const W = 720, H = 420;
+  const margin = { top: 40, right: 40, bottom: 55, left: 60 };
+  const plotW = W - margin.left - margin.right;
+  const plotH = H - margin.top - margin.bottom;
+
+  const pes = valid.map(s => s.pe);
+  const growths = valid.map(s => s.revenueGrowth * 100);
+
+  const peMin = Math.max(0, Math.min(...pes) - 5);
+  const peMax = Math.max(...pes) + 5;
+  const gMin = Math.min(...growths) - 5;
+  const gMax = Math.max(...growths) + 5;
+
+  // Medians
+  const sortedPE = [...pes].sort((a, b) => a - b);
+  const sortedG = [...growths].sort((a, b) => a - b);
+  const medianPE = sortedPE[Math.floor(sortedPE.length / 2)];
+  const medianG = sortedG[Math.floor(sortedG.length / 2)];
+
+  const scaleX = pe => margin.left + ((pe - peMin) / (peMax - peMin)) * plotW;
+  const scaleY = g => margin.top + plotH - ((g - gMin) / (gMax - gMin)) * plotH;
+
+  let svg = `<svg class="scatter-svg" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">`;
+
+  // Grid lines
+  for (let i = 0; i <= 5; i++) {
+    const x = margin.left + (plotW / 5) * i;
+    const y = margin.top + (plotH / 5) * i;
+    svg += `<line x1="${x}" y1="${margin.top}" x2="${x}" y2="${margin.top + plotH}" class="scatter-grid-line"/>`;
+    svg += `<line x1="${margin.left}" y1="${y}" x2="${margin.left + plotW}" y2="${y}" class="scatter-grid-line"/>`;
+    // X tick labels
+    const peVal = peMin + ((peMax - peMin) / 5) * i;
+    svg += `<text x="${x}" y="${margin.top + plotH + 18}" text-anchor="middle" class="scatter-tick-label">${peVal.toFixed(0)}</text>`;
+    // Y tick labels
+    const gVal = gMax - ((gMax - gMin) / 5) * i;
+    svg += `<text x="${margin.left - 8}" y="${y + 4}" text-anchor="end" class="scatter-tick-label">${gVal.toFixed(0)}%</text>`;
+  }
+
+  // Median lines
+  const medX = scaleX(medianPE);
+  const medY = scaleY(medianG);
+  svg += `<line x1="${medX}" y1="${margin.top}" x2="${medX}" y2="${margin.top + plotH}" class="scatter-median-line"/>`;
+  svg += `<line x1="${margin.left}" y1="${medY}" x2="${margin.left + plotW}" y2="${medY}" class="scatter-median-line"/>`;
+
+  // Quadrant labels
+  const quadLabels = lang === 'zh'
+    ? { tl: '高增低估', tr: '高增高估', bl: '低增低估', br: '低增高估' }
+    : { tl: 'High Growth\nLow PE', tr: 'High Growth\nHigh PE', bl: 'Low Growth\nLow PE', br: 'Low Growth\nHigh PE' };
+  const quadColors = { tl: '#00B074', tr: '#FF9500', bl: '#999999', br: '#FF3B30' };
+
+  const qLabelX = { tl: margin.left + 10, tr: margin.left + plotW - 10, bl: margin.left + 10, br: margin.left + plotW - 10 };
+  const qLabelY = { tl: margin.top + 18, tr: margin.top + 18, bl: margin.top + plotH - 10, br: margin.top + plotH - 10 };
+  const qAnchor = { tl: 'start', tr: 'end', bl: 'start', br: 'end' };
+
+  ['tl', 'tr', 'bl', 'br'].forEach(q => {
+    const lines = quadLabels[q].split('\n');
+    lines.forEach((line, i) => {
+      svg += `<text x="${qLabelX[q]}" y="${qLabelY[q] + i * 15}" text-anchor="${qAnchor[q]}" class="scatter-quadrant-label" fill="${quadColors[q]}">${line}</text>`;
+    });
+  });
+
+  // Axis labels
+  const xLabel = lang === 'zh' ? 'PE (市盈率)' : 'PE Ratio';
+  const yLabel = lang === 'zh' ? '营收增速 (%)' : 'Revenue Growth (%)';
+  svg += `<text x="${margin.left + plotW / 2}" y="${H - 5}" text-anchor="middle" class="scatter-axis-label">${xLabel}</text>`;
+  svg += `<text x="15" y="${margin.top + plotH / 2}" text-anchor="middle" class="scatter-axis-label" transform="rotate(-90, 15, ${margin.top + plotH / 2})">${yLabel}</text>`;
+
+  // Dots
+  valid.forEach(s => {
+    const x = scaleX(s.pe);
+    const y = scaleY(s.revenueGrowth * 100);
+    const g = s.revenueGrowth * 100;
+    // Quadrant color
+    let color;
+    if (s.pe <= medianPE && g >= medianG) color = quadColors.tl; // high growth, low PE
+    else if (s.pe > medianPE && g >= medianG) color = quadColors.tr;
+    else if (s.pe <= medianPE && g < medianG) color = quadColors.bl;
+    else color = quadColors.br;
+
+    svg += `<circle cx="${x}" cy="${y}" r="6" fill="${color}" class="scatter-dot" onclick="vmApp.goDeepDive('${s.symbol}')"/>`;
+    svg += `<text x="${x}" y="${y - 10}" text-anchor="middle" class="scatter-label">${s.symbol}</text>`;
+  });
+
+  svg += '</svg>';
+  container.innerHTML = svg;
+}
+
+window.vmApp = { switchMainTab, switchMaster, switchDeepTab, switchChartPeriod, goDeepDive, runAnalysis, quickTicker, toggleSector, filterNews, toggleNewsTag, switchIndustry, sortCompareTable, switchValModel, onSliderChange };
 
 document.addEventListener('DOMContentLoaded', () => {
   const d = new Date();

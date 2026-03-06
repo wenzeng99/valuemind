@@ -36,6 +36,7 @@
       <button class="main-tab active" id="mainTab-recap" onclick="vmApp.switchMainTab('recap')" data-i18n="nav.recap">每日速递</button>
       <button class="main-tab" id="mainTab-deep" onclick="vmApp.switchMainTab('deep')" data-i18n="nav.deep">深度分析</button>
       <button class="main-tab" id="mainTab-signal" onclick="vmApp.switchMainTab('signal')" data-i18n="nav.signal">信号墙</button>
+      <button class="main-tab" id="mainTab-compare" onclick="vmApp.switchMainTab('compare')" data-i18n="nav.compare">行业对标</button>
     </nav>
   </div>
 </header>
@@ -49,8 +50,8 @@
       <div class="section-subtitle" data-i18n="recap.subtitle">全球头条、宏观信号、价投解读。每日开盘前更新。</div>
     </div>
 
-    <!-- 今日要点总结 (TOP PRIORITY) -->
-    <div class="headline-summary" id="headlineSummary"></div>
+    <!-- Alpha Information Framework (TODAY'S KEY EVENTS) -->
+    <div id="alphaEventsContainer"></div>
 
     <!-- 关联重点板块 (clickable + expandable) -->
     <div class="sector-tags-wrapper" id="sectorTags"></div>
@@ -60,6 +61,9 @@
     <div class="section-label" data-i18n="recap.snapshot">市场快照</div>
     <div class="snapshot-grid" id="snapshotGrid"></div>
     <div class="snapshot-grid snapshot-grid-5" id="snapshotGrid2"></div>
+
+    <!-- Industry Performance Row -->
+    <div class="industry-perf-row" id="industryPerfRow"></div>
 
     <div class="sentiment-bar">
       <div>
@@ -76,6 +80,11 @@
 
     <div class="divider"></div>
 
+    <!-- Master Quick Opinions Row -->
+    <div class="master-opinions-row" id="masterOpinionsRow"></div>
+
+    <div class="divider"></div>
+
     <h2 class="section-heading" data-i18n="recap.impact">影响分析</h2>
     <div id="impactTableContainer"></div>
 
@@ -83,41 +92,12 @@
 
     <h2 class="section-heading" data-i18n="recap.headlines">全球财经头条</h2>
     <div class="section-subtitle" data-i18n="recap.headlines_sub">Bloomberg / Reuters / FT / WSJ / CNBC</div>
+
+    <!-- News Classification Filter -->
+    <div class="news-filter-bar" id="newsFilterBar"></div>
+
     <div class="news-list" id="newsContainer">
       <div class="loading">Loading...</div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="vi-card">
-      <div class="vi-card-header">
-        <span class="section-num-lg">&sect;</span>
-        <h2 class="section-heading" data-i18n="recap.vitake">价投视角</h2>
-      </div>
-      <div class="vi-grid">
-        <div class="vi-box">
-          <div class="vi-box-label" data-i18n="recap.market_temp">市场温度</div>
-          <div class="flex items-center gap-6">
-            <span class="mono text-yellow vi-temp-value">72</span>
-            <span class="text-yellow vi-temp-unit">/100</span>
-          </div>
-          <div class="text-muted vi-note mt-4">BRK cash $373B (ATH) + F&G 22 + VIX 22.5</div>
-        </div>
-        <div class="vi-box">
-          <div class="vi-box-label" data-i18n="recap.action">今日策略</div>
-          <div class="text-yellow vi-action" data-i18n="recap.action_val">观望，不追高</div>
-          <div class="text-muted vi-note mt-4" data-i18n="recap.action_note">市场偏贵但尚未恐慌。建立观察清单。</div>
-        </div>
-        <div class="vi-box">
-          <div class="vi-box-label" data-i18n="recap.opp">机会雷达</div>
-          <div class="vi-note lh-16" data-i18n="recap.opp_val">恒指反弹+中国刺激政策=关注BABA、BYD支撑位。NVDA回调至$130=DYP入场区间。</div>
-        </div>
-      </div>
-      <div class="vi-commentary" data-i18n="recap.commentary">
-        <p class="mb-6"><strong>10Y上升 + VIX低位</strong> — 晚周期自满情绪。Buffett $373B现金：市场偏贵。</p>
-        <p class="mb-6"><strong>DXY走弱 + 黄金新高</strong> — 通胀对冲轮动。有定价权的企业更具吸引力。</p>
-        <p><strong>中国政策 + 关税</strong> — 两股力量对拉。DYP框架：只投你理解的且能持有10年的企业。</p>
-      </div>
     </div>
   </div>
 </div>
@@ -225,24 +205,6 @@
         </div>
       </div>
 
-      <!-- Chart Panel (keep existing but move to be a sub-area, not main tab) -->
-      <div id="dpanel-chart" class="deep-panel" style="display:none;">
-        <div class="chart-controls">
-          <div>
-            <button class="chart-period-btn" onclick="vmApp.switchChartPeriod('1D')">1D</button>
-            <button class="chart-period-btn" onclick="vmApp.switchChartPeriod('1W')">1W</button>
-            <button class="chart-period-btn active" onclick="vmApp.switchChartPeriod('1M')">1M</button>
-            <button class="chart-period-btn" onclick="vmApp.switchChartPeriod('3M')">3M</button>
-            <button class="chart-period-btn" onclick="vmApp.switchChartPeriod('1Y')">1Y</button>
-          </div>
-          <div class="chart-legend">
-            <span><span class="legend-dot legend-green"></span>SMA 20</span>
-            <span><span class="legend-dot legend-yellow"></span>SMA 50</span>
-          </div>
-        </div>
-        <svg id="chartSvg" class="chart-svg"></svg>
-      </div>
-
       <!-- Financials Panel (RESTRUCTURED - now focused on financial health) -->
       <div id="dpanel-financials" class="deep-panel">
         <div class="metrics-grid">
@@ -317,6 +279,12 @@
             <span class="section-num">04</span>
             <span class="fw-600" data-i18n="deep.val_section">估值分析</span>
           </div>
+          <div class="val-model-tabs" id="valModelTabs">
+            <button class="val-model-tab active" data-vmodel="dcf" onclick="vmApp.switchValModel('dcf')">DCF</button>
+            <button class="val-model-tab" data-vmodel="pe" onclick="vmApp.switchValModel('pe')">PE Multiple</button>
+            <button class="val-model-tab" data-vmodel="peg" onclick="vmApp.switchValModel('peg')">PEG</button>
+            <button class="val-model-tab" data-vmodel="peer" onclick="vmApp.switchValModel('peer')" data-i18n="deep.val_peer">行业对标</button>
+          </div>
           <div id="valuationContainer"></div>
         </div>
 
@@ -358,6 +326,26 @@
 
     <div class="divider"></div>
     <div id="signalCards"></div>
+  </div>
+</div>
+
+<!-- ===== Tab: Compare (行业对标) ===== -->
+<div id="page-compare" class="page">
+  <div class="container pt-20">
+    <h1 class="section-title" data-i18n="compare.title">行业对标分析</h1>
+    <div class="section-subtitle" data-i18n="compare.subtitle">横向比较同行业公司估值与基本面，发现被低估的机会。</div>
+
+    <div class="compare-industry-selector" id="industrySelector"></div>
+
+    <div class="divider"></div>
+
+    <div class="section-label" data-i18n="compare.table_title">估值对比表</div>
+    <div class="compare-table-wrapper" id="compareTableContainer"></div>
+
+    <div class="divider"></div>
+
+    <div class="section-label" data-i18n="compare.scatter_title">PE vs 增速 散点图</div>
+    <div class="compare-scatter-wrapper" id="scatterPlotContainer"></div>
   </div>
 </div>
 

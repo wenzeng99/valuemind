@@ -400,12 +400,14 @@ function renderMoatAnalysis(analysis, lang, master) {
 let currentValModel = 'dcf';
 let valSliderState = {};
 function calculateDCF(params) {
-  const { revenue, growthRate, terminalGrowth, wacc, grossMargin, sharesOutstanding } = params;
+  const { revenue, growthRate, terminalGrowth, wacc, fcfMargin, sharesOutstanding } = params;
   let fcfs = [], rev = revenue;
+  // Growth decays from current rate to terminal over 10 years
+  // Years 1-5: fast decay, Years 6-10: slow approach to terminal
   const midGrowth = (growthRate + terminalGrowth) / 2;
   for (let yr = 1; yr <= 10; yr++) {
     let g = yr <= 5 ? growthRate - (growthRate - midGrowth) * ((yr - 1) / 4) : midGrowth - (midGrowth - terminalGrowth) * ((yr - 5) / 5);
-    rev = rev * (1 + g); fcfs.push(rev * grossMargin * 0.7);
+    rev = rev * (1 + g); fcfs.push(rev * fcfMargin);
   }
   const tv = fcfs[9] * (1 + terminalGrowth) / (wacc - terminalGrowth);
   let pv = 0;
@@ -417,11 +419,25 @@ function calculateDCF(params) {
 function getValDefaults(symbol) {
   const sd = stockDetailsData?.[symbol];
   if (!sd) return null;
-  const revenue = sd.revenue || 100e9, growthRate = sd.revenueGrowth != null ? sd.revenueGrowth : 0.15;
-  const grossMargin = sd.grossMargin != null ? sd.grossMargin : 0.5, price = sd.price || 100;
+  let revenue = sd.revenue || 100e9;
+  const price = sd.price || 100;
   const marketCapRaw = sd.marketCapRaw || 1e12, sharesOutstanding = price > 0 ? marketCapRaw / price : 1e9;
   const eps = sd.eps || (price / (sd.pe || 25)), pe = sd.pe || 25, forwardPE = sd.forwardPE || pe;
-  return { revenue, growthRate, grossMargin, price, sharesOutstanding, eps, pe, forwardPE, terminalGrowth: 0.03, wacc: 0.10 };
+  // Fix ADR currency mismatch: if revenue > 2x marketCap, Yahoo returned local currency
+  if (revenue > marketCapRaw * 2 && sd.netMargin > 0 && eps > 0) {
+    revenue = eps * sharesOutstanding / sd.netMargin;
+  } else if (revenue > marketCapRaw * 2) {
+    revenue = marketCapRaw / 5;
+  }
+  // Cap growth rate: high growth (>40%) decays faster, prevent compounding absurdity
+  let growthRate = sd.revenueGrowth != null ? sd.revenueGrowth : 0.15;
+  growthRate = Math.min(growthRate, 0.35); // Cap at 35% even for NVDA
+  // FCF margin: use netMargin * 1.2 (typical net-to-FCF conversion) instead of grossMargin * 0.7
+  // This gives realistic results for low-margin businesses (UNH, COST) and high-margin (NVDA, META)
+  const netMargin = sd.netMargin != null ? sd.netMargin : 0.15;
+  const fcfMargin = Math.min(netMargin * 1.2, 0.50); // Cap at 50%
+  const grossMargin = sd.grossMargin != null ? sd.grossMargin : 0.5;
+  return { revenue, growthRate, grossMargin, fcfMargin, price, sharesOutstanding, eps, pe, forwardPE, terminalGrowth: 0.03, wacc: 0.10 };
 }
 function renderValuationTool(analysis, lang, symbol) {
   const container = document.getElementById('valuationContainer');
@@ -454,7 +470,7 @@ function renderValuationTool(analysis, lang, symbol) {
     return;
   }
   if (!valSliderState[symbol]) {
-    valSliderState[symbol] = { terminalGrowth: defaults.terminalGrowth, wacc: defaults.wacc, growthRate: Math.min(Math.max(defaults.growthRate, 0.05), 0.80), grossMargin: Math.min(Math.max(defaults.grossMargin, 0.05), 0.95), peMultiple: Math.round(defaults.forwardPE || defaults.pe || 25), forwardEPS: defaults.eps, pegGrowth: defaults.growthRate };
+    valSliderState[symbol] = { terminalGrowth: defaults.terminalGrowth, wacc: defaults.wacc, growthRate: Math.min(Math.max(defaults.growthRate, 0.05), 0.50), fcfMargin: Math.min(Math.max(defaults.fcfMargin, 0.01), 0.50), peMultiple: Math.round(defaults.forwardPE || defaults.pe || 25), forwardEPS: defaults.eps, pegGrowth: defaults.growthRate };
   }
   const st = valSliderState[symbol];
   if (currentValModel === 'dcf') renderDCFPanel(container, defaults, st, symbol, lang);
@@ -471,8 +487,8 @@ function _slider(id, label, min, max, step, value, fmt, symbol) {
   return `<div class="val-slider-group"><div class="val-slider-header"><span class="val-slider-label">${label}</span><span class="val-slider-value" id="valDisp_${id}">${fmt(value)}</span></div><div class="val-slider-range"><span class="range-label">${fmt(min)}</span><input type="range" class="val-slider-input" id="valSlider_${id}" min="${min}" max="${max}" step="${step}" value="${value}" oninput="vmApp.onSliderChange('${symbol}','${id}',this.value)"><span class="range-label">${fmt(max)}</span></div></div>`;
 }
 function renderDCFPanel(container, defaults, st, symbol, lang) {
-  const { terminalGrowth: tg, wacc, growthRate: gr, grossMargin: gm } = st;
-  const result = calculateDCF({ revenue: defaults.revenue, growthRate: gr, terminalGrowth: tg, wacc, grossMargin: gm, sharesOutstanding: defaults.sharesOutstanding });
+  const { terminalGrowth: tg, wacc, growthRate: gr, fcfMargin: fm } = st;
+  const result = calculateDCF({ revenue: defaults.revenue, growthRate: gr, terminalGrowth: tg, wacc, fcfMargin: fm, sharesOutstanding: defaults.sharesOutstanding });
   const price = defaults.price, diff = ((price - result.mid) / result.mid * 100);
   const { cls: statusCls, text: statusText } = _valStatus(diff, lang);
   const fp = (v) => '$' + v.toFixed(0), fpct = (v) => (v * 100).toFixed(1) + '%', sign = diff >= 0 ? '+' : '';
@@ -483,7 +499,7 @@ function renderDCFPanel(container, defaults, st, symbol, lang) {
   waccVals.forEach(w => {
     sensHTML += `<tr><th>${(w*100).toFixed(0)}%</th>`;
     growthVals.forEach(g => {
-      const r = calculateDCF({ revenue: defaults.revenue, growthRate: gr, terminalGrowth: g, wacc: w, grossMargin: gm, sharesOutstanding: defaults.sharesOutstanding });
+      const r = calculateDCF({ revenue: defaults.revenue, growthRate: gr, terminalGrowth: g, wacc: w, fcfMargin: fm, sharesOutstanding: defaults.sharesOutstanding });
       const isHL = Math.abs(w - wacc) < 0.001 && Math.abs(g - tg) < 0.001;
       const cd = ((price - r.mid) / r.mid * 100);
       sensHTML += `<td class="${isHL ? 'cell-highlight' : cd < -10 ? 'cell-green' : cd > 10 ? 'cell-red' : 'cell-yellow'}">${fp(r.mid)}</td>`;
@@ -492,7 +508,7 @@ function renderDCFPanel(container, defaults, st, symbol, lang) {
   });
   sensHTML += '</tbody></table>';
   const dateStr = new Date().toISOString().slice(0, 10);
-  container.innerHTML = `${_slider('tg', lang === 'zh' ? '终端增长率' : 'Terminal Growth', 0.01, 0.06, 0.005, tg, fpct, symbol)}${_slider('wacc', 'WACC', 0.06, 0.15, 0.005, wacc, fpct, symbol)}${_slider('gr', lang === 'zh' ? '近期增速' : 'Near-term Growth', 0.05, 0.80, 0.01, gr, fpct, symbol)}${_slider('gm', lang === 'zh' ? '毛利率' : 'Gross Margin', 0.10, 0.95, 0.01, gm, fpct, symbol)}<div class="val-result-box"><div class="val-result-range">${lang === 'zh' ? '估值范围' : 'Fair Value Range'}: ${fp(result.low)} - ${fp(result.high)}</div><div class="val-result-mid">${lang === 'zh' ? '中位数' : 'Midpoint'}: <span class="mid-value">${fp(result.mid)}</span></div><div class="val-result-compare ${statusCls}">${lang === 'zh' ? '当前股价' : 'Current'} ${fp(price)} ${lang === 'zh' ? '相对中位数' : 'vs mid'}: ${sign}${diff.toFixed(1)}% (${statusText})</div></div>${sensHTML}<div class="val-data-source">${lang === 'zh' ? '数据源' : 'Source'}: Yahoo Finance | ${lang === 'zh' ? '更新' : 'Updated'}: ${dateStr}</div>`;
+  container.innerHTML = `${_slider('tg', lang === 'zh' ? '终端增长率' : 'Terminal Growth', 0.01, 0.06, 0.005, tg, fpct, symbol)}${_slider('wacc', 'WACC', 0.06, 0.15, 0.005, wacc, fpct, symbol)}${_slider('gr', lang === 'zh' ? '近期增速' : 'Near-term Growth', 0.05, 0.50, 0.01, gr, fpct, symbol)}${_slider('fm', lang === 'zh' ? 'FCF利润率' : 'FCF Margin', 0.01, 0.50, 0.005, fm, fpct, symbol)}<div class="val-result-box"><div class="val-result-range">${lang === 'zh' ? '估值范围' : 'Fair Value Range'}: ${fp(result.low)} - ${fp(result.high)}</div><div class="val-result-mid">${lang === 'zh' ? '中位数' : 'Midpoint'}: <span class="mid-value">${fp(result.mid)}</span></div><div class="val-result-compare ${statusCls}">${lang === 'zh' ? '当前股价' : 'Current'} ${fp(price)} ${lang === 'zh' ? '相对中位数' : 'vs mid'}: ${sign}${diff.toFixed(1)}% (${statusText})</div></div>${sensHTML}<div class="val-data-source">${lang === 'zh' ? '数据源' : 'Source'}: Yahoo Finance | ${lang === 'zh' ? '更新' : 'Updated'}: ${dateStr}</div>`;
 }
 function renderPEPanel(container, defaults, st, symbol, lang) {
   const peVal = st.peMultiple, epsVal = st.forwardEPS, fairValue = peVal * epsVal;
@@ -595,7 +611,7 @@ function onSliderChange(symbol, param, value) {
   if (param === 'tg') { st.terminalGrowth = v; const d = document.getElementById('valDisp_tg'); if(d) d.textContent = fpct(v); }
   else if (param === 'wacc') { st.wacc = v; const d = document.getElementById('valDisp_wacc'); if(d) d.textContent = fpct(v); }
   else if (param === 'gr') { st.growthRate = v; const d = document.getElementById('valDisp_gr'); if(d) d.textContent = fpct(v); }
-  else if (param === 'gm') { st.grossMargin = v; const d = document.getElementById('valDisp_gm'); if(d) d.textContent = fpct(v); }
+  else if (param === 'fm') { st.fcfMargin = v; const d = document.getElementById('valDisp_fm'); if(d) d.textContent = fpct(v); }
   else if (param === 'pe') { st.peMultiple = v; const d = document.getElementById('valDisp_pe'); if(d) d.textContent = v + 'x'; }
   else if (param === 'eps') { st.forwardEPS = v; }
   else if (param === 'pegGr') { st.pegGrowth = v; const d = document.getElementById('valDisp_pegGr'); if(d) d.textContent = fpct(v); }
@@ -723,9 +739,8 @@ function renderDeepAnalysis(symbol) {
     return `<div class="cross-item ${borderCls}"><div class="flex justify-between items-center mb-4"><span class="cross-name">${cv.name}</span><span class="cross-verdict ${tagCls}">${escapeHtml(cv.verdict)}</span></div><div class="cross-quote">"${escapeHtml(cv.q)}"</div></div>`;
   }).join('');
 
-  // Final verdict
-  el('verdictResult').textContent = analysis.verdict[lang] || analysis.verdict.en;
-  el('verdictResult').className = 'fw-700 ' + analysis.verdictColor;
+  // Final verdict — dynamic, based on current price vs DCF + static analysis
+  renderDynamicVerdict(analysis, lang, symbol, stock, sd);
 
   // Chart (removed — K-line chart panel no longer exists)
   const svg = document.getElementById('chartSvg');
@@ -741,6 +756,86 @@ function renderDeepAnalysis(symbol) {
   renderFinancialHealth(analysis, lang);
   renderMoatAnalysis(analysis, lang, master);
   renderValuation(analysis, lang);
+}
+
+// ========== Dynamic Verdict ==========
+function renderDynamicVerdict(analysis, lang, symbol, stock, sd) {
+  const verdictEl = el('verdictResult');
+  if (!verdictEl) return;
+
+  const curPrice = stock?.price || sd?.price;
+  const defaults = getValDefaults(symbol);
+
+  // Get DCF fair value
+  let dcfMid = null;
+  if (defaults) {
+    const st = valSliderState[symbol] || { terminalGrowth: defaults.terminalGrowth, wacc: defaults.wacc, growthRate: Math.min(Math.max(defaults.growthRate, 0.05), 0.50), fcfMargin: Math.min(Math.max(defaults.fcfMargin, 0.01), 0.50) };
+    const result = calculateDCF({ revenue: defaults.revenue, growthRate: st.growthRate, terminalGrowth: st.terminalGrowth, wacc: st.wacc, fcfMargin: st.fcfMargin, sharesOutstanding: defaults.sharesOutstanding });
+    dcfMid = result.mid;
+  } else if (analysis.valuation) {
+    // Parse from static DCF string
+    const v = analysis.valuation[lang] || analysis.valuation.en;
+    if (v?.dcf?.value) {
+      const m = v.dcf.value.match(/\$?([\d,]+)\s*-\s*\$?([\d,]+)/);
+      if (m) dcfMid = (parseFloat(m[1].replace(/,/g, '')) + parseFloat(m[2].replace(/,/g, ''))) / 2;
+    }
+  }
+
+  if (!curPrice || !dcfMid) {
+    // Fallback to static verdict
+    verdictEl.textContent = analysis.verdict[lang] || analysis.verdict.en;
+    verdictEl.className = 'fw-700 ' + analysis.verdictColor;
+    return;
+  }
+
+  const marginPct = ((dcfMid - curPrice) / curPrice * 100);
+  const pe = sd?.pe || defaults?.pe;
+  const fwdPE = sd?.forwardPE || defaults?.forwardPE;
+
+  // Determine action
+  let action, color, detail;
+  if (marginPct > 30) {
+    action = lang === 'zh' ? '强烈买入' : 'Strong Buy';
+    color = 'text-green';
+    detail = lang === 'zh'
+      ? `当前 $${curPrice.toFixed(0)} 低于 DCF 公允值 $${dcfMid.toFixed(0)} 达 ${marginPct.toFixed(0)}%，安全边际充足`
+      : `Current $${curPrice.toFixed(0)} is ${marginPct.toFixed(0)}% below DCF fair value $${dcfMid.toFixed(0)}, ample margin of safety`;
+  } else if (marginPct > 10) {
+    action = lang === 'zh' ? '买入' : 'Buy';
+    color = 'text-green';
+    detail = lang === 'zh'
+      ? `当前 $${curPrice.toFixed(0)} 低于公允值 $${dcfMid.toFixed(0)} 约 ${marginPct.toFixed(0)}%，有一定安全边际`
+      : `Current $${curPrice.toFixed(0)} is ${marginPct.toFixed(0)}% below fair value $${dcfMid.toFixed(0)}, some margin of safety`;
+  } else if (marginPct > -10) {
+    action = lang === 'zh' ? '持有观望' : 'Hold / Watch';
+    color = 'text-yellow';
+    detail = lang === 'zh'
+      ? `当前 $${curPrice.toFixed(0)} 接近公允值 $${dcfMid.toFixed(0)}（偏差 ${marginPct > 0 ? '+' : ''}${marginPct.toFixed(0)}%），估值合理但缺乏安全边际`
+      : `Current $${curPrice.toFixed(0)} near fair value $${dcfMid.toFixed(0)} (${marginPct > 0 ? '+' : ''}${marginPct.toFixed(0)}%), fairly valued but no margin of safety`;
+  } else if (marginPct > -25) {
+    action = lang === 'zh' ? '偏贵 — 等回调' : 'Expensive — Wait';
+    color = 'text-red';
+    detail = lang === 'zh'
+      ? `当前 $${curPrice.toFixed(0)} 溢价 ${Math.abs(marginPct).toFixed(0)}%（公允值 $${dcfMid.toFixed(0)}），建议等待回调至 $${(dcfMid * 0.95).toFixed(0)} 以下`
+      : `Current $${curPrice.toFixed(0)} at ${Math.abs(marginPct).toFixed(0)}% premium (fair $${dcfMid.toFixed(0)}), wait for pullback to $${(dcfMid * 0.95).toFixed(0)}`;
+  } else {
+    action = lang === 'zh' ? '严重高估 — 勿追' : 'Overvalued — Avoid';
+    color = 'text-red';
+    detail = lang === 'zh'
+      ? `当前 $${curPrice.toFixed(0)} 溢价 ${Math.abs(marginPct).toFixed(0)}%（公允值 $${dcfMid.toFixed(0)}），远超合理估值`
+      : `Current $${curPrice.toFixed(0)} at ${Math.abs(marginPct).toFixed(0)}% premium to fair value $${dcfMid.toFixed(0)}, well above reasonable valuation`;
+  }
+
+  // Add PE context
+  let peNote = '';
+  if (pe && fwdPE) {
+    peNote = lang === 'zh'
+      ? ` | PE ${pe.toFixed(1)}x → 远期 ${fwdPE.toFixed(1)}x`
+      : ` | PE ${pe.toFixed(1)}x → Fwd ${fwdPE.toFixed(1)}x`;
+  }
+
+  verdictEl.innerHTML = `<span class="${color}">${action}</span><div style="font-size:13px;font-weight:400;margin-top:6px;color:var(--text-secondary)">${detail}${peNote}</div>`;
+  verdictEl.className = 'fw-700';
 }
 
 // ========== Tab Switching ==========

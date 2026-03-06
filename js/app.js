@@ -444,9 +444,10 @@ function renderValuationTool(analysis, lang, symbol) {
       if (dcfMatch) {
         const dcfLow = parseFloat(dcfMatch[1].replace(/,/g, '')), dcfHigh = parseFloat(dcfMatch[2].replace(/,/g, ''));
         const dcfMid = (dcfLow + dcfHigh) / 2;
-        const marginPct = ((dcfMid - curPrice) / curPrice * 100).toFixed(1);
-        const marginCls = marginPct > 15 ? 'text-green' : marginPct > 0 ? 'text-yellow' : 'text-red';
-        const marginLabel = marginPct > 0
+        const marginNum = (dcfMid - curPrice) / curPrice * 100;
+        const marginPct = marginNum.toFixed(1);
+        const marginCls = marginNum > 15 ? 'text-green' : marginNum > 0 ? 'text-yellow' : 'text-red';
+        const marginLabel = marginNum > 0
           ? (lang === 'zh' ? `安全边际 ${marginPct}%` : `${marginPct}% margin of safety`)
           : (lang === 'zh' ? `溢价 ${Math.abs(marginPct)}%` : `${Math.abs(marginPct)}% premium`);
         marginHTML = `<span class="fw-600">${lang === 'zh' ? '实时安全边际' : 'Live Margin of Safety'}:</span> <span class="${marginCls} fw-600">${lang === 'zh' ? '当前' : 'Current'} $${curPrice.toFixed(2)} vs DCF ${lang === 'zh' ? '中值' : 'mid'} $${dcfMid.toFixed(0)} → ${marginLabel}</span>`;
@@ -514,15 +515,74 @@ function renderPEGPanel(container, defaults, st, symbol, lang) {
   const fpct = (v) => (v * 100).toFixed(1) + '%', dateStr = new Date().toISOString().slice(0, 10);
   container.innerHTML = `<div class="val-slider-group"><div class="val-slider-header"><span class="val-slider-label">${lang === 'zh' ? '预期盈利增速 (EPS Growth)' : 'Expected EPS Growth'}</span><span class="val-slider-value" id="valDisp_pegGr">${fpct(st.pegGrowth)}</span></div><div class="val-slider-range"><span class="range-label">5%</span><input type="range" class="val-slider-input" id="valSlider_pegGr" min="0.05" max="1.0" step="0.01" value="${st.pegGrowth}" oninput="vmApp.onSliderChange('${symbol}','pegGr',this.value)"><span class="range-label">100%</span></div></div><div class="val-result-box"><div class="val-result-range">PE = ${pe.toFixed(1)}x, ${lang === 'zh' ? '增速' : 'Growth'} = ${growthPct.toFixed(1)}%</div><div class="val-result-mid">PEG = <span class="mid-value">${peg}</span></div><div class="val-result-compare ${statusCls}" style="margin-top:8px">${statusText}</div></div><div class="val-data-source">${lang === 'zh' ? '数据源' : 'Source'}: Yahoo Finance | ${lang === 'zh' ? '更新' : 'Updated'}: ${dateStr}</div>`;
 }
+// Get same-industry peers for a given symbol
+function getSectorPeers(symbol) {
+  for (const [, group] of Object.entries(industryGroups)) {
+    if (group.symbols && group.symbols.includes(symbol)) {
+      return group.symbols.filter(s => s !== symbol);
+    }
+  }
+  return [];
+}
+
+// Extract ticker mentions from news data
+function getNewsHotTickers() {
+  if (!newsData || newsData.length === 0) return {};
+  const counts = {};
+  newsData.forEach(n => {
+    const tags = (n.tags || []).map(t => typeof t === 'string' ? t.toUpperCase() : (t.symbol || '').toUpperCase());
+    tags.forEach(tk => { if (tk && /^[A-Z]{1,5}(-[A-Z])?$/.test(tk)) counts[tk] = (counts[tk] || 0) + 1; });
+    // Also extract tickers from title
+    const title = n.title || '';
+    const tickerRe = /\b([A-Z]{2,5})\b/g;
+    let m;
+    while ((m = tickerRe.exec(title)) !== null) {
+      const tk = m[1];
+      if (stockDetailsData?.[tk] || stockAnalysis[tk]) counts[tk] = (counts[tk] || 0) + 1;
+    }
+  });
+  return counts;
+}
+
 function renderPeerPanel(container, defaults, symbol, lang) {
-  const peers = Object.entries(stockDetailsData || {}).filter(([s]) => s !== symbol).slice(0, 6);
   const sd = stockDetailsData?.[symbol];
   if (!sd) { container.innerHTML = ''; return; }
+
+  // Prioritize same-industry peers, then add others
+  const sectorPeers = getSectorPeers(symbol);
+  const otherPeers = Object.keys(stockDetailsData || {}).filter(s => s !== symbol && !sectorPeers.includes(s));
+  const orderedPeers = [...sectorPeers, ...otherPeers].filter(s => stockDetailsData[s]).slice(0, 8);
+
+  // Get news hot tickers
+  const hotTickers = getNewsHotTickers();
+
   const fr = (v, s) => v != null ? v.toFixed(1) + (s || 'x') : '—', fp = (v) => v != null ? (v * 100).toFixed(1) + '%' : '—';
   const dateStr = new Date().toISOString().slice(0, 10);
-  let rows = `<tr class="current-stock"><td class="col-symbol">${symbol}</td><td>${fr(sd.pe)}</td><td>${fr(sd.forwardPE)}</td><td>${fp(sd.revenueGrowth)}</td><td>${fp(sd.grossMargin)}</td><td>${fr(sd.evEbitda)}</td></tr>`;
-  peers.forEach(([s, d]) => { rows += `<tr onclick="vmApp.quickTicker('${s}')"><td class="col-symbol">${s}</td><td>${fr(d.pe)}</td><td>${fr(d.forwardPE)}</td><td>${fp(d.revenueGrowth)}</td><td>${fp(d.grossMargin)}</td><td>${fr(d.evEbitda)}</td></tr>`; });
-  container.innerHTML = `<table class="peer-comp-table"><thead><tr><th>${lang === 'zh' ? '代码' : 'Symbol'}</th><th>PE</th><th>${lang === 'zh' ? '远期PE' : 'Fwd PE'}</th><th>${lang === 'zh' ? '营收增速' : 'Rev Growth'}</th><th>${lang === 'zh' ? '毛利率' : 'Gross Margin'}</th><th>EV/EBITDA</th></tr></thead><tbody>${rows}</tbody></table><div class="val-data-source">${lang === 'zh' ? '数据源' : 'Source'}: Yahoo Finance | ${lang === 'zh' ? '更新' : 'Updated'}: ${dateStr}</div>`;
+  const hotLabel = lang === 'zh' ? '🔥' : '🔥';
+  const sectorLabel = lang === 'zh' ? '同行' : 'Peer';
+
+  let rows = `<tr class="current-stock"><td class="col-symbol">${symbol}${hotTickers[symbol] ? ` ${hotLabel}` : ''}</td><td>${fr(sd.pe)}</td><td>${fr(sd.forwardPE)}</td><td>${fp(sd.revenueGrowth)}</td><td>${fp(sd.grossMargin)}</td><td>${fr(sd.evEbitda)}</td></tr>`;
+  orderedPeers.forEach(s => {
+    const d = stockDetailsData[s];
+    const isSector = sectorPeers.includes(s);
+    const isHot = hotTickers[s] > 0;
+    const badge = (isSector ? `<span class="peer-badge">${sectorLabel}</span>` : '') + (isHot ? `<span class="peer-hot">${hotLabel}${hotTickers[s]}</span>` : '');
+    rows += `<tr onclick="vmApp.quickTicker('${s}')" class="${isSector ? 'peer-same-sector' : ''}"><td class="col-symbol">${s}${badge}</td><td>${fr(d.pe)}</td><td>${fr(d.forwardPE)}</td><td>${fp(d.revenueGrowth)}</td><td>${fp(d.grossMargin)}</td><td>${fr(d.evEbitda)}</td></tr>`;
+  });
+
+  // News-mentioned tickers section
+  let newsSection = '';
+  const hotEntries = Object.entries(hotTickers).filter(([tk]) => tk !== symbol && !orderedPeers.includes(tk)).sort((a, b) => b[1] - a[1]).slice(0, 5);
+  if (hotEntries.length > 0) {
+    const newsTitle = lang === 'zh' ? '📰 新闻关注' : '📰 In the News';
+    newsSection = `<div class="peer-news-section"><div class="peer-news-title">${newsTitle}</div><div class="peer-news-tags">`;
+    hotEntries.forEach(([tk, count]) => {
+      newsSection += `<span class="peer-news-tag" onclick="vmApp.quickTicker('${tk}')">${tk} <span class="peer-hot-count">×${count}</span></span>`;
+    });
+    newsSection += '</div></div>';
+  }
+
+  container.innerHTML = `<table class="peer-comp-table"><thead><tr><th>${lang === 'zh' ? '代码' : 'Symbol'}</th><th>PE</th><th>${lang === 'zh' ? '远期PE' : 'Fwd PE'}</th><th>${lang === 'zh' ? '营收增速' : 'Rev Growth'}</th><th>${lang === 'zh' ? '毛利率' : 'Gross Margin'}</th><th>EV/EBITDA</th></tr></thead><tbody>${rows}</tbody></table>${newsSection}<div class="val-data-source">${lang === 'zh' ? '数据源' : 'Source'}: Yahoo Finance | ${lang === 'zh' ? '更新' : 'Updated'}: ${dateStr}</div>`;
 }
 function switchValModel(model) {
   currentValModel = model;
@@ -1090,31 +1150,48 @@ function renderSectorTags() {
   const container = document.getElementById('sectorTags');
   if (!container) return;
   const lang = getLang();
-  const sectors = [
-    { name: lang === 'zh' ? 'AI算力' : 'AI Compute', status: 'active', stocks: [
+  const hotTickers = getNewsHotTickers();
+  // Determine sector status dynamically based on news mentions
+  function sectorStatus(stocks) {
+    const totalMentions = stocks.reduce((sum, s) => sum + (hotTickers[s.tk] || 0), 0);
+    if (totalMentions >= 5) return 'hot';
+    if (totalMentions >= 2) return 'active';
+    return 'neutral';
+  }
+  const baseSectors = [
+    { name: lang === 'zh' ? 'AI算力' : 'AI Compute', stocks: [
       { tk: 'NVDA', note: lang === 'zh' ? 'GPU龙头，Q4 FCF $16.8B' : 'GPU leader, Q4 FCF $16.8B' },
       { tk: 'AMD', note: lang === 'zh' ? 'MI300X追赶，数据中心+32%' : 'MI300X catching up, DC +32%' },
       { tk: 'TSM', note: lang === 'zh' ? '代工垄断，先进制程护城河' : 'Foundry monopoly, node moat' },
     ]},
-    { name: lang === 'zh' ? '能源/石油' : 'Energy/Oil', status: 'hot', stocks: [
+    { name: lang === 'zh' ? '能源/石油' : 'Energy/Oil', stocks: [
       { tk: 'CVX', note: lang === 'zh' ? '股息+4%年化$6.52，FCF强劲' : 'Div +4% annualized $6.52, strong FCF' },
       { tk: 'XOM', note: lang === 'zh' ? '全球最大石油公司，现金牛' : 'Largest oil major, cash cow' },
     ]},
-    { name: lang === 'zh' ? '加密/Web3' : 'Crypto/Web3', status: 'active', stocks: [
+    { name: lang === 'zh' ? '加密/Web3' : 'Crypto/Web3', stocks: [
       { tk: 'COIN', note: lang === 'zh' ? 'ETF受益，Q4收入翻倍' : 'ETF beneficiary, Q4 revenue doubled' },
     ]},
-    { name: lang === 'zh' ? '消费/零售' : 'Consumer', status: 'neutral', stocks: [
+    { name: lang === 'zh' ? '消费/零售' : 'Consumer', stocks: [
       { tk: 'COST', note: lang === 'zh' ? '会员续费93.4%，消费者特许权' : '93.4% renewal, consumer franchise' },
       { tk: 'AAPL', note: lang === 'zh' ? '服务毛利>70%，安装基20亿' : 'Services GM >70%, 2B installed base' },
     ]},
-    { name: lang === 'zh' ? '企业SaaS' : 'Enterprise SaaS', status: 'neutral', stocks: [
+    { name: lang === 'zh' ? '企业SaaS' : 'Enterprise SaaS', stocks: [
       { tk: 'MSFT', note: lang === 'zh' ? 'Azure AI ARR $13B，Copilot变现' : 'Azure AI ARR $13B, Copilot monetizing' },
       { tk: 'GOOGL', note: lang === 'zh' ? '搜索+Cloud双引擎，AI投入大' : 'Search + Cloud dual engine, heavy AI spend' },
     ]},
-    { name: lang === 'zh' ? '中概股' : 'China ADR', status: 'neutral', stocks: [
+    { name: lang === 'zh' ? '中概股' : 'China ADR', stocks: [
       { tk: 'BABA', note: lang === 'zh' ? '云智能分拆+回购，估值极低' : 'Cloud spin-off + buyback, ultra cheap valuation' },
     ]},
   ];
+  // Add news hot badge to stock notes
+  const sectors = baseSectors.map(s => ({
+    ...s,
+    status: sectorStatus(s.stocks),
+    stocks: s.stocks.map(st => ({
+      ...st,
+      note: (hotTickers[st.tk] ? `🔥${hotTickers[st.tk]} ` : '') + st.note,
+    })),
+  }));
   const sLabel = lang === 'zh' ? '关联重点板块' : 'Key Sectors in Focus';
   let html = `<div class="section-label">${sLabel}</div><div class="sector-tags-row">`;
   sectors.forEach((s, i) => {

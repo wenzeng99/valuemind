@@ -1605,6 +1605,16 @@ a.news-title { cursor: pointer; }
 }
 .peer-comp-table tr:last-child td { border-bottom: none; }
 .peer-comp-table tr.current-stock { background: var(--yellow-bg); }
+.peer-comp-table tr.peer-same-sector { background: #f0f7ff; }
+.peer-comp-table tr:hover { background: var(--bg-secondary); cursor: pointer; }
+.peer-badge { display: inline-block; font-size: 10px; background: #e3f0ff; color: #1a73e8; padding: 1px 5px; border-radius: 3px; margin-left: 4px; font-family: var(--font-primary); }
+.peer-hot { display: inline-block; font-size: 10px; margin-left: 3px; }
+.peer-hot-count { font-size: 10px; color: var(--text-secondary); }
+.peer-news-section { margin-top: 12px; padding: 10px 0; border-top: 1px solid var(--border); }
+.peer-news-title { font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; }
+.peer-news-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.peer-news-tag { display: inline-flex; align-items: center; gap: 3px; font-size: 12px; font-family: var(--font-mono); background: var(--bg-secondary); border: 1px solid var(--border); padding: 4px 10px; border-radius: 4px; cursor: pointer; transition: background 0.15s; }
+.peer-news-tag:hover { background: #e3f0ff; border-color: #1a73e8; }
 
 /* ===== Data Source Annotation ===== */
 .val-data-source {

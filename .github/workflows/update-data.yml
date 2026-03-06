@@ -1,0 +1,37 @@
+name: Update Market Data
+
+on:
+  schedule:
+    - cron: '0 1 * * *'    # UTC 01:00 = CST 09:00
+    - cron: '0 13 * * *'   # UTC 13:00 = CST 21:00
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: npm install
+      - run: pip install yfinance
+
+      - name: Fetch latest data
+        run: node scripts/fetch-data.mjs
+        env:
+          OPENNEWS_API_KEY: ${{ secrets.OPENNEWS_API_KEY }}
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'data: update market data'
+          file_pattern: 'data/*.json'

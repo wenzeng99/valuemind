@@ -760,7 +760,7 @@ function renderDeepAnalysis(symbol) {
 
 // ========== Dynamic Verdict ==========
 function renderDynamicVerdict(analysis, lang, symbol, stock, sd) {
-  const verdictEl = el('verdictResult');
+  const verdictEl = document.getElementById('verdictResult');
   if (!verdictEl) return;
 
   const curPrice = stock?.price || sd?.price;

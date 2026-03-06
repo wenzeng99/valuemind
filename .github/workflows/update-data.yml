@@ -4,9 +4,7 @@ on:
   schedule:
     # US market hours (ET → UTC), weekdays only
     - cron: '30 14 * * 1-5'   # Market open  9:30 AM ET = UTC 14:30
-    - cron: '0 17 * * 1-5'    # Mid-day     12:00 PM ET = UTC 17:00
     - cron: '0 21 * * 1-5'    # Market close 4:00 PM ET = UTC 21:00
-    - cron: '0 22 * * 1-5'    # After-hours  5:00 PM ET = UTC 22:00
   workflow_dispatch:
 
 permissions:

@@ -106,40 +106,20 @@ function formatMarketCap(val) {
   return String(val);
 }
 
-// --- CoinGecko (free, no API key) ---
-async function fetchCryptoData() {
-  const ids = 'bitcoin,ethereum,solana,binancecoin,ripple,dogecoin,cardano';
-  const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${ids}&order=market_cap_desc&sparkline=false&price_change_percentage=24h`;
-  const res = await fetch(url, {
-    headers: { 'User-Agent': 'ValueMind/1.0' }
-  });
-  if (!res.ok) throw new Error(`CoinGecko API error: ${res.status}`);
-  const data = await res.json();
-  return data.map(c => ({
-    symbol: c.symbol.toUpperCase(),
-    name: c.name,
-    price: c.current_price,
-    change: c.price_change_percentage_24h ? +(c.price_change_percentage_24h).toFixed(2) : 0,
-    marketCap: formatMarketCap(c.market_cap),
-    volume24h: formatMarketCap(c.total_volume),
-    high24h: c.high_24h,
-    low24h: c.low_24h,
-    image: c.image,
-  }));
-}
-
-// --- Fear & Greed Index (alternative.me) ---
-async function fetchFearGreed() {
-  const url = 'https://api.alternative.me/fng/?limit=1';
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Fear & Greed API error: ${res.status}`);
-  const data = await res.json();
-  const fg = data.data?.[0];
-  return {
-    value: parseInt(fg?.value || '50'),
-    label: fg?.value_classification || 'Neutral',
-    timestamp: fg?.timestamp,
-  };
+// --- Fear & Greed Index (VIX-based US stock market proxy) ---
+// Maps VIX to 0-100 scale: VIX 12 → 90 (Extreme Greed), VIX 35 → 10 (Extreme Fear)
+async function fetchFearGreed(marketData) {
+  const vix = marketData?.macro?.find(m => m.symbol === '^VIX');
+  if (!vix) return { value: 50, label: 'Neutral', source: 'unavailable' };
+  const vixPrice = vix.price || 20;
+  const val = Math.round(Math.max(0, Math.min(100, 100 - (vixPrice - 12) * (90 / 23))));
+  let label;
+  if (val >= 75) label = 'Extreme Greed';
+  else if (val >= 55) label = 'Greed';
+  else if (val >= 45) label = 'Neutral';
+  else if (val >= 25) label = 'Fear';
+  else label = 'Extreme Fear';
+  return { value: val, label, vix: vixPrice, source: 'VIX-based', timestamp: new Date().toISOString() };
 }
 
 // --- News (OpenNews HTTP API or fallback) ---
@@ -211,36 +191,23 @@ async function main() {
 
   const results = await Promise.allSettled([
     fetchMarketData(),
-    fetchCryptoData(),
-    fetchFearGreed(),
     fetchNews(),
     fetchStockDetails(),
   ]);
 
-  const [marketResult, cryptoResult, fgResult, newsResult, stockResult] = results;
+  const [marketResult, newsResult, stockResult] = results;
 
   // Write market.json
   if (marketResult.status === 'fulfilled') {
     await fs.writeFile(path.join(DATA_DIR, 'market.json'), JSON.stringify(marketResult.value, null, 2));
     console.log('✓ market.json');
+
+    // Compute Fear & Greed from VIX (requires market data)
+    const fg = await fetchFearGreed(marketResult.value);
+    await fs.writeFile(path.join(DATA_DIR, 'fear-greed.json'), JSON.stringify(fg, null, 2));
+    console.log(`✓ fear-greed.json (VIX=${fg.vix} → F&G=${fg.value} ${fg.label})`);
   } else {
     console.error('✗ market.json failed:', marketResult.reason?.message);
-  }
-
-  // Write crypto.json
-  if (cryptoResult.status === 'fulfilled') {
-    await fs.writeFile(path.join(DATA_DIR, 'crypto.json'), JSON.stringify(cryptoResult.value, null, 2));
-    console.log('✓ crypto.json');
-  } else {
-    console.error('✗ crypto.json failed:', cryptoResult.reason?.message);
-  }
-
-  // Write fear-greed.json
-  if (fgResult.status === 'fulfilled') {
-    await fs.writeFile(path.join(DATA_DIR, 'fear-greed.json'), JSON.stringify(fgResult.value, null, 2));
-    console.log('✓ fear-greed.json');
-  } else {
-    console.error('✗ fear-greed.json failed:', fgResult.reason?.message);
   }
 
   // Write news.json

@@ -7,7 +7,7 @@ export const translations = {
     'recap.title': '今日市场速递',
     'recap.subtitle': '全球头条、宏观信号、价投解读。每日开盘前更新。',
     'recap.snapshot': '市场快照',
-    'recap.fear': '恐惧贪婪指数',
+    'recap.fear': '美股恐惧贪婪 (VIX)',
     'recap.headlines': '全球财经头条',
     'recap.headlines_sub': 'Bloomberg / Reuters / FT / WSJ / CNBC',
     'recap.impact': '影响分析',
@@ -132,7 +132,7 @@ export const translations = {
     'recap.industry_perf': '行业表现',
     'recap.master_opinions': '大师观点',
     'footer': 'AI生成分析，不构成投资建议。',
-    'about': '<strong>ValueMind</strong> 是一款AI驱动的价值投资分析工具，实时追踪美股、加密货币、宏观指标，并通过段永平、巴菲特、芒格三位大师的投资框架，对每日市场信号进行智能解读。数据每日自动更新，帮助投资者做出更理性的决策。',
+    'about': '<strong>ValueMind</strong> 是一款AI驱动的价值投资分析工具，实时追踪美股行情与宏观指标，并通过段永平、巴菲特、芒格三位大师的投资框架，对每日市场信号进行智能解读。数据每日自动更新，帮助投资者做出更理性的决策。',
   },
   en: {
     'nav.recap': "Today's Recap",
@@ -141,7 +141,7 @@ export const translations = {
     'recap.title': "Today's Market Recap",
     'recap.subtitle': 'Global headlines, macro signals, and value investor insights. Updated daily before market open.',
     'recap.snapshot': 'Market Snapshot',
-    'recap.fear': 'Fear & Greed',
+    'recap.fear': 'US Fear & Greed (VIX)',
     'recap.headlines': 'Global Headlines',
     'recap.headlines_sub': 'Bloomberg / Reuters / FT / WSJ / CNBC',
     'recap.impact': 'Impact Analysis',
@@ -266,7 +266,7 @@ export const translations = {
     'recap.industry_perf': 'Sector Performance',
     'recap.master_opinions': 'Master Opinions',
     'footer': 'AI-generated analysis. Not investment advice.',
-    'about': '<strong>ValueMind</strong> is an AI-powered value investing intelligence tool that tracks US equities, crypto, and macro indicators in real-time. It provides daily market signals interpreted through the investment frameworks of Duan Yongping, Warren Buffett, and Charlie Munger. Data updates automatically to help investors make more rational decisions.',
+    'about': '<strong>ValueMind</strong> is an AI-powered value investing intelligence tool that tracks US equities and macro indicators in real-time. It provides daily market signals interpreted through the investment frameworks of Duan Yongping, Warren Buffett, and Charlie Munger. Data updates automatically to help investors make more rational decisions.',
   }
 };
 

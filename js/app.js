@@ -5,7 +5,7 @@ import { stockAnalysis } from './stock-analysis-data.js';
 
 // ========== State ==========
 let marketData = null;
-let cryptoData = null;
+// cryptoData removed — app focuses on US equities only
 let newsData = null;
 let fearGreedData = null;
 let metaData = null;
@@ -66,22 +66,18 @@ const signalData = {
       { type:'green', cat:'AI算力', title:'NVIDIA市值破$5T，AI资本开支持续超预期', tk:'NVDA', q:'卖铲子的生意。加仓1110%，但这个价格不追。' },
       { type:'green', cat:'消费零售', title:'Costco Q2：会员续费率93.4%创新高', tk:'COST', q:'会员制护城河，如茅台。简单、可预测。' },
       { type:'yellow', cat:'SaaS', title:'Salesforce AI agent收入增长强劲，但估值偏高', tk:'CRM', q:'企业AI是好赛道，但CRM的护城河没有想象中深。' },
-      { type:'yellow', cat:'Crypto', title:'BTC ETF单日流入$12亿创纪录', tk:'BTC', q:'不产生现金流但机构化在加速。作为另类资产可以理解，但不是价投。' },
       { type:'red', cat:'关税政策', title:'特朗普25%对华关税升级', tk:'—', q:'政策驱动不碰。投资找10年不变的东西。' },
-      { type:'red', cat:'Meme', title:'Dogecoin暴涨40%，Meme板块狂欢', tk:'—', q:'不产生现金流。投机不是投资。' },
     ],
     buffett: [
       { type:'green', cat:'消费零售', title:'Costco Q2：会员续费率93.4%创新高', tk:'COST', q:'消费者特许权典范。我能理解的好生意。' },
       { type:'green', cat:'能源', title:'雪佛龙提高股息+4%，年化达$6.52', tk:'CVX', q:'石油不会消失。现金流强劲，分红持续增长。' },
       { type:'yellow', cat:'保险', title:'美国保险业综合成本率改善', tk:'BRK.B', q:'Berkshire的能力圈。浮存金是核武器，但当前不够便宜。' },
       { type:'red', cat:'高估值科技', title:'七巨头总市值$20T占标普四成', tk:'—', q:'$3733亿现金说明一切。太贵了。' },
-      { type:'red', cat:'Crypto', title:'DOGE暴涨40%', tk:'—', q:'老鼠药的平方。' },
     ],
     munger: [
       { type:'green', cat:'消费零售', title:'Costco Q2：会员续费率93.4%创新高', tk:'COST', q:'最爱。低毛利高周转，会员费=纯利润。' },
       { type:'green', cat:'AI算力', title:'NVIDIA市值破$5T', tk:'NVDA', q:'好公司可以付合理价格。PEG 0.6。但反转思维：什么让NVDA失败？' },
       { type:'yellow', cat:'医疗', title:'UnitedHealth估值合理但面临反垄断审查', tk:'UNH', q:'医疗是人口老龄化的确定趋势，但监管风险大。' },
-      { type:'yellow', cat:'Crypto基建', title:'Coinbase Q4收入翻倍，受益于ETF', tk:'COIN', q:'受益于BTC ETF，但加密市场的周期性让我不确定。' },
       { type:'red', cat:'银行股', title:'美国中小银行因商业地产下跌', tk:'—', q:'资产负债表里隐藏风险太多。赚小钱，可能归零。' },
     ],
   },
@@ -90,22 +86,18 @@ const signalData = {
       { type:'green', cat:'AI Compute', title:'NVIDIA surpasses $5T, AI capex exceeds expectations', tk:'NVDA', q:'Shovel business. +1,110% position. But won\'t chase here.' },
       { type:'green', cat:'Consumer', title:'Costco Q2: 93.4% renewal rate', tk:'COST', q:'Membership moat. Simple, predictable.' },
       { type:'yellow', cat:'SaaS', title:'Salesforce AI agent revenue surges, valuation stretched', tk:'CRM', q:'Enterprise AI is good, but CRM moat isn\'t as deep as imagined.' },
-      { type:'yellow', cat:'Crypto', title:'BTC ETF $1.2B single-day inflow, record', tk:'BTC', q:'No cash flow but institutionalizing fast. Not value investing.' },
       { type:'red', cat:'Tariff', title:'Trump 25% China tariff escalation', tk:'—', q:'Policy-driven = avoid. Find 10-year certainties.' },
-      { type:'red', cat:'Meme', title:'Dogecoin surges 40%, meme euphoria', tk:'—', q:'No cash flow. Speculation is not investing.' },
     ],
     buffett: [
       { type:'green', cat:'Consumer', title:'Costco Q2: 93.4% renewal rate', tk:'COST', q:'Consumer franchise epitome. A business I understand.' },
       { type:'green', cat:'Energy', title:'Chevron hikes dividend +4%, annualized $6.52', tk:'CVX', q:'Oil isn\'t going away. Strong cash flow, growing dividends.' },
       { type:'yellow', cat:'Insurance', title:'US insurance combined ratios improve', tk:'BRK.B', q:'Berkshire\'s sweet spot. Float is our weapon, but not cheap enough.' },
       { type:'red', cat:'Tech Valuation', title:'Mag 7 at $20T = 40% of S&P', tk:'—', q:'$373B cash says it all.' },
-      { type:'red', cat:'Crypto', title:'DOGE surges 40%', tk:'—', q:'Rat poison squared.' },
     ],
     munger: [
       { type:'green', cat:'Consumer', title:'Costco Q2: 93.4% renewal rate', tk:'COST', q:'Favorite. Low margin high turnover. Membership = profit.' },
       { type:'green', cat:'AI Compute', title:'NVIDIA surpasses $5T', tk:'NVDA', q:'Fair price for great companies. PEG 0.6. Invert: what makes NVDA fail?' },
       { type:'yellow', cat:'Healthcare', title:'UnitedHealth fair valuation but antitrust risk', tk:'UNH', q:'Aging population is certain, but regulation is Damocles\' sword.' },
-      { type:'yellow', cat:'Crypto Infra', title:'Coinbase Q4 revenue doubles on ETF tailwind', tk:'COIN', q:'Shovel play for BTC ETF, but crypto cyclicality concerns me.' },
       { type:'red', cat:'Banks', title:'US regional banks drop on CRE concerns', tk:'—', q:'Hidden balance sheet risks. Small gains, potential wipeout.' },
     ],
   },
@@ -122,16 +114,14 @@ async function loadJSON(path) {
 
 async function loadAllData() {
   try {
-    const [market, crypto, news, fg, meta, stockDetails] = await Promise.all([
+    const [market, news, fg, meta, stockDetails] = await Promise.all([
       loadJSON('data/market.json'),
-      loadJSON('data/crypto.json'),
       loadJSON('data/news.json'),
       loadJSON('data/fear-greed.json'),
       loadJSON('data/meta.json'),
       loadJSON('data/stock-details.json'),
     ]);
     marketData = market;
-    cryptoData = crypto;
     newsData = news;
     fearGreedData = fg;
     metaData = meta;
@@ -172,9 +162,6 @@ function renderTicker() {
     const nameMap = { '^GSPC': 'S&P 500', '^IXIC': 'NASDAQ', '^DJI': 'DJI', '^HSI': 'HSI', '000001.SS': 'SSE', '^N225': 'NKY' };
     marketData.indices.forEach(idx => addItem(nameMap[idx.symbol] || idx.symbol, idx.price, idx.change));
   }
-  if (cryptoData) {
-    cryptoData.slice(0, 3).forEach(c => addItem(c.symbol, c.price, c.change));
-  }
   if (marketData?.macro) {
     const nameMap = { '^TNX': '10Y', 'DX-Y.NYB': 'DXY', 'GC=F': 'Gold', 'CL=F': 'WTI', '^VIX': 'VIX' };
     marketData.macro.forEach(m => addItem(nameMap[m.symbol] || m.symbol, m.price, m.change));
@@ -201,10 +188,9 @@ function renderMarketSnapshot() {
   const grid2 = document.getElementById('snapshotGrid2');
   if (!grid2) return;
   html = '';
-  if (cryptoData) cryptoData.slice(0, 3).forEach(c => addSnapshot(c.symbol, c.price, c.change));
   if (marketData?.macro) {
     const nameMap = { '^TNX': '10Y Yield', 'DX-Y.NYB': 'DXY', 'GC=F': 'Gold', 'CL=F': 'WTI', '^VIX': 'VIX' };
-    marketData.macro.slice(0, 2).forEach(m => addSnapshot(nameMap[m.symbol] || m.name, m.price, m.change));
+    marketData.macro.forEach(m => addSnapshot(nameMap[m.symbol] || m.name, m.price, m.change));
   }
   grid2.innerHTML = html;
 }
@@ -214,19 +200,30 @@ function renderFearGreed() {
   const valEl = document.getElementById('fgValue');
   const labelEl = document.getElementById('fgLabel');
   const fillEl = document.getElementById('fgFill');
-  if (!valEl || !fearGreedData) return;
-  const val = fearGreedData.value;
+  if (!valEl) return;
+  const lang = getLang();
+
+  // Prefer fear-greed.json if available, otherwise compute from VIX
+  let val, label;
+  if (fearGreedData && fearGreedData.value != null) {
+    val = fearGreedData.value;
+  } else if (marketData?.macro) {
+    // Compute from VIX: VIX 12→90(Extreme Greed), VIX 35→10(Extreme Fear)
+    const vix = marketData.macro.find(m => m.symbol === '^VIX');
+    if (vix) {
+      val = Math.round(Math.max(0, Math.min(100, 100 - (vix.price - 12) * (90 / 23))));
+    }
+  }
+  if (val == null) return;
+
+  if (val >= 75) label = lang === 'zh' ? '极度贪婪' : 'Extreme Greed';
+  else if (val >= 55) label = lang === 'zh' ? '贪婪' : 'Greed';
+  else if (val >= 45) label = lang === 'zh' ? '中性' : 'Neutral';
+  else if (val >= 25) label = lang === 'zh' ? '恐惧' : 'Fear';
+  else label = lang === 'zh' ? '极度恐惧' : 'Extreme Fear';
+
   valEl.textContent = val;
   fillEl.style.width = val + '%';
-  const lang = getLang();
-  let label = fearGreedData.label;
-  if (lang === 'zh') {
-    if (val >= 75) label = '极度贪婪';
-    else if (val >= 55) label = '贪婪';
-    else if (val >= 45) label = '中性';
-    else if (val >= 25) label = '恐惧';
-    else label = '极度恐惧';
-  }
   labelEl.textContent = label;
   labelEl.className = val >= 55 ? 'text-green' : val <= 45 ? 'text-red' : 'text-yellow';
 }
@@ -907,15 +904,6 @@ function getAlphaEvents() {
         tags: ['政策', '机会'],
       },
       {
-        conclusion: 'BTC ETF单日净流入$12亿创纪录，机构配置加速',
-        impacts: [
-          { asset: 'BTC/ETH', direction: 'up', note: '机构化推升流动性溢价' },
-          { asset: 'COIN', direction: 'up', note: '交易手续费收入直接受益' },
-        ],
-        priority: 'inflection',
-        tags: ['行业动态', '机会'],
-      },
-      {
         conclusion: '特朗普宣布对华关税从25%升至35%，供应链风险升级',
         impacts: [
           { asset: 'AAPL/TSLA', direction: 'down', note: '中国供应链成本上升' },
@@ -952,15 +940,6 @@ function getAlphaEvents() {
         ],
         priority: 'important',
         tags: ['Policy', 'Opportunity'],
-      },
-      {
-        conclusion: 'BTC ETF sees record $1.2B single-day inflow, institutional adoption accelerates',
-        impacts: [
-          { asset: 'BTC/ETH', direction: 'up', note: 'Institutional demand boosts liquidity premium' },
-          { asset: 'COIN', direction: 'up', note: 'Direct beneficiary via trading fees' },
-        ],
-        priority: 'inflection',
-        tags: ['Industry', 'Opportunity'],
       },
       {
         conclusion: 'Trump raises China tariffs from 25% to 35%, supply chain risk escalates',
@@ -1168,9 +1147,6 @@ function renderSectorTags() {
       { tk: 'CVX', note: lang === 'zh' ? '股息+4%年化$6.52，FCF强劲' : 'Div +4% annualized $6.52, strong FCF' },
       { tk: 'XOM', note: lang === 'zh' ? '全球最大石油公司，现金牛' : 'Largest oil major, cash cow' },
     ]},
-    { name: lang === 'zh' ? '加密/Web3' : 'Crypto/Web3', stocks: [
-      { tk: 'COIN', note: lang === 'zh' ? 'ETF受益，Q4收入翻倍' : 'ETF beneficiary, Q4 revenue doubled' },
-    ]},
     { name: lang === 'zh' ? '消费/零售' : 'Consumer', stocks: [
       { tk: 'COST', note: lang === 'zh' ? '会员续费93.4%，消费者特许权' : '93.4% renewal, consumer franchise' },
       { tk: 'AAPL', note: lang === 'zh' ? '服务毛利>70%，安装基20亿' : 'Services GM >70%, 2B installed base' },
@@ -1226,7 +1202,6 @@ function renderImpactTable() {
     { event: lang === 'zh' ? '10Y收益率上行' : '10Y yield rising', tickers: ['BRK-B', 'COST'], dir: 'mixed', logic: lang === 'zh' ? '折现率↑压缩成长股估值，利好价值股/保险浮存金' : 'Higher discount rate compresses growth; benefits value stocks/insurance float' },
     { event: lang === 'zh' ? '中国刺激政策' : 'China stimulus', tickers: ['BABA', 'GOOGL'], dir: 'bullish', logic: lang === 'zh' ? '消费复苏利好电商，关注自由现金流改善' : 'Consumer recovery benefits e-commerce, watch FCF improvement' },
     { event: lang === 'zh' ? '关税升级' : 'Tariff escalation', tickers: ['AAPL', 'COST'], dir: 'bearish', logic: lang === 'zh' ? '供应链成本↑ → 毛利率承压，关注定价权能否转嫁' : 'Supply chain cost ↑ → margin pressure, watch pricing power pass-through' },
-    { event: lang === 'zh' ? 'BTC ETF持续流入' : 'BTC ETF inflows', tickers: ['COIN', 'MSFT'], dir: 'bullish', logic: lang === 'zh' ? 'COIN手续费收入↑，MSFT Azure区块链服务受益' : 'COIN fee revenue ↑, MSFT Azure blockchain services benefit' },
   ];
   const dirMap = { bullish: { cls: 'text-green', zh: '看多', en: 'Bullish' }, bearish: { cls: 'text-red', zh: '看空', en: 'Bearish' }, mixed: { cls: 'text-yellow', zh: '混合', en: 'Mixed' } };
   let html = `<table class="impact-table"><thead><tr><th>${t('recap.th_event')}</th><th>${t('recap.th_assets')}</th><th class="text-center">${t('recap.th_dir')}</th><th class="hide-mobile">${t('recap.th_logic')}</th></tr></thead><tbody>`;
@@ -1261,7 +1236,7 @@ const industryGroups = {
   tech_giant: { zh: '科技巨头', en: 'Tech Giants', symbols: ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'META'] },
   consumer: { zh: '消费', en: 'Consumer', symbols: ['COST', 'BABA'] },
   energy: { zh: '能源', en: 'Energy', symbols: ['CVX', 'XOM'] },
-  fin_health: { zh: '金融/医疗', en: 'Finance/Health', symbols: ['BRK-B', 'UNH', 'COIN', 'CRM'] },
+  fin_health: { zh: '金融/医疗/SaaS', en: 'Finance/Health/SaaS', symbols: ['BRK-B', 'UNH', 'CRM'] },
 };
 
 let currentIndustry = 'all';

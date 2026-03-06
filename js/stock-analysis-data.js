@@ -112,7 +112,7 @@ export const stockAnalysis = {
   AAPL: {
     exchange: 'NASDAQ',
     desc: { zh: '全球市值最大科技公司，iPhone+Mac+iPad硬件生态+Services订阅服务', en: 'World\'s most valuable tech company; iPhone/Mac/iPad hardware ecosystem + Services subscriptions' },
-    revGrowth: '+4%', epsEst: '$2.40 vs est $2.35', grossMargin: '46.2%', dataCenterRev: 'Services $23.1B (+14%)',
+    revGrowth: '+4%', epsEst: '$2.40 vs est $2.35', grossMargin: '46.9%', dataCenterRev: 'Services $26.3B (+14%)',
     peFwd: '30.5x', peg: '2.80', evEbitda: '26.1x', ps: '8.9x',
     netMargin: '25.3%', roe: '160%', fcfYield: '3.2%', divYield: '0.44%',
     valuationPctl: 82,
@@ -262,7 +262,7 @@ export const stockAnalysis = {
         grossMargin: { val: '69.4%', trend: '→', note: '基本持平，Cloud毛利率被AI基建投入稀释' },
         guidance: '下季指引营收$68.1-69.1B，Azure增长31-32%',
         highlight: '核心看点：Azure AI ARR突破$13B（+175%），Copilot渗透率加速，企业级AI变现开始兑现',
-        risk: '风险信号：AI资本开支$80B/年挤压FCF、Azure增长有放缓迹象、Copilot付费率仍低',
+        risk: '风险信号：AI资本开支$64B/年挤压FCF、Azure增长有放缓迹象、Copilot付费率仍低',
       },
       en: {
         revenue: { val: '$69.6B', yoy: '+12%', beat: 'Beat by $0.9B', note: 'Intelligent Cloud $25.5B (+19%), Azure+AI growth 31%' },
@@ -271,7 +271,7 @@ export const stockAnalysis = {
         grossMargin: { val: '69.4%', trend: '→', note: 'Flat, Cloud GM diluted by AI infra investment' },
         guidance: 'Next Q revenue guide $68.1-69.1B, Azure growth 31-32%',
         highlight: 'Key thesis: Azure AI ARR crossed $13B (+175%), Copilot adoption accelerating, enterprise AI monetization starting',
-        risk: 'Risk signals: AI capex $80B/yr pressuring FCF, Azure growth showing early decel, Copilot paid conversion still low',
+        risk: 'Risk signals: AI capex $64B/yr pressuring FCF, Azure growth showing early decel, Copilot paid conversion still low',
       }
     },
     financialHealth: {
@@ -294,8 +294,8 @@ export const stockAnalysis = {
     },
     moat: {
       duan: {
-        zh: { score: '极强', analysis: '企业级SaaS锁定=经常性收入机器。Office 365+Azure+GitHub+LinkedIn形成的生态壁垒几乎不可能被打破。企业一旦上Azure，迁移成本极高。AI Copilot是未来增长的加速器。', moatType: '企业级SaaS锁定+云平台+网络效应', risk: 'AI资本开支$80B/年是一场豪赌。若AI变现不达预期（Copilot转化率低），FCF将显著承压。Azure增长已有减速迹象。' },
-        en: { score: 'Very Strong', analysis: 'Enterprise SaaS lock-in = recurring revenue machine. Office 365 + Azure + GitHub + LinkedIn ecosystem is nearly impossible to break. Once on Azure, migration costs are prohibitive. AI Copilot is the future growth accelerator.', moatType: 'Enterprise SaaS lock-in + cloud platform + network effects', risk: 'AI capex $80B/yr is a massive bet. If AI monetization disappoints (low Copilot conversion), FCF will compress. Azure growth already showing early deceleration.' }
+        zh: { score: '极强', analysis: '企业级SaaS锁定=经常性收入机器。Office 365+Azure+GitHub+LinkedIn形成的生态壁垒几乎不可能被打破。企业一旦上Azure，迁移成本极高。AI Copilot是未来增长的加速器。', moatType: '企业级SaaS锁定+云平台+网络效应', risk: 'AI资本开支$64B/年是一场豪赌。若AI变现不达预期（Copilot转化率低），FCF将显著承压。Azure增长已有减速迹象。' },
+        en: { score: 'Very Strong', analysis: 'Enterprise SaaS lock-in = recurring revenue machine. Office 365 + Azure + GitHub + LinkedIn ecosystem is nearly impossible to break. Once on Azure, migration costs are prohibitive. AI Copilot is the future growth accelerator.', moatType: 'Enterprise SaaS lock-in + cloud platform + network effects', risk: 'AI capex $64B/yr is a massive bet. If AI monetization disappoints (low Copilot conversion), FCF will compress. Azure growth already showing early deceleration.' }
       },
       buffett: {
         zh: { score: '能力圈内', analysis: '我能理解这个生意。企业离不开Office和Azure——这是经常性收入的典范。盈利能力强劲，分红持续增长。Azure的增长给了这个成熟企业新的增长引擎。', moatType: '企业级特许权+经常性收入', risk: '估值合理但不便宜。AI投入回报周期不确定。但这是能持有10年的好公司。' },
@@ -400,16 +400,16 @@ GOOGL: {
     },
     moat: {
       duan: {
-        zh: { score: 'A', analysis: '搜索业务是终极"躺赚"模式——用户主动来找你,广告主必须投放。Cloud是"卖铲子"的好生意。关键是管理层是否足够专注,不在非核心领域浪费钱。', moatType: '平台网络效应+数据垄断', risk: 'AI搜索替代风险,管理层注意力分散' },
-        en: { score: 'A', analysis: 'Search is the ultimate "sit back and earn" model — users come to you, advertisers must spend. Cloud is a great "sell shovels" business. Key is whether management stays focused and doesn\'t waste on non-core.', moatType: 'Platform network effects + data monopoly', risk: 'AI search substitution risk, management attention dilution' }
+        zh: { score: '极强', analysis: '搜索业务是终极"躺赚"模式——用户主动来找你,广告主必须投放。Cloud是"卖铲子"的好生意。关键是管理层是否足够专注,不在非核心领域浪费钱。', moatType: '平台网络效应+数据垄断', risk: 'AI搜索替代风险,管理层注意力分散' },
+        en: { score: 'Very Strong', analysis: 'Search is the ultimate "sit back and earn" model — users come to you, advertisers must spend. Cloud is a great "sell shovels" business. Key is whether management stays focused and doesn\'t waste on non-core.', moatType: 'Platform network effects + data monopoly', risk: 'AI search substitution risk, management attention dilution' }
       },
       buffett: {
-        zh: { score: 'A', analysis: 'Google是数字世界的"收费桥梁",所有互联网流量都要经过。品牌信任度极高,消费者"Google it"已成为动词。ROE 34%说明资本回报优秀。', moatType: '品牌+规模经济+转换成本', risk: '监管拆分风险,AI时代搜索入口可能改变' },
-        en: { score: 'A', analysis: 'Google is the digital "toll bridge" — all internet traffic passes through. Brand trust is extreme; "Google it" is a verb. 34% ROE indicates excellent capital returns.', moatType: 'Brand + economies of scale + switching costs', risk: 'Regulatory breakup risk; AI may change the search entry point' }
+        zh: { score: '极强', analysis: 'Google是数字世界的"收费桥梁",所有互联网流量都要经过。品牌信任度极高,消费者"Google it"已成为动词。ROE 34%说明资本回报优秀。', moatType: '品牌+规模经济+转换成本', risk: '监管拆分风险,AI时代搜索入口可能改变' },
+        en: { score: 'Very Strong', analysis: 'Google is the digital "toll bridge" — all internet traffic passes through. Brand trust is extreme; "Google it" is a verb. 34% ROE indicates excellent capital returns.', moatType: 'Brand + economies of scale + switching costs', risk: 'Regulatory breakup risk; AI may change the search entry point' }
       },
       munger: {
-        zh: { score: 'A-', analysis: '多重心理偏见都有利于Google:习惯效应(默认搜索)、社会证明(大家都用)、禀赋效应(生态锁定)。但逆向思考:如果AI Agent替代搜索框,整个商业模式都要重构。', moatType: 'Lollapalooza效应:多重竞争优势叠加', risk: '过度自信偏误——管理层可能低估AI对搜索的颠覆速度' },
-        en: { score: 'A-', analysis: 'Multiple psychological biases favor Google: habit (default search), social proof (everyone uses it), endowment (ecosystem lock-in). But invert: if AI agents replace the search box, the entire business model needs rethinking.', moatType: 'Lollapalooza effect: multiple competitive advantages compounding', risk: 'Overconfidence bias — management may underestimate AI disruption speed to search' }
+        zh: { score: '强', analysis: '多重心理偏见都有利于Google:习惯效应(默认搜索)、社会证明(大家都用)、禀赋效应(生态锁定)。但逆向思考:如果AI Agent替代搜索框,整个商业模式都要重构。', moatType: 'Lollapalooza效应:多重竞争优势叠加', risk: '过度自信偏误——管理层可能低估AI对搜索的颠覆速度' },
+        en: { score: 'Strong', analysis: 'Multiple psychological biases favor Google: habit (default search), social proof (everyone uses it), endowment (ecosystem lock-in). But invert: if AI agents replace the search box, the entire business model needs rethinking.', moatType: 'Lollapalooza effect: multiple competitive advantages compounding', risk: 'Overconfidence bias — management may underestimate AI disruption speed to search' }
       }
     },
     valuation: {
@@ -507,16 +507,16 @@ GOOGL: {
     },
     moat: {
       duan: {
-        zh: { score: 'A-', analysis: 'AWS是全球最大的"卖铲子"生意——企业上云是不可逆趋势。Prime是消费者的"习惯税"。问题是Bezos/Jassy太喜欢花钱,净利润率才10.8%,什么时候真正像印钞机一样赚钱?', moatType: '规模经济+生态锁定', risk: '管理层持续重投资,FCF长期被压制' },
-        en: { score: 'A-', analysis: 'AWS is the world\'s largest "shovel" business — cloud migration is irreversible. Prime is a consumer "habit tax." Problem is Bezos/Jassy love spending; net margin only 10.8%. When will it actually print money?', moatType: 'Economies of scale + ecosystem lock-in', risk: 'Management keeps reinvesting heavily, suppressing FCF long-term' }
+        zh: { score: '强', analysis: 'AWS是全球最大的"卖铲子"生意——企业上云是不可逆趋势。Prime是消费者的"习惯税"。问题是Bezos/Jassy太喜欢花钱,净利润率才10.8%,什么时候真正像印钞机一样赚钱?', moatType: '规模经济+生态锁定', risk: '管理层持续重投资,FCF长期被压制' },
+        en: { score: 'Strong', analysis: 'AWS is the world\'s largest "shovel" business — cloud migration is irreversible. Prime is a consumer "habit tax." Problem is Bezos/Jassy love spending; net margin only 10.8%. When will it actually print money?', moatType: 'Economies of scale + ecosystem lock-in', risk: 'Management keeps reinvesting heavily, suppressing FCF long-term' }
       },
       buffett: {
-        zh: { score: 'B+', analysis: 'Prime会员粘性极强,消费者一旦加入很少退出。AWS企业客户转换成本高。但利润率始终不高,股东回报主要靠股价升值而非现金分配,不太符合"奶牛"标准。', moatType: '消费者习惯+高转换成本', risk: '利润长期被再投资消耗,股东实际回报依赖增长预期' },
-        en: { score: 'B+', analysis: 'Prime membership stickiness is extreme; consumers rarely cancel once joined. AWS enterprise clients face high switching costs. But margins remain modest; shareholder returns depend on price appreciation not cash distributions.', moatType: 'Consumer habit + high switching costs', risk: 'Profits perpetually reinvested; actual shareholder returns depend on growth expectations' }
+        zh: { score: '中等偏强', analysis: 'Prime会员粘性极强,消费者一旦加入很少退出。AWS企业客户转换成本高。但利润率始终不高,股东回报主要靠股价升值而非现金分配,不太符合"奶牛"标准。', moatType: '消费者习惯+高转换成本', risk: '利润长期被再投资消耗,股东实际回报依赖增长预期' },
+        en: { score: 'Moderate-Strong', analysis: 'Prime membership stickiness is extreme; consumers rarely cancel once joined. AWS enterprise clients face high switching costs. But margins remain modest; shareholder returns depend on price appreciation not cash distributions.', moatType: 'Consumer habit + high switching costs', risk: 'Profits perpetually reinvested; actual shareholder returns depend on growth expectations' }
       },
       munger: {
-        zh: { score: 'A', analysis: '用逆向思维:竞争对手要打败Amazon需要同时复制物流网络+云基础设施+Prime生态+广告平台+数据飞轮,几乎不可能。这是多重竞争优势叠加的Lollapalooza效应。延迟满足战略虽然短期不讨好,但长期会形成无法逾越的壁垒。', moatType: 'Lollapalooza:规模+网络+学习曲线多重叠加', risk: '制度性惯性——组织过大可能导致创新放缓和官僚化' },
-        en: { score: 'A', analysis: 'Invert: to beat Amazon a competitor must simultaneously replicate logistics + cloud + Prime + ads + data flywheel — nearly impossible. Classic Lollapalooza of multiple advantages compounding. Delayed gratification strategy is unpleasant short-term but builds insurmountable barriers long-term.', moatType: 'Lollapalooza: scale + network + learning curve compounding', risk: 'Institutional imperative — excessive size may slow innovation and breed bureaucracy' }
+        zh: { score: '极强', analysis: '用逆向思维:竞争对手要打败Amazon需要同时复制物流网络+云基础设施+Prime生态+广告平台+数据飞轮,几乎不可能。这是多重竞争优势叠加的Lollapalooza效应。延迟满足战略虽然短期不讨好,但长期会形成无法逾越的壁垒。', moatType: 'Lollapalooza:规模+网络+学习曲线多重叠加', risk: '制度性惯性——组织过大可能导致创新放缓和官僚化' },
+        en: { score: 'Very Strong', analysis: 'Invert: to beat Amazon a competitor must simultaneously replicate logistics + cloud + Prime + ads + data flywheel — nearly impossible. Classic Lollapalooza of multiple advantages compounding. Delayed gratification strategy is unpleasant short-term but builds insurmountable barriers long-term.', moatType: 'Lollapalooza: scale + network + learning curve compounding', risk: 'Institutional imperative — excessive size may slow innovation and breed bureaucracy' }
       }
     },
     valuation: {
@@ -614,16 +614,16 @@ GOOGL: {
     },
     moat: {
       duan: {
-        zh: { score: 'A+', analysis: '这是段永平最喜欢的生意类型——用户自己创造内容,平台几乎零边际成本地卖广告,82%毛利率证明了一切。不需要工厂、不需要库存、不需要物流,纯粹的"轻资产印钞机"。', moatType: '网络效应+零边际成本', risk: '年轻用户注意力转移,监管对数据使用的限制' },
-        en: { score: 'A+', analysis: 'This is DYP\'s favorite business type — users create content, platform sells ads at near-zero marginal cost, 82% gross margin proves it all. No factories, no inventory, no logistics — a pure "asset-light money printer."', moatType: 'Network effects + zero marginal cost', risk: 'Young user attention shifting, regulatory data use restrictions' }
+        zh: { score: '极强', analysis: '这是段永平最喜欢的生意类型——用户自己创造内容,平台几乎零边际成本地卖广告,82%毛利率证明了一切。不需要工厂、不需要库存、不需要物流,纯粹的"轻资产印钞机"。', moatType: '网络效应+零边际成本', risk: '年轻用户注意力转移,监管对数据使用的限制' },
+        en: { score: 'Very Strong', analysis: 'This is DYP\'s favorite business type — users create content, platform sells ads at near-zero marginal cost, 82% gross margin proves it all. No factories, no inventory, no logistics — a pure "asset-light money printer."', moatType: 'Network effects + zero marginal cost', risk: 'Young user attention shifting, regulatory data use restrictions' }
       },
       buffett: {
-        zh: { score: 'A', analysis: '40亿用户的社交关系链构成了最强的消费者"习惯"。Instagram和WhatsApp在各自领域都是主导地位。广告主没有其他渠道能触达如此精准的受众。这是数字时代的报纸广告垄断。', moatType: '消费者习惯+广告主依赖', risk: '品牌形象争议(隐私、社会影响),可能影响监管和用户信任' },
-        en: { score: 'A', analysis: '4B users\' social graphs form the strongest consumer "habit." Instagram and WhatsApp dominate their respective domains. No other channel offers advertisers such precise audience targeting. This is the digital-age newspaper advertising monopoly.', moatType: 'Consumer habit + advertiser dependency', risk: 'Brand reputation concerns (privacy, social impact) may trigger regulation and erode trust' }
+        zh: { score: '极强', analysis: '40亿用户的社交关系链构成了最强的消费者"习惯"。Instagram和WhatsApp在各自领域都是主导地位。广告主没有其他渠道能触达如此精准的受众。这是数字时代的报纸广告垄断。', moatType: '消费者习惯+广告主依赖', risk: '品牌形象争议(隐私、社会影响),可能影响监管和用户信任' },
+        en: { score: 'Very Strong', analysis: '4B users\' social graphs form the strongest consumer "habit." Instagram and WhatsApp dominate their respective domains. No other channel offers advertisers such precise audience targeting. This is the digital-age newspaper advertising monopoly.', moatType: 'Consumer habit + advertiser dependency', risk: 'Brand reputation concerns (privacy, social impact) may trigger regulation and erode trust' }
       },
       munger: {
-        zh: { score: 'A', analysis: '社交网络展现了完美的"临界质量"心智模型——一旦你的朋友都在上面,你不可能离开。多重心理偏见支持粘性:社会认同、FOMO、损失厌恶。Zuckerberg展现了罕见的适应能力(Stories、Reels都是成功抄袭)。逆向思考:如果Meta失败会是什么原因?最可能是监管拆分,而非竞争。', moatType: '临界质量+多重心理偏见锁定', risk: '逆向风险:监管拆分可能性>竞争替代可能性' },
-        en: { score: 'A', analysis: 'Social networks exhibit the perfect "critical mass" mental model — once all your friends are on it, you can\'t leave. Multiple psychological biases sustain stickiness: social proof, FOMO, loss aversion. Zuckerberg shows rare adaptability (Stories, Reels were successful copies). Invert: if Meta fails, why? Most likely regulatory breakup, not competition.', moatType: 'Critical mass + multiple psychological biases lock-in', risk: 'Inverted risk: regulatory breakup probability > competitive displacement probability' }
+        zh: { score: '极强', analysis: '社交网络展现了完美的"临界质量"心智模型——一旦你的朋友都在上面,你不可能离开。多重心理偏见支持粘性:社会认同、FOMO、损失厌恶。Zuckerberg展现了罕见的适应能力(Stories、Reels都是成功抄袭)。逆向思考:如果Meta失败会是什么原因?最可能是监管拆分,而非竞争。', moatType: '临界质量+多重心理偏见锁定', risk: '逆向风险:监管拆分可能性>竞争替代可能性' },
+        en: { score: 'Very Strong', analysis: 'Social networks exhibit the perfect "critical mass" mental model — once all your friends are on it, you can\'t leave. Multiple psychological biases sustain stickiness: social proof, FOMO, loss aversion. Zuckerberg shows rare adaptability (Stories, Reels were successful copies). Invert: if Meta fails, why? Most likely regulatory breakup, not competition.', moatType: 'Critical mass + multiple psychological biases lock-in', risk: 'Inverted risk: regulatory breakup probability > competitive displacement probability' }
       }
     },
     valuation: {
@@ -684,7 +684,7 @@ GOOGL: {
       reportDate: '2026-01-16',
       zh: {
         revenue: { val: '$33.7B', yoy: '+20.5%', beat: '超指引上沿', note: '全年$1213亿+35.9%;HPC占53%,智能手机35%' },
-        eps: { val: 'NT$19.50 ($3.14 ADR)', yoy: '+35%', beat: '超市场预期', note: '全年EPS NT$62.79,同比+35.9%' },
+        eps: { val: 'NT$19.50 ($2.24 ADR)', yoy: '+35%', beat: '超市场预期', note: '全年EPS NT$62.79,同比+35.9%' },
         fcf: { val: 'NT$1.003T(年)', margin: '25.8%', trend: '↑', note: '全年FCF约$310亿,同比+15.2%' },
         grossMargin: { val: '62.3%', trend: '↑', note: '环比+2.8ppt;Q1 2026指引63-65%,定价权持续增强' },
         guidance: 'Q1 2026营收$346-358亿;毛利率63-65%;2026年Capex $520-560亿;全年营收增长约30%',
@@ -693,7 +693,7 @@ GOOGL: {
       },
       en: {
         revenue: { val: '$33.7B', yoy: '+20.5%', beat: 'Beat top of guidance', note: 'Full year $121.3B +35.9%; HPC 53%, smartphone 35%' },
-        eps: { val: 'NT$19.50 ($3.14 ADR)', yoy: '+35%', beat: 'Beat consensus', note: 'Full year EPS NT$62.79, +35.9% YoY' },
+        eps: { val: 'NT$19.50 ($2.24 ADR)', yoy: '+35%', beat: 'Beat consensus', note: 'Full year EPS NT$62.79, +35.9% YoY' },
         fcf: { val: 'NT$1.003T(FY)', margin: '25.8%', trend: '↑', note: 'Full year FCF ~$31B, +15.2% YoY' },
         grossMargin: { val: '62.3%', trend: '↑', note: '+2.8ppt QoQ; Q1 2026 guidance 63-65%, showing continued pricing power' },
         guidance: 'Q1 2026 revenue $34.6-35.8B; GM 63-65%; 2026 capex $52-56B; full year revenue ~+30%',
@@ -721,16 +721,16 @@ GOOGL: {
     },
     moat: {
       duan: {
-        zh: { score: 'A+', analysis: '终极"卖铲子"生意——无论NVIDIA、Apple、AMD还是高通,都必须找TSMC代工。45%净利润率说明定价权绝对强势。这种"你不找我就没人能做"的生意模式,段永平会给满分。', moatType: '技术垄断+资本壁垒', risk: '地缘政治是唯一无法用商业分析解决的风险' },
-        en: { score: 'A+', analysis: 'Ultimate "shovel" business — whether NVIDIA, Apple, AMD, or Qualcomm, all must use TSMC. 45% net margin proves absolute pricing power. This "come to me or no one can do it" model would get full marks from DYP.', moatType: 'Technological monopoly + capital barriers', risk: 'Geopolitics is the only risk that business analysis cannot resolve' }
+        zh: { score: '极强', analysis: '终极"卖铲子"生意——无论NVIDIA、Apple、AMD还是高通,都必须找TSMC代工。45%净利润率说明定价权绝对强势。这种"你不找我就没人能做"的生意模式,段永平会给满分。', moatType: '技术垄断+资本壁垒', risk: '地缘政治是唯一无法用商业分析解决的风险' },
+        en: { score: 'Very Strong', analysis: 'Ultimate "shovel" business — whether NVIDIA, Apple, AMD, or Qualcomm, all must use TSMC. 45% net margin proves absolute pricing power. This "come to me or no one can do it" model would get full marks from DYP.', moatType: 'Technological monopoly + capital barriers', risk: 'Geopolitics is the only risk that business analysis cannot resolve' }
       },
       buffett: {
-        zh: { score: 'A-', analysis: 'ROE 35%证明资本回报优秀。TSMC是半导体世界的"唯一桥梁",类似伯克希尔喜欢的公用事业型垄断。但过于资本密集,且台海风险超出了"可理解"的范畴——巴菲特曾短暂持有后卖出,正是因为地缘不确定性。', moatType: '必需品垄断+规模经济', risk: '台海风险无法量化,超出能力圈;资本密集度高于理想水平' },
-        en: { score: 'A-', analysis: 'ROE of 35% proves excellent capital returns. TSMC is the "only bridge" in the semiconductor world, similar to the utility monopolies Berkshire favors. But too capital-intensive, and Taiwan risk exceeds "understandable" bounds — Buffett briefly held then sold precisely due to geopolitical uncertainty.', moatType: 'Essential monopoly + economies of scale', risk: 'Taiwan risk unquantifiable, outside circle of competence; capital intensity higher than ideal' }
+        zh: { score: '强', analysis: 'ROE 35%证明资本回报优秀。TSMC是半导体世界的"唯一桥梁",类似伯克希尔喜欢的公用事业型垄断。但过于资本密集,且台海风险超出了"可理解"的范畴——巴菲特曾短暂持有后卖出,正是因为地缘不确定性。', moatType: '必需品垄断+规模经济', risk: '台海风险无法量化,超出能力圈;资本密集度高于理想水平' },
+        en: { score: 'Strong', analysis: 'ROE of 35% proves excellent capital returns. TSMC is the "only bridge" in the semiconductor world, similar to the utility monopolies Berkshire favors. But too capital-intensive, and Taiwan risk exceeds "understandable" bounds — Buffett briefly held then sold precisely due to geopolitical uncertainty.', moatType: 'Essential monopoly + economies of scale', risk: 'Taiwan risk unquantifiable, outside circle of competence; capital intensity higher than ideal' }
       },
       munger: {
-        zh: { score: 'A+', analysis: '从多个心智模型看都是顶级资产:1)规模效应——越大越强;2)学习曲线——每一代制程的know-how不可复制;3)临界质量——客户生态形成正反馈;4)有限供给——全球仅此一家能做最先进芯片。这是工业史上罕见的"赢家通吃"格局。', moatType: '多重心智模型共振:规模+学习曲线+有限供给', risk: '地缘冲突是唯一的"致命一击"风险,但概率虽低影响巨大' },
-        en: { score: 'A+', analysis: 'Top-tier asset across multiple mental models: 1) Scale effects — bigger is stronger; 2) Learning curve — each process node\'s know-how is unreplicable; 3) Critical mass — customer ecosystem creates positive feedback; 4) Scarce supply — only company globally for cutting-edge chips. Historically rare "winner-take-all" dynamic.', moatType: 'Multi-model resonance: scale + learning curve + scarce supply', risk: 'Geopolitical conflict is the only "knockout blow" risk — low probability but catastrophic impact' }
+        zh: { score: '极强', analysis: '从多个心智模型看都是顶级资产:1)规模效应——越大越强;2)学习曲线——每一代制程的know-how不可复制;3)临界质量——客户生态形成正反馈;4)有限供给——全球仅此一家能做最先进芯片。这是工业史上罕见的"赢家通吃"格局。', moatType: '多重心智模型共振:规模+学习曲线+有限供给', risk: '地缘冲突是唯一的"致命一击"风险,但概率虽低影响巨大' },
+        en: { score: 'Very Strong', analysis: 'Top-tier asset across multiple mental models: 1) Scale effects — bigger is stronger; 2) Learning curve — each process node\'s know-how is unreplicable; 3) Critical mass — customer ecosystem creates positive feedback; 4) Scarce supply — only company globally for cutting-edge chips. Historically rare "winner-take-all" dynamic.', moatType: 'Multi-model resonance: scale + learning curve + scarce supply', risk: 'Geopolitical conflict is the only "knockout blow" risk — low probability but catastrophic impact' }
       }
     },
     valuation: {
@@ -811,9 +811,9 @@ GOOGL: {
       en: { cashPosition: 'Cash $17.8B, extremely strong financial position', debtToEquity: 'Low leverage with D/E ~0.35', currentRatio: 'Current ratio 1.07, normal for retail', capex: 'Annual capex ~$5B for new store expansion and logistics', buyback: 'Minimal buybacks; returns via regular + special dividends', summary: 'Exceptionally healthy finances; asset-light, high-turnover model with abundant cash flow' }
     },
     moat: {
-      duan: { zh: { score: '9.5/10', analysis: '段永平视角：Costco是"消费者代理人"的极致体现，用最低毛利率换取最高用户信任，形成飞轮效应', moatType: '规模经济+品牌忠诚+转换成本', risk: '估值过高时入场会降低长期回报' }, en: { score: '9.5/10', analysis: 'DYP view: Costco is the ultimate "consumer agent" — lowest margins for highest trust, creating a flywheel effect', moatType: 'Scale economics + brand loyalty + switching costs', risk: 'Overpaying at high valuations reduces long-term returns' } },
-      buffett: { zh: { score: '9/10', analysis: '巴菲特视角：会员费模式创造可预测的经常性收入流，品牌在消费者心智中占据独特位置', moatType: '经济护城河——成本优势+品牌', risk: '零售业永远面临竞争，但Costco的模式极难被颠覆' }, en: { score: '9/10', analysis: 'Buffett view: Membership model creates predictable recurring revenue; the brand occupies a unique position in consumer mindshare', moatType: 'Economic moat — cost advantage + brand', risk: 'Retail always faces competition, but Costco\'s model is extremely hard to disrupt' } },
-      munger: { zh: { score: '10/10', analysis: '芒格视角：Costco体现了"反过来想"的智慧——不追求高毛利而是最低价格，反而获得最大忠诚度和最佳回报', moatType: '文化护城河+成本领先+网络效应', risk: '几乎看不到重大风险，但要警惕管理层更迭后文化稀释' }, en: { score: '10/10', analysis: 'Munger view: Costco embodies "invert, always invert" — by not chasing high margins but offering lowest prices, it earns maximum loyalty and best returns', moatType: 'Cultural moat + cost leadership + network effects', risk: 'Almost no major risks, but watch for cultural dilution after management transitions' } }
+      duan: { zh: { score: '极强', analysis: '段永平视角：Costco是"消费者代理人"的极致体现，用最低毛利率换取最高用户信任，形成飞轮效应', moatType: '规模经济+品牌忠诚+转换成本', risk: '估值过高时入场会降低长期回报' }, en: { score: 'Very Strong', analysis: 'DYP view: Costco is the ultimate "consumer agent" — lowest margins for highest trust, creating a flywheel effect', moatType: 'Scale economics + brand loyalty + switching costs', risk: 'Overpaying at high valuations reduces long-term returns' } },
+      buffett: { zh: { score: '极强', analysis: '巴菲特视角：会员费模式创造可预测的经常性收入流，品牌在消费者心智中占据独特位置', moatType: '经济护城河——成本优势+品牌', risk: '零售业永远面临竞争，但Costco的模式极难被颠覆' }, en: { score: 'Very Strong', analysis: 'Buffett view: Membership model creates predictable recurring revenue; the brand occupies a unique position in consumer mindshare', moatType: 'Economic moat — cost advantage + brand', risk: 'Retail always faces competition, but Costco\'s model is extremely hard to disrupt' } },
+      munger: { zh: { score: '极强', analysis: '芒格视角：Costco体现了"反过来想"的智慧——不追求高毛利而是最低价格，反而获得最大忠诚度和最佳回报', moatType: '文化护城河+成本领先+网络效应', risk: '几乎看不到重大风险，但要警惕管理层更迭后文化稀释' }, en: { score: 'Very Strong', analysis: 'Munger view: Costco embodies "invert, always invert" — by not chasing high margins but offering lowest prices, it earns maximum loyalty and best returns', moatType: 'Cultural moat + cost leadership + network effects', risk: 'Almost no major risks, but watch for cultural dilution after management transitions' } }
     },
     valuation: {
       zh: { dcf: { value: '$700-850', method: '10年DCF，假设营收CAGR 8%，终端增长率3%，WACC 9%', note: '基于当前FCF $7.8B增长' }, peerComp: { value: '$750-900', method: '相对Walmart(23x)和Target(16x)显著溢价，但增长和质量更优', note: '40-50x PE对Costco品质合理但偏高端' }, grahamMargin: '当前价格$1007，安全边际不足，DCF中值约$775', verdict: '优质但昂贵——适合持有，新建仓建议等回调至$850以下' },
@@ -884,9 +884,9 @@ GOOGL: {
       en: { cashPosition: 'Cash & equivalents $334B, primarily in short-term US Treasuries, all-time high', debtToEquity: 'D/E only 0.19, extremely low leverage', currentRatio: 'Current ratio 7.07, exceptionally liquid', capex: 'Annual capex ~$15B, primarily for BNSF railroad and BHE energy', buyback: '~$2.9B repurchased in 2024, well below available cash', summary: 'One of the strongest balance sheets globally; $334B cash provides extreme downside protection and acquisition firepower' }
     },
     moat: {
-      duan: { zh: { score: '9.5/10', analysis: '段永平视角：Berkshire的保险浮存金模式相当于"免费借钱投资"，加上巴菲特的资本配置能力，构成无与伦比的商业帝国', moatType: '浮存金优势+多元化+品牌+资本配置', risk: 'Buffett不在后能否维持同等水平的资本配置能力' }, en: { score: '9.5/10', analysis: 'DYP view: Berkshire\'s insurance float model is essentially "free leverage for investing" — combined with Buffett\'s capital allocation, it creates an unmatched business empire', moatType: 'Float advantage + diversification + brand + capital allocation', risk: 'Whether post-Buffett leadership can maintain the same caliber of capital allocation' } },
-      buffett: { zh: { score: '10/10', analysis: '巴菲特视角：这是我用一生建造的方舟，保险浮存金、优质子公司、充沛现金——三重防护让Berkshire几乎不可能失败', moatType: '综合护城河——保险+铁路+能源+品牌', risk: '我最大的遗憾是没有更早出手做更大的收购' }, en: { score: '10/10', analysis: 'Buffett view: This is the ark I built over a lifetime — insurance float, quality subsidiaries, abundant cash — triple protection makes Berkshire near-impossible to fail', moatType: 'Composite moat — insurance + railroad + energy + brand', risk: 'My biggest regret is not moving sooner on larger acquisitions' } },
-      munger: { zh: { score: '9.5/10', analysis: '芒格视角：Berkshire成功的秘诀是"持续学习+理性决策+耐心等待"，这种文化比任何单个业务都更有价值', moatType: '文化护城河+理性决策框架+永久资本', risk: '企业文化的传承是最大挑战，但Greg Abel已证明自己的能力' }, en: { score: '9.5/10', analysis: 'Munger view: Berkshire\'s secret is "continuous learning + rational decisions + patient waiting" — this culture is more valuable than any single business', moatType: 'Cultural moat + rational decision framework + permanent capital', risk: 'Cultural succession is the biggest challenge, but Greg Abel has proven himself capable' } }
+      duan: { zh: { score: '极强', analysis: '段永平视角：Berkshire的保险浮存金模式相当于"免费借钱投资"，加上巴菲特的资本配置能力，构成无与伦比的商业帝国', moatType: '浮存金优势+多元化+品牌+资本配置', risk: 'Buffett不在后能否维持同等水平的资本配置能力' }, en: { score: 'Very Strong', analysis: 'DYP view: Berkshire\'s insurance float model is essentially "free leverage for investing" — combined with Buffett\'s capital allocation, it creates an unmatched business empire', moatType: 'Float advantage + diversification + brand + capital allocation', risk: 'Whether post-Buffett leadership can maintain the same caliber of capital allocation' } },
+      buffett: { zh: { score: '极强', analysis: '巴菲特视角：这是我用一生建造的方舟，保险浮存金、优质子公司、充沛现金——三重防护让Berkshire几乎不可能失败', moatType: '综合护城河——保险+铁路+能源+品牌', risk: '我最大的遗憾是没有更早出手做更大的收购' }, en: { score: 'Very Strong', analysis: 'Buffett view: This is the ark I built over a lifetime — insurance float, quality subsidiaries, abundant cash — triple protection makes Berkshire near-impossible to fail', moatType: 'Composite moat — insurance + railroad + energy + brand', risk: 'My biggest regret is not moving sooner on larger acquisitions' } },
+      munger: { zh: { score: '极强', analysis: '芒格视角：Berkshire成功的秘诀是"持续学习+理性决策+耐心等待"，这种文化比任何单个业务都更有价值', moatType: '文化护城河+理性决策框架+永久资本', risk: '企业文化的传承是最大挑战，但Greg Abel已证明自己的能力' }, en: { score: 'Very Strong', analysis: 'Munger view: Berkshire\'s secret is "continuous learning + rational decisions + patient waiting" — this culture is more valuable than any single business', moatType: 'Cultural moat + rational decision framework + permanent capital', risk: 'Cultural succession is the biggest challenge, but Greg Abel has proven himself capable' } }
     },
     valuation: {
       zh: { dcf: { value: '$480-550 (B类)', method: 'SOTP估值：保险+铁路+能源+制造+投资组合+现金分部加总', note: '现金$334B本身就约占市值30%' }, peerComp: { value: '$450-520', method: 'P/B 1.53x vs 历史均值1.4x；运营PE约18x合理', note: '保险同业通常1.0-1.5x P/B' }, grahamMargin: '当前$496，处于合理估值区间，安全边际约10-15%', verdict: '估值合理，$334B现金提供安全垫——适合作为核心配置长期持有' },
@@ -957,9 +957,9 @@ GOOGL: {
       en: { cashPosition: 'Cash & equivalents $83.6B, strong net cash position', debtToEquity: 'D/E only 0.23, very low leverage', currentRatio: 'Current ratio ~1.5, healthy', capex: 'Capex accelerating with massive AI/cloud infrastructure investment', buyback: '>5% of shares repurchased in FY2025; $25B buyback program underway', summary: 'Extremely solid financial position with $83.6B cash + active buybacks + low debt, balance sheet is an underappreciated safety cushion' }
     },
     moat: {
-      duan: { zh: { score: '7/10', analysis: '段永平视角：阿里巴巴在电商和云计算有强大生态，但拼多多和抖音正在侵蚀其核心电商份额，护城河在收窄', moatType: '生态系统+规模+数据优势', risk: 'VIE结构是根本性风险，监管环境可能再次变化' }, en: { score: '7/10', analysis: 'DYP view: Alibaba has a powerful e-commerce and cloud ecosystem, but Pinduoduo and Douyin are eroding its core e-commerce share — the moat is narrowing', moatType: 'Ecosystem + scale + data advantage', risk: 'VIE structure is a fundamental risk; regulatory environment could shift again' } },
-      buffett: { zh: { score: '5/10', analysis: '巴菲特视角：我对中国企业的监管环境缺乏足够理解，VIE结构意味着你并不真正拥有企业的所有权', moatType: '规模优势，但监管风险削弱了护城河的可靠性', risk: '无法确信10年后的竞争格局和政策环境' }, en: { score: '5/10', analysis: 'Buffett view: I lack sufficient understanding of China\'s regulatory environment; VIE structure means you don\'t truly own the business', moatType: 'Scale advantage, but regulatory risk undermines moat reliability', risk: 'Cannot be confident about competitive landscape and policy environment in 10 years' } },
-      munger: { zh: { score: '7.5/10', analysis: '芒格视角：阿里巴巴是中国数字经济的核心基础设施之一，AI和云的布局具有前瞻性，但投资者需为不确定性留足安全边际', moatType: '平台网络效应+技术积累+云市场份额', risk: '中美博弈和国内监管是最大不确定性，但估值已反映大量悲观预期' }, en: { score: '7.5/10', analysis: 'Munger view: Alibaba is core infrastructure of China\'s digital economy; AI and cloud positioning is forward-thinking, but investors need ample margin of safety for uncertainty', moatType: 'Platform network effects + tech accumulation + cloud market share', risk: 'US-China tensions and domestic regulation are biggest unknowns, but valuation already reflects substantial pessimism' } }
+      duan: { zh: { score: '中等偏强', analysis: '段永平视角：阿里巴巴在电商和云计算有强大生态，但拼多多和抖音正在侵蚀其核心电商份额，护城河在收窄', moatType: '生态系统+规模+数据优势', risk: 'VIE结构是根本性风险，监管环境可能再次变化' }, en: { score: 'Moderate-Strong', analysis: 'DYP view: Alibaba has a powerful e-commerce and cloud ecosystem, but Pinduoduo and Douyin are eroding its core e-commerce share — the moat is narrowing', moatType: 'Ecosystem + scale + data advantage', risk: 'VIE structure is a fundamental risk; regulatory environment could shift again' } },
+      buffett: { zh: { score: '弱', analysis: '巴菲特视角：我对中国企业的监管环境缺乏足够理解，VIE结构意味着你并不真正拥有企业的所有权', moatType: '规模优势，但监管风险削弱了护城河的可靠性', risk: '无法确信10年后的竞争格局和政策环境' }, en: { score: 'Weak', analysis: 'Buffett view: I lack sufficient understanding of China\'s regulatory environment; VIE structure means you don\'t truly own the business', moatType: 'Scale advantage, but regulatory risk undermines moat reliability', risk: 'Cannot be confident about competitive landscape and policy environment in 10 years' } },
+      munger: { zh: { score: '中等偏强', analysis: '芒格视角：阿里巴巴是中国数字经济的核心基础设施之一，AI和云的布局具有前瞻性，但投资者需为不确定性留足安全边际', moatType: '平台网络效应+技术积累+云市场份额', risk: '中美博弈和国内监管是最大不确定性，但估值已反映大量悲观预期' }, en: { score: 'Moderate-Strong', analysis: 'Munger view: Alibaba is core infrastructure of China\'s digital economy; AI and cloud positioning is forward-thinking, but investors need ample margin of safety for uncertainty', moatType: 'Platform network effects + tech accumulation + cloud market share', risk: 'US-China tensions and domestic regulation are biggest unknowns, but valuation already reflects substantial pessimism' } }
     },
     valuation: {
       zh: { dcf: { value: '$160-200 (ADS)', method: '10年DCF，假设营收CAGR 8%，终端增长率3%，WACC 12%（含国家风险溢价）', note: '高折现率反映地缘政治和监管风险' }, peerComp: { value: '$150-190', method: '对比Amazon(60x)和Tencent(20x)严重折价，反映"中国折扣"', note: '11.5x Forward PE为中概股最低区间' }, grahamMargin: '当前价格约$145，相对DCF中值$180有约20%安全边际', verdict: '估值极度低估（如果忽略政治风险）——AI催化剂可能触发重估，但风险不容忽视' },

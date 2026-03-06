@@ -5,12 +5,9 @@
   "type": "module",
   "scripts": {
     "fetch": "node scripts/fetch-data.mjs",
-    "analyze": "node scripts/generate-analysis.mjs",
-    "update": "node scripts/fetch-data.mjs && node scripts/generate-analysis.mjs",
     "dev": "npx serve ."
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.39.0",
     "node-fetch": "^3.3.2"
   }
 }

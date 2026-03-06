@@ -5,19 +5,19 @@
       "zh": "AI芯片龙头，GPU+CUDA平台驱动数据中心、自动驾驶、游戏三大业务",
       "en": "AI chip leader; GPU + CUDA platform powering data centers, autonomous driving, and gaming"
     },
-    "revGrowth": "+78%",
-    "epsEst": "$0.89 vs est $0.84",
-    "grossMargin": "73.0%",
+    "revGrowth": "+73.2%",
+    "epsEst": "$4.90 → fwd $10.74",
+    "grossMargin": "71.1%",
     "dataCenterRev": "$35.1B (+93%)",
-    "peFwd": "24.8x",
-    "peg": "0.60",
-    "evEbitda": "28.5x",
-    "ps": "28.2x",
-    "netMargin": "55.8%",
-    "roe": "115%",
-    "fcfYield": "1.8%",
-    "divYield": "0.02%",
-    "valuationPctl": 75,
+    "peFwd": "17.1x",
+    "peg": "—",
+    "evEbitda": "33.1x",
+    "ps": "20.6x",
+    "netMargin": "55.6%",
+    "roe": "101%",
+    "fcfYield": "1.3%",
+    "divYield": "2.00%",
+    "valuationPctl": 72,
     "summary": {
       "zh": "NVDA是AI基础设施的绝对龙头。Q4营收$39.3B（+78% YoY）大超预期，Blackwell加速出货。PEG 0.6说明增长正在消化高估值。但75分位估值意味着安全边际较薄。",
       "en": "NVDA is the dominant AI infrastructure play. Q4 revenue $39.3B (+78% YoY) crushed estimates, Blackwell ramping ahead of schedule. PEG 0.6 suggests growth digesting premium. At 75th pctl valuation, margin of safety is thin."
@@ -106,29 +106,29 @@
       ]
     },
     "earnings": {
-      "quarter": "FY2025 Q4",
-      "reportDate": "2025-02-26",
+      "quarter": "2026-01-31",
+      "reportDate": "2026-01-31",
       "zh": {
         "revenue": {
-          "val": "$39.3B",
-          "yoy": "+78%",
+          "val": "$68.1B",
+          "yoy": "+73.2%",
           "beat": "超预期$1.8B",
           "note": "数据中心收入$35.1B占89%，Blackwell加速出货"
         },
         "eps": {
-          "val": "$0.89",
-          "yoy": "+71%",
+          "val": "$1.77",
+          "yoy": "+95%",
           "beat": "超预期$0.05",
           "note": "GAAP EPS连续6季度超预期"
         },
         "fcf": {
-          "val": "$16.8B",
-          "margin": "42.7%",
+          "val": "$34.9B",
+          "margin": "51.2%",
           "trend": "↑",
           "note": "自由现金流创历史新高，同比+82%"
         },
         "grossMargin": {
-          "val": "73.0%",
+          "val": "75.0%",
           "trend": "↓",
           "note": "环比下降3.0pp，因Blackwell初期良率较低，管理层指引恢复至75%"
         },
@@ -138,25 +138,25 @@
       },
       "en": {
         "revenue": {
-          "val": "$39.3B",
-          "yoy": "+78%",
+          "val": "$68.1B",
+          "yoy": "+73.2%",
           "beat": "Beat by $1.8B",
           "note": "Data Center $35.1B = 89% of total, Blackwell ramping fast"
         },
         "eps": {
-          "val": "$0.89",
-          "yoy": "+71%",
+          "val": "$1.77",
+          "yoy": "+95%",
           "beat": "Beat by $0.05",
           "note": "GAAP EPS beat for 6 consecutive quarters"
         },
         "fcf": {
-          "val": "$16.8B",
-          "margin": "42.7%",
+          "val": "$34.9B",
+          "margin": "51.2%",
           "trend": "↑",
           "note": "Free cash flow at all-time high, +82% YoY"
         },
         "grossMargin": {
-          "val": "73.0%",
+          "val": "75.0%",
           "trend": "↓",
           "note": "Down 3.0pp QoQ due to Blackwell early yield; mgmt guides recovery to 75%"
         },
@@ -167,17 +167,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "$43.2B现金 vs $9.7B长期债务 = 净现金$33.5B",
-        "debtToEquity": "0.17x — 极低杠杆",
-        "currentRatio": "4.17x — 流动性极强",
+        "cashPosition": "$62.6B现金 vs $11.4B债务 = 净现金$51.1B",
+        "debtToEquity": "0.07x — 低杠杆",
+        "currentRatio": "3.90x — 流动性极强",
         "capex": "$3.2B/季 — 资本开支占营收仅8%，轻资产模式",
         "buyback": "回购$12.4B/年，股息仅$0.04/股（象征性）",
         "summary": "资产负债表极其健康。净现金$33.5B提供强大安全垫。Fabless模式=低资本开支+高FCF转换。唯一注意：AI投资周期可能改变资本结构。"
       },
       "en": {
-        "cashPosition": "$43.2B cash vs $9.7B LT debt = $33.5B net cash",
-        "debtToEquity": "0.17x — Very low leverage",
-        "currentRatio": "4.17x — Extremely liquid",
+        "cashPosition": "$62.6B cash vs $11.4B debt = $51.1B net",
+        "debtToEquity": "0.07x — Low leverage",
+        "currentRatio": "3.90x — Very liquid",
         "capex": "$3.2B/Q — Capex only 8% of revenue, asset-light model",
         "buyback": "$12.4B/yr buyback, dividend only $0.04/share (token)",
         "summary": "Extremely healthy balance sheet. $33.5B net cash = massive safety cushion. Fabless model = low capex + high FCF conversion. Only caveat: AI investment cycle may change capital structure."
@@ -256,7 +256,9 @@
         "grahamMargin": "Current $183 vs DCF midpoint $155 = 18% premium, insufficient margin of safety",
         "verdict": "Fair value range $145-175. Current price bakes in optimistic scenario, needs continuous beats to sustain."
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.066Z",
+    "_price": 183.34
   },
   "AAPL": {
     "exchange": "NASDAQ",
@@ -264,19 +266,19 @@
       "zh": "全球市值最大科技公司，iPhone+Mac+iPad硬件生态+Services订阅服务",
       "en": "World's most valuable tech company; iPhone/Mac/iPad hardware ecosystem + Services subscriptions"
     },
-    "revGrowth": "+4%",
-    "epsEst": "$2.40 vs est $2.35",
-    "grossMargin": "46.9%",
+    "revGrowth": "+15.7%",
+    "epsEst": "$7.91 → fwd $9.31",
+    "grossMargin": "47.3%",
     "dataCenterRev": "Services $26.3B (+14%)",
-    "peFwd": "30.5x",
-    "peg": "2.80",
-    "evEbitda": "26.1x",
-    "ps": "8.9x",
-    "netMargin": "25.3%",
-    "roe": "160%",
-    "fcfYield": "3.2%",
-    "divYield": "0.44%",
-    "valuationPctl": 82,
+    "peFwd": "27.9x",
+    "peg": "—",
+    "evEbitda": "25.1x",
+    "ps": "8.8x",
+    "netMargin": "27.0%",
+    "roe": "152%",
+    "fcfYield": "2.8%",
+    "divYield": "40.00%",
+    "valuationPctl": 58,
     "summary": {
       "zh": "Apple的服务业务持续增长，但iPhone增速放缓。品牌护城河极强但估值偏高（PEG 2.8）。AI功能落后竞争对手，需关注iPhone 17周期。",
       "en": "Apple Services growing steadily but iPhone growth slowing. Brand moat is exceptional but valuation stretched (PEG 2.8). AI features lagging competitors, watch iPhone 17 cycle."
@@ -365,29 +367,29 @@
       ]
     },
     "earnings": {
-      "quarter": "FY2025 Q1",
-      "reportDate": "2025-01-30",
+      "quarter": "2025-12-31",
+      "reportDate": "2025-12-31",
       "zh": {
         "revenue": {
-          "val": "$124.3B",
-          "yoy": "+4%",
+          "val": "$143.8B",
+          "yoy": "+15.7%",
           "beat": "超预期$1.2B",
           "note": "iPhone $69.1B (+2%)，服务$26.3B (+14%)创新高"
         },
         "eps": {
-          "val": "$2.40",
-          "yoy": "+10%",
+          "val": "$2.86",
+          "yoy": "+16%",
           "beat": "超预期$0.05",
           "note": "回购缩股+服务占比提升驱动EPS增长快于营收"
         },
         "fcf": {
-          "val": "$36.0B",
-          "margin": "29.0%",
+          "val": "$51.6B",
+          "margin": "35.9%",
           "trend": "→",
           "note": "FCF稳健但增速放缓至+3%，大部分用于回购"
         },
         "grossMargin": {
-          "val": "46.9%",
+          "val": "48.2%",
           "trend": "↑",
           "note": "创公司历史新高，服务业务毛利率>70%拉升整体"
         },
@@ -397,25 +399,25 @@
       },
       "en": {
         "revenue": {
-          "val": "$124.3B",
-          "yoy": "+4%",
+          "val": "$143.8B",
+          "yoy": "+15.7%",
           "beat": "Beat by $1.2B",
           "note": "iPhone $69.1B (+2%), Services $26.3B (+14%) record"
         },
         "eps": {
-          "val": "$2.40",
-          "yoy": "+10%",
+          "val": "$2.86",
+          "yoy": "+16%",
           "beat": "Beat by $0.05",
           "note": "Buybacks + Services mix shift drives EPS growth > revenue growth"
         },
         "fcf": {
-          "val": "$36.0B",
-          "margin": "29.0%",
+          "val": "$51.6B",
+          "margin": "35.9%",
           "trend": "→",
           "note": "Stable FCF but growth slowing to +3%, mostly returned via buybacks"
         },
         "grossMargin": {
-          "val": "46.9%",
+          "val": "48.2%",
           "trend": "↑",
           "note": "All-time high, Services margin >70% lifting blended rate"
         },
@@ -426,17 +428,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "$65B现金+有价证券 vs $97B总债务 = 净债务$32B",
-        "debtToEquity": "净负债/权益比偏高，但经营现金流强劲支撑",
-        "currentRatio": "0.87x — 偏低但正常（高效营运资本管理）",
+        "cashPosition": "$66.9B现金 vs $90.5B债务 = 净现金$-23.6B",
+        "debtToEquity": "1.03x — 高杠杆",
+        "currentRatio": "0.97x — 流动性一般",
         "capex": "$2.9B/季 — 资本开支占营收<3%，极致轻资产",
         "buyback": "年回购$90B+股息$15B，是全球最大股东回报计划",
         "summary": "账面看\"净负债\"，但Apple的$110B/年经营现金流远超债务偿还需求。这是典型的\"借便宜钱回购+避税\"策略。真实财务风险近乎为零。"
       },
       "en": {
-        "cashPosition": "$65B cash+securities vs $97B total debt = $32B net debt",
-        "debtToEquity": "Net debt/equity elevated, but strong operating cash flow support",
-        "currentRatio": "0.87x — Low but normal (efficient working capital mgmt)",
+        "cashPosition": "$66.9B cash vs $90.5B debt = $-23.6B net",
+        "debtToEquity": "1.03x — High leverage",
+        "currentRatio": "0.97x — Moderate liquidity",
         "capex": "$2.9B/Q — Capex <3% of revenue, ultra asset-light",
         "buyback": "$90B/yr buyback + $15B dividend, largest shareholder return globally",
         "summary": "Looks \"net debt\" on paper, but Apple $110B/yr operating cash flow far exceeds debt service. Classic \"borrow cheap to buy back + tax optimize\" strategy. Real financial risk is near zero."
@@ -515,7 +517,9 @@
         "grahamMargin": "Current $242 vs DCF midpoint $215 = 13% premium, thin margin of safety",
         "verdict": "Fair value range $200-235. Current price requires sustained Services growth + AI catch-up to justify."
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.070Z",
+    "_price": 260.29
   },
   "MSFT": {
     "exchange": "NASDAQ",
@@ -523,19 +527,19 @@
       "zh": "企业级软件+云计算巨头，Office 365+Azure+AI Copilot驱动",
       "en": "Enterprise software + cloud giant; Office 365, Azure cloud, and AI Copilot"
     },
-    "revGrowth": "+12%",
-    "epsEst": "$3.23 vs est $3.11",
-    "grossMargin": "69.4%",
+    "revGrowth": "+16.7%",
+    "epsEst": "$15.98 → fwd $18.84",
+    "grossMargin": "68.6%",
     "dataCenterRev": "Azure +29%",
-    "peFwd": "29.8x",
-    "peg": "2.10",
-    "evEbitda": "24.5x",
-    "ps": "12.8x",
-    "netMargin": "35.6%",
-    "roe": "38%",
-    "fcfYield": "2.8%",
-    "divYield": "0.72%",
-    "valuationPctl": 70,
+    "peFwd": "21.8x",
+    "peg": "—",
+    "evEbitda": "17.6x",
+    "ps": "10.0x",
+    "netMargin": "39.0%",
+    "roe": "34%",
+    "fcfYield": "1.8%",
+    "divYield": "89.00%",
+    "valuationPctl": 58,
     "summary": {
       "zh": "Azure云增长29%稳健，Copilot AI推动Office生态升级。估值合理但非便宜（PEG 2.1）。企业级护城河极深。",
       "en": "Azure cloud growth 29% is solid, Copilot AI driving Office ecosystem upgrades. Fair but not cheap valuation (PEG 2.1). Enterprise moat is very deep."
@@ -624,29 +628,29 @@
       ]
     },
     "earnings": {
-      "quarter": "FY2025 Q2",
-      "reportDate": "2025-01-29",
+      "quarter": "2025-12-31",
+      "reportDate": "2025-12-31",
       "zh": {
         "revenue": {
-          "val": "$69.6B",
-          "yoy": "+12%",
+          "val": "$81.3B",
+          "yoy": "+16.7%",
           "beat": "超预期$0.9B",
           "note": "Intelligent Cloud $25.5B (+19%)，Azure+AI增长31%"
         },
         "eps": {
-          "val": "$3.23",
-          "yoy": "+10%",
+          "val": "$5.17",
+          "yoy": "+60%",
           "beat": "超预期$0.12",
           "note": "Operating leverage改善，运营利润率45%"
         },
         "fcf": {
-          "val": "$18.6B",
-          "margin": "26.7%",
+          "val": "$5.9B",
+          "margin": "7.2%",
           "trend": "→",
           "note": "FCF同比+7%，低于营收增速因AI资本开支激增"
         },
         "grossMargin": {
-          "val": "69.4%",
+          "val": "68.0%",
           "trend": "→",
           "note": "基本持平，Cloud毛利率被AI基建投入稀释"
         },
@@ -656,25 +660,25 @@
       },
       "en": {
         "revenue": {
-          "val": "$69.6B",
-          "yoy": "+12%",
+          "val": "$81.3B",
+          "yoy": "+16.7%",
           "beat": "Beat by $0.9B",
           "note": "Intelligent Cloud $25.5B (+19%), Azure+AI growth 31%"
         },
         "eps": {
-          "val": "$3.23",
-          "yoy": "+10%",
+          "val": "$5.17",
+          "yoy": "+60%",
           "beat": "Beat by $0.12",
           "note": "Operating leverage improving, op margin 45%"
         },
         "fcf": {
-          "val": "$18.6B",
-          "margin": "26.7%",
+          "val": "$5.9B",
+          "margin": "7.2%",
           "trend": "→",
           "note": "FCF +7% YoY, below revenue growth due to AI capex surge"
         },
         "grossMargin": {
-          "val": "69.4%",
+          "val": "68.0%",
           "trend": "→",
           "note": "Flat, Cloud GM diluted by AI infra investment"
         },
@@ -685,17 +689,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "$78B现金 vs $42B长期债务 = 净现金$36B",
-        "debtToEquity": "0.29x — 保守杠杆，AAA信用评级",
-        "currentRatio": "1.27x — 健康",
+        "cashPosition": "$89.5B现金 vs $123.3B债务 = 净现金$-33.8B",
+        "debtToEquity": "0.32x — 适度杠杆",
+        "currentRatio": "1.39x — 流动性良好",
         "capex": "$16B/季 — AI基建投资激增（YoY +78%），占营收23%",
         "buyback": "年回购$20B+股息$22B，股息连增20年",
         "summary": "净现金$36B+AAA评级=最强财务堡垒之一。但关注AI资本开支激增至$64B/年——这是对未来的豪赌。若AI变现不达预期，FCF将承压。"
       },
       "en": {
-        "cashPosition": "$78B cash vs $42B LT debt = $36B net cash",
-        "debtToEquity": "0.29x — Conservative leverage, AAA credit rating",
-        "currentRatio": "1.27x — Healthy",
+        "cashPosition": "$89.5B cash vs $123.3B debt = $-33.8B net",
+        "debtToEquity": "0.32x — Moderate leverage",
+        "currentRatio": "1.39x — Adequate liquidity",
         "capex": "$16B/Q — AI infra investment surging (+78% YoY), 23% of revenue",
         "buyback": "$20B/yr buyback + $22B dividend, 20-yr dividend growth streak",
         "summary": "$36B net cash + AAA rating = one of strongest financial fortresses. But watch AI capex surging to $64B/yr — a massive bet on AI monetization. If AI fails to monetize, FCF will compress."
@@ -774,7 +778,9 @@
         "grahamMargin": "Current $410 vs DCF midpoint $395 = 4% premium, barely adequate margin of safety",
         "verdict": "Fair value range $370-420. Current price reflects fair expectations, $360-380 pullback is a better entry."
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.070Z",
+    "_price": 410.68
   },
   "GOOGL": {
     "exchange": "NASDAQ",
@@ -782,19 +788,19 @@
       "zh": "全球搜索引擎垄断+YouTube+Google Cloud，AI驱动的数字广告平台",
       "en": "Global search monopoly + YouTube + Google Cloud; AI-powered digital advertising platform"
     },
-    "revGrowth": "+18%",
-    "epsEst": "$2.82 vs est $2.61",
-    "grossMargin": "58.2%",
+    "revGrowth": "+18.0%",
+    "epsEst": "$10.80 → fwd $13.42",
+    "grossMargin": "59.7%",
     "dataCenterRev": "Google Cloud $17.7B (+48% YoY), op margin 30.1%",
-    "peFwd": "26.6x",
-    "peg": "1.69",
-    "evEbitda": "19.95x",
-    "ps": "9.22x",
+    "peFwd": "22.4x",
+    "peg": "—",
+    "evEbitda": "23.8x",
+    "ps": "9.0x",
     "netMargin": "32.8%",
-    "roe": "34.4%",
-    "fcfYield": "2.0%",
-    "divYield": "0.27%",
-    "valuationPctl": 68,
+    "roe": "36%",
+    "fcfYield": "1.1%",
+    "divYield": "28.00%",
+    "valuationPctl": 58,
     "summary": {
       "zh": "Alphabet Q4 2025营收$1138亿超预期,同比+18%。Google Cloud是最大亮点,营收增长48%至$177亿,运营利润率跃升至30.1%。Gemini AI月活突破7.5亿。全年净利$1322亿,EPS $10.91。YouTube广告略逊预期。2026年资本开支指引$1750-1850亿,较2025年翻倍,引发市场对回报率的担忧。云业务积压订单$2400亿,同比翻倍,AI变现前景明朗。核心风险:反垄断诉讼、搜索份额受AI竞品侵蚀、巨额Capex短期压制FCF。",
       "en": "Alphabet Q4 2025 revenue of $113.8B beat estimates (+18% YoY). Google Cloud was the star, surging 48% to $17.7B with operating margin expanding to 30.1%. Gemini AI hit 750M MAUs. Full-year net income reached $132.2B with EPS of $10.91. YouTube ads slightly missed. 2026 capex guidance of $175-185B (nearly 2x 2025) spooked markets on ROI concerns. Cloud backlog hit $240B, doubling YoY, validating AI monetization. Key risks: antitrust litigation, AI search competitors eroding share, massive capex compressing near-term FCF."
@@ -883,8 +889,8 @@
       ]
     },
     "earnings": {
-      "quarter": "FY2025 Q4",
-      "reportDate": "2026-02-04",
+      "quarter": "2025-12-31",
+      "reportDate": "2025-12-31",
       "zh": {
         "revenue": {
           "val": "$113.8B",
@@ -893,19 +899,19 @@
           "note": "Google Cloud增长48%是核心驱动,广告业务+13.5%"
         },
         "eps": {
-          "val": "$2.82",
+          "val": "$2.85",
           "yoy": "+30%",
           "beat": "超预期$0.21",
           "note": "全年EPS $10.91,同比+36%"
         },
         "fcf": {
-          "val": "$24.6B(季)",
+          "val": "$24.6B",
           "margin": "21.6%",
           "trend": "↓",
           "note": "全年FCF $73.3B,受Capex增长压制"
         },
         "grossMargin": {
-          "val": "58.2%",
+          "val": "59.8%",
           "trend": "→",
           "note": "Cloud利润率大幅改善至30.1%拉升整体"
         },
@@ -921,19 +927,19 @@
           "note": "Google Cloud +48% was key driver; Ads +13.5%"
         },
         "eps": {
-          "val": "$2.82",
+          "val": "$2.85",
           "yoy": "+30%",
           "beat": "Beat by $0.21",
           "note": "Full year EPS $10.91, +36% YoY"
         },
         "fcf": {
-          "val": "$24.6B(Q)",
+          "val": "$24.6B",
           "margin": "21.6%",
           "trend": "↓",
           "note": "Full year FCF $73.3B, compressed by rising capex"
         },
         "grossMargin": {
-          "val": "58.2%",
+          "val": "59.8%",
           "trend": "→",
           "note": "Cloud margin expansion to 30.1% lifted the overall figure"
         },
@@ -944,17 +950,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "现金及有价证券$1268亿,长期债务$465亿,净现金充裕",
-        "debtToEquity": "0.12x — 极低杠杆,财务非常安全",
-        "currentRatio": "1.95x — 流动性充足",
+        "cashPosition": "$126.8B现金 vs $67.0B债务 = 净现金$59.8B",
+        "debtToEquity": "0.16x — 低杠杆",
+        "currentRatio": "2.00x — 流动性极强",
         "capex": "2025年Capex约$750亿;2026指引$1750-1850亿,大幅加码AI基础设施",
         "buyback": "持续回购,2025年回购约$620亿;股息年化$0.84/股,收益率0.27%",
         "summary": "资产负债表极为健康,净现金$800亿+。唯一担忧是2026年Capex翻倍,但以Alphabet的盈利能力完全可承受。"
       },
       "en": {
-        "cashPosition": "$126.8B cash & securities vs $46.5B long-term debt; strong net cash position",
-        "debtToEquity": "0.12x — extremely low leverage, very safe financially",
-        "currentRatio": "1.95x — ample liquidity",
+        "cashPosition": "$126.8B cash vs $67.0B debt = $59.8B net",
+        "debtToEquity": "0.16x — Low leverage",
+        "currentRatio": "2.00x — Very liquid",
         "capex": "2025 capex ~$75B; 2026 guidance $175-185B, massive AI infrastructure investment",
         "buyback": "Consistent buybacks, ~$62B repurchased in 2025; dividend $0.84/share annualized, 0.27% yield",
         "summary": "Exceptionally healthy balance sheet with $80B+ net cash. Only concern is 2026 capex doubling, but Alphabet's earnings power can easily absorb it."
@@ -1033,27 +1039,29 @@
         "grahamMargin": "Current price ~$195, near upper end of fair value range; thin margin of safety",
         "verdict": "Fair to slightly expensive — Cloud growth supports premium, but massive capex pressure suggests waiting for a 5-10% pullback"
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.070Z",
+    "_price": 300.88
   },
   "AMZN": {
-    "exchange": "NASDAQ",
+    "exchange": "NYSE",
     "desc": {
       "zh": "全球电商+AWS云计算+数字广告三引擎，物流网络覆盖全球",
       "en": "Global e-commerce + AWS cloud + digital ads triple engine; worldwide logistics network"
     },
-    "revGrowth": "+14%",
-    "epsEst": "$1.95 vs est $1.97",
-    "grossMargin": "50.2%",
+    "revGrowth": "+13.6%",
+    "epsEst": "$7.16 → fwd $9.33",
+    "grossMargin": "50.3%",
     "dataCenterRev": "AWS $35.6B (+24% YoY), op margin 35%",
-    "peFwd": "27.8x",
-    "peg": "1.44",
-    "evEbitda": "13.73x",
-    "ps": "3.15x",
+    "peFwd": "23.5x",
+    "peg": "—",
+    "evEbitda": "16.5x",
+    "ps": "3.3x",
     "netMargin": "10.8%",
-    "roe": "22.3%",
-    "fcfYield": "0.3%",
+    "roe": "22%",
+    "fcfYield": "1.0%",
     "divYield": "0.00%",
-    "valuationPctl": 62,
+    "valuationPctl": 58,
     "summary": {
       "zh": "Amazon Q4 2025营收$2134亿超预期,同比+14%。AWS是核心引擎,收入$356亿增长24%,为13个季度最快增速。运营利润$250亿,利润率11.7%。全年净利$777亿,同比+31%。但EPS $1.95略低于预期$1.97。关键争议:2026年Capex指引$2000亿,较2025年增超50%,导致FCF骤降至$112亿(-70%)。AWS积压订单持续扩大,AI需求强劲,但投资者担忧巨额投资的回报时间表。",
       "en": "Amazon Q4 2025 revenue of $213.4B beat estimates (+14% YoY). AWS was the core engine at $35.6B (+24%), the fastest growth in 13 quarters. Operating income hit $25B with 11.7% margin. Full-year net income reached $77.7B (+31%). However, EPS of $1.95 slightly missed the $1.97 estimate. Key controversy: 2026 capex guidance of $200B (+50% YoY) crushed FCF to just $11.2B (-70%). AWS backlog keeps expanding on strong AI demand, but investors worry about the return timeline on massive investments."
@@ -1142,29 +1150,29 @@
       ]
     },
     "earnings": {
-      "quarter": "FY2025 Q4",
-      "reportDate": "2026-02-05",
+      "quarter": "2025-12-31",
+      "reportDate": "2025-12-31",
       "zh": {
         "revenue": {
           "val": "$213.4B",
-          "yoy": "+14%",
+          "yoy": "+13.6%",
           "beat": "超预期$2.1B",
           "note": "AWS $356亿+24%,广告$213亿+21%,北美电商稳健"
         },
         "eps": {
-          "val": "$1.95",
-          "yoy": "+5%",
+          "val": "$1.97",
+          "yoy": "+6%",
           "beat": "略低于预期$0.02",
           "note": "全年EPS $7.12,同比+31%"
         },
         "fcf": {
-          "val": "$11.2B(年)",
-          "margin": "1.6%",
+          "val": "$14.9B",
+          "margin": "7.0%",
           "trend": "↓",
           "note": "全年FCF从$37.3B骤降至$11.2B,受$1318亿Capex压制"
         },
         "grossMargin": {
-          "val": "50.2%",
+          "val": "48.5%",
           "trend": "↑",
           "note": "AWS和广告高利润业务占比提升拉动毛利率改善"
         },
@@ -1175,24 +1183,24 @@
       "en": {
         "revenue": {
           "val": "$213.4B",
-          "yoy": "+14%",
+          "yoy": "+13.6%",
           "beat": "Beat by $2.1B",
           "note": "AWS $35.6B +24%, Ads $21.3B +21%, NA e-commerce steady"
         },
         "eps": {
-          "val": "$1.95",
-          "yoy": "+5%",
+          "val": "$1.97",
+          "yoy": "+6%",
           "beat": "Missed by $0.02",
           "note": "Full year EPS $7.12, +31% YoY"
         },
         "fcf": {
-          "val": "$11.2B(FY)",
-          "margin": "1.6%",
+          "val": "$14.9B",
+          "margin": "7.0%",
           "trend": "↓",
           "note": "Annual FCF plunged from $37.3B to $11.2B due to $131.8B capex"
         },
         "grossMargin": {
-          "val": "50.2%",
+          "val": "48.5%",
           "trend": "↑",
           "note": "Higher-margin AWS and ads business mix driving improvement"
         },
@@ -1203,17 +1211,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "现金及等价物约$780亿,长期债务约$580亿",
-        "debtToEquity": "0.43x — 杠杆适中,以Amazon的现金流生成能力完全可控",
-        "currentRatio": "1.06x — 偏紧但符合零售行业特征",
+        "cashPosition": "$123.0B现金 vs $178.5B债务 = 净现金$-55.5B",
+        "debtToEquity": "0.43x — 适度杠杆",
+        "currentRatio": "1.05x — 流动性一般",
         "capex": "2025年Capex $1318亿;2026指引$2000亿,几乎全部投向AI和云基础设施",
         "buyback": "无股息;2025年回购较少,优先投资增长",
         "summary": "资产负债表稳健,但$2000亿年度Capex是史无前例的。运营现金流$1395亿强劲,关键看投资回报能否兑现。"
       },
       "en": {
-        "cashPosition": "~$78B cash & equivalents vs ~$58B long-term debt",
-        "debtToEquity": "0.43x — moderate leverage, well-manageable given Amazon's cash generation",
-        "currentRatio": "1.06x — tight but typical for retail industry",
+        "cashPosition": "$123.0B cash vs $178.5B debt = $-55.5B net",
+        "debtToEquity": "0.43x — Moderate leverage",
+        "currentRatio": "1.05x — Moderate liquidity",
         "capex": "2025 capex $131.8B; 2026 guidance ~$200B, nearly all for AI and cloud infrastructure",
         "buyback": "No dividend; minimal buybacks in 2025, prioritizing growth investment",
         "summary": "Solid balance sheet, but $200B annual capex is unprecedented. Operating cash flow of $139.5B is strong; key is whether investment returns materialize."
@@ -1292,7 +1300,9 @@
         "grahamMargin": "Current price ~$213, mid-range of fair value; moderate margin of safety",
         "verdict": "Fairly valued — PEG of 1.44 is attractive, but $200B capex return uncertainty demands a discount. Accumulate below $190."
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.070Z",
+    "_price": 218.94
   },
   "META": {
     "exchange": "NASDAQ",
@@ -1300,19 +1310,19 @@
       "zh": "全球最大社交媒体平台，Facebook+Instagram+WhatsApp+Reality Labs元宇宙",
       "en": "World's largest social media; Facebook, Instagram, WhatsApp, and Reality Labs metaverse"
     },
-    "revGrowth": "+24%",
-    "epsEst": "$8.88 vs est $8.19",
-    "grossMargin": "82.1%",
+    "revGrowth": "+23.8%",
+    "epsEst": "$23.52 → fwd $35.88",
+    "grossMargin": "82.0%",
     "dataCenterRev": "Family of Apps $59.1B; Reality Labs $0.79B (loss $6B)",
-    "peFwd": "22.4x",
-    "peg": "1.09",
-    "evEbitda": "16.0x",
-    "ps": "8.55x",
+    "peFwd": "18.4x",
+    "peg": "—",
+    "evEbitda": "16.4x",
+    "ps": "8.3x",
     "netMargin": "30.1%",
-    "roe": "30.2%",
-    "fcfYield": "2.7%",
-    "divYield": "0.30%",
-    "valuationPctl": 55,
+    "roe": "30%",
+    "fcfYield": "1.4%",
+    "divYield": "32.00%",
+    "valuationPctl": 58,
     "summary": {
       "zh": "Meta Q4 2025营收$599亿超预期,同比+24%,连续多季度保持20%+增长。EPS $8.88大超预期$8.19。全年营收突破$2010亿,净利润约$606亿。AI驱动的广告推荐系统持续提升ARPU,Advantage+广告产品表现强劲。Reality Labs季度亏损$60亿,全年亏损$192亿,但管理层暗示亏损已见顶。Q1 2026指引$535-565亿(+14-20%)。2026年Capex $1150-1350亿。PEG仅1.09是大型科技股中最具吸引力的。",
       "en": "Meta Q4 2025 revenue of $59.9B beat estimates (+24% YoY), maintaining 20%+ growth for multiple consecutive quarters. EPS of $8.88 crushed the $8.19 estimate. Full-year revenue surpassed $201B with ~$60.6B net income. AI-powered ad recommendation drives rising ARPU; Advantage+ ad products performing strongly. Reality Labs lost $6B in Q4, $19.2B for the year, but management hinted losses have peaked. Q1 2026 guidance $53.5-56.5B (+14-20%). 2026 capex $115-135B. PEG of just 1.09 is the most attractive among mega-cap tech."
@@ -1401,29 +1411,29 @@
       ]
     },
     "earnings": {
-      "quarter": "FY2025 Q4",
-      "reportDate": "2026-01-28",
+      "quarter": "2025-12-31",
+      "reportDate": "2025-12-31",
       "zh": {
         "revenue": {
           "val": "$59.9B",
-          "yoy": "+24%",
+          "yoy": "+23.8%",
           "beat": "超预期$2.9B",
           "note": "Family of Apps贡献$59.1B;AI广告推荐系统驱动ARPU提升"
         },
         "eps": {
-          "val": "$8.88",
+          "val": "$9.00",
           "yoy": "+9%",
           "beat": "超预期$0.69",
           "note": "全年EPS $23.98;运营利润率41%"
         },
         "fcf": {
-          "val": "$14.1B(季)",
-          "margin": "23.5%",
+          "val": "$14.8B",
+          "margin": "24.8%",
           "trend": "→",
           "note": "全年FCF约$461亿;受$722亿Capex影响但仍健康"
         },
         "grossMargin": {
-          "val": "82.1%",
+          "val": "81.8%",
           "trend": "→",
           "note": "广告业务毛利率极高且稳定,Reality Labs拖累有限"
         },
@@ -1434,24 +1444,24 @@
       "en": {
         "revenue": {
           "val": "$59.9B",
-          "yoy": "+24%",
+          "yoy": "+23.8%",
           "beat": "Beat by $2.9B",
           "note": "Family of Apps contributed $59.1B; AI ad recommendations driving ARPU gains"
         },
         "eps": {
-          "val": "$8.88",
+          "val": "$9.00",
           "yoy": "+9%",
           "beat": "Beat by $0.69",
           "note": "Full year EPS $23.98; operating margin 41%"
         },
         "fcf": {
-          "val": "$14.1B(Q)",
-          "margin": "23.5%",
+          "val": "$14.8B",
+          "margin": "24.8%",
           "trend": "→",
           "note": "Full year FCF ~$46.1B; impacted by $72.2B capex but still healthy"
         },
         "grossMargin": {
-          "val": "82.1%",
+          "val": "81.8%",
           "trend": "→",
           "note": "Ad business gross margin extremely high and stable; Reality Labs drag limited"
         },
@@ -1462,17 +1472,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "现金及有价证券$816亿,债务$587亿,净现金$229亿",
-        "debtToEquity": "0.47x — 杠杆适中,完全可控",
-        "currentRatio": "2.68x — 流动性非常充足",
+        "cashPosition": "$81.6B现金 vs $85.1B债务 = 净现金$-3.5B",
+        "debtToEquity": "0.39x — 适度杠杆",
+        "currentRatio": "2.60x — 流动性极强",
         "capex": "2025年Capex $722亿;2026指引$1150-1350亿,主要投向AI基础设施",
         "buyback": "2025年回购$263亿;季度股息$0.525/股;股息率0.30%",
         "summary": "财务状况优秀。82%毛利率提供巨大的利润缓冲,即使Reality Labs每年亏损$190亿也不影响整体健康。现金流充沛,有余力同时回购+分红+重投资。"
       },
       "en": {
-        "cashPosition": "$81.6B cash & securities vs $58.7B debt; $22.9B net cash",
-        "debtToEquity": "0.47x — moderate leverage, well under control",
-        "currentRatio": "2.68x — very ample liquidity",
+        "cashPosition": "$81.6B cash vs $85.1B debt = $-3.5B net",
+        "debtToEquity": "0.39x — Moderate leverage",
+        "currentRatio": "2.60x — Very liquid",
         "capex": "2025 capex $72.2B; 2026 guidance $115-135B, primarily for AI infrastructure",
         "buyback": "$26.3B repurchased in 2025; quarterly dividend $0.525/share; 0.30% yield",
         "summary": "Excellent financial health. 82% gross margin provides enormous profit cushion; even $19B annual Reality Labs losses don't threaten overall health. Cash flow ample for buybacks + dividends + reinvestment simultaneously."
@@ -1551,27 +1561,29 @@
         "grahamMargin": "Current price ~$680, near lower end of fair value range; ample margin of safety",
         "verdict": "Undervalued — PEG of 1.09 is lowest among Mag 7; AI ad growth trajectory has high certainty; Reality Labs loss peak is free optionality. Recommend active buying."
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.070Z",
+    "_price": 660.57
   },
   "TSM": {
-    "exchange": "NYSE",
+    "exchange": "NASDAQ",
     "desc": {
       "zh": "全球最大半导体代工厂，垄断3nm/5nm先进制程，AI芯片必经之路",
       "en": "World's largest chip foundry; monopoly on 3nm/5nm advanced nodes; essential for AI chips"
     },
     "revGrowth": "+20.5%",
-    "epsEst": "$2.24 vs est $2.17 (ADR)",
-    "grossMargin": "62.3%",
+    "epsEst": "$10.47 → fwd $17.97",
+    "grossMargin": "59.9%",
     "dataCenterRev": "HPC(含AI) 53%营收;3nm占28%晶圆收入",
-    "peFwd": "26.2x",
-    "peg": "1.52",
-    "evEbitda": "19.0x",
-    "ps": "14.2x",
+    "peFwd": "19.7x",
+    "peg": "—",
+    "evEbitda": "2.8x",
+    "ps": "0.5x",
     "netMargin": "45.1%",
-    "roe": "35.2%",
-    "fcfYield": "1.2%",
-    "divYield": "0.87%",
-    "valuationPctl": 72,
+    "roe": "35%",
+    "fcfYield": "35.1%",
+    "divYield": "100.00%",
+    "valuationPctl": 58,
     "summary": {
       "zh": "TSMC Q4 2025营收NT$1.046万亿(约$337亿),环比+5.7%,同比+20.5%。毛利率62.3%环比改善2.8ppt,运营利润率54%。全年营收增长35.9%至约$1213亿,净利$547亿。3nm贡献28%晶圆收入,先进制程(7nm及以下)占77%。AI加速器占2025年收入high-teens%。EPS NT$19.50(ADR约$3.14)。2026年Capex $520-560亿,营收预计增长接近30%。Q1 2026指引毛利率63-65%,显示定价权持续增强。",
       "en": "TSMC Q4 2025 revenue NT$1.046T (~$33.7B), +5.7% QoQ, +20.5% YoY. Gross margin 62.3%, up 2.8ppt QoQ; operating margin 54%. Full-year revenue grew 35.9% to ~$121.3B, net income $54.7B. N3 contributed 28% of wafer revenue; advanced nodes (7nm and below) at 77%. AI accelerators were high-teens % of 2025 revenue. EPS NT$19.50 (ADR ~$3.14). 2026 capex $52-56B; revenue expected to grow ~30%. Q1 2026 gross margin guidance 63-65%, showing continued pricing power."
@@ -1660,24 +1672,24 @@
       ]
     },
     "earnings": {
-      "quarter": "FY2025 Q4",
-      "reportDate": "2026-01-16",
+      "quarter": "2025-12-31",
+      "reportDate": "2025-12-31",
       "zh": {
         "revenue": {
-          "val": "$33.7B",
+          "val": "$1.05T",
           "yoy": "+20.5%",
           "beat": "超指引上沿",
           "note": "全年$1213亿+35.9%;HPC占53%,智能手机35%"
         },
         "eps": {
-          "val": "NT$19.50 ($2.24 ADR)",
-          "yoy": "+35%",
+          "val": "$97.51",
+          "yoy": "+41%",
           "beat": "超市场预期",
           "note": "全年EPS NT$62.79,同比+35.9%"
         },
         "fcf": {
-          "val": "NT$1.003T(年)",
-          "margin": "25.8%",
+          "val": "$364.0B",
+          "margin": "34.8%",
           "trend": "↑",
           "note": "全年FCF约$310亿,同比+15.2%"
         },
@@ -1692,20 +1704,20 @@
       },
       "en": {
         "revenue": {
-          "val": "$33.7B",
+          "val": "$1.05T",
           "yoy": "+20.5%",
           "beat": "Beat top of guidance",
           "note": "Full year $121.3B +35.9%; HPC 53%, smartphone 35%"
         },
         "eps": {
-          "val": "NT$19.50 ($2.24 ADR)",
-          "yoy": "+35%",
+          "val": "$97.51",
+          "yoy": "+41%",
           "beat": "Beat consensus",
           "note": "Full year EPS NT$62.79, +35.9% YoY"
         },
         "fcf": {
-          "val": "NT$1.003T(FY)",
-          "margin": "25.8%",
+          "val": "$364.0B",
+          "margin": "34.8%",
           "trend": "↑",
           "note": "Full year FCF ~$31B, +15.2% YoY"
         },
@@ -1721,17 +1733,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "现金充裕,长期资产以晶圆厂设备为主",
-        "debtToEquity": "0.24x — 极低杠杆,几乎无负债风险",
-        "currentRatio": "2.57x — 流动性非常健康",
+        "cashPosition": "$3.07T现金 vs $1.07T债务 = 净现金$2.00T",
+        "debtToEquity": "0.20x — 低杠杆",
+        "currentRatio": "2.62x — 流动性极强",
         "capex": "2025年Capex约$380亿;2026指引$520-560亿,70-80%用于先进制程",
         "buyback": "不回购;2026年股息提高28%至NT$18/股,ADR年化约$3.07,收益率0.87%",
         "summary": "财务极为稳健。45%净利润率+低负债+强FCF。Capex虽高但以TSMC的盈利能力和独占地位,投资回报有高确定性。"
       },
       "en": {
-        "cashPosition": "Ample cash reserves; long-term assets dominated by fab equipment",
-        "debtToEquity": "0.24x — extremely low leverage, virtually no debt risk",
-        "currentRatio": "2.57x — very healthy liquidity",
+        "cashPosition": "$3.07T cash vs $1.07T debt = $2.00T net",
+        "debtToEquity": "0.20x — Low leverage",
+        "currentRatio": "2.62x — Very liquid",
         "capex": "2025 capex ~$38B; 2026 guidance $52-56B, 70-80% for advanced process tech",
         "buyback": "No buybacks; 2026 dividend raised 28% to NT$18/share, ADR annualized ~$3.07, 0.87% yield",
         "summary": "Extremely solid financials. 45% net margin + low debt + strong FCF. Capex is high but with TSMC's profitability and monopoly position, investment returns have high certainty."
@@ -1810,27 +1822,29 @@
         "grahamMargin": "Current ADR ~$195, mid-range of DCF fair value; moderate margin of safety but geopolitical hedging needed",
         "verdict": "Fair to slightly rich — AI demand certainty supports premium, but 26x PE prices in most growth. Accumulate below $170 or build position with geopolitical hedges via options."
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_price": 353.86
   },
   "COST": {
-    "exchange": "NASDAQ",
+    "exchange": "NYSE",
     "desc": {
       "zh": "全球第三大零售商，会员制仓储超市，以极低毛利率换取极高会员忠诚度",
       "en": "World's 3rd largest retailer; membership warehouse club trading ultra-low margins for extreme loyalty"
     },
-    "revGrowth": "+9.1%",
-    "epsEst": "$4.02 vs est $4.09",
-    "grossMargin": "12.8%",
+    "revGrowth": "+8.3%",
+    "epsEst": "$18.67 → fwd $22.37",
+    "grossMargin": "12.9%",
     "dataCenterRev": "E-commerce +20.9% YoY; membership fee $1.19B (+7.2%)",
-    "peFwd": "49.4x",
-    "peg": "5.35",
-    "evEbitda": "33.8x",
-    "ps": "15.3x",
-    "netMargin": "2.9%",
+    "peFwd": "43.9x",
+    "peg": "—",
+    "evEbitda": "32.5x",
+    "ps": "1.6x",
+    "netMargin": "3.0%",
     "roe": "30%",
-    "fcfYield": "1.8%",
-    "divYield": "0.51%",
-    "valuationPctl": 92,
+    "fcfYield": "1.6%",
+    "divYield": "53.00%",
+    "valuationPctl": 85,
     "summary": {
       "zh": "Costco FY2025 Q2营收$62.5B同比+9.1%，可比销售+6.8%，电商+20.9%领先，会员费收入$1.19B。EPS $4.02略低于预期$4.09，但整体基本面依然强劲。会员续费率超90%，付费会员7840万人。自由现金流年化$7.8B（+18%）。公司以极低毛利率（~12.8%）换取极高会员黏性与周转效率，ROE 30%，ROIC 35%。估值处历史高位，Forward PE 49x反映市场对长期复利增长的信心。",
       "en": "Costco Q2 FY2025 revenue hit $62.5B (+9.1% YoY) with comparable sales +6.8% and e-commerce surging +20.9%. Membership fee income rose to $1.19B. EPS of $4.02 slightly missed the $4.09 estimate, but fundamentals remain rock-solid. Renewal rates exceed 90% with 78.4M paid members. Annual FCF reached $7.8B (+18%). The business model trades ultra-low gross margins (~12.8%) for exceptional member loyalty and capital efficiency (ROE 30%, ROIC 35%). Valuation sits at historic highs with forward P/E of 49x, reflecting the market's premium for Costco's durable compounding."
@@ -1919,29 +1933,29 @@
       ]
     },
     "earnings": {
-      "quarter": "Q2 FY2025 (Dec-Feb)",
-      "reportDate": "2025-03-06",
+      "quarter": "2025-11-30",
+      "reportDate": "2025-11-30",
       "zh": {
         "revenue": {
-          "val": "$62.5B",
-          "yoy": "+9.1%",
+          "val": "$67.3B",
+          "yoy": "+8.3%",
           "beat": "超预期$0.3B",
           "note": "可比销售+6.8%，电商+20.9%，非食品品类增长mid-teens"
         },
         "eps": {
-          "val": "$4.02",
-          "yoy": "+2.6%",
+          "val": "$4.51",
+          "yoy": "+11%",
           "beat": "低于预期$0.07",
           "note": "EPS $4.02 vs 预期$4.09，主要因SG&A略高及汇率影响"
         },
         "fcf": {
-          "val": "$7.8B(年化)",
-          "margin": "3.2%",
+          "val": "$3.2B",
+          "margin": "4.7%",
           "trend": "↑",
           "note": "年化FCF同比+18%，资本配置高效"
         },
         "grossMargin": {
-          "val": "12.8%",
+          "val": "13.1%",
           "trend": "→",
           "note": "毛利率保持稳定，会员费收入增长部分抵消商品让利"
         },
@@ -1951,25 +1965,25 @@
       },
       "en": {
         "revenue": {
-          "val": "$62.5B",
-          "yoy": "+9.1%",
+          "val": "$67.3B",
+          "yoy": "+8.3%",
           "beat": "Beat by $0.3B",
           "note": "Comparable sales +6.8%, e-commerce +20.9%, non-foods mid-teens growth"
         },
         "eps": {
-          "val": "$4.02",
-          "yoy": "+2.6%",
+          "val": "$4.51",
+          "yoy": "+11%",
           "beat": "Missed by $0.07",
           "note": "EPS $4.02 vs $4.09 est, impacted by higher SG&A and FX headwinds"
         },
         "fcf": {
-          "val": "$7.8B (annualized)",
-          "margin": "3.2%",
+          "val": "$3.2B",
+          "margin": "4.7%",
           "trend": "↑",
           "note": "Annualized FCF up 18% YoY, capital-efficient model"
         },
         "grossMargin": {
-          "val": "12.8%",
+          "val": "13.1%",
           "trend": "→",
           "note": "Stable gross margins; membership fee growth partially offsets merchandise margin pressure"
         },
@@ -1980,17 +1994,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "现金$17.8B，财务状况极为稳健",
-        "debtToEquity": "负债率较低，D/E约0.35",
-        "currentRatio": "流动比率1.07，零售业正常水平",
+        "cashPosition": "$17.2B现金 vs $8.2B债务 = 净现金$9.0B",
+        "debtToEquity": "0.27x — 低杠杆",
+        "currentRatio": "1.04x — 流动性一般",
         "capex": "年Capex约$5B用于新店扩张和物流",
         "buyback": "少量回购，主要通过分红和特别股息回报股东",
         "summary": "财务极其健康，轻资产高周转模式，现金流充裕"
       },
       "en": {
-        "cashPosition": "Cash $17.8B, extremely strong financial position",
-        "debtToEquity": "Low leverage with D/E ~0.35",
-        "currentRatio": "Current ratio 1.07, normal for retail",
+        "cashPosition": "$17.2B cash vs $8.2B debt = $9.0B net",
+        "debtToEquity": "0.27x — Low leverage",
+        "currentRatio": "1.04x — Moderate liquidity",
         "capex": "Annual capex ~$5B for new store expansion and logistics",
         "buyback": "Minimal buybacks; returns via regular + special dividends",
         "summary": "Exceptionally healthy finances; asset-light, high-turnover model with abundant cash flow"
@@ -2069,7 +2083,9 @@
         "grahamMargin": "Current price ~$1007 offers insufficient margin of safety; DCF midpoint ~$775",
         "verdict": "Outstanding quality but expensive — hold if owned; new positions better below $850"
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.070Z",
+    "_price": 982.57
   },
   "BRK-B": {
     "exchange": "NYSE",
@@ -2077,19 +2093,19 @@
       "zh": "巴菲特旗下多元化控股集团，保险浮存金+铁路+能源+制造+投资组合",
       "en": "Buffett's diversified conglomerate; insurance float + railroad + energy + manufacturing + investment portfolio"
     },
-    "revGrowth": "+1.9%",
-    "epsEst": "$6,656 (Class A) vs est $5,938",
-    "grossMargin": "26.2%",
+    "revGrowth": "-0.7%",
+    "epsEst": "$31.28 → fwd $24.02",
+    "grossMargin": "26.1%",
     "dataCenterRev": "Insurance underwriting +302% QoQ; GEICO turnaround; $334B cash",
-    "peFwd": "20.6x",
-    "peg": "1.80",
-    "evEbitda": "15.1x",
-    "ps": "2.8x",
+    "peFwd": "20.8x",
+    "peg": "—",
+    "evEbitda": "-2.1x",
+    "ps": "2.9x",
     "netMargin": "18.0%",
     "roe": "10%",
-    "fcfYield": "3.2%",
+    "fcfYield": "3.4%",
     "divYield": "0.00%",
-    "valuationPctl": 55,
+    "valuationPctl": 28,
     "summary": {
       "zh": "Berkshire Q4 2024运营利润$14.5B同比+71%，全年运营利润$47.4B同比+27%。保险承保利润飙升302%至$3.4B，GEICO扭亏为盈贡献巨大。现金储备达到创纪录$334B，Buffett持续减持股票（包括苹果和美银）但尚未找到\"大象级\"收购目标。全年投资收益$79.6B。BNSF铁路稳健+0.7%。公司治理层面，Greg Abel已确认为接班人。估值合理，P/B约1.53x，低于历史溢价水平。",
       "en": "Berkshire Q4 2024 operating earnings surged 71% to $14.5B, with full-year operating profit hitting $47.4B (+27%). Insurance underwriting rocketed 302% to $3.4B, driven by GEICO's dramatic turnaround. Cash reserves reached a record $334B as Buffett sold equities (including Apple and BofA) without finding an \"elephant-sized\" acquisition target. Full-year investment gains totaled $79.6B. BNSF railroad grew modestly at +0.7%. On succession, Greg Abel is confirmed as Buffett's successor. Valuation is reasonable at ~1.53x book value, below historical premium levels."
@@ -2178,8 +2194,8 @@
       ]
     },
     "earnings": {
-      "quarter": "Q4 2024 / FY2024",
-      "reportDate": "2025-02-22",
+      "quarter": "2025-09-30",
+      "reportDate": "2025-09-30",
       "zh": {
         "revenue": {
           "val": "$371.4B(全年)",
@@ -2239,17 +2255,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "现金及等价物$334B，以短期美国国债为主，史上最高",
-        "debtToEquity": "D/E仅0.19，杠杆极低",
-        "currentRatio": "流动比率7.07，极其充裕",
+        "cashPosition": "$373.3B现金 vs $135.4B债务 = 净现金$237.9B",
+        "debtToEquity": "0.19x — 低杠杆",
+        "currentRatio": "7.07x — 流动性极强",
         "capex": "年Capex约$15B，主要用于BNSF铁路和BHE能源",
         "buyback": "2024年回购约$2.9B，远低于手头现金",
         "summary": "全球最强资产负债表之一，$334B现金提供极端下行保护和收购火力"
       },
       "en": {
-        "cashPosition": "Cash & equivalents $334B, primarily in short-term US Treasuries, all-time high",
-        "debtToEquity": "D/E only 0.19, extremely low leverage",
-        "currentRatio": "Current ratio 7.07, exceptionally liquid",
+        "cashPosition": "$373.3B cash vs $135.4B debt = $237.9B net",
+        "debtToEquity": "0.19x — Low leverage",
+        "currentRatio": "7.07x — Very liquid",
         "capex": "Annual capex ~$15B, primarily for BNSF railroad and BHE energy",
         "buyback": "~$2.9B repurchased in 2024, well below available cash",
         "summary": "One of the strongest balance sheets globally; $334B cash provides extreme downside protection and acquisition firepower"
@@ -2328,7 +2344,9 @@
         "grahamMargin": "Current price ~$496, within fair value range, margin of safety ~10-15%",
         "verdict": "Fairly valued with $334B cash cushion — suitable as a long-term core holding"
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_price": 500.4
   },
   "BABA": {
     "exchange": "NYSE",
@@ -2336,18 +2354,18 @@
       "zh": "中国最大电商+云计算平台，淘宝天猫+阿里云+国际电商+本地生活",
       "en": "China's largest e-commerce + cloud platform; Taobao/Tmall, Alibaba Cloud, international commerce"
     },
-    "revGrowth": "+8%",
-    "epsEst": "$2.93 adj vs est $2.76",
-    "grossMargin": "38.2%",
+    "revGrowth": "+4.8%",
+    "epsEst": "$7.59 → fwd $8.76",
+    "grossMargin": "41.2%",
     "dataCenterRev": "Cloud Intelligence +13% YoY ($4.3B); AI-related revenue triple-digit growth 6th consecutive quarter",
-    "peFwd": "11.5x",
-    "peg": "0.65",
-    "evEbitda": "14.2x",
-    "ps": "2.4x",
-    "netMargin": "17.5%",
+    "peFwd": "14.9x",
+    "peg": "—",
+    "evEbitda": "15.1x",
+    "ps": "0.3x",
+    "netMargin": "12.2%",
     "roe": "11%",
-    "fcfYield": "5.8%",
-    "divYield": "1.21%",
+    "fcfYield": "-15.9%",
+    "divYield": "81.00%",
     "valuationPctl": 28,
     "summary": {
       "zh": "Alibaba FY2025 Q3（2024年12月季度）营收同比+8%至RMB 280.2B ($38.4B)，超预期。调整后EPS $2.93同比+13%。云智能业务+13%至RMB 31.7B，AI产品收入连续6个季度三位数增长。净利润RMB 46.4B大幅增长，受益于投资收益及运营效率提升。FCF $5.35B同比-31%，因加大AI基础设施投入。公司宣布未来3年云和AI投入超过过去10年总和。估值处于历史低位，Forward PE仅11.5x，但地缘政治风险和国内消费疲软是主要压力。",
@@ -2437,18 +2455,18 @@
       ]
     },
     "earnings": {
-      "quarter": "Q3 FY2025 (Oct-Dec 2024)",
-      "reportDate": "2025-02-20",
+      "quarter": "2025-09-30",
+      "reportDate": "2025-09-30",
       "zh": {
         "revenue": {
-          "val": "RMB 280.2B ($38.4B)",
-          "yoy": "+8%",
+          "val": "$247.8B",
+          "yoy": "+4.8%",
           "beat": "超预期$0.2B",
           "note": "淘天+8%，云智能+13%，国际电商+32%，本地生活+12%"
         },
         "eps": {
-          "val": "$2.93 (adj ADS)",
-          "yoy": "+13%",
+          "val": "$8.80",
+          "yoy": "-52%",
           "beat": "超预期$0.17",
           "note": "调整后净利润RMB 51.1B，受益于运营效率提升和投资收益"
         },
@@ -2459,7 +2477,7 @@
           "note": "FCF同比-31%，因AI和云基础设施资本开支大幅增加"
         },
         "grossMargin": {
-          "val": "38.2%",
+          "val": "39.2%",
           "trend": "↑",
           "note": "毛利率改善，高毛利的云业务占比提升"
         },
@@ -2469,14 +2487,14 @@
       },
       "en": {
         "revenue": {
-          "val": "RMB 280.2B ($38.4B)",
-          "yoy": "+8%",
+          "val": "$247.8B",
+          "yoy": "+4.8%",
           "beat": "Beat by $0.2B",
           "note": "Taobao/Tmall +8%, Cloud Intelligence +13%, International +32%, Local Services +12%"
         },
         "eps": {
-          "val": "$2.93 (adj ADS)",
-          "yoy": "+13%",
+          "val": "$8.80",
+          "yoy": "-52%",
           "beat": "Beat by $0.17",
           "note": "Adjusted net income RMB 51.1B, benefiting from operational efficiency and investment gains"
         },
@@ -2487,7 +2505,7 @@
           "note": "FCF down 31% YoY due to heavy AI and cloud infrastructure capex ramp"
         },
         "grossMargin": {
-          "val": "38.2%",
+          "val": "39.2%",
           "trend": "↑",
           "note": "Margin improvement driven by higher-margin cloud business mix shift"
         },
@@ -2498,17 +2516,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "现金及等价物$83.6B，净现金充裕",
-        "debtToEquity": "D/E仅0.23，杠杆极低",
-        "currentRatio": "流动比率约1.5，健康水平",
+        "cashPosition": "$373.6B现金 vs $302.9B债务 = 净现金$70.6B",
+        "debtToEquity": "0.27x — 低杠杆",
+        "currentRatio": "1.46x — 流动性良好",
         "capex": "资本开支加速，AI云基础设施投入大幅增加",
         "buyback": "FY2025已回购超5%股份，$25B回购计划进行中",
         "summary": "财务状况极为稳健，$83.6B现金+积极回购+低负债率，资产负债表为市场低估的安全垫"
       },
       "en": {
-        "cashPosition": "Cash & equivalents $83.6B, strong net cash position",
-        "debtToEquity": "D/E only 0.23, very low leverage",
-        "currentRatio": "Current ratio ~1.5, healthy",
+        "cashPosition": "$373.6B cash vs $302.9B debt = $70.6B net",
+        "debtToEquity": "0.27x — Low leverage",
+        "currentRatio": "1.46x — Adequate liquidity",
         "capex": "Capex accelerating with massive AI/cloud infrastructure investment",
         "buyback": ">5% of shares repurchased in FY2025; $25B buyback program underway",
         "summary": "Extremely solid financial position with $83.6B cash + active buybacks + low debt, balance sheet is an underappreciated safety cushion"
@@ -2587,7 +2605,9 @@
         "grahamMargin": "Current price ~$145, approximately 20% margin of safety vs DCF midpoint of $180",
         "verdict": "Extremely undervalued (if political risks are discounted) — AI catalyst could trigger re-rating, but risks cannot be ignored"
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_price": 130.35
   },
   "AMD": {
     "exchange": "NASDAQ",
@@ -2595,19 +2615,19 @@
       "zh": "CPU+GPU双线布局的半导体公司，MI300X AI加速器挑战NVDA",
       "en": "Dual CPU+GPU semiconductor company; MI300X AI accelerator challenging NVIDIA"
     },
-    "revGrowth": "+24%",
-    "epsEst": "$1.09 vs est $1.08",
-    "grossMargin": "54.0%",
+    "revGrowth": "+34.1%",
+    "epsEst": "$2.61 → fwd $10.84",
+    "grossMargin": "52.5%",
     "dataCenterRev": "$3.9B data center (+69% YoY), MI300X GPU ramp",
-    "peFwd": "30.4x",
-    "peg": "0.72",
-    "evEbitda": "47.9x",
-    "ps": "8.5x",
-    "netMargin": "6.3%",
-    "roe": "3.2%",
-    "fcfYield": "1.8%",
+    "peFwd": "18.4x",
+    "peg": "—",
+    "evEbitda": "47.2x",
+    "ps": "9.4x",
+    "netMargin": "12.5%",
+    "roe": "7%",
+    "fcfYield": "1.4%",
     "divYield": "0.00%",
-    "valuationPctl": 75,
+    "valuationPctl": 85,
     "summary": {
       "zh": "AMD Q4 2024营收77亿美元创纪录,同比+24%,数据中心业务39亿美元同比暴增69%,MI300X GPU出货强劲带动增长。调整后EPS $1.09小幅超预期。全年营收258亿美元同比+14%,净利润近翻倍至16.4亿美元。非GAAP毛利率54%,运营利润20亿美元。Q1 2025指引营收71亿美元(+30% YoY),但环比下降7%引发市场担忧。自由现金流10.9亿美元。AI GPU赛道与NVDA竞争加剧,MI300X获大型云客户采用,但市占率仍远落后。GAAP净利率偏低,因无形资产摊销较大。",
       "en": "AMD posted record Q4 2024 revenue of $7.7B (+24% YoY), powered by Data Center segment at $3.9B (+69% YoY) driven by MI300X GPU ramp and EPYC CPU growth. Adjusted EPS of $1.09 slightly beat the $1.08 estimate. Full-year revenue hit $25.8B (+14%), with net income nearly doubling to $1.64B. Non-GAAP gross margin was 54%, operating income $2B. Q1 2025 guidance of $7.1B (+30% YoY) was solid but the ~7% sequential decline spooked investors. FCF was $1.09B in Q4. The AI GPU competition with NVIDIA intensifies; MI300X is gaining traction with hyperscalers but market share remains a fraction of NVDA. GAAP net margin is low due to heavy intangible amortization from acquisitions."
@@ -2696,29 +2716,29 @@
       ]
     },
     "earnings": {
-      "quarter": "Q4 2024",
-      "reportDate": "2025-02-04",
+      "quarter": "2025-12-31",
+      "reportDate": "2025-12-31",
       "zh": {
         "revenue": {
-          "val": "$7.7B",
-          "yoy": "+24%",
+          "val": "$10.3B",
+          "yoy": "+34.1%",
           "beat": "超预期$7.5B",
           "note": "数据中心$3.9B(+69%),客户端$2.3B(+58%),嵌入式$923M(-11%),游戏$563M(-59%)"
         },
         "eps": {
-          "val": "$1.09",
-          "yoy": "+42%",
+          "val": "$0.93",
+          "yoy": "+214%",
           "beat": "超预期$1.08",
           "note": "非GAAP EPS;GAAP EPS $0.29因无形资产摊销"
         },
         "fcf": {
-          "val": "$1.09B",
-          "margin": "14.2%",
+          "val": "$2.4B",
+          "margin": "23.2%",
           "trend": "↑",
           "note": "全年FCF约$1.8B,Q4季度环比改善"
         },
         "grossMargin": {
-          "val": "54.0%",
+          "val": "54.3%",
           "trend": "→",
           "note": "非GAAP毛利率持平,产品组合向高利润数据中心倾斜"
         },
@@ -2728,25 +2748,25 @@
       },
       "en": {
         "revenue": {
-          "val": "$7.7B",
-          "yoy": "+24%",
+          "val": "$10.3B",
+          "yoy": "+34.1%",
           "beat": "Beat est $7.5B",
           "note": "Data Center $3.9B (+69%), Client $2.3B (+58%), Embedded $923M (-11%), Gaming $563M (-59%)"
         },
         "eps": {
-          "val": "$1.09",
-          "yoy": "+42%",
+          "val": "$0.93",
+          "yoy": "+214%",
           "beat": "Beat est $1.08",
           "note": "Non-GAAP EPS; GAAP EPS $0.29 due to intangible amortization"
         },
         "fcf": {
-          "val": "$1.09B",
-          "margin": "14.2%",
+          "val": "$2.4B",
+          "margin": "23.2%",
           "trend": "↑",
           "note": "Full-year FCF ~$1.8B, Q4 improved sequentially"
         },
         "grossMargin": {
-          "val": "54.0%",
+          "val": "54.3%",
           "trend": "→",
           "note": "Non-GAAP GM flat; product mix shifting toward higher-margin data center"
         },
@@ -2757,17 +2777,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "现金$5.1B",
-        "debtToEquity": "负债率3.7%,低杠杆",
-        "currentRatio": "流动比率2.5,健康",
+        "cashPosition": "$10.6B现金 vs $4.0B债务 = 净现金$6.5B",
+        "debtToEquity": "0.06x — 低杠杆",
+        "currentRatio": "2.85x — 流动性极强",
         "capex": "年capex约$0.5B,轻资产fabless模式",
         "buyback": "2024年回购约$2.3B",
         "summary": "财务健康,低负债,fabless模式现金流稳定增长,但绝对FCF偏低"
       },
       "en": {
-        "cashPosition": "Cash $5.1B",
-        "debtToEquity": "D/E 3.7%, low leverage",
-        "currentRatio": "Current ratio 2.5, healthy",
+        "cashPosition": "$10.6B cash vs $4.0B debt = $6.5B net",
+        "debtToEquity": "0.06x — Low leverage",
+        "currentRatio": "2.85x — Very liquid",
         "capex": "Annual capex ~$0.5B, asset-light fabless model",
         "buyback": "~$2.3B buybacks in 2024",
         "summary": "Financially healthy, low debt, fabless model with growing FCF, but absolute FCF still low"
@@ -2846,7 +2866,9 @@
         "grahamMargin": "Current ~$115, limited margin of safety",
         "verdict": "Fair to slightly expensive; MI300X ramp must be sustained"
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_price": 199.45
   },
   "CVX": {
     "exchange": "NYSE",
@@ -2854,19 +2876,19 @@
       "zh": "全球第二大石油公司，Permian盆地+Guyana油田，37年股息增长",
       "en": "2nd largest oil major; Permian Basin + Guyana assets; 37 consecutive years of dividend growth"
     },
-    "revGrowth": "+10.7%",
-    "epsEst": "$2.06 adj vs est $2.19",
-    "grossMargin": "41.8%",
+    "revGrowth": "-8.2%",
+    "epsEst": "$6.63 → fwd $9.17",
+    "grossMargin": "41.9%",
     "dataCenterRev": "Upstream production record 3.35M BOED",
-    "peFwd": "14.8x",
-    "peg": "3.10",
-    "evEbitda": "6.8x",
-    "ps": "1.3x",
-    "netMargin": "6.6%",
-    "roe": "12.5%",
-    "fcfYield": "5.8%",
-    "divYield": "4.38%",
-    "valuationPctl": 40,
+    "peFwd": "20.7x",
+    "peg": "—",
+    "evEbitda": "11.3x",
+    "ps": "2.1x",
+    "netMargin": "6.7%",
+    "roe": "7%",
+    "fcfYield": "3.5%",
+    "divYield": "375.00%",
+    "valuationPctl": 58,
     "summary": {
       "zh": "Chevron Q4 2024营收$52.2B同比+10.7%超预期,但调整后EPS $2.06不及预期$2.19。全年产量创纪录335万桶油当量/日。全年FCF $16.6B,股东回报$26.3B(股息$12B+回购$14.3B)。季度股息提升5%至$1.71/股,连续37年增长。负债率13%,现金$23.2B,财务极稳健。Hess收购因仲裁延迟是主要不确定性。巴菲特持仓标的,典型价值+股息投资。",
       "en": "Chevron Q4 2024 revenue $52.2B beat expectations (+10.7% YoY), but adjusted EPS $2.06 missed est $2.19. Record full-year production of 3.35M BOED. Full-year FCF $16.6B, shareholder returns $26.3B ($12B dividends + $14.3B buybacks). Quarterly dividend raised 5% to $1.71/share, 37th consecutive year of increases. Debt-to-capital 13%, cash $23.2B — rock-solid balance sheet. Hess acquisition delayed by arbitration remains key uncertainty. A Buffett portfolio holding, classic value + dividend play."
@@ -2955,29 +2977,29 @@
       ]
     },
     "earnings": {
-      "quarter": "Q4 2024",
-      "reportDate": "2025-01-31",
+      "quarter": "2025-12-31",
+      "reportDate": "2025-12-31",
       "zh": {
         "revenue": {
-          "val": "$52.2B",
-          "yoy": "+10.7%",
+          "val": "$45.8B",
+          "yoy": "-5.3%",
           "beat": "超预期$47B",
           "note": "美国上游产量强劲推动营收超预期"
         },
         "eps": {
-          "val": "$2.06 adj",
-          "yoy": "-40%",
+          "val": "$1.39",
+          "yoy": "-15%",
           "beat": "低于预期$2.19",
           "note": "GAAP EPS $1.84;炼油利润率下滑拖累盈利"
         },
         "fcf": {
-          "val": "$16.6B(全年)",
-          "margin": "10.0%",
+          "val": "$5.5B",
+          "margin": "12.1%",
           "trend": "→",
           "note": "Q4运营现金流稳健,全年股东回报$26.3B"
         },
         "grossMargin": {
-          "val": "41.8%",
+          "val": "31.8%",
           "trend": "↓",
           "note": "炼油利润率收窄,下游业务承压"
         },
@@ -2987,25 +3009,25 @@
       },
       "en": {
         "revenue": {
-          "val": "$52.2B",
-          "yoy": "+10.7%",
+          "val": "$45.8B",
+          "yoy": "-5.3%",
           "beat": "Beat est $47B",
           "note": "Strong US upstream production drove revenue beat"
         },
         "eps": {
-          "val": "$2.06 adj",
-          "yoy": "-40%",
+          "val": "$1.39",
+          "yoy": "-15%",
           "beat": "Missed est $2.19",
           "note": "GAAP EPS $1.84; refining margin compression hurt earnings"
         },
         "fcf": {
-          "val": "$16.6B (FY)",
-          "margin": "10.0%",
+          "val": "$5.5B",
+          "margin": "12.1%",
           "trend": "→",
           "note": "Q4 operating cash flow solid; FY shareholder returns $26.3B"
         },
         "grossMargin": {
-          "val": "41.8%",
+          "val": "31.8%",
           "trend": "↓",
           "note": "Refining margins narrowed, downstream pressured"
         },
@@ -3016,17 +3038,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "现金$23.2B",
-        "debtToEquity": "负债率13%,净负债率6%,极低杠杆",
-        "currentRatio": "流动比率1.3",
+        "cashPosition": "$6.3B现金 vs $46.7B债务 = 净现金$-40.4B",
+        "debtToEquity": "0.24x — 低杠杆",
+        "currentRatio": "1.16x — 流动性一般",
         "capex": "年capex约$16.4B,投资纪律严格",
         "buyback": "2024年回购$14.3B",
         "summary": "财务极稳健,AA级信用,充沛现金储备覆盖周期波动"
       },
       "en": {
-        "cashPosition": "Cash $23.2B",
-        "debtToEquity": "Debt-to-capital 13%, net debt 6%, very low leverage",
-        "currentRatio": "Current ratio 1.3",
+        "cashPosition": "$6.3B cash vs $46.7B debt = $-40.4B net",
+        "debtToEquity": "0.24x — Low leverage",
+        "currentRatio": "1.16x — Moderate liquidity",
         "capex": "Annual capex ~$16.4B, disciplined investment",
         "buyback": "$14.3B buybacks in 2024",
         "summary": "Extremely solid financials, AA-rated credit, ample cash reserves to weather commodity cycles"
@@ -3105,27 +3127,29 @@
         "grahamMargin": "Current ~$163, moderate margin of safety",
         "verdict": "Cheap valuation; dividend + buyback provide downside protection"
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_price": 189.9
   },
   "COIN": {
-    "exchange": "NASDAQ",
+    "exchange": "NYSE",
     "desc": {
       "zh": "美国最大合规加密货币交易所，BTC ETF托管商，Base L2链运营方",
       "en": "Largest US regulated crypto exchange; BTC ETF custodian; operates Base L2 blockchain"
     },
-    "revGrowth": "+88% QoQ / +138% YoY",
-    "epsEst": "$4.68 vs est $1.81",
-    "grossMargin": "84.5%",
+    "revGrowth": "-22.2%",
+    "epsEst": "$4.44 → fwd $5.97",
+    "grossMargin": "85.2%",
     "dataCenterRev": "Transaction rev $1.56B (+172% QoQ), Subscription $641M",
-    "peFwd": "24.5x",
-    "peg": "0.85",
-    "evEbitda": "18.2x",
-    "ps": "7.8x",
-    "netMargin": "41.0%",
-    "roe": "25.2%",
-    "fcfYield": "4.1%",
+    "peFwd": "34.5x",
+    "peg": "—",
+    "evEbitda": "30.3x",
+    "ps": "8.1x",
+    "netMargin": "18.3%",
+    "roe": "10%",
+    "fcfYield": "2.3%",
     "divYield": "0.00%",
-    "valuationPctl": 60,
+    "valuationPctl": 72,
     "summary": {
       "zh": "Coinbase Q4 2024营收$2.27B大幅超预期$1.59B,同比+138%,环比+88%。EPS $4.68远超预期$1.81。交易收入$1.56B(+172% QoQ),受BTC ETF上市+大选后加密牛市驱动。订阅服务收入$641M(+15% QoQ)提供稳定底层。全年营收$6.6B,净利润$2.6B,调整EBITDA $3.3B。毛利率84.5%,净利率41%。总资产$22.5B,负债$12.3B,权益$10.3B。作为美国合规加密交易所龙头,受益于ETF+监管明确化趋势,但收入高度依赖加密市场周期。",
       "en": "Coinbase Q4 2024 revenue of $2.27B massively beat est $1.59B (+138% YoY, +88% QoQ). EPS $4.68 crushed estimate of $1.81. Transaction revenue $1.56B (+172% QoQ) driven by BTC ETF launch + post-election crypto bull market. Subscription revenue $641M (+15% QoQ) provides stable base. FY2024 revenue $6.6B, net income $2.6B, adj EBITDA $3.3B. Gross margin 84.5%, net margin 41%. Total assets $22.5B, total debt $4.3B, equity $10.3B. As the dominant US regulated crypto exchange, COIN benefits from ETF + regulatory clarity trends, but revenue is highly cyclical with crypto markets."
@@ -3214,18 +3238,18 @@
       ]
     },
     "earnings": {
-      "quarter": "Q4 2024",
-      "reportDate": "2025-02-13",
+      "quarter": "2025-12-31",
+      "reportDate": "2025-12-31",
       "zh": {
         "revenue": {
-          "val": "$2.27B",
-          "yoy": "+138%",
+          "val": "$1.8B",
+          "yoy": "-21.6%",
           "beat": "超预期$1.59B(+43%)",
           "note": "交易收入$1.56B(+172% QoQ),订阅$641M(+15% QoQ)"
         },
         "eps": {
-          "val": "$4.68",
-          "yoy": "+350%",
+          "val": "$-2.47",
+          "yoy": "-152%",
           "beat": "超预期$1.81(+159%)",
           "note": "净利润$1.3B,上年同期$2.73M"
         },
@@ -3236,7 +3260,7 @@
           "note": "Q4自由现金流极强,主要因交易量暴增"
         },
         "grossMargin": {
-          "val": "84.5%",
+          "val": "76.5%",
           "trend": "↑",
           "note": "高毛利率体现平台型轻资产模式"
         },
@@ -3246,14 +3270,14 @@
       },
       "en": {
         "revenue": {
-          "val": "$2.27B",
-          "yoy": "+138%",
+          "val": "$1.8B",
+          "yoy": "-21.6%",
           "beat": "Beat est $1.59B (+43%)",
           "note": "Transaction rev $1.56B (+172% QoQ), Subscription $641M (+15% QoQ)"
         },
         "eps": {
-          "val": "$4.68",
-          "yoy": "+350%",
+          "val": "$-2.47",
+          "yoy": "-152%",
           "beat": "Beat est $1.81 (+159%)",
           "note": "Net income $1.3B vs $273M year-ago"
         },
@@ -3264,7 +3288,7 @@
           "note": "Exceptional Q4 FCF driven by trading volume surge"
         },
         "grossMargin": {
-          "val": "84.5%",
+          "val": "76.5%",
           "trend": "↑",
           "note": "High gross margin reflects asset-light platform model"
         },
@@ -3275,17 +3299,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "总资产$22.5B,权益$10.3B",
-        "debtToEquity": "总债务$4.3B,D/E约0.42",
-        "currentRatio": "流动性充足,加密牛市期间现金积累快",
+        "cashPosition": "$11.6B现金 vs $7.9B债务 = 净现金$3.7B",
+        "debtToEquity": "0.53x — 适度杠杆",
+        "currentRatio": "2.34x — 流动性极强",
         "capex": "轻资产模式,capex极低",
         "buyback": "2024年回购约$1.2B",
         "summary": "财务状况良好,牛市积累充足现金储备,但需防范熊市现金消耗"
       },
       "en": {
-        "cashPosition": "Total assets $22.5B, equity $10.3B",
-        "debtToEquity": "Total debt $4.3B, D/E ~0.42",
-        "currentRatio": "Ample liquidity, rapid cash build during crypto bull market",
+        "cashPosition": "$11.6B cash vs $7.9B debt = $3.7B net",
+        "debtToEquity": "0.53x — Moderate leverage",
+        "currentRatio": "2.34x — Very liquid",
         "capex": "Asset-light model, minimal capex",
         "buyback": "~$1.2B buybacks in 2024",
         "summary": "Healthy financials with ample reserves from bull market, but bear market cash burn is a risk"
@@ -3364,27 +3388,29 @@
         "grahamMargin": "Current ~$230, mid-range of fair value",
         "verdict": "Fairly valued but extreme volatility; better as a cycle trade than long-term hold"
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_price": 205.71
   },
   "CRM": {
-    "exchange": "NYSE",
+    "exchange": "NASDAQ",
     "desc": {
       "zh": "全球CRM SaaS龙头，Salesforce平台+Slack+AI Agentforce",
       "en": "Global CRM SaaS leader; Salesforce platform + Slack + AI Agentforce agent platform"
     },
-    "revGrowth": "+8%",
-    "epsEst": "$3.81 adj vs est $3.05",
-    "grossMargin": "78.0%",
+    "revGrowth": "+12.1%",
+    "epsEst": "$7.79 → fwd $14.91",
+    "grossMargin": "77.7%",
     "dataCenterRev": "Agentforce AI: 5K deals closed, 380K conversations handled",
-    "peFwd": "26.5x",
-    "peg": "2.80",
-    "evEbitda": "22.8x",
-    "ps": "7.5x",
-    "netMargin": "16.7%",
-    "roe": "10.8%",
-    "fcfYield": "3.8%",
-    "divYield": "0.56%",
-    "valuationPctl": 55,
+    "peFwd": "13.5x",
+    "peg": "—",
+    "evEbitda": "15.5x",
+    "ps": "4.5x",
+    "netMargin": "18.0%",
+    "roe": "12%",
+    "fcfYield": "8.7%",
+    "divYield": "87.00%",
+    "valuationPctl": 58,
     "summary": {
       "zh": "Salesforce Q4 FY2025营收$10.0B创纪录,首次突破百亿美元季度大关,同比+8%。调整后EPS $3.81大幅超预期$3.05(+25%)。全年营收$37.9B(+9%),非GAAP运营利润率33.0%(+250bps),FCF $12.4B(+31%)。Agentforce AI产品势头强劲,自10月以来签约5000笔交易,380K对话84%解决率。FY26营收指引$40.5-40.9B(+7-8%),FY27营收指引$46B。利润率持续扩张,从亏损转型为高利润SaaS平台,但营收增速放缓至个位数是隐忧。",
       "en": "Salesforce Q4 FY2025 revenue hit a record $10.0B, the first-ever $10B quarter, up 8% YoY. Adjusted EPS $3.81 beat est $3.05 by 25%. FY2025 revenue $37.9B (+9%), non-GAAP op margin 33.0% (+250bps), FCF $12.4B (+31%). Agentforce AI gained strong momentum with 5,000 deals closed since October, 380K conversations at 84% resolution rate. FY26 revenue guide $40.5-40.9B (+7-8%), FY27 guide $46B. Margin expansion continues as CRM transformed from losses to highly profitable SaaS. However, revenue growth decelerating to single digits is a concern."
@@ -3473,29 +3499,29 @@
       ]
     },
     "earnings": {
-      "quarter": "Q4 FY2025 (Jan 2025)",
-      "reportDate": "2025-02-26",
+      "quarter": "2025-10-31",
+      "reportDate": "2025-10-31",
       "zh": {
         "revenue": {
-          "val": "$10.0B",
-          "yoy": "+8%",
+          "val": "$10.3B",
+          "yoy": "+8.6%",
           "beat": "符合预期$10.0B",
           "note": "首次突破百亿季度,订阅收入$9.45B(+9%)"
         },
         "eps": {
-          "val": "$3.81 adj",
-          "yoy": "+24%",
+          "val": "$2.23",
+          "yoy": "+37%",
           "beat": "超预期$3.05(+25%)",
           "note": "GAAP EPS因重组费用较低;利润率持续扩张"
         },
         "fcf": {
-          "val": "$12.4B(全年)",
-          "margin": "32.7%",
+          "val": "$2.2B",
+          "margin": "21.2%",
           "trend": "↑",
           "note": "FCF同比+31%,FCF利润率达32.7%创新高"
         },
         "grossMargin": {
-          "val": "~78%",
+          "val": "78.0%",
           "trend": "→",
           "note": "估算值,SaaS模式毛利率稳定在高位"
         },
@@ -3505,25 +3531,25 @@
       },
       "en": {
         "revenue": {
-          "val": "$10.0B",
-          "yoy": "+8%",
+          "val": "$10.3B",
+          "yoy": "+8.6%",
           "beat": "In line with est $10.0B",
           "note": "First-ever $10B quarter; subscription rev $9.45B (+9%)"
         },
         "eps": {
-          "val": "$3.81 adj",
-          "yoy": "+24%",
+          "val": "$2.23",
+          "yoy": "+37%",
           "beat": "Beat est $3.05 (+25%)",
           "note": "GAAP EPS boosted by lower restructuring; margin expansion continuing"
         },
         "fcf": {
-          "val": "$12.4B (FY)",
-          "margin": "32.7%",
+          "val": "$2.2B",
+          "margin": "21.2%",
           "trend": "↑",
           "note": "FCF +31% YoY, FCF margin 32.7% — record high"
         },
         "grossMargin": {
-          "val": "~78%",
+          "val": "78.0%",
           "trend": "→",
           "note": "Estimated; SaaS model gross margin stable at high level"
         },
@@ -3534,17 +3560,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "现金+等价物约$12.8B",
-        "debtToEquity": "长期债务约$8.4B,D/E约0.16",
-        "currentRatio": "流动比率~1.1",
+        "cashPosition": "$9.6B现金 vs $17.7B债务 = 净现金$-8.1B",
+        "debtToEquity": "0.30x — 低杠杆",
+        "currentRatio": "0.76x — 流动性紧张",
         "capex": "Capex约$0.9B,轻资产SaaS模式",
         "buyback": "FY2025回购约$9.4B",
         "summary": "财务极健康,FCF充沛,低负债,积极回购,SaaS订阅模式提供收入可见性"
       },
       "en": {
-        "cashPosition": "Cash ~$12.8B",
-        "debtToEquity": "LT debt ~$8.4B, D/E ~0.16",
-        "currentRatio": "Current ratio ~1.1",
+        "cashPosition": "$9.6B cash vs $17.7B debt = $-8.1B net",
+        "debtToEquity": "0.30x — Low leverage",
+        "currentRatio": "0.76x — Tight liquidity",
         "capex": "Capex ~$0.9B, asset-light SaaS model",
         "buyback": "~$9.4B buybacks in FY2025",
         "summary": "Extremely healthy financials; abundant FCF, low debt, aggressive buybacks; SaaS subscription revenue visibility"
@@ -3623,7 +3649,9 @@
         "grahamMargin": "Current ~$300, moderate margin of safety",
         "verdict": "Fairly valued; margin expansion is the core thesis; AI Agentforce provides upside optionality"
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_price": 201.39
   },
   "UNH": {
     "exchange": "NYSE",
@@ -3631,19 +3659,19 @@
       "zh": "美国最大健康保险+医疗服务公司，UnitedHealthcare+Optum垂直整合",
       "en": "Largest US health insurer + healthcare services; UnitedHealthcare + Optum vertical integration"
     },
-    "revGrowth": "+6.8%",
-    "epsEst": "$6.81 adj vs est $6.72",
-    "grossMargin": "23.5%",
+    "revGrowth": "+12.3%",
+    "epsEst": "$13.23 → fwd $20.03",
+    "grossMargin": "18.5%",
     "dataCenterRev": "Optum Health + Optum Rx + UnitedHealthcare combined",
-    "peFwd": "16.1x",
-    "peg": "1.35",
-    "evEbitda": "13.5x",
-    "ps": "0.85x",
-    "netMargin": "5.5%",
-    "roe": "12.5%",
-    "fcfYield": "4.2%",
-    "divYield": "1.68%",
-    "valuationPctl": 35,
+    "peFwd": "14.4x",
+    "peg": "—",
+    "evEbitda": "15.0x",
+    "ps": "0.6x",
+    "netMargin": "2.7%",
+    "roe": "13%",
+    "fcfYield": "5.3%",
+    "divYield": "306.00%",
+    "valuationPctl": 42,
     "summary": {
       "zh": "UnitedHealth Q4 2024营收$1008亿(+6.8% YoY),调整EPS $6.81超预期。全年营收$4008亿,调整EPS $27.66符合指引。运营现金流$24.2B(为净利润1.6倍),FCF $20.7B同比-19%主因Change Healthcare网络攻击影响。医疗保健比率承压。2025指引:营收$450-455B,调整EPS $29.50-30.00。面临CEO遇害事件后社会舆论压力、政府审查加强、医疗成本上升等挑战,但市场地位依然不可动摇。Optum业务持续增长是差异化竞争力。",
       "en": "UnitedHealth Q4 2024 revenue $100.8B (+6.8% YoY), adj EPS $6.81 beat estimates. FY2024 revenue $400.8B, adj EPS $27.66 in line with guidance. Operating cash flow $24.2B (1.6x net income), FCF $20.7B declined 19% YoY partly due to Change Healthcare cyberattack impact. Medical care ratio under pressure. 2025 guidance: revenue $450-455B, adj EPS $29.50-30.00. Facing challenges from CEO assassination aftermath, heightened government scrutiny, rising medical costs, but market position remains unassailable. Optum segment growth is a key differentiator."
@@ -3732,8 +3760,8 @@
       ]
     },
     "earnings": {
-      "quarter": "Q4 2024",
-      "reportDate": "2025-01-16",
+      "quarter": "2025-12-31",
+      "reportDate": "2025-12-31",
       "zh": {
         "revenue": {
           "val": "$100.8B",
@@ -3793,17 +3821,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "现金$25.3B",
-        "debtToEquity": "长期债务$72.4B,D/E约1.8(行业正常)",
-        "currentRatio": "流动比率~0.8(保险业特征)",
+        "cashPosition": "$28.1B现金 vs $83.0B债务 = 净现金$-54.9B",
+        "debtToEquity": "0.82x — 高杠杆",
+        "currentRatio": "0.79x — 流动性紧张",
         "capex": "年capex约$3.5B",
         "buyback": "2024年回购约$6B",
         "summary": "保险业杠杆率正常,现金流覆盖强,但长期债务规模大需关注利率环境"
       },
       "en": {
-        "cashPosition": "Cash $25.3B",
-        "debtToEquity": "LT debt $72.4B, D/E ~1.8 (industry normal)",
-        "currentRatio": "Current ratio ~0.8 (typical for insurance)",
+        "cashPosition": "$28.1B cash vs $83.0B debt = $-54.9B net",
+        "debtToEquity": "0.82x — High leverage",
+        "currentRatio": "0.79x — Tight liquidity",
         "capex": "Annual capex ~$3.5B",
         "buyback": "~$6B buybacks in 2024",
         "summary": "Leverage normal for insurance; strong cash flow coverage; large LT debt requires rate environment monitoring"
@@ -3882,7 +3910,9 @@
         "grahamMargin": "Current ~$510, significant margin of safety",
         "verdict": "Clearly undervalued; social fear creating buying opportunity; long-term compounding certain"
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_price": 288.77
   },
   "XOM": {
     "exchange": "NYSE",
@@ -3890,19 +3920,19 @@
       "zh": "全球最大上市石油公司，Pioneer收购后Permian盆地最大生产商，42年股息增长",
       "en": "World's largest public oil company; largest Permian producer post-Pioneer; 42-yr dividend growth"
     },
-    "revGrowth": "-1.1%",
-    "epsEst": "$1.72 vs est $1.76",
-    "grossMargin": "32.4%",
+    "revGrowth": "-1.3%",
+    "epsEst": "$6.69 → fwd $8.38",
+    "grossMargin": "31.0%",
     "dataCenterRev": "Permian Basin largest producer post-Pioneer acquisition",
-    "peFwd": "14.2x",
-    "peg": "8.50",
-    "evEbitda": "7.2x",
-    "ps": "1.4x",
-    "netMargin": "9.1%",
-    "roe": "15.8%",
-    "fcfYield": "6.5%",
-    "divYield": "3.41%",
-    "valuationPctl": 38,
+    "peFwd": "18.0x",
+    "peg": "—",
+    "evEbitda": "11.4x",
+    "ps": "1.9x",
+    "netMargin": "8.9%",
+    "roe": "11%",
+    "fcfYield": "1.9%",
+    "divYield": "273.00%",
+    "valuationPctl": 42,
     "summary": {
       "zh": "ExxonMobil Q4 2024营收$83.4B同比-1.1%,略低于预期。EPS $1.72略不及预期$1.76。全年盈利$33.7B(EPS $7.84),FCF $34.4B。2024年完成Pioneer Natural Resources $63B收购,成为Permian盆地最大生产商。产量创纪录,Permian产量翻倍至130万桶/日。负债率仅13%,净负债率6%,现金$23.2B。年度股息+回购达$36B。股息连续42年增长(Dividend Aristocrat)。资本支出$27.6B符合指引。2030年计划大幅提升盈利和现金流潜力。",
       "en": "ExxonMobil Q4 2024 revenue $83.4B (-1.1% YoY), slightly below expectations. EPS $1.72 narrowly missed est $1.76. FY2024 earnings $33.7B (EPS $7.84), FCF $34.4B. Completed $63B Pioneer Natural Resources acquisition in 2024, becoming Permian Basin's largest producer. Record production with Permian output doubling to 1.3M BOED. Debt-to-capital just 13%, net debt 6%, cash $23.2B. Annual dividends + buybacks totaled $36B. Dividend raised 42 consecutive years (Aristocrat status). Capex $27.6B in line with guidance. 2030 plan targets significantly higher earnings and cash flow potential."
@@ -3991,29 +4021,29 @@
       ]
     },
     "earnings": {
-      "quarter": "Q4 2024",
-      "reportDate": "2025-01-31",
+      "quarter": "2025-12-31",
+      "reportDate": "2025-12-31",
       "zh": {
         "revenue": {
-          "val": "$83.4B",
-          "yoy": "-1.1%",
+          "val": "$80.0B",
+          "yoy": "-1.3%",
           "beat": "略低于预期",
           "note": "油价小幅下降抵消产量增长"
         },
         "eps": {
-          "val": "$1.72",
-          "yoy": "-11%",
+          "val": "$1.56",
+          "yoy": "-15%",
           "beat": "略低于预期$1.76",
           "note": "全年EPS $7.84;Q4受油价和炼油利润率影响"
         },
         "fcf": {
-          "val": "$34.4B(全年)",
-          "margin": "10.1%",
+          "val": "$5.2B",
+          "margin": "6.5%",
           "trend": "→",
           "note": "Q4 FCF $8.0B;全年FCF覆盖$36B股东回报"
         },
         "grossMargin": {
-          "val": "32.4%",
+          "val": "20.0%",
           "trend": "↓",
           "note": "油价走弱+炼油利润率下降"
         },
@@ -4023,25 +4053,25 @@
       },
       "en": {
         "revenue": {
-          "val": "$83.4B",
-          "yoy": "-1.1%",
+          "val": "$80.0B",
+          "yoy": "-1.3%",
           "beat": "Slightly missed",
           "note": "Lower oil prices offset production growth"
         },
         "eps": {
-          "val": "$1.72",
-          "yoy": "-11%",
+          "val": "$1.56",
+          "yoy": "-15%",
           "beat": "Missed est $1.76",
           "note": "FY EPS $7.84; Q4 affected by oil price and refining margins"
         },
         "fcf": {
-          "val": "$34.4B (FY)",
-          "margin": "10.1%",
+          "val": "$5.2B",
+          "margin": "6.5%",
           "trend": "→",
           "note": "Q4 FCF $8.0B; FY FCF covers $36B shareholder returns"
         },
         "grossMargin": {
-          "val": "32.4%",
+          "val": "20.0%",
           "trend": "↓",
           "note": "Lower oil prices + refining margin compression"
         },
@@ -4052,17 +4082,17 @@
     },
     "financialHealth": {
       "zh": {
-        "cashPosition": "现金$23.2B",
-        "debtToEquity": "负债率13%,净负债率6%,行业最低",
-        "currentRatio": "流动比率~1.4",
+        "cashPosition": "$10.7B现金 vs $50.5B债务 = 净现金$-39.8B",
+        "debtToEquity": "0.19x — 低杠杆",
+        "currentRatio": "1.15x — 流动性一般",
         "capex": "年capex $27.6B(含Pioneer),投资纪律严",
         "buyback": "2024年回购$19.3B",
         "summary": "财务极稳健,AA+信用评级,低杠杆+高FCF+慷慨股东回报,石油行业最强资产负债表之一"
       },
       "en": {
-        "cashPosition": "Cash $23.2B",
-        "debtToEquity": "Debt-to-capital 13%, net debt 6%, industry lowest",
-        "currentRatio": "Current ratio ~1.4",
+        "cashPosition": "$10.7B cash vs $50.5B debt = $-39.8B net",
+        "debtToEquity": "0.19x — Low leverage",
+        "currentRatio": "1.15x — Moderate liquidity",
         "capex": "Annual capex $27.6B (incl Pioneer), disciplined",
         "buyback": "$19.3B buybacks in 2024",
         "summary": "Extremely solid financials; AA+ credit; low leverage + high FCF + generous returns; one of the strongest balance sheets in oil"
@@ -4141,6 +4171,8 @@
         "grahamMargin": "Current ~$118, moderate margin of safety",
         "verdict": "Fair to slightly cheap; Pioneer integration unlocking value + Dividend Aristocrat provides long-term certainty"
       }
-    }
+    },
+    "_updatedAt": "2026-03-06T12:43:52.071Z",
+    "_price": 150.76
   }
 }

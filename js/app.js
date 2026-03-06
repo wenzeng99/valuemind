@@ -234,11 +234,18 @@ function renderFearGreed() {
 // ========== News ==========
 function renderNews() {
   const container = document.getElementById('newsContainer');
+  const section = document.getElementById('newsSection');
+  const divider = document.getElementById('newsDivider');
   if (!container) return;
   if (!newsData || newsData.length === 0) {
-    container.innerHTML = `<div class="news-item"><div class="news-content"><div class="news-title" style="color:var(--text-secondary)">${t('recap.no_news')}</div></div></div>`;
+    // Hide entire news section when no data
+    if (section) section.style.display = 'none';
+    if (divider) divider.style.display = 'none';
     return;
   }
+  // Show section when data available
+  if (section) section.style.display = '';
+  if (divider) divider.style.display = '';
 
   // Apply classification filter
   let filtered = newsData.slice(0, 15);
@@ -426,7 +433,26 @@ function renderValuationTool(analysis, lang, symbol) {
   if (!defaults) {
     if (!analysis.valuation) { container.innerHTML = ''; return; }
     const v = analysis.valuation[lang] || analysis.valuation.en;
-    container.innerHTML = `<div class="valuation-methods"><div class="val-method"><div class="val-method-label">DCF</div><div class="val-method-value mono fw-700">${v.dcf.value}</div><div class="val-method-detail">${v.dcf.method}</div><div class="val-method-note text-muted">${v.dcf.note}</div></div><div class="val-method"><div class="val-method-label">${lang === 'zh' ? '同行对比' : 'Peer Comp'}</div><div class="val-method-value mono fw-700">${v.peerComp.value}</div><div class="val-method-detail">${v.peerComp.method}</div><div class="val-method-note text-muted">${v.peerComp.note}</div></div></div><div class="val-margin"><span class="fw-600">${lang === 'zh' ? '安全边际' : 'Margin of Safety'}:</span> ${v.grahamMargin}</div><div class="val-verdict fw-600">${v.verdict}</div>`;
+    // Dynamic margin of safety using real current price vs DCF range
+    const stock = marketData?.watchlist?.find(s => s.symbol === symbol);
+    const sd = stockDetailsData?.[symbol];
+    const curPrice = stock?.price || sd?.price;
+    let marginHTML = `<span class="fw-600">${lang === 'zh' ? '安全边际' : 'Margin of Safety'}:</span> ${v.grahamMargin}`;
+    if (curPrice) {
+      // Parse DCF range like "$145-165" or "$480-550 (Class B)"
+      const dcfMatch = v.dcf.value.match(/\$?([\d,]+)\s*-\s*\$?([\d,]+)/);
+      if (dcfMatch) {
+        const dcfLow = parseFloat(dcfMatch[1].replace(/,/g, '')), dcfHigh = parseFloat(dcfMatch[2].replace(/,/g, ''));
+        const dcfMid = (dcfLow + dcfHigh) / 2;
+        const marginPct = ((dcfMid - curPrice) / curPrice * 100).toFixed(1);
+        const marginCls = marginPct > 15 ? 'text-green' : marginPct > 0 ? 'text-yellow' : 'text-red';
+        const marginLabel = marginPct > 0
+          ? (lang === 'zh' ? `安全边际 ${marginPct}%` : `${marginPct}% margin of safety`)
+          : (lang === 'zh' ? `溢价 ${Math.abs(marginPct)}%` : `${Math.abs(marginPct)}% premium`);
+        marginHTML = `<span class="fw-600">${lang === 'zh' ? '实时安全边际' : 'Live Margin of Safety'}:</span> <span class="${marginCls} fw-600">${lang === 'zh' ? '当前' : 'Current'} $${curPrice.toFixed(2)} vs DCF ${lang === 'zh' ? '中值' : 'mid'} $${dcfMid.toFixed(0)} → ${marginLabel}</span>`;
+      }
+    }
+    container.innerHTML = `<div class="valuation-methods"><div class="val-method"><div class="val-method-label">DCF</div><div class="val-method-value mono fw-700">${v.dcf.value}</div><div class="val-method-detail">${v.dcf.method}</div><div class="val-method-note text-muted">${v.dcf.note}</div></div><div class="val-method"><div class="val-method-label">${lang === 'zh' ? '同行对比' : 'Peer Comp'}</div><div class="val-method-value mono fw-700">${v.peerComp.value}</div><div class="val-method-detail">${v.peerComp.method}</div><div class="val-method-note text-muted">${v.peerComp.note}</div></div></div><div class="val-margin">${marginHTML}</div><div class="val-verdict fw-600">${v.verdict}</div>`;
     return;
   }
   if (!valSliderState[symbol]) {

@@ -30,14 +30,14 @@ export const stockAnalysis = {
     },
     crossVal: {
       zh: [
-        { name: 'DYP', color: 'green', verdict: '等$120-130', q: 'NVDA=卖铲子。CUDA=护城河。+1110%加仓。但需要安全边际。' },
-        { name: 'Buffett', color: 'yellow', verdict: '能力圈外', q: '好公司，但我不懂芯片迭代。$373B现金就是我的态度。' },
-        { name: 'Munger', color: 'green', verdict: '合理价可买', q: 'NVDA之于AI=微软之于PC。PEG 0.6。但反转思维：什么让NVDA失败？' },
+        { name: 'DYP', color: 'green', verdict: '持仓7.72%', q: '实际13F持仓7.72%（第3大）。NVDA=卖铲子，CUDA=护城河。Q4加仓+1110%，积极布局AI。' },
+        { name: 'Buffett', color: 'yellow', verdict: '未持仓', q: '13F无NVDA。好公司但不懂芯片迭代。$373B现金=耐心等待。' },
+        { name: 'Munger', color: 'green', verdict: 'DJCO未持仓', q: 'DJCO无NVDA。NVDA之于AI=微软之于PC。PEG 0.6。反转思维：什么让NVDA失败？' },
       ],
       en: [
-        { name: 'DYP', color: 'green', verdict: 'Wait $120-130', q: 'NVDA = selling shovels. CUDA = moat. +1,110% position. But need margin of safety.' },
-        { name: 'Buffett', color: 'yellow', verdict: 'Outside circle', q: 'Great company, but I don\'t understand chip iteration. $373B cash is patient.' },
-        { name: 'Munger', color: 'green', verdict: 'Fair price OK', q: 'NVDA in AI = Microsoft in PCs. PEG 0.6 = growth digesting valuation. Control size.' },
+        { name: 'DYP', color: 'green', verdict: 'Holds 7.72%', q: '13F: 7.72% weight (#3 position). NVDA = selling shovels, CUDA = moat. Q4 added +1,110%, aggressively building AI exposure.' },
+        { name: 'Buffett', color: 'yellow', verdict: 'No position', q: '13F: no NVDA. Great company but doesn\'t understand chip iteration. $373B cash = patience.' },
+        { name: 'Munger', color: 'green', verdict: 'DJCO: no position', q: 'DJCO has no NVDA. NVDA in AI = Microsoft in PCs. PEG 0.6. Invert: what kills NVDA?' },
       ],
     },
     earnings: {
@@ -136,14 +136,14 @@ export const stockAnalysis = {
     },
     crossVal: {
       zh: [
-        { name: 'DYP', color: 'yellow', verdict: '持有不追', q: '好公司但太贵。等大幅回调。' },
-        { name: 'Buffett', color: 'green', verdict: '核心持仓', q: '消费者特许权的巅峰。我能理解的最好的生意之一。' },
-        { name: 'Munger', color: 'yellow', verdict: '好但贵', q: '伟大企业，但当前价格透支了未来几年增长。' },
+        { name: 'DYP', color: 'green', verdict: '核心持仓50.3%', q: '13F第1大持仓，占50.3%。2018年Q4买入，均价$116.53。好公司长期持有。' },
+        { name: 'Buffett', color: 'green', verdict: '核心持仓22.6%', q: '13F第1大持仓，占22.6%。消费者特许权的巅峰，最好的生意之一。2025年持续减持但仍为第一。' },
+        { name: 'Munger', color: 'yellow', verdict: 'DJCO未持仓', q: 'DJCO无AAPL。Munger通过个人BRK间接持有。伟大企业但当前价格透支增长。' },
       ],
       en: [
-        { name: 'DYP', color: 'yellow', verdict: 'Hold, don\'t chase', q: 'Great company but too expensive. Wait for deep pullback.' },
-        { name: 'Buffett', color: 'green', verdict: 'Core holding', q: 'Peak consumer franchise. One of the best businesses I understand.' },
-        { name: 'Munger', color: 'yellow', verdict: 'Great but pricey', q: 'Wonderful business, but current price discounts years of growth.' },
+        { name: 'DYP', color: 'green', verdict: 'Core: 50.3%', q: '13F #1 position at 50.3%. Bought since Q4 2018, avg cost $116.53. Long-term hold.' },
+        { name: 'Buffett', color: 'green', verdict: 'Core: 22.6%', q: '13F #1 at 22.6%. Peak consumer franchise. Best business he understands. Trimming in 2025 but still #1.' },
+        { name: 'Munger', color: 'yellow', verdict: 'DJCO: no position', q: 'DJCO has no AAPL. Munger held indirectly via personal BRK stake. Great but current price discounts growth.' },
       ],
     },
     earnings: {
@@ -242,14 +242,14 @@ export const stockAnalysis = {
     },
     crossVal: {
       zh: [
-        { name: 'DYP', color: 'green', verdict: '持有', q: '企业级护城河。理解商业模式，可长持。' },
-        { name: 'Buffett', color: 'green', verdict: '能力圈内', q: '盈利能力强，分红增长稳定。' },
-        { name: 'Munger', color: 'green', verdict: '好价格好公司', q: '垄断级地位，PEG合理。长期持有。' },
+        { name: 'DYP', color: 'green', verdict: '持仓~1.5%', q: '13F持仓~1.5%，Q4增持+207%。企业级护城河，理解商业模式，可长持。' },
+        { name: 'Buffett', color: 'yellow', verdict: '未持仓', q: '13F无MSFT。因与Gates友谊长期回避投资以避嫌。盈利能力强，分红增长稳定。' },
+        { name: 'Munger', color: 'green', verdict: 'DJCO未持仓', q: 'DJCO无MSFT。垄断级地位，PEG合理。' },
       ],
       en: [
-        { name: 'DYP', color: 'green', verdict: 'Hold', q: 'Enterprise moat. Understand the business, long-term hold.' },
-        { name: 'Buffett', color: 'green', verdict: 'In circle', q: 'Strong profitability, stable dividend growth.' },
-        { name: 'Munger', color: 'green', verdict: 'Good price, good co', q: 'Monopoly position, reasonable PEG. Long-term hold.' },
+        { name: 'DYP', color: 'green', verdict: 'Holds ~1.5%', q: '13F: ~1.5% weight, Q4 added +207%. Enterprise moat, long-term hold.' },
+        { name: 'Buffett', color: 'yellow', verdict: 'No position', q: '13F: no MSFT. Avoids investing due to Gates friendship to prevent conflict of interest. Strong profitability.' },
+        { name: 'Munger', color: 'green', verdict: 'DJCO: no position', q: 'DJCO has no MSFT. Monopoly position, reasonable PEG.' },
       ],
     },
     earnings: {
@@ -348,13 +348,13 @@ GOOGL: {
     },
     crossVal: {
       zh: [
-        { name: 'DYP', color: 'green', verdict: '好生意', q: '搜索是"印钞机"式生意,Cloud是"卖铲子"给AI淘金者。段永平会喜欢这种躺着赚钱的商业模式,但$1750亿Capex让人犹豫。' },
-        { name: 'Buffett', color: 'green', verdict: '优秀企业', q: '强大品牌+消费者习惯粘性+定价权。ROE 34%远超资本成本。Google Search是数字时代的"收费桥梁"。' },
+        { name: 'DYP', color: 'green', verdict: '持仓3.33%', q: '13F持仓3.33%（GOOG Class C），Q4继续增持。搜索是"印钞机"，Cloud是"卖铲子"给AI淘金者。' },
+        { name: 'Buffett', color: 'green', verdict: '2025新建仓2.2%', q: '13F: 2025年新建仓约1785万股，占2.2%。强大品牌+定价权。Google Search=数字"收费桥梁"。ROE 34%远超资本成本。' },
         { name: 'Munger', color: 'yellow', verdict: '需要观察', q: '用逆向思维看:如果AI颠覆搜索,Alphabet会怎样?Cloud和Gemini是对冲,但转型期的资本配置效率存疑。激励机制是否对齐?' },
       ],
       en: [
-        { name: 'DYP', color: 'green', verdict: 'Good business', q: 'Search is a "money printer" business; Cloud is "selling shovels" to AI gold rushers. DYP would love the business model but $175B capex gives pause.' },
-        { name: 'Buffett', color: 'green', verdict: 'Excellent business', q: 'Strong brand + consumer habit stickiness + pricing power. 34% ROE far exceeds cost of capital. Google Search is the digital "toll bridge."' },
+        { name: 'DYP', color: 'green', verdict: 'Holds 3.33%', q: '13F: 3.33% weight (GOOG Class C), Q4 added. Search is "money printer"; Cloud is "selling shovels" to AI gold rushers.' },
+        { name: 'Buffett', color: 'green', verdict: 'New position 2.2%', q: '13F: New 2025 position ~17.85M shares at 2.2%. Strong brand + pricing power. Search = digital "toll bridge." 34% ROE.' },
         { name: 'Munger', color: 'yellow', verdict: 'Needs watching', q: 'Invert: what if AI disrupts search? Cloud and Gemini hedge this, but capital allocation efficiency during transition is questionable. Are incentives aligned?' },
       ],
     },
@@ -456,12 +456,12 @@ GOOGL: {
     crossVal: {
       zh: [
         { name: 'DYP', color: 'yellow', verdict: '好生意但太贵', q: 'AWS是顶级"卖铲子"生意,广告是"坐地收钱"。但Amazon长期薄利多销的风格让人不安——什么时候才真正赚大钱?$2000亿Capex太激进。' },
-        { name: 'Buffett', color: 'yellow', verdict: '优秀企业但难估值', q: 'Bezos构建的消费者忠诚度堪比可口可乐,Prime粘性极强。但始终在"重新投资"利润,FCF yield仅0.3%,违背了"给股东回报"的原则。' },
+        { name: 'Buffett', color: 'yellow', verdict: '减持至0.19%', q: '13F仍持有但Q4减持77%，从第17大降至第27大（仅$5.25亿）。Prime粘性极强，但持续"重新投资"利润，FCF yield仅0.3%。' },
         { name: 'Munger', color: 'green', verdict: '长期看好', q: '规模效应+网络效应+学习曲线效应叠加——这是典型的Lollapalooza。关键洞察:Amazon牺牲短期利润换长期垄断地位,这种"延迟满足"的策略长期有利。' },
       ],
       en: [
         { name: 'DYP', color: 'yellow', verdict: 'Good biz but pricey', q: 'AWS is a top-tier "shovel" business; ads are "sit and collect." But Amazon\'s perpetual thin-margin strategy is unsettling — when do they actually print money? $200B capex is too aggressive.' },
-        { name: 'Buffett', color: 'yellow', verdict: 'Great biz, hard to value', q: 'Consumer loyalty Bezos built rivals Coca-Cola; Prime stickiness is extreme. But constantly "reinvesting" profits, 0.3% FCF yield violates the principle of returning capital to shareholders.' },
+        { name: 'Buffett', color: 'yellow', verdict: 'Trimmed to 0.19%', q: '13F: still holds but Q4 cut 77%, dropped from #17 to #27 (~$525M). Prime stickiness extreme but constant reinvestment, 0.3% FCF yield.' },
         { name: 'Munger', color: 'green', verdict: 'Long-term bullish', q: 'Scale + network effects + learning curve compound — classic Lollapalooza. Key insight: Amazon sacrifices short-term profit for long-term monopoly position; this "delayed gratification" strategy pays off over time.' },
       ],
     },
@@ -562,12 +562,12 @@ GOOGL: {
     },
     crossVal: {
       zh: [
-        { name: 'DYP', color: 'green', verdict: '优秀生意', q: 'Meta的广告业务是顶级"印钞机"——82%毛利率,用户免费提供内容和数据,广告主争相竞价。这就是段永平说的"不需要太多资本就能赚大钱"的生意。' },
+        { name: 'DYP', color: 'green', verdict: '未持仓｜优秀生意', q: '13F无META。但广告业务是顶级"印钞机"——82%毛利率，用户免费提供内容，广告主竞价。"不需要太多资本就能赚大钱"。' },
         { name: 'Buffett', color: 'green', verdict: '强力买入', q: '类似可口可乐的消费者特许经营权——40亿人的日常习惯。品牌可能不如可口可乐经典,但用户粘性更强。30%净利润率+22x远期PE,估值合理。' },
         { name: 'Munger', color: 'green', verdict: '优质资产', q: '从心智模型看:社交网络具有"临界质量"效应,一旦超过临界点,竞争对手几乎不可能撼动。Instagram+WhatsApp的组合像是双保险。但需警惕:年轻用户是否在向TikTok等平台流失?' },
       ],
       en: [
-        { name: 'DYP', color: 'green', verdict: 'Excellent business', q: 'Meta\'s ads business is a top-tier "money printer" — 82% gross margin, users provide free content and data, advertisers bid competitively. This is what DYP calls "making big money without much capital."' },
+        { name: 'DYP', color: 'green', verdict: 'No position | Great biz', q: '13F: no META. But ads biz is top-tier "money printer" — 82% margin, users provide free content, advertisers compete. "Big money without much capital."' },
         { name: 'Buffett', color: 'green', verdict: 'Strong buy', q: 'Similar to Coca-Cola consumer franchise — 4B people\'s daily habit. Brand may not be as iconic as Coke, but user stickiness is stronger. 30% net margin + 22x fwd PE, valuation is reasonable.' },
         { name: 'Munger', color: 'green', verdict: 'Quality asset', q: 'Mental model: social networks have "critical mass" effect — once past the tipping point, competitors can hardly dislodge. Instagram + WhatsApp combo is like double insurance. But watch: are younger users migrating to TikTok?' },
       ],
@@ -669,13 +669,13 @@ GOOGL: {
     },
     crossVal: {
       zh: [
-        { name: 'DYP', color: 'green', verdict: '顶级铲子生意', q: '这是"卖铲子"商业模式的巅峰——所有AI公司都需要TSMC代工芯片,无论谁赢了AI竞赛,TSMC都赚钱。45%净利润率证明定价权极强。唯一担忧是地缘政治。' },
-        { name: 'Buffett', color: 'yellow', verdict: '好生意但有风险', q: '技术护城河极深,ROE 35%优秀。但资本密集度太高(每年$500亿+Capex),且台海地缘风险是无法通过分析消除的"黑天鹅"。这不完全在能力圈内。' },
+        { name: 'DYP', color: 'green', verdict: '持仓~1%', q: '13F持仓~1%，Q4大幅增持+370%。"卖铲子"巅峰——所有AI公司都需TSMC代工。45%净利率=极强定价权。唯一担忧是地缘政治。' },
+        { name: 'Buffett', color: 'yellow', verdict: '2023已清仓', q: '13F无TSM。2022 Q3曾建仓$41亿，但2023 Q1因地缘政治担忧全部清仓。技术护城河极深但台海风险是"黑天鹅"。' },
         { name: 'Munger', color: 'green', verdict: '稀缺资产', q: '用"有限且不可替代"模型分析:全球能做3nm及以下的只有TSMC一家,这种独占性在工业史上极为罕见。规模效应+学习曲线使追赶者几乎不可能缩小差距。逆向思考:唯一破坏性风险是地缘冲突。' },
       ],
       en: [
-        { name: 'DYP', color: 'green', verdict: 'Ultimate shovel biz', q: 'This is the pinnacle of the "sell shovels" model — every AI company needs TSMC to fab chips. Whoever wins the AI race, TSMC profits. 45% net margin proves extreme pricing power. Only concern is geopolitics.' },
-        { name: 'Buffett', color: 'yellow', verdict: 'Good biz with risk', q: 'Tech moat is extremely deep; 35% ROE is excellent. But very capital-intensive ($50B+ annual capex), and Taiwan Strait geopolitical risk is a "black swan" that analysis cannot eliminate. Not entirely within circle of competence.' },
+        { name: 'DYP', color: 'green', verdict: 'Holds ~1%', q: '13F: ~1% weight, Q4 added +370%. Pinnacle "sell shovels" model — every AI co needs TSMC. 45% net margin = extreme pricing power. Only risk: geopolitics.' },
+        { name: 'Buffett', color: 'yellow', verdict: 'Exited Q1 2023', q: '13F: no TSM. Built $4.1B position in Q3 2022 but fully exited Q1 2023 over geopolitical concerns. Deep tech moat but Taiwan Strait risk = unquantifiable "black swan."' },
         { name: 'Munger', color: 'green', verdict: 'Scarce asset', q: 'Using the "scarce and irreplaceable" mental model: TSMC is the only company that can do 3nm and below. This monopoly is historically rare in industry. Scale + learning curve make it nearly impossible for chasers to close the gap. Invert: the only destructive risk is geopolitical conflict.' },
       ],
     },
@@ -775,14 +775,14 @@ GOOGL: {
     },
     crossVal: {
       zh: [
-        { name: 'DYP', color: 'green', verdict: '核心持仓', q: '段永平长期重仓Costco，认为其商业模式是"消费者代理人"，永远站在用户一边，这是最好的生意模式之一' },
-        { name: 'Buffett', color: 'green', verdict: '优质生意', q: '巴菲特多次称赞Costco，认为其会员模式创造了持久竞争优势，唯一顾虑是当前估值偏高' },
-        { name: 'Munger', color: 'green', verdict: '挚爱企业', q: '芒格曾任Costco董事近20年，视其为最完美的零售企业——低价、高品质、高效率的极致组合' },
+        { name: 'DYP', color: 'green', verdict: '未持仓｜看好', q: '13F无COST。但认为其"消费者代理人"模式是最好的生意之一——永远站在用户一边。估值过高暂不买入。' },
+        { name: 'Buffett', color: 'yellow', verdict: '2020已清仓', q: '13F无COST。2020年Q3清仓全部Costco，后承认卖出可能是错误。会员模式=持久竞争优势。' },
+        { name: 'Munger', color: 'green', verdict: 'DJCO未持仓｜个人挚爱', q: 'DJCO无COST。Munger曾任Costco董事近20年，个人账户持有。视其为最完美零售——低价+高品质+高效率。' },
       ],
       en: [
-        { name: 'DYP', color: 'green', verdict: 'Core holding', q: 'Duan Yongping holds Costco as a core position, viewing its model as a "consumer agent" that always sides with the customer — one of the best business models' },
-        { name: 'Buffett', color: 'green', verdict: 'Great business', q: 'Buffett has praised Costco repeatedly, seeing its membership model as a durable competitive advantage; only concern is current valuation premium' },
-        { name: 'Munger', color: 'green', verdict: 'Beloved company', q: 'Munger served on Costco\'s board for nearly 20 years, calling it the most perfect retailer — the ultimate combination of low price, high quality, and efficiency' },
+        { name: 'DYP', color: 'green', verdict: 'No position | Bullish', q: '13F: no COST. Views "consumer agent" model as one of the best businesses — always sides with customer. Valuation too high to buy.' },
+        { name: 'Buffett', color: 'yellow', verdict: 'Exited Q3 2020', q: '13F: no COST. Sold entire position Q3 2020, later admitted it may have been a mistake. Membership model = durable competitive advantage.' },
+        { name: 'Munger', color: 'green', verdict: 'DJCO: no | Personal fav', q: 'DJCO has no COST. Munger served on Costco board ~20 years, held personally. Called it the most perfect retailer — low price + high quality + efficiency.' },
       ],
     },
     earnings: {
@@ -848,14 +848,14 @@ GOOGL: {
     },
     crossVal: {
       zh: [
-        { name: 'DYP', color: 'green', verdict: '最敬佩的企业家', q: '段永平视角：巴菲特是他最敬佩的投资者和企业家，Berkshire的商业模式"永远不缺钱"，浮存金模式是金融界最伟大的发明之一' },
+        { name: 'DYP', color: 'green', verdict: '持仓20.63%', q: '13F第2大持仓，占20.63%。视巴菲特为投资导师。Berkshire"永远不缺钱"，浮存金模式是金融界最伟大发明之一。' },
         { name: 'Buffett', color: 'green', verdict: '这是我的毕生心血', q: '巴菲特视角：Berkshire是我60年心血的结晶，目标是建造一艘永不沉没的方舟——即使我不在了，它依然会繁荣' },
-        { name: 'Munger', color: 'green', verdict: '我搭档的杰作', q: '芒格视角：Berkshire是一个独特的文明产物，融合了理性、诚信和长期主义，Greg Abel会延续这一传统' },
+        { name: 'Munger', color: 'green', verdict: '个人持有BRK-A $2B+', q: 'DJCO无BRK，但Munger个人持有大量BRK-A（$2B+）为最大个人持仓。Berkshire=理性+诚信+长期主义。Abel将延续传统。' },
       ],
       en: [
-        { name: 'DYP', color: 'green', verdict: 'Most admired entrepreneur', q: 'DYP view: Buffett is his most admired investor and entrepreneur; Berkshire\'s model "never lacks capital" — the float model is one of finance\'s greatest inventions' },
+        { name: 'DYP', color: 'green', verdict: 'Holds 20.63%', q: '13F: #2 position at 20.63%. Sees Buffett as investment mentor. Berkshire "never lacks capital" — float model is one of finance\'s greatest inventions.' },
         { name: 'Buffett', color: 'green', verdict: 'This is my life\'s work', q: 'Buffett view: Berkshire is 60 years of my life\'s work; the goal is to build an unsinkable ark — it will thrive even after I\'m gone' },
-        { name: 'Munger', color: 'green', verdict: 'My partner\'s masterpiece', q: 'Munger view: Berkshire is a unique product of civilization, blending rationality, integrity, and long-term thinking; Greg Abel will carry this tradition forward' },
+        { name: 'Munger', color: 'green', verdict: 'Personal BRK-A $2B+', q: 'DJCO has no BRK, but Munger personally held massive BRK-A ($2B+), his largest personal holding. Berkshire = rationality + integrity + long-termism. Abel will carry forward.' },
       ],
     },
     earnings: {
@@ -921,14 +921,14 @@ GOOGL: {
     },
     crossVal: {
       zh: [
-        { name: 'DYP', color: 'yellow', verdict: '有条件看好', q: '段永平视角：中国互联网有好公司，但需要考虑VIE结构风险和监管不确定性。估值足够低可以配置，但不宜重仓' },
-        { name: 'Buffett', color: 'red', verdict: '圈外', q: '巴菲特视角：我不太理解中国的监管环境，也不确定能否预测10年后的格局。我更倾向于投资我完全理解的生意' },
-        { name: 'Munger', color: 'yellow', verdict: '值得研究', q: '芒格视角：中国有极其优秀的企业，BABA估值确实便宜，但投资者需要为政策不确定性要求更高的安全边际' },
+        { name: 'DYP', color: 'yellow', verdict: '持仓~1.5%｜减持中', q: '13F持仓~1.5%，持续减持中。中国互联网有好公司，但VIE结构+监管不确定性。估值低可配但不宜重仓。' },
+        { name: 'Buffett', color: 'red', verdict: '未持仓', q: '13F无BABA。不理解中国监管环境，无法预测10年格局。倾向投资完全理解的生意。' },
+        { name: 'Munger', color: 'green', verdict: 'DJCO持仓10.33%', q: 'DJCO第3大持仓$28.6M，占10.33%。Munger生前买入，继承人继续持有。中国有极优企业，BABA估值便宜。' },
       ],
       en: [
-        { name: 'DYP', color: 'yellow', verdict: 'Conditionally bullish', q: 'DYP view: China has great internet companies, but VIE structure risk and regulatory uncertainty must be weighed. Cheap enough to own, but not as a concentrated position' },
-        { name: 'Buffett', color: 'red', verdict: 'Outside circle', q: 'Buffett view: I don\'t fully understand China\'s regulatory environment and can\'t predict the landscape 10 years out. I prefer businesses I completely understand' },
-        { name: 'Munger', color: 'yellow', verdict: 'Worth studying', q: 'Munger view: China has exceptionally good companies, BABA is genuinely cheap, but investors should demand a higher margin of safety for policy uncertainty' },
+        { name: 'DYP', color: 'yellow', verdict: 'Holds ~1.5% | Trimming', q: '13F: ~1.5% weight, reducing position. Good company but VIE risk + regulatory uncertainty. Cheap enough to own, not for concentration.' },
+        { name: 'Buffett', color: 'red', verdict: 'No position', q: '13F: no BABA. Doesn\'t fully understand China\'s regulatory environment. Prefers businesses he completely understands.' },
+        { name: 'Munger', color: 'green', verdict: 'DJCO holds 10.33%', q: 'DJCO #3 position at $28.6M (10.33%). Bought by Munger, successors maintaining. China has exceptional companies, BABA is genuinely cheap.' },
       ],
     },
     earnings: {
@@ -993,12 +993,12 @@ GOOGL: {
     },
     crossVal: {
       zh: [
-        { name: 'DYP', color: 'yellow', verdict: '观望', q: '段永平视角：业务模型不够简单,GPU竞争格局不清晰,现金流相对营收偏低' },
+        { name: 'DYP', color: 'yellow', verdict: '未持仓｜观望', q: '13F无AMD。业务模型不够简单，GPU竞争格局不清晰，现金流相对营收偏低。' },
         { name: 'Buffett', color: 'yellow', verdict: '不在能力圈', q: '巴菲特视角：半导体周期性强,技术迭代快,不符合消费垄断型企业标准' },
         { name: 'Munger', color: 'yellow', verdict: '有潜力但风险大', q: '芒格视角：AI是大趋势但竞争激烈,NVDA先发优势明显,逆向思维需考虑技术落后风险' },
       ],
       en: [
-        { name: 'DYP', color: 'yellow', verdict: 'Wait & See', q: 'Business model not simple enough, GPU competitive landscape unclear, FCF low relative to revenue' },
+        { name: 'DYP', color: 'yellow', verdict: 'No position | Watch', q: '13F: no AMD. Business model not simple enough, GPU landscape unclear, FCF low vs revenue.' },
         { name: 'Buffett', color: 'yellow', verdict: 'Outside circle of competence', q: 'Semiconductors are cyclical with rapid tech changes, not a consumer franchise' },
         { name: 'Munger', color: 'yellow', verdict: 'Potential but risky', q: 'AI is a secular trend but competition is fierce; NVDA first-mover advantage is strong; inversion thinking flags tech obsolescence risk' },
       ],
@@ -1067,12 +1067,12 @@ GOOGL: {
     crossVal: {
       zh: [
         { name: 'DYP', color: 'green', verdict: '合格', q: '段永平视角：简单商品业务,现金流充沛,股息持续增长,管理层注重股东回报' },
-        { name: 'Buffett', color: 'green', verdict: '持仓中', q: '巴菲特视角：实际持有CVX,现金流覆盖股息,低估值高回报率,能力圈内' },
+        { name: 'Buffett', color: 'green', verdict: '持仓7.24%', q: '13F第5大持仓，占7.24%（$198亿）。Q4增持7%至1.3亿+股。现金流覆盖股息，低估值高回报，能力圈内。' },
         { name: 'Munger', color: 'green', verdict: '合理配置', q: '芒格视角：能源是文明基础,CVX低成本资产+强资产负债表=确定性高,但需避免追高油价' },
       ],
       en: [
         { name: 'DYP', color: 'green', verdict: 'Qualified', q: 'Simple commodity business, abundant cash flow, growing dividend, shareholder-friendly management' },
-        { name: 'Buffett', color: 'green', verdict: 'Holding', q: 'Actually holds CVX; FCF covers dividends, low valuation, high returns, within circle of competence' },
+        { name: 'Buffett', color: 'green', verdict: 'Holds 7.24%', q: '13F: #5 at 7.24% ($19.8B). Q4 added 7% to 130M+ shares. FCF covers dividends, low valuation, high returns, in circle.' },
         { name: 'Munger', color: 'green', verdict: 'Reasonable allocation', q: 'Energy is foundation of civilization; low-cost assets + strong balance sheet = high certainty; avoid chasing oil price peaks' },
       ],
     },
@@ -1286,12 +1286,12 @@ GOOGL: {
     crossVal: {
       zh: [
         { name: 'DYP', color: 'green', verdict: '合格', q: '段永平视角：业务简单可理解(收保费+管医疗),现金流稳定增长,管理层执行力强' },
-        { name: 'Buffett', color: 'green', verdict: '合格', q: '巴菲特视角：类保险浮存金模式,规模经济+垂直整合=消费垄断,长期复合增长确定' },
+        { name: 'Buffett', color: 'green', verdict: '2025新建仓~1.5%', q: '13F: 2025年Q3新建仓，Q4继续持有约1-2%。类保险浮存金模式+规模+垂直整合=消费垄断。' },
         { name: 'Munger', color: 'green', verdict: '优质', q: '芒格视角：医疗是刚需+老龄化趋势不可逆;当前社会舆论压力=反向买入机会;心理恐慌创造价值' },
       ],
       en: [
         { name: 'DYP', color: 'green', verdict: 'Qualified', q: 'Simple understandable business (collect premiums + manage care); stable growing cash flow; strong execution' },
-        { name: 'Buffett', color: 'green', verdict: 'Qualified', q: 'Insurance float-like model; scale + vertical integration = consumer monopoly; long-term compounding certain' },
+        { name: 'Buffett', color: 'green', verdict: 'New position ~1.5%', q: '13F: New Q3 2025 position, held through Q4 at ~1-2%. Insurance float-like model + scale + vertical integration = consumer monopoly.' },
         { name: 'Munger', color: 'green', verdict: 'High quality', q: 'Healthcare is essential + aging trend irreversible; current social backlash = contrarian buy opportunity; fear creates value' },
       ],
     },
@@ -1359,12 +1359,12 @@ GOOGL: {
     crossVal: {
       zh: [
         { name: 'DYP', color: 'green', verdict: '合格', q: '段永平视角：业务简单(采油炼油卖油),现金流极强,股东回报突出,管理层理性配置资本' },
-        { name: 'Buffett', color: 'green', verdict: '优质能源股', q: '巴菲特视角：资源垄断型企业,现金流覆盖高额股息+回购,在能力圈内,类似CVX逻辑' },
+        { name: 'Buffett', color: 'yellow', verdict: '2014已清仓', q: '13F无XOM。2014年前清仓（曾持$4B），能源持仓转向CVX+OXY。资源垄断企业，在能力圈内。' },
         { name: 'Munger', color: 'green', verdict: '合理持有', q: '芒格视角：全球文明离不开石油(至少再20年),XOM低成本资产在任何油价环境都能生存;逆向思考能源转型比预期慢' },
       ],
       en: [
         { name: 'DYP', color: 'green', verdict: 'Qualified', q: 'Simple business (extract, refine, sell oil); very strong cash flow; outstanding shareholder returns; rational capital allocation' },
-        { name: 'Buffett', color: 'green', verdict: 'Quality energy', q: 'Resource monopoly enterprise; FCF covers generous dividends + buybacks; within competence; similar to CVX logic' },
+        { name: 'Buffett', color: 'yellow', verdict: 'Exited ~2014', q: '13F: no XOM. Exited ~2014 (held ~$4B), energy focus shifted to CVX + OXY. Resource monopoly, within competence.' },
         { name: 'Munger', color: 'green', verdict: 'Reasonable hold', q: 'Global civilization needs oil (at least 20 more years); XOM low-cost assets survive at any oil price; inversion: energy transition is slower than expected' },
       ],
     },

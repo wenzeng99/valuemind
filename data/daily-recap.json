@@ -85,5 +85,77 @@
         "tags": ["Regulation", "Compliance"]
       }
     ]
+  },
+  "signals": {
+    "zh": {
+      "duan": [
+        { "type": "green", "cat": "能源", "title": "WTI破$91+霍尔木兹封锁风险，CVX逼近52周高$192", "tk": "CVX", "q": "能源是刚需。地缘溢价短期，但FCF是真的。CVX $190以下都值得持有。" },
+        { "type": "green", "cat": "消费", "title": "非农大幅不及预期→降息概率飙升，COST防御属性凸显", "tk": "COST", "q": "经济放缓时会员制消费更显优势。简单、可预测的现金流。" },
+        { "type": "yellow", "cat": "AI算力", "title": "NVDA PE 37x，非农走弱+油价飙升=滞胀风险", "tk": "NVDA", "q": "AI逻辑不变，但宏观逆风加大。$183耐心等，滞胀恐慌可能给$150。" },
+        { "type": "red", "cat": "地缘", "title": "以色列称将追杀哈梅内伊所有继任者，冲突无停火迹象", "tk": "—", "q": "战争升级不碰。非农+地缘双重打击，持现金等市场出清。" }
+      ],
+      "buffett": [
+        { "type": "green", "cat": "能源", "title": "XOM/CVX在$90+油价下现金流暴涨，分红覆盖率充裕", "tk": "XOM", "q": "石油战时更不可替代。XOM $150仍低于内在价值，分红+回购=7%现金回报。" },
+        { "type": "green", "cat": "中概", "title": "BABA $130 PE 17x，非农走弱利好降息→利好新兴市场", "tk": "BABA", "q": "美国经济走弱→Fed降息→美元走弱→利好中国资产。这个价格有安全边际。" },
+        { "type": "yellow", "cat": "保险", "title": "非农暗示降息加速，BRK浮存金收益率面临拐点", "tk": "BRK-B", "q": "降息对BRK是双刃剑。但$3733亿现金可以在恐慌中大举抄底。" },
+        { "type": "red", "cat": "医疗", "title": "UNH $289面临营收下滑+油价推高医疗成本双重压力", "tk": "UNH", "q": "医疗成本通胀+营收首次下滑=两面夹击。不急，等明确底部。" }
+      ],
+      "munger": [
+        { "type": "green", "cat": "消费", "title": "COST在滞胀环境中反脆弱——越通胀越需要性价比", "tk": "COST", "q": "最爱。非农崩+油价飙=滞胀。滞胀时只有COST这种模式能赢。" },
+        { "type": "green", "cat": "AI", "title": "NVDA长期AI逻辑不变，短期恐慌是买入良机的前兆", "tk": "NVDA", "q": "反转思维：非农走弱→降息→科技股受益。恐慌往往是最好的买点。" },
+        { "type": "yellow", "cat": "加密", "title": "SEC撤诉孙宇晨+哈萨克斯坦主权入场=监管转向信号", "tk": "COIN", "q": "机构化不可逆。但COIN PE 46x太贵，等COIN跌到$150再说。" },
+        { "type": "red", "cat": "宏观", "title": "非农-9.2万+油价$91+VIX 29=多重恐慌叠加", "tk": "—", "q": "恐惧指数29说明市场在害怕。但别跟着害怕，也别急着抄底。等待。" }
+      ]
+    },
+    "en": {
+      "duan": [
+        { "type": "green", "cat": "Energy", "title": "WTI breaks $91 + Hormuz blockade risk; CVX near 52wk high $192", "tk": "CVX", "q": "Energy is essential. Geo-premium temporary but FCF is real. CVX below $190 worth holding." },
+        { "type": "green", "cat": "Consumer", "title": "NFP massive miss → rate cut odds surge; COST defensive qualities shine", "tk": "COST", "q": "Membership model thrives in slowdowns. Simple, predictable cash flow." },
+        { "type": "yellow", "cat": "AI Compute", "title": "NVDA PE 37x; weak NFP + oil spike = stagflation risk", "tk": "NVDA", "q": "AI thesis intact but macro headwinds intensify. Wait at $183, stagflation panic may give $150." },
+        { "type": "red", "cat": "Geopolitics", "title": "Israel vows to pursue all Khamenei successors; no ceasefire in sight", "tk": "—", "q": "Escalating war = avoid. NFP + geopolitics double blow. Hold cash, wait for clearing." }
+      ],
+      "buffett": [
+        { "type": "green", "cat": "Energy", "title": "XOM/CVX cash flow surging at $90+ oil; dividend coverage ample", "tk": "XOM", "q": "Oil is irreplaceable in wartime. XOM at $150 still below intrinsic value. Div+buyback = 7% cash yield." },
+        { "type": "green", "cat": "China", "title": "BABA $130 PE 17x; weak NFP → Fed cuts → USD weakens → benefits EM", "tk": "BABA", "q": "US weakness → rate cuts → weaker dollar → benefits Chinese assets. Margin of safety here." },
+        { "type": "yellow", "cat": "Insurance", "title": "NFP signals accelerated cuts; BRK float yield faces inflection", "tk": "BRK-B", "q": "Rate cuts are double-edged for BRK. But $373B cash means they can buy big in panic." },
+        { "type": "red", "cat": "Healthcare", "title": "UNH at $289: revenue decline + oil-driven medical cost inflation", "tk": "UNH", "q": "Medical cost inflation + first revenue decline = squeeze. No rush, wait for clear bottom." }
+      ],
+      "munger": [
+        { "type": "green", "cat": "Consumer", "title": "COST anti-fragile in stagflation — more inflation = more need for value", "tk": "COST", "q": "Favorite. NFP collapse + oil spike = stagflation. Only COST's model wins in stagflation." },
+        { "type": "green", "cat": "AI", "title": "NVDA long-term AI thesis intact; short-term panic = buying opportunity precursor", "tk": "NVDA", "q": "Invert: weak NFP → rate cuts → tech benefits. Panic is often the best entry point." },
+        { "type": "yellow", "cat": "Crypto", "title": "SEC drops Sun case + Kazakhstan sovereign entry = regulatory pivot signal", "tk": "COIN", "q": "Institutionalization irreversible. But COIN PE 46x too rich. Wait for $150." },
+        { "type": "red", "cat": "Macro", "title": "NFP -92K + oil $91 + VIX 29 = multiple panic layers stacking", "tk": "—", "q": "Fear index at 29 means market is scared. Don't follow the fear, don't bottom-fish yet. Wait." }
+      ]
+    }
+  },
+  "masterOpinions": {
+    "zh": [
+      { "name": "段永平", "opinion": "非农崩+战争升级，持现金等恐慌出清再出手", "style": "text-red" },
+      { "name": "Buffett", "opinion": "XOM/CVX战时现金牛，BABA $130降息+弱美元双重利好", "style": "text-green" },
+      { "name": "Munger", "opinion": "滞胀恐慌是COST的主场，NVDA恐慌后可能给好价格", "style": "text-yellow" }
+    ],
+    "en": [
+      { "name": "DYP", "opinion": "NFP collapse + war escalation — hold cash, wait for panic clearing", "style": "text-red" },
+      { "name": "Buffett", "opinion": "XOM/CVX wartime cash cows; BABA $130 benefits from rate cuts + weak USD", "style": "text-green" },
+      { "name": "Munger", "opinion": "Stagflation panic is COST's home turf; NVDA may get good price after fear", "style": "text-yellow" }
+    ]
+  },
+  "impactTable": {
+    "zh": [
+      { "event": "非农-9.2万(预期+5.5万)，失业率升至4.4%", "tickers": ["NVDA", "COST", "BRK-B"], "dir": "mixed", "logic": "经济走弱→Fed 6月降息概率50%→利好成长股估值，但滞胀风险压制整体市场" },
+      { "event": "伊朗遭空袭+以色列誓言追杀继任者", "tickers": ["XOM", "CVX"], "dir": "bullish", "logic": "WTI $91+Brent本周飙18%，霍尔木兹封锁风险→能源股现金流暴涨" },
+      { "event": "VIX升至29.5，S&P年内涨幅蒸发", "tickers": ["COST", "BRK-B"], "dir": "mixed", "logic": "恐惧指标升高→防御股COST受益；BRK $3733亿现金是恐慌中的优势" },
+      { "event": "哈萨克斯坦主权基金$3.5亿配置加密", "tickers": ["COIN"], "dir": "bullish", "logic": "主权级资金入场=BTC制度化认可，COIN托管/交易基建直接受益" },
+      { "event": "SEC撤诉孙宇晨+ONDO/VIRTUAL去种子标签", "tickers": ["COIN"], "dir": "bullish", "logic": "监管环境全面转暖，SEC态度软化利好整个加密板块" },
+      { "event": "Bessent称维护能源市场稳定+Trump允许部分石油销售", "tickers": ["XOM", "CVX"], "dir": "mixed", "logic": "特朗普试图压低油价缓解通胀，但战争持续=油价地板抬高" }
+    ],
+    "en": [
+      { "event": "NFP -92K (exp +55K), unemployment rises to 4.4%", "tickers": ["NVDA", "COST", "BRK-B"], "dir": "mixed", "logic": "Economic weakness → Fed June cut 50% odds → supports growth valuations, but stagflation risk caps market" },
+      { "event": "Iran struck + Israel vows to pursue all successors", "tickers": ["XOM", "CVX"], "dir": "bullish", "logic": "WTI $91 + Brent +18% this week; Hormuz blockade risk → energy FCF surging" },
+      { "event": "VIX hits 29.5, S&P YTD gains wiped", "tickers": ["COST", "BRK-B"], "dir": "mixed", "logic": "Fear gauge elevated → defensive COST benefits; BRK's $373B cash is advantage in panic" },
+      { "event": "Kazakhstan sovereign fund allocates $350M to crypto", "tickers": ["COIN"], "dir": "bullish", "logic": "Sovereign-level allocation = BTC institutional legitimacy; COIN custody/trading infra benefits" },
+      { "event": "SEC dismisses Sun case + ONDO/VIRTUAL seed tags removed", "tickers": ["COIN"], "dir": "bullish", "logic": "Regulatory environment warming across the board; SEC softening benefits entire crypto sector" },
+      { "event": "Bessent: maintaining energy stability + Trump allows some oil sales", "tickers": ["XOM", "CVX"], "dir": "mixed", "logic": "Trump trying to cap oil prices to ease inflation, but ongoing war raises oil floor" }
+    ]
   }
 }

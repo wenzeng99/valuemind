@@ -16,8 +16,8 @@
     "netMargin": "55.6%",
     "roe": "101%",
     "fcfYield": "1.3%",
-    "divYield": "0.02%",
-    "valuationPctl": 68,
+    "divYield": "2.00%",
+    "valuationPctl": 72,
     "summary": {
       "zh": "NVDA仍是AI基础设施的绝对龙头。最新Q4营收$68.1B（+73% YoY），净利$43B，FCF margin 51%。Forward PE已降至16.6x，估值正在被增长消化。当前$178距52周高$212跌16%，处于合理偏低区间。",
       "en": "NVDA remains the undisputed AI infrastructure leader. Latest Q4 revenue $68.1B (+73% YoY), net income $43B, FCF margin 51%. Forward PE compressed to 16.6x as growth digests premium. At $178, down 16% from 52wk high of $212."
@@ -29,36 +29,117 @@
     "verdictColor": "text-green",
     "questions": {
       "zh": [
-        { "status": "positive", "q": "10年后还赚钱？ — 是", "a": "AI算力=结构性需求。Blackwell出货加速，CUDA生态无可替代。" },
-        { "status": "positive", "q": "赚得更多？ — 大概率是", "a": "Fwd EPS $10.74 vs 当前$4.91，增长确定性高。长期将回归15-25%。" },
-        { "status": "positive", "q": "护城河？ — 强", "a": "CUDA生态+工具链+开发者=深度护城河。自研芯片(Google TPU等)是边际风险。" }
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 是",
+          "a": "AI算力=结构性需求。Blackwell出货加速，CUDA生态无可替代。"
+        },
+        {
+          "status": "positive",
+          "q": "赚得更多？ — 大概率是",
+          "a": "Fwd EPS $10.74 vs 当前$4.91，增长确定性高。长期将回归15-25%。"
+        },
+        {
+          "status": "positive",
+          "q": "护城河？ — 强",
+          "a": "CUDA生态+工具链+开发者=深度护城河。自研芯片(Google TPU等)是边际风险。"
+        }
       ],
       "en": [
-        { "status": "positive", "q": "Profitable in 10yr? — Yes", "a": "AI compute = structural demand. Blackwell ramping, CUDA ecosystem irreplaceable." },
-        { "status": "positive", "q": "Earning more? — Likely yes", "a": "Fwd EPS $10.74 vs current $4.91. Growth normalizes to 15-25% long-term." },
-        { "status": "positive", "q": "Moat? — Strong", "a": "CUDA ecosystem + toolchain + developers = deep moat. In-house chips are marginal risk." }
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Yes",
+          "a": "AI compute = structural demand. Blackwell ramping, CUDA ecosystem irreplaceable."
+        },
+        {
+          "status": "positive",
+          "q": "Earning more? — Likely yes",
+          "a": "Fwd EPS $10.74 vs current $4.91. Growth normalizes to 15-25% long-term."
+        },
+        {
+          "status": "positive",
+          "q": "Moat? — Strong",
+          "a": "CUDA ecosystem + toolchain + developers = deep moat. In-house chips are marginal risk."
+        }
       ]
     },
     "crossVal": {
       "zh": [
-        { "name": "DYP", "color": "green", "verdict": "重仓", "q": "NVDA=卖铲子，CUDA=护城河。AI基建结构性需求。" },
-        { "name": "Buffett", "color": "yellow", "verdict": "未持仓", "q": "好公司但芯片迭代快。$373B现金=耐心等待。" },
-        { "name": "Munger", "color": "green", "verdict": "认可", "q": "垄断级定价权+73%毛利=梦想企业。16.6x Fwd PE低于增速。" }
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "重仓",
+          "q": "NVDA=卖铲子，CUDA=护城河。AI基建结构性需求。"
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "未持仓",
+          "q": "好公司但芯片迭代快。$373B现金=耐心等待。"
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "认可",
+          "q": "垄断级定价权+73%毛利=梦想企业。16.6x Fwd PE低于增速。"
+        }
       ],
       "en": [
-        { "name": "DYP", "color": "green", "verdict": "Heavy position", "q": "NVDA = selling shovels. CUDA = moat. Structural AI demand." },
-        { "name": "Buffett", "color": "yellow", "verdict": "Not held", "q": "Great business but chip cycles are fast. $373B cash = patience." },
-        { "name": "Munger", "color": "green", "verdict": "Approved", "q": "Monopoly-like pricing + 73% gross margin = dream business. 16.6x fwd PE below growth rate." }
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "Heavy position",
+          "q": "NVDA = selling shovels. CUDA = moat. Structural AI demand."
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "Not held",
+          "q": "Great business but chip cycles are fast. $373B cash = patience."
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "Approved",
+          "q": "Monopoly-like pricing + 73% gross margin = dream business. 16.6x fwd PE below growth rate."
+        }
       ]
     },
-    "earnings": { "quarter": "Q4 FY2026 (Jan 2026)", "revenue": "$68.1B", "revenueYoY": "+73.2%", "grossMarginQ": "75.0%", "netIncome": "$43.0B", "netMarginQ": "63.1%", "fcf": "$34.9B", "fcfMarginQ": "51.2%" },
-    "financialHealth": { "cash": "$62.6B", "debt": "$11.4B", "debtEquity": "0.07", "currentRatio": "3.9", "grade": "A+" },
-    "moat": { "zh": "CUDA开发者生态+数据中心GPU垄断+AI训练推理全栈", "en": "CUDA developer ecosystem + data center GPU monopoly + full AI training/inference stack" },
-    "valuation": { "zh": "Fwd PE 16.6x远低于73%营收增速，PEG<0.3。但绝对估值(PS 20x)仍高。", "en": "Fwd PE 16.6x well below 73% revenue growth, PEG<0.3. Absolute valuation (PS 20x) still elevated." }
+    "earnings": {
+      "quarter": "2026-01-31",
+      "revenue": "$68.1B",
+      "revenueYoY": "+73.2%",
+      "grossMarginQ": "75.0%",
+      "netIncome": "$43.0B",
+      "netMarginQ": "63.1%",
+      "fcf": "$34.9B",
+      "fcfMarginQ": "51.2%",
+      "reportDate": "2026-01-31"
+    },
+    "financialHealth": {
+      "cash": "$62.6B",
+      "debt": "$11.4B",
+      "debtEquity": "0.07",
+      "currentRatio": "3.9",
+      "grade": "A+"
+    },
+    "moat": {
+      "zh": "CUDA开发者生态+数据中心GPU垄断+AI训练推理全栈",
+      "en": "CUDA developer ecosystem + data center GPU monopoly + full AI training/inference stack"
+    },
+    "valuation": {
+      "zh": "Fwd PE 16.6x远低于73%营收增速，PEG<0.3。但绝对估值(PS 20x)仍高。",
+      "en": "Fwd PE 16.6x well below 73% revenue growth, PEG<0.3. Absolute valuation (PS 20x) still elevated."
+    },
+    "_updatedAt": "2026-03-08T07:35:50.273Z",
+    "_price": 177.82
   },
   "AAPL": {
     "exchange": "NASDAQ",
-    "desc": { "zh": "消费电子之王，iPhone+服务双引擎，AI战略加速", "en": "Consumer electronics king; iPhone + Services dual engine, AI strategy accelerating" },
+    "desc": {
+      "zh": "消费电子之王，iPhone+服务双引擎，AI战略加速",
+      "en": "Consumer electronics king; iPhone + Services dual engine, AI strategy accelerating"
+    },
     "revGrowth": "+15.7%",
     "epsEst": "$7.90 → fwd $9.29",
     "grossMargin": "47.3%",
@@ -69,37 +150,130 @@
     "netMargin": "27.0%",
     "roe": "152%",
     "fcfYield": "2.8%",
-    "divYield": "0.40%",
-    "valuationPctl": 75,
-    "summary": { "zh": "AAPL Q4营收$143.8B(+15.7%)，FCF $51.6B(margin 35.9%)。服务收入持续增长，Apple Intelligence推进中。$257距52周高$289跌11%。关税风险是短期变量。", "en": "AAPL Q4 revenue $143.8B (+15.7%), FCF $51.6B (35.9% margin). Services growing steadily. Apple Intelligence rolling out. At $257, 11% below 52wk high. Tariff risk is near-term variable." },
-    "verdict": { "zh": "持有 — 优质但估值不便宜", "en": "HOLD — Quality but not cheap" },
+    "divYield": "40.00%",
+    "valuationPctl": 58,
+    "summary": {
+      "zh": "AAPL Q4营收$143.8B(+15.7%)，FCF $51.6B(margin 35.9%)。服务收入持续增长，Apple Intelligence推进中。$257距52周高$289跌11%。关税风险是短期变量。",
+      "en": "AAPL Q4 revenue $143.8B (+15.7%), FCF $51.6B (35.9% margin). Services growing steadily. Apple Intelligence rolling out. At $257, 11% below 52wk high. Tariff risk is near-term variable."
+    },
+    "verdict": {
+      "zh": "持有 — 优质但估值不便宜",
+      "en": "HOLD — Quality but not cheap"
+    },
     "verdictColor": "text-yellow",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 是", "a": "生态锁定20亿设备用户，服务收入高毛利。" },
-      { "status": "positive", "q": "赚得更多？ — 是", "a": "服务占比持续提升，AI功能增强用户粘性。" },
-      { "status": "positive", "q": "护城河？ — 极强", "a": "品牌+生态+隐私=消费电子最深护城河。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Yes", "a": "2B device ecosystem lock-in, high-margin services." },
-      { "status": "positive", "q": "Earning more? — Yes", "a": "Services mix rising, AI features enhance stickiness." },
-      { "status": "positive", "q": "Moat? — Very strong", "a": "Brand + ecosystem + privacy = deepest consumer moat." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "green", "verdict": "持仓", "q": "现金牛+生态垄断。ROE 152%惊人。" },
-      { "name": "Buffett", "color": "yellow", "verdict": "减仓中", "q": "仍为BRK最大持仓，但已连续减持。" },
-      { "name": "Munger", "color": "green", "verdict": "认可", "q": "品牌忠诚度=定价权。服务转型成功。" }
-    ], "en": [
-      { "name": "DYP", "color": "green", "verdict": "Held", "q": "Cash cow + ecosystem monopoly. 152% ROE is stunning." },
-      { "name": "Buffett", "color": "yellow", "verdict": "Trimming", "q": "Still BRK's largest holding but continuously reduced." },
-      { "name": "Munger", "color": "green", "verdict": "Approved", "q": "Brand loyalty = pricing power. Services transition successful." }
-    ] },
-    "earnings": { "quarter": "Q1 FY2026 (Dec 2025)", "revenue": "$143.8B", "revenueYoY": "+15.7%", "grossMarginQ": "48.2%", "netIncome": "$42.1B", "netMarginQ": "29.3%", "fcf": "$51.6B", "fcfMarginQ": "35.9%" },
-    "financialHealth": { "cash": "$66.9B", "debt": "$90.5B", "debtEquity": "1.03", "currentRatio": "0.97", "grade": "A" },
-    "moat": { "zh": "品牌+iOS生态+20亿活跃设备+隐私定位", "en": "Brand + iOS ecosystem + 2B active devices + privacy positioning" },
-    "valuation": { "zh": "Fwd PE 27.7x对15.7%增速偏高。等$230以下更有安全边际。", "en": "Fwd PE 27.7x somewhat high for 15.7% growth. Wait for sub-$230 for margin of safety." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 是",
+          "a": "生态锁定20亿设备用户，服务收入高毛利。"
+        },
+        {
+          "status": "positive",
+          "q": "赚得更多？ — 是",
+          "a": "服务占比持续提升，AI功能增强用户粘性。"
+        },
+        {
+          "status": "positive",
+          "q": "护城河？ — 极强",
+          "a": "品牌+生态+隐私=消费电子最深护城河。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Yes",
+          "a": "2B device ecosystem lock-in, high-margin services."
+        },
+        {
+          "status": "positive",
+          "q": "Earning more? — Yes",
+          "a": "Services mix rising, AI features enhance stickiness."
+        },
+        {
+          "status": "positive",
+          "q": "Moat? — Very strong",
+          "a": "Brand + ecosystem + privacy = deepest consumer moat."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "持仓",
+          "q": "现金牛+生态垄断。ROE 152%惊人。"
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "减仓中",
+          "q": "仍为BRK最大持仓，但已连续减持。"
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "认可",
+          "q": "品牌忠诚度=定价权。服务转型成功。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "Held",
+          "q": "Cash cow + ecosystem monopoly. 152% ROE is stunning."
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "Trimming",
+          "q": "Still BRK's largest holding but continuously reduced."
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "Approved",
+          "q": "Brand loyalty = pricing power. Services transition successful."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2025-12-31",
+      "revenue": "$143.8B",
+      "revenueYoY": "+15.7%",
+      "grossMarginQ": "48.2%",
+      "netIncome": "$42.1B",
+      "netMarginQ": "29.3%",
+      "fcf": "$51.6B",
+      "fcfMarginQ": "35.9%",
+      "reportDate": "2025-12-31"
+    },
+    "financialHealth": {
+      "cash": "$66.9B",
+      "debt": "$90.5B",
+      "debtEquity": "1.03",
+      "currentRatio": "0.97",
+      "grade": "A"
+    },
+    "moat": {
+      "zh": "品牌+iOS生态+20亿活跃设备+隐私定位",
+      "en": "Brand + iOS ecosystem + 2B active devices + privacy positioning"
+    },
+    "valuation": {
+      "zh": "Fwd PE 27.7x对15.7%增速偏高。等$230以下更有安全边际。",
+      "en": "Fwd PE 27.7x somewhat high for 15.7% growth. Wait for sub-$230 for margin of safety."
+    },
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 257.46
   },
   "MSFT": {
     "exchange": "NASDAQ",
-    "desc": { "zh": "企业软件+云计算+AI三位一体，Azure+Copilot驱动增长", "en": "Enterprise software + cloud + AI trinity; Azure + Copilot driving growth" },
+    "desc": {
+      "zh": "企业软件+云计算+AI三位一体，Azure+Copilot驱动增长",
+      "en": "Enterprise software + cloud + AI trinity; Azure + Copilot driving growth"
+    },
     "revGrowth": "+16.7%",
     "epsEst": "$15.99 → fwd $18.84",
     "grossMargin": "68.6%",
@@ -108,39 +282,132 @@
     "evEbitda": "17.5x",
     "ps": "10.0x",
     "netMargin": "39.0%",
-    "roe": "34.4%",
+    "roe": "34%",
     "fcfYield": "1.8%",
-    "divYield": "0.89%",
-    "valuationPctl": 55,
-    "summary": { "zh": "MSFT Q4营收$81.3B(+16.7%)，净利$38.5B(margin 47.3%)。Azure+AI Copilot双引擎。$409距52周高$555跌26%，估值已回到合理区间。Capex $29.9B巨额投入AI。", "en": "MSFT Q4 revenue $81.3B (+16.7%), net income $38.5B (47.3% margin). Azure + AI Copilot dual engine. At $409, 26% off 52wk high $555, valuation reasonable. $29.9B capex shows massive AI investment." },
-    "verdict": { "zh": "买入 — 21.7x Fwd PE+AI落地最确定的大厂", "en": "BUY — 21.7x Fwd PE, most reliable AI monetizer among big tech" },
+    "divYield": "89.00%",
+    "valuationPctl": 58,
+    "summary": {
+      "zh": "MSFT Q4营收$81.3B(+16.7%)，净利$38.5B(margin 47.3%)。Azure+AI Copilot双引擎。$409距52周高$555跌26%，估值已回到合理区间。Capex $29.9B巨额投入AI。",
+      "en": "MSFT Q4 revenue $81.3B (+16.7%), net income $38.5B (47.3% margin). Azure + AI Copilot dual engine. At $409, 26% off 52wk high $555, valuation reasonable. $29.9B capex shows massive AI investment."
+    },
+    "verdict": {
+      "zh": "买入 — 21.7x Fwd PE+AI落地最确定的大厂",
+      "en": "BUY — 21.7x Fwd PE, most reliable AI monetizer among big tech"
+    },
     "verdictColor": "text-green",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 确定", "a": "企业软件+云=必需品。切换成本极高。" },
-      { "status": "positive", "q": "赚得更多？ — 是", "a": "Copilot渗透率提升+Azure增长，Fwd EPS $18.84(+18%)。" },
-      { "status": "positive", "q": "护城河？ — 极强", "a": "Office+Azure+GitHub+Teams=企业IT全栈锁定。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Certain", "a": "Enterprise software + cloud = necessities. Extremely high switching costs." },
-      { "status": "positive", "q": "Earning more? — Yes", "a": "Copilot penetration rising + Azure growth, Fwd EPS $18.84 (+18%)." },
-      { "status": "positive", "q": "Moat? — Very strong", "a": "Office + Azure + GitHub + Teams = full enterprise IT stack lock-in." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "green", "verdict": "核心持仓", "q": "AI商业化最确定路径。47%净利率=印钞机。" },
-      { "name": "Buffett", "color": "yellow", "verdict": "未持仓", "q": "与盖茨关系回避持仓。认可商业模式。" },
-      { "name": "Munger", "color": "green", "verdict": "认可", "q": "切换成本=永久护城河。Azure是AWS最强对手。" }
-    ], "en": [
-      { "name": "DYP", "color": "green", "verdict": "Core holding", "q": "Most certain AI monetization path. 47% net margin = money printer." },
-      { "name": "Buffett", "color": "yellow", "verdict": "Not held", "q": "Avoids due to Gates relationship. Acknowledges business model." },
-      { "name": "Munger", "color": "green", "verdict": "Approved", "q": "Switching costs = permanent moat. Azure is AWS's strongest rival." }
-    ] },
-    "earnings": { "quarter": "Q2 FY2026 (Dec 2025)", "revenue": "$81.3B", "revenueYoY": "+16.7%", "grossMarginQ": "68.0%", "netIncome": "$38.5B", "netMarginQ": "47.3%", "fcf": "$5.9B", "fcfMarginQ": "7.2%" },
-    "financialHealth": { "cash": "$89.5B", "debt": "$123.3B", "debtEquity": "0.32", "currentRatio": "1.39", "grade": "A" },
-    "moat": { "zh": "企业IT全栈+Azure云+AI Copilot+GitHub开发者", "en": "Enterprise IT stack + Azure cloud + AI Copilot + GitHub developers" },
-    "valuation": { "zh": "21.7x Fwd PE历史中位数偏低。$409是近两年性价比最高的位置。", "en": "21.7x Fwd PE below historical median. $409 is most attractive entry in 2 years." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 确定",
+          "a": "企业软件+云=必需品。切换成本极高。"
+        },
+        {
+          "status": "positive",
+          "q": "赚得更多？ — 是",
+          "a": "Copilot渗透率提升+Azure增长，Fwd EPS $18.84(+18%)。"
+        },
+        {
+          "status": "positive",
+          "q": "护城河？ — 极强",
+          "a": "Office+Azure+GitHub+Teams=企业IT全栈锁定。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Certain",
+          "a": "Enterprise software + cloud = necessities. Extremely high switching costs."
+        },
+        {
+          "status": "positive",
+          "q": "Earning more? — Yes",
+          "a": "Copilot penetration rising + Azure growth, Fwd EPS $18.84 (+18%)."
+        },
+        {
+          "status": "positive",
+          "q": "Moat? — Very strong",
+          "a": "Office + Azure + GitHub + Teams = full enterprise IT stack lock-in."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "核心持仓",
+          "q": "AI商业化最确定路径。47%净利率=印钞机。"
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "未持仓",
+          "q": "与盖茨关系回避持仓。认可商业模式。"
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "认可",
+          "q": "切换成本=永久护城河。Azure是AWS最强对手。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "Core holding",
+          "q": "Most certain AI monetization path. 47% net margin = money printer."
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "Not held",
+          "q": "Avoids due to Gates relationship. Acknowledges business model."
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "Approved",
+          "q": "Switching costs = permanent moat. Azure is AWS's strongest rival."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2025-12-31",
+      "revenue": "$81.3B",
+      "revenueYoY": "+16.7%",
+      "grossMarginQ": "68.0%",
+      "netIncome": "$38.5B",
+      "netMarginQ": "47.3%",
+      "fcf": "$5.9B",
+      "fcfMarginQ": "7.2%",
+      "reportDate": "2025-12-31"
+    },
+    "financialHealth": {
+      "cash": "$89.5B",
+      "debt": "$123.3B",
+      "debtEquity": "0.32",
+      "currentRatio": "1.39",
+      "grade": "A"
+    },
+    "moat": {
+      "zh": "企业IT全栈+Azure云+AI Copilot+GitHub开发者",
+      "en": "Enterprise IT stack + Azure cloud + AI Copilot + GitHub developers"
+    },
+    "valuation": {
+      "zh": "21.7x Fwd PE历史中位数偏低。$409是近两年性价比最高的位置。",
+      "en": "21.7x Fwd PE below historical median. $409 is most attractive entry in 2 years."
+    },
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 408.96
   },
   "COST": {
-    "exchange": "NASDAQ",
-    "desc": { "zh": "会员制仓储零售巨头，极致低价+会员费=稳定现金流", "en": "Membership warehouse retail giant; ultra-low prices + membership fees = stable cash flow" },
+    "exchange": "NYSE",
+    "desc": {
+      "zh": "会员制仓储零售巨头，极致低价+会员费=稳定现金流",
+      "en": "Membership warehouse retail giant; ultra-low prices + membership fees = stable cash flow"
+    },
     "revGrowth": "+9.2%",
     "epsEst": "$18.66 → fwd $22.71",
     "grossMargin": "12.9%",
@@ -148,39 +415,133 @@
     "evEbitda": "32.2x",
     "ps": "1.5x",
     "netMargin": "3.0%",
-    "roe": "29.7%",
+    "roe": "30%",
     "fcfYield": "1.6%",
-    "divYield": "0.52%",
+    "divYield": "52.00%",
     "valuationPctl": 85,
-    "summary": { "zh": "COST刚发Q1财报Top/Bottom Line双超预期。$998临近52周高$1067，PE 43.9x偏贵。会员续订率97%+是核心。关税风险可控因直采模式。", "en": "COST just beat on both top and bottom line. At $998 near 52wk high $1067, PE 43.9x is pricey. 97%+ membership renewal is the core. Tariff risk manageable via direct sourcing." },
-    "verdict": { "zh": "持有 — 极好公司但太贵", "en": "HOLD — Excellent company but too expensive" },
+    "summary": {
+      "zh": "COST刚发Q1财报Top/Bottom Line双超预期。$998临近52周高$1067，PE 43.9x偏贵。会员续订率97%+是核心。关税风险可控因直采模式。",
+      "en": "COST just beat on both top and bottom line. At $998 near 52wk high $1067, PE 43.9x is pricey. 97%+ membership renewal is the core. Tariff risk manageable via direct sourcing."
+    },
+    "verdict": {
+      "zh": "持有 — 极好公司但太贵",
+      "en": "HOLD — Excellent company but too expensive"
+    },
     "verdictColor": "text-yellow",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 确定", "a": "会员制零售=消费刚需+通胀受益。" },
-      { "status": "positive", "q": "赚得更多？ — 稳定增长", "a": "会员费提价+开新店=10%稳定增长。" },
-      { "status": "negative", "q": "估值？ — 偏高", "a": "43.9x Fwd PE对9%增速过高。等回调至$850-900。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Certain", "a": "Membership retail = consumer necessity + inflation beneficiary." },
-      { "status": "positive", "q": "Earning more? — Steady growth", "a": "Fee increases + new stores = 10% steady growth." },
-      { "status": "negative", "q": "Valuation? — Elevated", "a": "43.9x Fwd PE too high for 9% growth. Wait for $850-900 pullback." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "yellow", "verdict": "观望", "q": "好模式但太贵。等大幅回调。" },
-      { "name": "Buffett", "color": "green", "verdict": "Munger最爱", "q": "已故搭档最爱股票。护城河清晰。" },
-      { "name": "Munger", "color": "green", "verdict": "终身持有", "q": "会员制=定价权。97%续订=护城河。" }
-    ], "en": [
-      { "name": "DYP", "color": "yellow", "verdict": "Watch", "q": "Great model but too expensive. Wait for pullback." },
-      { "name": "Buffett", "color": "green", "verdict": "Munger's favorite", "q": "Late partner's favorite. Clear moat." },
-      { "name": "Munger", "color": "green", "verdict": "Hold forever", "q": "Membership model = pricing power. 97% renewal = moat." }
-    ] },
-    "earnings": { "quarter": "Q1 FY2026 (Nov 2025)", "revenue": "$67.3B", "revenueYoY": "+8.3%", "grossMarginQ": "13.1%", "netIncome": "$2.0B", "netMarginQ": "3.0%", "fcf": "$3.2B", "fcfMarginQ": "4.7%" },
-    "financialHealth": { "cash": "$18.2B", "debt": "$8.2B", "debtEquity": "0.25", "currentRatio": "1.06", "grade": "A" },
-    "moat": { "zh": "会员制+规模采购+低毛利策略=竞争者难以复制", "en": "Membership model + scale procurement + low-margin strategy = hard to replicate" },
-    "valuation": { "zh": "历史最高估值区间。等PE回到35x以下更安全。", "en": "At historical high valuation band. Wait for PE below 35x for safety." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 确定",
+          "a": "会员制零售=消费刚需+通胀受益。"
+        },
+        {
+          "status": "positive",
+          "q": "赚得更多？ — 稳定增长",
+          "a": "会员费提价+开新店=10%稳定增长。"
+        },
+        {
+          "status": "negative",
+          "q": "估值？ — 偏高",
+          "a": "43.9x Fwd PE对9%增速过高。等回调至$850-900。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Certain",
+          "a": "Membership retail = consumer necessity + inflation beneficiary."
+        },
+        {
+          "status": "positive",
+          "q": "Earning more? — Steady growth",
+          "a": "Fee increases + new stores = 10% steady growth."
+        },
+        {
+          "status": "negative",
+          "q": "Valuation? — Elevated",
+          "a": "43.9x Fwd PE too high for 9% growth. Wait for $850-900 pullback."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "yellow",
+          "verdict": "观望",
+          "q": "好模式但太贵。等大幅回调。"
+        },
+        {
+          "name": "Buffett",
+          "color": "green",
+          "verdict": "Munger最爱",
+          "q": "已故搭档最爱股票。护城河清晰。"
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "终身持有",
+          "q": "会员制=定价权。97%续订=护城河。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "yellow",
+          "verdict": "Watch",
+          "q": "Great model but too expensive. Wait for pullback."
+        },
+        {
+          "name": "Buffett",
+          "color": "green",
+          "verdict": "Munger's favorite",
+          "q": "Late partner's favorite. Clear moat."
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "Hold forever",
+          "q": "Membership model = pricing power. 97% renewal = moat."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2025-11-30",
+      "revenue": "$67.3B",
+      "revenueYoY": "+8.3%",
+      "grossMarginQ": "13.1%",
+      "netIncome": "$2.0B",
+      "netMarginQ": "3.0%",
+      "fcf": "$3.2B",
+      "fcfMarginQ": "4.7%",
+      "reportDate": "2025-11-30"
+    },
+    "financialHealth": {
+      "cash": "$18.2B",
+      "debt": "$8.2B",
+      "debtEquity": "0.25",
+      "currentRatio": "1.06",
+      "grade": "A"
+    },
+    "moat": {
+      "zh": "会员制+规模采购+低毛利策略=竞争者难以复制",
+      "en": "Membership model + scale procurement + low-margin strategy = hard to replicate"
+    },
+    "valuation": {
+      "zh": "历史最高估值区间。等PE回到35x以下更安全。",
+      "en": "At historical high valuation band. Wait for PE below 35x for safety."
+    },
+    "peg": "—",
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 998.1
   },
   "GOOGL": {
     "exchange": "NASDAQ",
-    "desc": { "zh": "搜索+广告+云计算+AI巨头，Gemini AI引领下一代搜索", "en": "Search + ads + cloud + AI giant; Gemini AI leading next-gen search" },
+    "desc": {
+      "zh": "搜索+广告+云计算+AI巨头，Gemini AI引领下一代搜索",
+      "en": "Search + ads + cloud + AI giant; Gemini AI leading next-gen search"
+    },
     "revGrowth": "+18.0%",
     "epsEst": "$10.81 → fwd $13.42",
     "grossMargin": "59.7%",
@@ -188,39 +549,133 @@
     "evEbitda": "23.6x",
     "ps": "9.0x",
     "netMargin": "32.8%",
-    "roe": "35.7%",
+    "roe": "36%",
     "fcfYield": "1.1%",
-    "divYield": "0.28%",
-    "valuationPctl": 60,
-    "summary": { "zh": "GOOGL Q4营收$113.8B(+18%)，搜索+云双增长。$298距52周高$349跌15%。$127B现金在手。Gemini AI表现强劲，云业务加速。估值合理。", "en": "GOOGL Q4 revenue $113.8B (+18%), search + cloud dual growth. At $298, 15% off 52wk high $349. $127B cash on hand. Gemini AI performing well, cloud accelerating. Fair valuation." },
-    "verdict": { "zh": "买入 — 增长加速+估值合理", "en": "BUY — Accelerating growth + fair valuation" },
+    "divYield": "28.00%",
+    "valuationPctl": 58,
+    "summary": {
+      "zh": "GOOGL Q4营收$113.8B(+18%)，搜索+云双增长。$298距52周高$349跌15%。$127B现金在手。Gemini AI表现强劲，云业务加速。估值合理。",
+      "en": "GOOGL Q4 revenue $113.8B (+18%), search + cloud dual growth. At $298, 15% off 52wk high $349. $127B cash on hand. Gemini AI performing well, cloud accelerating. Fair valuation."
+    },
+    "verdict": {
+      "zh": "买入 — 增长加速+估值合理",
+      "en": "BUY — Accelerating growth + fair valuation"
+    },
     "verdictColor": "text-green",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 确定", "a": "搜索垄断+AI转型领先+YouTube=不可替代。" },
-      { "status": "positive", "q": "赚得更多？ — 是", "a": "云增速40%+，Gemini商业化起步。" },
-      { "status": "positive", "q": "护城河？ — 极强", "a": "搜索数据壁垒+AI模型+YouTube+安卓生态。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Certain", "a": "Search monopoly + AI leadership + YouTube = irreplaceable." },
-      { "status": "positive", "q": "Earning more? — Yes", "a": "Cloud growing 40%+, Gemini commercialization beginning." },
-      { "status": "positive", "q": "Moat? — Very strong", "a": "Search data moat + AI models + YouTube + Android ecosystem." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "green", "verdict": "重仓", "q": "搜索垄断+AI领先=长期赢家。" },
-      { "name": "Buffett", "color": "yellow", "verdict": "未持仓", "q": "广告业务有周期性。但认可护城河。" },
-      { "name": "Munger", "color": "green", "verdict": "认可", "q": "数据壁垒=永久护城河。22x PE合理。" }
-    ], "en": [
-      { "name": "DYP", "color": "green", "verdict": "Heavy", "q": "Search monopoly + AI leadership = long-term winner." },
-      { "name": "Buffett", "color": "yellow", "verdict": "Not held", "q": "Ad business is cyclical. But moat acknowledged." },
-      { "name": "Munger", "color": "green", "verdict": "Approved", "q": "Data moat = permanent. 22x PE is fair." }
-    ] },
-    "earnings": { "quarter": "Q4 2025 (Dec 2025)", "revenue": "$113.8B", "revenueYoY": "+18.0%", "grossMarginQ": "59.8%", "netIncome": "$34.5B", "netMarginQ": "30.3%", "fcf": "$24.6B", "fcfMarginQ": "21.6%" },
-    "financialHealth": { "cash": "$126.8B", "debt": "$67.0B", "debtEquity": "0.16", "currentRatio": "2.01", "grade": "A+" },
-    "moat": { "zh": "搜索数据壁垒+Gemini AI+YouTube+安卓+云", "en": "Search data moat + Gemini AI + YouTube + Android + Cloud" },
-    "valuation": { "zh": "22.2x Fwd PE对18%增速合理。有上行空间。", "en": "22.2x Fwd PE fair for 18% growth. Upside potential." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 确定",
+          "a": "搜索垄断+AI转型领先+YouTube=不可替代。"
+        },
+        {
+          "status": "positive",
+          "q": "赚得更多？ — 是",
+          "a": "云增速40%+，Gemini商业化起步。"
+        },
+        {
+          "status": "positive",
+          "q": "护城河？ — 极强",
+          "a": "搜索数据壁垒+AI模型+YouTube+安卓生态。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Certain",
+          "a": "Search monopoly + AI leadership + YouTube = irreplaceable."
+        },
+        {
+          "status": "positive",
+          "q": "Earning more? — Yes",
+          "a": "Cloud growing 40%+, Gemini commercialization beginning."
+        },
+        {
+          "status": "positive",
+          "q": "Moat? — Very strong",
+          "a": "Search data moat + AI models + YouTube + Android ecosystem."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "重仓",
+          "q": "搜索垄断+AI领先=长期赢家。"
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "未持仓",
+          "q": "广告业务有周期性。但认可护城河。"
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "认可",
+          "q": "数据壁垒=永久护城河。22x PE合理。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "Heavy",
+          "q": "Search monopoly + AI leadership = long-term winner."
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "Not held",
+          "q": "Ad business is cyclical. But moat acknowledged."
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "Approved",
+          "q": "Data moat = permanent. 22x PE is fair."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2025-12-31",
+      "revenue": "$113.8B",
+      "revenueYoY": "+18.0%",
+      "grossMarginQ": "59.8%",
+      "netIncome": "$34.5B",
+      "netMarginQ": "30.3%",
+      "fcf": "$24.6B",
+      "fcfMarginQ": "21.6%",
+      "reportDate": "2025-12-31"
+    },
+    "financialHealth": {
+      "cash": "$126.8B",
+      "debt": "$67.0B",
+      "debtEquity": "0.16",
+      "currentRatio": "2.01",
+      "grade": "A+"
+    },
+    "moat": {
+      "zh": "搜索数据壁垒+Gemini AI+YouTube+安卓+云",
+      "en": "Search data moat + Gemini AI + YouTube + Android + Cloud"
+    },
+    "valuation": {
+      "zh": "22.2x Fwd PE对18%增速合理。有上行空间。",
+      "en": "22.2x Fwd PE fair for 18% growth. Upside potential."
+    },
+    "peg": "—",
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 298.52
   },
   "AMZN": {
-    "exchange": "NASDAQ",
-    "desc": { "zh": "电商+AWS云+AI三驾马车，全球最大基础设施公司", "en": "E-commerce + AWS cloud + AI triple engine; world's largest infrastructure company" },
+    "exchange": "NYSE",
+    "desc": {
+      "zh": "电商+AWS云+AI三驾马车，全球最大基础设施公司",
+      "en": "E-commerce + AWS cloud + AI triple engine; world's largest infrastructure company"
+    },
     "revGrowth": "+13.6%",
     "epsEst": "$7.16 → fwd $9.34",
     "grossMargin": "50.3%",
@@ -228,39 +683,133 @@
     "evEbitda": "16.1x",
     "ps": "3.2x",
     "netMargin": "10.8%",
-    "roe": "22.3%",
+    "roe": "22%",
     "fcfYield": "1.0%",
-    "divYield": "0%",
-    "valuationPctl": 55,
-    "summary": { "zh": "AMZN Q4营收$213.4B(+13.6%)。AWS加速+广告业务高利润。$213距52周高$259跌18%。Capex $39.5B重注AI基建。净利率从亏损到10.8%的转型已完成。", "en": "AMZN Q4 revenue $213.4B (+13.6%). AWS accelerating + high-margin ads. At $213, 18% off 52wk high $259. $39.5B capex on AI infra. Net margin transformation from loss to 10.8% complete." },
-    "verdict": { "zh": "买入 — 利润拐点确认，估值合理", "en": "BUY — Profit inflection confirmed, fair valuation" },
+    "divYield": "0.00%",
+    "valuationPctl": 58,
+    "summary": {
+      "zh": "AMZN Q4营收$213.4B(+13.6%)。AWS加速+广告业务高利润。$213距52周高$259跌18%。Capex $39.5B重注AI基建。净利率从亏损到10.8%的转型已完成。",
+      "en": "AMZN Q4 revenue $213.4B (+13.6%). AWS accelerating + high-margin ads. At $213, 18% off 52wk high $259. $39.5B capex on AI infra. Net margin transformation from loss to 10.8% complete."
+    },
+    "verdict": {
+      "zh": "买入 — 利润拐点确认，估值合理",
+      "en": "BUY — Profit inflection confirmed, fair valuation"
+    },
     "verdictColor": "text-green",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 确定", "a": "电商+云=双垄断。Prime会员粘性极强。" },
-      { "status": "positive", "q": "赚得更多？ — 是", "a": "AWS+广告高利润组合持续扩张。" },
-      { "status": "positive", "q": "护城河？ — 极强", "a": "物流网络+AWS+Prime生态=三重护城河。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Certain", "a": "E-commerce + cloud = dual monopoly. Prime stickiness extreme." },
-      { "status": "positive", "q": "Earning more? — Yes", "a": "AWS + ads high-margin mix keeps expanding." },
-      { "status": "positive", "q": "Moat? — Very strong", "a": "Logistics network + AWS + Prime ecosystem = triple moat." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "green", "verdict": "核心", "q": "三重护城河。利润率扩张刚开始。" },
-      { "name": "Buffett", "color": "yellow", "verdict": "小仓", "q": "曾表示后悔没早买。" },
-      { "name": "Munger", "color": "green", "verdict": "认可", "q": "Bezos是这代最好的企业家之一。" }
-    ], "en": [
-      { "name": "DYP", "color": "green", "verdict": "Core", "q": "Triple moat. Margin expansion just beginning." },
-      { "name": "Buffett", "color": "yellow", "verdict": "Small position", "q": "Expressed regret for not buying earlier." },
-      { "name": "Munger", "color": "green", "verdict": "Approved", "q": "Bezos is one of the best entrepreneurs of this generation." }
-    ] },
-    "earnings": { "quarter": "Q4 2025 (Dec 2025)", "revenue": "$213.4B", "revenueYoY": "+13.6%", "grossMarginQ": "48.5%", "netIncome": "$21.2B", "netMarginQ": "9.9%", "fcf": "$14.9B", "fcfMarginQ": "7.0%" },
-    "financialHealth": { "cash": "$123.0B", "debt": "$178.5B", "debtEquity": "0.43", "currentRatio": "1.05", "grade": "B+" },
-    "moat": { "zh": "物流基础设施+AWS+Prime+广告平台", "en": "Logistics infra + AWS + Prime + advertising platform" },
-    "valuation": { "zh": "22.8x Fwd PE+利润率扩张=合理偏低。", "en": "22.8x Fwd PE + margin expansion = fair to undervalued." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 确定",
+          "a": "电商+云=双垄断。Prime会员粘性极强。"
+        },
+        {
+          "status": "positive",
+          "q": "赚得更多？ — 是",
+          "a": "AWS+广告高利润组合持续扩张。"
+        },
+        {
+          "status": "positive",
+          "q": "护城河？ — 极强",
+          "a": "物流网络+AWS+Prime生态=三重护城河。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Certain",
+          "a": "E-commerce + cloud = dual monopoly. Prime stickiness extreme."
+        },
+        {
+          "status": "positive",
+          "q": "Earning more? — Yes",
+          "a": "AWS + ads high-margin mix keeps expanding."
+        },
+        {
+          "status": "positive",
+          "q": "Moat? — Very strong",
+          "a": "Logistics network + AWS + Prime ecosystem = triple moat."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "核心",
+          "q": "三重护城河。利润率扩张刚开始。"
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "小仓",
+          "q": "曾表示后悔没早买。"
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "认可",
+          "q": "Bezos是这代最好的企业家之一。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "Core",
+          "q": "Triple moat. Margin expansion just beginning."
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "Small position",
+          "q": "Expressed regret for not buying earlier."
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "Approved",
+          "q": "Bezos is one of the best entrepreneurs of this generation."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2025-12-31",
+      "revenue": "$213.4B",
+      "revenueYoY": "+13.6%",
+      "grossMarginQ": "48.5%",
+      "netIncome": "$21.2B",
+      "netMarginQ": "9.9%",
+      "fcf": "$14.9B",
+      "fcfMarginQ": "7.0%",
+      "reportDate": "2025-12-31"
+    },
+    "financialHealth": {
+      "cash": "$123.0B",
+      "debt": "$178.5B",
+      "debtEquity": "0.43",
+      "currentRatio": "1.05",
+      "grade": "B+"
+    },
+    "moat": {
+      "zh": "物流基础设施+AWS+Prime+广告平台",
+      "en": "Logistics infra + AWS + Prime + advertising platform"
+    },
+    "valuation": {
+      "zh": "22.8x Fwd PE+利润率扩张=合理偏低。",
+      "en": "22.8x Fwd PE + margin expansion = fair to undervalued."
+    },
+    "peg": "—",
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 213.21
   },
   "META": {
     "exchange": "NASDAQ",
-    "desc": { "zh": "社交媒体帝国，广告AI化+Llama开源AI+Reality Labs", "en": "Social media empire; AI-powered ads + Llama open-source AI + Reality Labs" },
+    "desc": {
+      "zh": "社交媒体帝国，广告AI化+Llama开源AI+Reality Labs",
+      "en": "Social media empire; AI-powered ads + Llama open-source AI + Reality Labs"
+    },
     "revGrowth": "+23.8%",
     "epsEst": "$23.47 → fwd $35.88",
     "grossMargin": "82.0%",
@@ -268,39 +817,133 @@
     "evEbitda": "16.0x",
     "ps": "8.1x",
     "netMargin": "30.1%",
-    "roe": "30.2%",
+    "roe": "30%",
     "fcfYield": "1.4%",
-    "divYield": "0.33%",
-    "valuationPctl": 50,
-    "summary": { "zh": "META Q4营收$59.9B(+23.8%)，82%毛利率。Llama AI开源战略+广告AI优化驱动增长。$645距52周高$796跌19%。Fwd PE仅18x，被地缘风险压制。", "en": "META Q4 revenue $59.9B (+23.8%), 82% gross margin. Llama AI open-source + ad AI optimization driving growth. At $645, 19% off 52wk high $796. Fwd PE only 18x, suppressed by geopolitical risk." },
-    "verdict": { "zh": "强烈买入 — 18x PE+24%增长+82%毛利=被低估", "en": "STRONG BUY — 18x PE + 24% growth + 82% gross margin = undervalued" },
+    "divYield": "33.00%",
+    "valuationPctl": 58,
+    "summary": {
+      "zh": "META Q4营收$59.9B(+23.8%)，82%毛利率。Llama AI开源战略+广告AI优化驱动增长。$645距52周高$796跌19%。Fwd PE仅18x，被地缘风险压制。",
+      "en": "META Q4 revenue $59.9B (+23.8%), 82% gross margin. Llama AI open-source + ad AI optimization driving growth. At $645, 19% off 52wk high $796. Fwd PE only 18x, suppressed by geopolitical risk."
+    },
+    "verdict": {
+      "zh": "强烈买入 — 18x PE+24%增长+82%毛利=被低估",
+      "en": "STRONG BUY — 18x PE + 24% growth + 82% gross margin = undervalued"
+    },
     "verdictColor": "text-green",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 确定", "a": "40亿日活用户=人类注意力的最大入口。" },
-      { "status": "positive", "q": "赚得更多？ — 高确定性", "a": "Fwd EPS $35.88 vs $23.47(+53%)。广告AI效率提升。" },
-      { "status": "positive", "q": "护城河？ — 强", "a": "社交图谱+广告数据+Llama AI=综合壁垒。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Certain", "a": "4B daily users = largest human attention gateway." },
-      { "status": "positive", "q": "Earning more? — High certainty", "a": "Fwd EPS $35.88 vs $23.47 (+53%). Ad AI efficiency improving." },
-      { "status": "positive", "q": "Moat? — Strong", "a": "Social graph + ad data + Llama AI = comprehensive barrier." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "green", "verdict": "重仓", "q": "18x PE+24%增长=最便宜的大厂。" },
-      { "name": "Buffett", "color": "yellow", "verdict": "未持仓", "q": "广告模式依赖注意力经济，有周期性。" },
-      { "name": "Munger", "color": "green", "verdict": "认可", "q": "网络效应=自然垄断。82%毛利=定价权。" }
-    ], "en": [
-      { "name": "DYP", "color": "green", "verdict": "Heavy", "q": "18x PE + 24% growth = cheapest big tech." },
-      { "name": "Buffett", "color": "yellow", "verdict": "Not held", "q": "Ad model depends on attention economy, cyclical." },
-      { "name": "Munger", "color": "green", "verdict": "Approved", "q": "Network effect = natural monopoly. 82% gross margin = pricing power." }
-    ] },
-    "earnings": { "quarter": "Q4 2025 (Dec 2025)", "revenue": "$59.9B", "revenueYoY": "+23.8%", "grossMarginQ": "81.8%", "netIncome": "$22.8B", "netMarginQ": "38.0%", "fcf": "$14.8B", "fcfMarginQ": "24.8%" },
-    "financialHealth": { "cash": "$81.6B", "debt": "$85.1B", "debtEquity": "0.39", "currentRatio": "2.60", "grade": "A" },
-    "moat": { "zh": "社交图谱网络效应+广告数据+Llama开源AI生态", "en": "Social graph network effects + ad data + Llama open-source AI ecosystem" },
-    "valuation": { "zh": "18x Fwd PE是MAG7中最便宜的。PEG<0.8。", "en": "18x Fwd PE is cheapest in MAG7. PEG<0.8." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 确定",
+          "a": "40亿日活用户=人类注意力的最大入口。"
+        },
+        {
+          "status": "positive",
+          "q": "赚得更多？ — 高确定性",
+          "a": "Fwd EPS $35.88 vs $23.47(+53%)。广告AI效率提升。"
+        },
+        {
+          "status": "positive",
+          "q": "护城河？ — 强",
+          "a": "社交图谱+广告数据+Llama AI=综合壁垒。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Certain",
+          "a": "4B daily users = largest human attention gateway."
+        },
+        {
+          "status": "positive",
+          "q": "Earning more? — High certainty",
+          "a": "Fwd EPS $35.88 vs $23.47 (+53%). Ad AI efficiency improving."
+        },
+        {
+          "status": "positive",
+          "q": "Moat? — Strong",
+          "a": "Social graph + ad data + Llama AI = comprehensive barrier."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "重仓",
+          "q": "18x PE+24%增长=最便宜的大厂。"
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "未持仓",
+          "q": "广告模式依赖注意力经济，有周期性。"
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "认可",
+          "q": "网络效应=自然垄断。82%毛利=定价权。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "Heavy",
+          "q": "18x PE + 24% growth = cheapest big tech."
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "Not held",
+          "q": "Ad model depends on attention economy, cyclical."
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "Approved",
+          "q": "Network effect = natural monopoly. 82% gross margin = pricing power."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2025-12-31",
+      "revenue": "$59.9B",
+      "revenueYoY": "+23.8%",
+      "grossMarginQ": "81.8%",
+      "netIncome": "$22.8B",
+      "netMarginQ": "38.0%",
+      "fcf": "$14.8B",
+      "fcfMarginQ": "24.8%",
+      "reportDate": "2025-12-31"
+    },
+    "financialHealth": {
+      "cash": "$81.6B",
+      "debt": "$85.1B",
+      "debtEquity": "0.39",
+      "currentRatio": "2.60",
+      "grade": "A"
+    },
+    "moat": {
+      "zh": "社交图谱网络效应+广告数据+Llama开源AI生态",
+      "en": "Social graph network effects + ad data + Llama open-source AI ecosystem"
+    },
+    "valuation": {
+      "zh": "18x Fwd PE是MAG7中最便宜的。PEG<0.8。",
+      "en": "18x Fwd PE is cheapest in MAG7. PEG<0.8."
+    },
+    "peg": "—",
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 644.86
   },
   "TSM": {
-    "exchange": "NYSE",
-    "desc": { "zh": "全球最大芯片代工厂，先进制程垄断者，AI芯片制造核心", "en": "World's largest chip foundry; advanced node monopolist; core AI chip manufacturer" },
+    "exchange": "NASDAQ",
+    "desc": {
+      "zh": "全球最大芯片代工厂，先进制程垄断者，AI芯片制造核心",
+      "en": "World's largest chip foundry; advanced node monopolist; core AI chip manufacturer"
+    },
     "revGrowth": "+20.5%",
     "epsEst": "$10.37 → fwd $17.97",
     "grossMargin": "59.9%",
@@ -308,79 +951,266 @@
     "evEbitda": "2.6x",
     "ps": "0.5x",
     "netMargin": "45.1%",
-    "roe": "35.1%",
+    "roe": "35%",
     "fcfYield": "36.6%",
-    "divYield": "1.04%",
-    "valuationPctl": 55,
-    "summary": { "zh": "TSM Q4营收NT$1.05T(+20.5%)，净利率48.3%。AI芯片代工垄断地位。$339距52周高$390跌13%。地缘风险(台海)是唯一担忧，但已开始美国扩产。", "en": "TSM Q4 revenue NT$1.05T (+20.5%), 48.3% net margin. AI chip foundry monopoly. At $339, 13% off 52wk high $390. Geopolitical risk (Taiwan Strait) is sole concern, but US expansion underway." },
-    "verdict": { "zh": "买入 — AI供应链最不可替代的环节", "en": "BUY — Most irreplaceable link in AI supply chain" },
+    "divYield": "104.00%",
+    "valuationPctl": 58,
+    "summary": {
+      "zh": "TSM Q4营收NT$1.05T(+20.5%)，净利率48.3%。AI芯片代工垄断地位。$339距52周高$390跌13%。地缘风险(台海)是唯一担忧，但已开始美国扩产。",
+      "en": "TSM Q4 revenue NT$1.05T (+20.5%), 48.3% net margin. AI chip foundry monopoly. At $339, 13% off 52wk high $390. Geopolitical risk (Taiwan Strait) is sole concern, but US expansion underway."
+    },
+    "verdict": {
+      "zh": "买入 — AI供应链最不可替代的环节",
+      "en": "BUY — Most irreplaceable link in AI supply chain"
+    },
     "verdictColor": "text-green",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 极度确定", "a": "先进制程没有替代者。3nm/2nm垄断。" },
-      { "status": "positive", "q": "赚得更多？ — 是", "a": "AI需求推动ASP上升+产能扩张。" },
-      { "status": "uncertain", "q": "风险？ — 地缘政治", "a": "台海风险是尾部风险。美国/日本建厂分散。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Highly certain", "a": "No alternative for advanced nodes. 3nm/2nm monopoly." },
-      { "status": "positive", "q": "Earning more? — Yes", "a": "AI demand driving ASP increase + capacity expansion." },
-      { "status": "uncertain", "q": "Risk? — Geopolitics", "a": "Taiwan Strait is tail risk. US/Japan fabs diversifying." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "green", "verdict": "重仓", "q": "不可替代的AI基建。" },
-      { "name": "Buffett", "color": "red", "verdict": "已清仓", "q": "因地缘风险已卖出。认可业务质量。" },
-      { "name": "Munger", "color": "green", "verdict": "认可", "q": "垄断+高壁垒。但地缘是无法定价的风险。" }
-    ], "en": [
-      { "name": "DYP", "color": "green", "verdict": "Heavy", "q": "Irreplaceable AI infrastructure." },
-      { "name": "Buffett", "color": "red", "verdict": "Sold", "q": "Exited on geopolitical risk. Acknowledges business quality." },
-      { "name": "Munger", "color": "green", "verdict": "Approved", "q": "Monopoly + high barriers. But geopolitics is unquantifiable risk." }
-    ] },
-    "earnings": { "quarter": "Q4 2025 (Dec 2025)", "revenue": "NT$1.05T", "revenueYoY": "+20.5%", "grossMarginQ": "62.3%", "netIncome": "NT$505.7B", "netMarginQ": "48.3%", "fcf": "NT$364.0B", "fcfMarginQ": "34.8%" },
-    "financialHealth": { "cash": "NT$3.07T", "debt": "NT$1.07T", "debtEquity": "0.20", "currentRatio": "2.62", "grade": "A+" },
-    "moat": { "zh": "先进制程垄断+巨额Capex壁垒+客户锁定", "en": "Advanced node monopoly + massive capex barrier + customer lock-in" },
-    "valuation": { "zh": "18.9x Fwd PE+20%增长+45%净利率=性价比极高。", "en": "18.9x Fwd PE + 20% growth + 45% net margin = excellent value." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 极度确定",
+          "a": "先进制程没有替代者。3nm/2nm垄断。"
+        },
+        {
+          "status": "positive",
+          "q": "赚得更多？ — 是",
+          "a": "AI需求推动ASP上升+产能扩张。"
+        },
+        {
+          "status": "uncertain",
+          "q": "风险？ — 地缘政治",
+          "a": "台海风险是尾部风险。美国/日本建厂分散。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Highly certain",
+          "a": "No alternative for advanced nodes. 3nm/2nm monopoly."
+        },
+        {
+          "status": "positive",
+          "q": "Earning more? — Yes",
+          "a": "AI demand driving ASP increase + capacity expansion."
+        },
+        {
+          "status": "uncertain",
+          "q": "Risk? — Geopolitics",
+          "a": "Taiwan Strait is tail risk. US/Japan fabs diversifying."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "重仓",
+          "q": "不可替代的AI基建。"
+        },
+        {
+          "name": "Buffett",
+          "color": "red",
+          "verdict": "已清仓",
+          "q": "因地缘风险已卖出。认可业务质量。"
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "认可",
+          "q": "垄断+高壁垒。但地缘是无法定价的风险。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "Heavy",
+          "q": "Irreplaceable AI infrastructure."
+        },
+        {
+          "name": "Buffett",
+          "color": "red",
+          "verdict": "Sold",
+          "q": "Exited on geopolitical risk. Acknowledges business quality."
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "Approved",
+          "q": "Monopoly + high barriers. But geopolitics is unquantifiable risk."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2025-12-31",
+      "revenue": "NT$1.05T",
+      "revenueYoY": "+20.5%",
+      "grossMarginQ": "62.3%",
+      "netIncome": "NT$505.7B",
+      "netMarginQ": "48.3%",
+      "fcf": "NT$364.0B",
+      "fcfMarginQ": "34.8%",
+      "reportDate": "2025-12-31"
+    },
+    "financialHealth": {
+      "cash": "NT$3.07T",
+      "debt": "NT$1.07T",
+      "debtEquity": "0.20",
+      "currentRatio": "2.62",
+      "grade": "A+"
+    },
+    "moat": {
+      "zh": "先进制程垄断+巨额Capex壁垒+客户锁定",
+      "en": "Advanced node monopoly + massive capex barrier + customer lock-in"
+    },
+    "valuation": {
+      "zh": "18.9x Fwd PE+20%增长+45%净利率=性价比极高。",
+      "en": "18.9x Fwd PE + 20% growth + 45% net margin = excellent value."
+    },
+    "peg": "—",
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 338.89
   },
   "BRK-B": {
     "exchange": "NYSE",
-    "desc": { "zh": "巴菲特旗舰，保险+能源+铁路+巨额现金储备", "en": "Buffett's flagship; insurance + energy + railroads + massive cash reserves" },
+    "desc": {
+      "zh": "巴菲特旗舰，保险+能源+铁路+巨额现金储备",
+      "en": "Buffett's flagship; insurance + energy + railroads + massive cash reserves"
+    },
     "revGrowth": "-0.7%",
     "epsEst": "$31.04 → fwd $21.80",
     "grossMargin": "26.1%",
     "peFwd": "22.9x",
-    "evEbitda": "—",
+    "evEbitda": "-2.1x",
     "ps": "2.9x",
     "netMargin": "18.0%",
-    "roe": "9.8%",
+    "roe": "10%",
     "fcfYield": "3.4%",
-    "divYield": "0%",
-    "valuationPctl": 45,
-    "summary": { "zh": "BRK-B $499，$373B现金创纪录。在地缘动荡中表现稳健(beta 0.69)。Q4营收$111.4B。巴菲特即将95岁，接班人Greg Abel已就位。", "en": "BRK-B at $499, record $373B cash. Stable in geopolitical turmoil (beta 0.69). Q4 revenue $111.4B. Buffett approaching 95, successor Greg Abel in place." },
-    "verdict": { "zh": "持有 — 乱世避风港", "en": "HOLD — Safe haven in turbulent times" },
+    "divYield": "0.00%",
+    "valuationPctl": 28,
+    "summary": {
+      "zh": "BRK-B $499，$373B现金创纪录。在地缘动荡中表现稳健(beta 0.69)。Q4营收$111.4B。巴菲特即将95岁，接班人Greg Abel已就位。",
+      "en": "BRK-B at $499, record $373B cash. Stable in geopolitical turmoil (beta 0.69). Q4 revenue $111.4B. Buffett approaching 95, successor Greg Abel in place."
+    },
+    "verdict": {
+      "zh": "持有 — 乱世避风港",
+      "en": "HOLD — Safe haven in turbulent times"
+    },
     "verdictColor": "text-yellow",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 确定", "a": "保险浮存金+BNSF+能源=永续现金流。" },
-      { "status": "uncertain", "q": "赚得更多？ — 看部署", "a": "$373B现金待部署。关键看能否在大跌时出手。" },
-      { "status": "positive", "q": "护城河？ — 强", "a": "品牌+规模+保险浮存金=独特模式。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Certain", "a": "Insurance float + BNSF + energy = perpetual cash flow." },
-      { "status": "uncertain", "q": "Earning more? — Depends on deployment", "a": "$373B cash to deploy. Key is whether they buy the dip." },
-      { "status": "positive", "q": "Moat? — Strong", "a": "Brand + scale + insurance float = unique model." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "green", "verdict": "配置", "q": "最好的防御性资产。$373B现金=弹药。" },
-      { "name": "Buffett", "color": "green", "verdict": "自家公司", "q": "持续回购。年报强调保险和能源价值。" },
-      { "name": "Munger", "color": "green", "verdict": "终身持有", "q": "复利机器。" }
-    ], "en": [
-      { "name": "DYP", "color": "green", "verdict": "Allocate", "q": "Best defensive asset. $373B cash = ammunition." },
-      { "name": "Buffett", "color": "green", "verdict": "Own company", "q": "Continues buybacks. Annual letter emphasizes insurance and energy value." },
-      { "name": "Munger", "color": "green", "verdict": "Hold forever", "q": "Compounding machine." }
-    ] },
-    "earnings": { "quarter": "Q4 2025 (Dec 2025)", "revenue": "$111.4B", "revenueYoY": "+9.8%", "netIncome": "$19.2B", "netMarginQ": "17.2%", "fcf": "$5.0B", "fcfMarginQ": "4.5%" },
-    "financialHealth": { "cash": "$373.3B", "debt": "$135.4B", "debtEquity": "0.19", "currentRatio": "7.07", "grade": "A+" },
-    "moat": { "zh": "保险浮存金+品牌+规模+资本配置能力", "en": "Insurance float + brand + scale + capital allocation" },
-    "valuation": { "zh": "1.5x P/B历史中位数。$373B现金提供巨大安全垫。", "en": "1.5x P/B at historical median. $373B cash provides massive safety cushion." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 确定",
+          "a": "保险浮存金+BNSF+能源=永续现金流。"
+        },
+        {
+          "status": "uncertain",
+          "q": "赚得更多？ — 看部署",
+          "a": "$373B现金待部署。关键看能否在大跌时出手。"
+        },
+        {
+          "status": "positive",
+          "q": "护城河？ — 强",
+          "a": "品牌+规模+保险浮存金=独特模式。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Certain",
+          "a": "Insurance float + BNSF + energy = perpetual cash flow."
+        },
+        {
+          "status": "uncertain",
+          "q": "Earning more? — Depends on deployment",
+          "a": "$373B cash to deploy. Key is whether they buy the dip."
+        },
+        {
+          "status": "positive",
+          "q": "Moat? — Strong",
+          "a": "Brand + scale + insurance float = unique model."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "配置",
+          "q": "最好的防御性资产。$373B现金=弹药。"
+        },
+        {
+          "name": "Buffett",
+          "color": "green",
+          "verdict": "自家公司",
+          "q": "持续回购。年报强调保险和能源价值。"
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "终身持有",
+          "q": "复利机器。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "Allocate",
+          "q": "Best defensive asset. $373B cash = ammunition."
+        },
+        {
+          "name": "Buffett",
+          "color": "green",
+          "verdict": "Own company",
+          "q": "Continues buybacks. Annual letter emphasizes insurance and energy value."
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "Hold forever",
+          "q": "Compounding machine."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2025-12-31",
+      "revenue": "$111.4B",
+      "revenueYoY": "+9.8%",
+      "netIncome": "$19.2B",
+      "netMarginQ": "17.2%",
+      "fcf": "$5.0B",
+      "fcfMarginQ": "4.5%",
+      "reportDate": "2025-12-31"
+    },
+    "financialHealth": {
+      "cash": "$373.3B",
+      "debt": "$135.4B",
+      "debtEquity": "0.19",
+      "currentRatio": "7.07",
+      "grade": "A+"
+    },
+    "moat": {
+      "zh": "保险浮存金+品牌+规模+资本配置能力",
+      "en": "Insurance float + brand + scale + capital allocation"
+    },
+    "valuation": {
+      "zh": "1.5x P/B历史中位数。$373B现金提供巨大安全垫。",
+      "en": "1.5x P/B at historical median. $373B cash provides massive safety cushion."
+    },
+    "peg": "—",
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 498.98
   },
   "BABA": {
     "exchange": "NYSE",
-    "desc": { "zh": "中国电商+云计算龙头，AI战略重启，估值极低", "en": "China's e-commerce + cloud leader; AI strategy restarting; extremely undervalued" },
+    "desc": {
+      "zh": "中国电商+云计算龙头，AI战略重启，估值极低",
+      "en": "China's e-commerce + cloud leader; AI strategy restarting; extremely undervalued"
+    },
     "revGrowth": "+4.8%",
     "epsEst": "$7.59 → fwd $8.77",
     "grossMargin": "41.2%",
@@ -388,39 +1218,131 @@
     "evEbitda": "15.2x",
     "ps": "0.3x",
     "netMargin": "12.2%",
-    "roe": "11.2%",
-    "fcfYield": "—",
-    "divYield": "0.80%",
-    "valuationPctl": 15,
-    "summary": { "zh": "BABA $131，PE仅14.9x，PS 0.3x(vs AMZN 3.2x)。中国两会政策支持+关税诉讼缓和。恒指+1.72%提振中概情绪。AI战略(通义)加速。beta仅0.44=低波动。", "en": "BABA at $131, PE only 14.9x, PS 0.3x (vs AMZN 3.2x). NPC policy support + tariff lawsuit easing. HSI +1.72% boosting China sentiment. AI strategy (Tongyi) accelerating. Beta 0.44 = low vol." },
-    "verdict": { "zh": "买入 — 极度低估的中国科技龙头", "en": "BUY — Extremely undervalued China tech leader" },
+    "roe": "11%",
+    "fcfYield": "-15.8%",
+    "divYield": "80.00%",
+    "valuationPctl": 28,
+    "summary": {
+      "zh": "BABA $131，PE仅14.9x，PS 0.3x(vs AMZN 3.2x)。中国两会政策支持+关税诉讼缓和。恒指+1.72%提振中概情绪。AI战略(通义)加速。beta仅0.44=低波动。",
+      "en": "BABA at $131, PE only 14.9x, PS 0.3x (vs AMZN 3.2x). NPC policy support + tariff lawsuit easing. HSI +1.72% boosting China sentiment. AI strategy (Tongyi) accelerating. Beta 0.44 = low vol."
+    },
+    "verdict": {
+      "zh": "买入 — 极度低估的中国科技龙头",
+      "en": "BUY — Extremely undervalued China tech leader"
+    },
     "verdictColor": "text-green",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 是", "a": "中国消费基础设施+云=不可替代。" },
-      { "status": "uncertain", "q": "赚得更多？ — 不确定", "a": "增速放缓至5%。关键看AI和国际化。" },
-      { "status": "uncertain", "q": "风险？ — 政策+地缘", "a": "VIE结构+中美关系=估值永久折价因素。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Yes", "a": "China consumer infrastructure + cloud = irreplaceable." },
-      { "status": "uncertain", "q": "Earning more? — Uncertain", "a": "Growth slowing to 5%. Key is AI and internationalization." },
-      { "status": "uncertain", "q": "Risk? — Policy + geopolitics", "a": "VIE structure + US-China tensions = permanent valuation discount." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "green", "verdict": "配置", "q": "0.3x PS=价值投资天堂。" },
-      { "name": "Buffett", "color": "red", "verdict": "已清仓", "q": "2022年买入后快速卖出。地缘风险。" },
-      { "name": "Munger", "color": "green", "verdict": "曾重仓", "q": "Daily Journal曾大量持有。认可商业模式。" }
-    ], "en": [
-      { "name": "DYP", "color": "green", "verdict": "Allocate", "q": "0.3x PS = value investor paradise." },
-      { "name": "Buffett", "color": "red", "verdict": "Sold", "q": "Bought in 2022, quickly sold. Geopolitical risk." },
-      { "name": "Munger", "color": "green", "verdict": "Was heavy", "q": "Daily Journal held significant position. Business model approved." }
-    ] },
-    "earnings": { "quarter": "Q2 FY2026 (Sep 2025)", "revenue": "RMB 247.8B", "revenueYoY": "+4.8%", "grossMarginQ": "39.2%", "netIncome": "RMB 21.0B", "netMarginQ": "8.5%" },
-    "financialHealth": { "cash": "RMB 373.6B", "debt": "RMB 303.0B", "debtEquity": "0.27", "currentRatio": "1.46", "grade": "A-" },
-    "moat": { "zh": "中国电商基础设施+支付宝+云+物流网络", "en": "China e-commerce infra + Alipay + cloud + logistics network" },
-    "valuation": { "zh": "14.9x PE+0.3x PS=历史最低区间。地缘折价过度。", "en": "14.9x PE + 0.3x PS = historical low band. Geopolitical discount excessive." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 是",
+          "a": "中国消费基础设施+云=不可替代。"
+        },
+        {
+          "status": "uncertain",
+          "q": "赚得更多？ — 不确定",
+          "a": "增速放缓至5%。关键看AI和国际化。"
+        },
+        {
+          "status": "uncertain",
+          "q": "风险？ — 政策+地缘",
+          "a": "VIE结构+中美关系=估值永久折价因素。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Yes",
+          "a": "China consumer infrastructure + cloud = irreplaceable."
+        },
+        {
+          "status": "uncertain",
+          "q": "Earning more? — Uncertain",
+          "a": "Growth slowing to 5%. Key is AI and internationalization."
+        },
+        {
+          "status": "uncertain",
+          "q": "Risk? — Policy + geopolitics",
+          "a": "VIE structure + US-China tensions = permanent valuation discount."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "配置",
+          "q": "0.3x PS=价值投资天堂。"
+        },
+        {
+          "name": "Buffett",
+          "color": "red",
+          "verdict": "已清仓",
+          "q": "2022年买入后快速卖出。地缘风险。"
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "曾重仓",
+          "q": "Daily Journal曾大量持有。认可商业模式。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "Allocate",
+          "q": "0.3x PS = value investor paradise."
+        },
+        {
+          "name": "Buffett",
+          "color": "red",
+          "verdict": "Sold",
+          "q": "Bought in 2022, quickly sold. Geopolitical risk."
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "Was heavy",
+          "q": "Daily Journal held significant position. Business model approved."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2025-09-30",
+      "revenue": "RMB 247.8B",
+      "revenueYoY": "+4.8%",
+      "grossMarginQ": "39.2%",
+      "netIncome": "RMB 21.0B",
+      "netMarginQ": "8.5%",
+      "reportDate": "2025-09-30"
+    },
+    "financialHealth": {
+      "cash": "RMB 373.6B",
+      "debt": "RMB 303.0B",
+      "debtEquity": "0.27",
+      "currentRatio": "1.46",
+      "grade": "A-"
+    },
+    "moat": {
+      "zh": "中国电商基础设施+支付宝+云+物流网络",
+      "en": "China e-commerce infra + Alipay + cloud + logistics network"
+    },
+    "valuation": {
+      "zh": "14.9x PE+0.3x PS=历史最低区间。地缘折价过度。",
+      "en": "14.9x PE + 0.3x PS = historical low band. Geopolitical discount excessive."
+    },
+    "peg": "—",
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 130.79
   },
   "AMD": {
     "exchange": "NASDAQ",
-    "desc": { "zh": "CPU+GPU双线追赶，MI300系列AI芯片抢NVDA份额", "en": "CPU + GPU dual-track challenger; MI300 AI chips gaining share from NVDA" },
+    "desc": {
+      "zh": "CPU+GPU双线追赶，MI300系列AI芯片抢NVDA份额",
+      "en": "CPU + GPU dual-track challenger; MI300 AI chips gaining share from NVDA"
+    },
     "revGrowth": "+34.1%",
     "epsEst": "$2.62 → fwd $10.88",
     "grossMargin": "52.5%",
@@ -428,39 +1350,133 @@
     "evEbitda": "45.5x",
     "ps": "9.1x",
     "netMargin": "12.5%",
-    "roe": "7.1%",
+    "roe": "7%",
     "fcfYield": "1.5%",
-    "divYield": "0%",
-    "valuationPctl": 50,
-    "summary": { "zh": "AMD Q4营收$10.3B(+34.1%)，净利增213%。MI300X在AI推理市场获得份额。$192距52周高$267跌28%。Fwd PE 17.7x+34%增速=PEG 0.5。", "en": "AMD Q4 revenue $10.3B (+34.1%), net income +213%. MI300X gaining share in AI inference. At $192, 28% off 52wk high $267. Fwd PE 17.7x + 34% growth = PEG 0.5." },
-    "verdict": { "zh": "买入 — AI第二选择，估值合理", "en": "BUY — AI's second choice, fair valuation" },
+    "divYield": "0.00%",
+    "valuationPctl": 85,
+    "summary": {
+      "zh": "AMD Q4营收$10.3B(+34.1%)，净利增213%。MI300X在AI推理市场获得份额。$192距52周高$267跌28%。Fwd PE 17.7x+34%增速=PEG 0.5。",
+      "en": "AMD Q4 revenue $10.3B (+34.1%), net income +213%. MI300X gaining share in AI inference. At $192, 28% off 52wk high $267. Fwd PE 17.7x + 34% growth = PEG 0.5."
+    },
+    "verdict": {
+      "zh": "买入 — AI第二选择，估值合理",
+      "en": "BUY — AI's second choice, fair valuation"
+    },
     "verdictColor": "text-green",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 是", "a": "x86 CPU+AI GPU双赛道。云厂商需要替代供应商。" },
-      { "status": "positive", "q": "赚得更多？ — 高确定性", "a": "Fwd EPS从$2.62到$10.88，增长4倍。MI300系列放量。" },
-      { "status": "uncertain", "q": "护城河？ — 中等", "a": "x86授权+MI300竞争力强，但vs NVDA CUDA仍有差距。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Yes", "a": "x86 CPU + AI GPU dual track. Cloud vendors need alternatives." },
-      { "status": "positive", "q": "Earning more? — High certainty", "a": "Fwd EPS from $2.62 to $10.88, 4x growth. MI300 series ramping." },
-      { "status": "uncertain", "q": "Moat? — Moderate", "a": "x86 license + MI300 competitive, but gap vs NVDA CUDA remains." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "green", "verdict": "配置", "q": "AI GPU第二供应商。17.7x PE便宜。" },
-      { "name": "Buffett", "color": "yellow", "verdict": "未持仓", "q": "芯片竞争激烈，不在能力圈内。" },
-      { "name": "Munger", "color": "yellow", "verdict": "观望", "q": "好公司但NVDA优势太大。需要独特催化剂。" }
-    ], "en": [
-      { "name": "DYP", "color": "green", "verdict": "Allocate", "q": "AI GPU second source. 17.7x PE is cheap." },
-      { "name": "Buffett", "color": "yellow", "verdict": "Not held", "q": "Chip competition fierce, outside circle of competence." },
-      { "name": "Munger", "color": "yellow", "verdict": "Watch", "q": "Good company but NVDA advantage too large. Needs unique catalyst." }
-    ] },
-    "earnings": { "quarter": "Q4 2025 (Dec 2025)", "revenue": "$10.3B", "revenueYoY": "+34.1%", "grossMarginQ": "54.3%", "netIncome": "$1.5B", "netMarginQ": "14.7%", "fcf": "$2.4B", "fcfMarginQ": "23.2%" },
-    "financialHealth": { "cash": "$10.6B", "debt": "$4.0B", "debtEquity": "0.06", "currentRatio": "2.85", "grade": "A" },
-    "moat": { "zh": "x86授权+MI300 AI芯片+数据中心CPU份额持续增长", "en": "x86 license + MI300 AI chips + growing data center CPU share" },
-    "valuation": { "zh": "17.7x Fwd PE+34%增速=PEG 0.5，极具性价比。", "en": "17.7x Fwd PE + 34% growth = PEG 0.5, excellent value." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 是",
+          "a": "x86 CPU+AI GPU双赛道。云厂商需要替代供应商。"
+        },
+        {
+          "status": "positive",
+          "q": "赚得更多？ — 高确定性",
+          "a": "Fwd EPS从$2.62到$10.88，增长4倍。MI300系列放量。"
+        },
+        {
+          "status": "uncertain",
+          "q": "护城河？ — 中等",
+          "a": "x86授权+MI300竞争力强，但vs NVDA CUDA仍有差距。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Yes",
+          "a": "x86 CPU + AI GPU dual track. Cloud vendors need alternatives."
+        },
+        {
+          "status": "positive",
+          "q": "Earning more? — High certainty",
+          "a": "Fwd EPS from $2.62 to $10.88, 4x growth. MI300 series ramping."
+        },
+        {
+          "status": "uncertain",
+          "q": "Moat? — Moderate",
+          "a": "x86 license + MI300 competitive, but gap vs NVDA CUDA remains."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "配置",
+          "q": "AI GPU第二供应商。17.7x PE便宜。"
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "未持仓",
+          "q": "芯片竞争激烈，不在能力圈内。"
+        },
+        {
+          "name": "Munger",
+          "color": "yellow",
+          "verdict": "观望",
+          "q": "好公司但NVDA优势太大。需要独特催化剂。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "Allocate",
+          "q": "AI GPU second source. 17.7x PE is cheap."
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "Not held",
+          "q": "Chip competition fierce, outside circle of competence."
+        },
+        {
+          "name": "Munger",
+          "color": "yellow",
+          "verdict": "Watch",
+          "q": "Good company but NVDA advantage too large. Needs unique catalyst."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2025-12-31",
+      "revenue": "$10.3B",
+      "revenueYoY": "+34.1%",
+      "grossMarginQ": "54.3%",
+      "netIncome": "$1.5B",
+      "netMarginQ": "14.7%",
+      "fcf": "$2.4B",
+      "fcfMarginQ": "23.2%",
+      "reportDate": "2025-12-31"
+    },
+    "financialHealth": {
+      "cash": "$10.6B",
+      "debt": "$4.0B",
+      "debtEquity": "0.06",
+      "currentRatio": "2.85",
+      "grade": "A"
+    },
+    "moat": {
+      "zh": "x86授权+MI300 AI芯片+数据中心CPU份额持续增长",
+      "en": "x86 license + MI300 AI chips + growing data center CPU share"
+    },
+    "valuation": {
+      "zh": "17.7x Fwd PE+34%增速=PEG 0.5，极具性价比。",
+      "en": "17.7x Fwd PE + 34% growth = PEG 0.5, excellent value."
+    },
+    "peg": "—",
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 192.43
   },
   "CVX": {
     "exchange": "NYSE",
-    "desc": { "zh": "综合能源巨头，上游+炼油+化工，高股息", "en": "Integrated energy major; upstream + refining + chemicals, high dividend" },
+    "desc": {
+      "zh": "综合能源巨头，上游+炼油+化工，高股息",
+      "en": "Integrated energy major; upstream + refining + chemicals, high dividend"
+    },
     "revGrowth": "-8.2%",
     "epsEst": "$6.63 → fwd $9.17",
     "grossMargin": "41.9%",
@@ -468,39 +1484,133 @@
     "evEbitda": "11.3x",
     "ps": "2.1x",
     "netMargin": "6.7%",
-    "roe": "7.2%",
+    "roe": "7%",
     "fcfYield": "3.5%",
-    "divYield": "3.75%",
-    "valuationPctl": 55,
-    "summary": { "zh": "CVX直接受益中东地缘局势，WTI破$85+。$190逼近52周高$192。3.75%股息+回购。原油$90+时EPS弹性巨大。", "en": "CVX directly benefits from Middle East tensions, WTI above $85. At $190 near 52wk high $192. 3.75% dividend + buybacks. Massive EPS upside at $90+ oil." },
-    "verdict": { "zh": "持有 — 地缘红利已反映，留意油价回落风险", "en": "HOLD — Geopolitical premium priced in, watch for oil pullback" },
+    "divYield": "375.00%",
+    "valuationPctl": 58,
+    "summary": {
+      "zh": "CVX直接受益中东地缘局势，WTI破$85+。$190逼近52周高$192。3.75%股息+回购。原油$90+时EPS弹性巨大。",
+      "en": "CVX directly benefits from Middle East tensions, WTI above $85. At $190 near 52wk high $192. 3.75% dividend + buybacks. Massive EPS upside at $90+ oil."
+    },
+    "verdict": {
+      "zh": "持有 — 地缘红利已反映，留意油价回落风险",
+      "en": "HOLD — Geopolitical premium priced in, watch for oil pullback"
+    },
     "verdictColor": "text-yellow",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 是", "a": "全球仍依赖化石能源。CVX有转型布局。" },
-      { "status": "uncertain", "q": "赚得更多？ — 看油价", "a": "EPS高度依赖油价。$90油价时盈利弹性大。" },
-      { "status": "positive", "q": "护城河？ — 中强", "a": "上游资源+炼油网络+品牌。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Yes", "a": "World still depends on fossil fuels. CVX has transition plans." },
-      { "status": "uncertain", "q": "Earning more? — Oil price dependent", "a": "EPS highly correlated with oil. Massive upside at $90+ oil." },
-      { "status": "positive", "q": "Moat? — Medium-strong", "a": "Upstream assets + refining network + brand." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "yellow", "verdict": "小仓", "q": "周期股。地缘推高但不持久。" },
-      { "name": "Buffett", "color": "green", "verdict": "重仓", "q": "BRK持有大量CVX。看好能源长期价值。" },
-      { "name": "Munger", "color": "green", "verdict": "认可", "q": "能源=文明基础设施。3.75%股息安全。" }
-    ], "en": [
-      { "name": "DYP", "color": "yellow", "verdict": "Small", "q": "Cyclical. Geopolitics boost but not durable." },
-      { "name": "Buffett", "color": "green", "verdict": "Heavy", "q": "BRK holds significant CVX. Long-term energy value." },
-      { "name": "Munger", "color": "green", "verdict": "Approved", "q": "Energy = civilization infrastructure. 3.75% dividend safe." }
-    ] },
-    "earnings": { "quarter": "Q4 2025 (Dec 2025)", "revenue": "$45.8B", "revenueYoY": "-5.3%", "grossMarginQ": "31.8%", "netIncome": "$2.8B", "netMarginQ": "6.0%", "fcf": "$5.5B", "fcfMarginQ": "12.1%" },
-    "financialHealth": { "cash": "$6.3B", "debt": "$46.7B", "debtEquity": "0.24", "currentRatio": "1.16", "grade": "B+" },
-    "moat": { "zh": "上游资源禀赋+Permian盆地产量+全球炼油网络", "en": "Upstream resource base + Permian Basin output + global refining network" },
-    "valuation": { "zh": "当前油价下EPS弹性大。3.75%股息提供下行保护。", "en": "Massive EPS upside at current oil prices. 3.75% dividend provides downside protection." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 是",
+          "a": "全球仍依赖化石能源。CVX有转型布局。"
+        },
+        {
+          "status": "uncertain",
+          "q": "赚得更多？ — 看油价",
+          "a": "EPS高度依赖油价。$90油价时盈利弹性大。"
+        },
+        {
+          "status": "positive",
+          "q": "护城河？ — 中强",
+          "a": "上游资源+炼油网络+品牌。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Yes",
+          "a": "World still depends on fossil fuels. CVX has transition plans."
+        },
+        {
+          "status": "uncertain",
+          "q": "Earning more? — Oil price dependent",
+          "a": "EPS highly correlated with oil. Massive upside at $90+ oil."
+        },
+        {
+          "status": "positive",
+          "q": "Moat? — Medium-strong",
+          "a": "Upstream assets + refining network + brand."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "yellow",
+          "verdict": "小仓",
+          "q": "周期股。地缘推高但不持久。"
+        },
+        {
+          "name": "Buffett",
+          "color": "green",
+          "verdict": "重仓",
+          "q": "BRK持有大量CVX。看好能源长期价值。"
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "认可",
+          "q": "能源=文明基础设施。3.75%股息安全。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "yellow",
+          "verdict": "Small",
+          "q": "Cyclical. Geopolitics boost but not durable."
+        },
+        {
+          "name": "Buffett",
+          "color": "green",
+          "verdict": "Heavy",
+          "q": "BRK holds significant CVX. Long-term energy value."
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "Approved",
+          "q": "Energy = civilization infrastructure. 3.75% dividend safe."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2025-12-31",
+      "revenue": "$45.8B",
+      "revenueYoY": "-5.3%",
+      "grossMarginQ": "31.8%",
+      "netIncome": "$2.8B",
+      "netMarginQ": "6.0%",
+      "fcf": "$5.5B",
+      "fcfMarginQ": "12.1%",
+      "reportDate": "2025-12-31"
+    },
+    "financialHealth": {
+      "cash": "$6.3B",
+      "debt": "$46.7B",
+      "debtEquity": "0.24",
+      "currentRatio": "1.16",
+      "grade": "B+"
+    },
+    "moat": {
+      "zh": "上游资源禀赋+Permian盆地产量+全球炼油网络",
+      "en": "Upstream resource base + Permian Basin output + global refining network"
+    },
+    "valuation": {
+      "zh": "当前油价下EPS弹性大。3.75%股息提供下行保护。",
+      "en": "Massive EPS upside at current oil prices. 3.75% dividend provides downside protection."
+    },
+    "peg": "—",
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 189.94
   },
   "COIN": {
-    "exchange": "NASDAQ",
-    "desc": { "zh": "美国最大合规加密交易所，Crypto金融基建核心", "en": "Largest US regulated crypto exchange; core crypto financial infrastructure" },
+    "exchange": "NYSE",
+    "desc": {
+      "zh": "美国最大合规加密交易所，Crypto金融基建核心",
+      "en": "Largest US regulated crypto exchange; core crypto financial infrastructure"
+    },
     "revGrowth": "-22.2%",
     "epsEst": "$4.46 → fwd $5.97",
     "grossMargin": "85.2%",
@@ -508,39 +1618,131 @@
     "evEbitda": "28.9x",
     "ps": "7.7x",
     "netMargin": "18.3%",
-    "roe": "10.1%",
+    "roe": "10%",
     "fcfYield": "2.4%",
-    "divYield": "0%",
-    "valuationPctl": 40,
-    "summary": { "zh": "COIN $197，距52周高$445跌56%。Q4营收-21.6% YoY，出现亏损。但85%毛利率+BTC ETF托管收入=周期底部。SEC对行业态度转软(孙宇晨撤诉)。", "en": "COIN at $197, 56% off 52wk high $445. Q4 revenue -21.6% YoY, reported loss. But 85% gross margin + BTC ETF custody = cycle trough. SEC softening stance (Sun case dismissed)." },
-    "verdict": { "zh": "观望 — 等BTC企稳再加仓", "en": "WATCH — Wait for BTC stabilization before adding" },
+    "divYield": "0.00%",
+    "valuationPctl": 72,
+    "summary": {
+      "zh": "COIN $197，距52周高$445跌56%。Q4营收-21.6% YoY，出现亏损。但85%毛利率+BTC ETF托管收入=周期底部。SEC对行业态度转软(孙宇晨撤诉)。",
+      "en": "COIN at $197, 56% off 52wk high $445. Q4 revenue -21.6% YoY, reported loss. But 85% gross margin + BTC ETF custody = cycle trough. SEC softening stance (Sun case dismissed)."
+    },
+    "verdict": {
+      "zh": "观望 — 等BTC企稳再加仓",
+      "en": "WATCH — Wait for BTC stabilization before adding"
+    },
     "verdictColor": "text-yellow",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 大概率", "a": "美国合规加密基建=政策壁垒。ETF托管不可替代。" },
-      { "status": "uncertain", "q": "赚得更多？ — 取决于BTC", "a": "高beta(3.7)，收入随加密周期剧烈波动。" },
-      { "status": "uncertain", "q": "护城河？ — 中等", "a": "合规牌照+ETF托管，但竞争加剧(Robinhood等)。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Likely", "a": "US regulated crypto infra = regulatory barrier. ETF custody irreplaceable." },
-      { "status": "uncertain", "q": "Earning more? — BTC dependent", "a": "High beta (3.7), revenue swings with crypto cycles." },
-      { "status": "uncertain", "q": "Moat? — Moderate", "a": "Compliance licenses + ETF custody, but competition increasing (Robinhood etc)." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "yellow", "verdict": "小仓", "q": "合规壁垒有价值，但周期性太强。" },
-      { "name": "Buffett", "color": "red", "verdict": "不会碰", "q": "不投资加密相关。" },
-      { "name": "Munger", "color": "red", "verdict": "不认可", "q": "对加密资产持批评态度。" }
-    ], "en": [
-      { "name": "DYP", "color": "yellow", "verdict": "Small", "q": "Compliance barrier has value, but too cyclical." },
-      { "name": "Buffett", "color": "red", "verdict": "Won't touch", "q": "Does not invest in crypto-related assets." },
-      { "name": "Munger", "color": "red", "verdict": "Not approved", "q": "Critical of crypto assets." }
-    ] },
-    "earnings": { "quarter": "Q4 2025 (Dec 2025)", "revenue": "$1.8B", "revenueYoY": "-21.6%", "grossMarginQ": "76.5%", "netIncome": "-$667M", "netMarginQ": "-37.4%" },
-    "financialHealth": { "cash": "$11.6B", "debt": "$7.9B", "debtEquity": "0.53", "currentRatio": "2.34", "grade": "B" },
-    "moat": { "zh": "美国合规牌照+BTC ETF托管+机构关系", "en": "US regulatory licenses + BTC ETF custody + institutional relationships" },
-    "valuation": { "zh": "周期底部估值。BTC回暖时弹性巨大。", "en": "Trough valuation. Massive upside if BTC recovers." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 大概率",
+          "a": "美国合规加密基建=政策壁垒。ETF托管不可替代。"
+        },
+        {
+          "status": "uncertain",
+          "q": "赚得更多？ — 取决于BTC",
+          "a": "高beta(3.7)，收入随加密周期剧烈波动。"
+        },
+        {
+          "status": "uncertain",
+          "q": "护城河？ — 中等",
+          "a": "合规牌照+ETF托管，但竞争加剧(Robinhood等)。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Likely",
+          "a": "US regulated crypto infra = regulatory barrier. ETF custody irreplaceable."
+        },
+        {
+          "status": "uncertain",
+          "q": "Earning more? — BTC dependent",
+          "a": "High beta (3.7), revenue swings with crypto cycles."
+        },
+        {
+          "status": "uncertain",
+          "q": "Moat? — Moderate",
+          "a": "Compliance licenses + ETF custody, but competition increasing (Robinhood etc)."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "yellow",
+          "verdict": "小仓",
+          "q": "合规壁垒有价值，但周期性太强。"
+        },
+        {
+          "name": "Buffett",
+          "color": "red",
+          "verdict": "不会碰",
+          "q": "不投资加密相关。"
+        },
+        {
+          "name": "Munger",
+          "color": "red",
+          "verdict": "不认可",
+          "q": "对加密资产持批评态度。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "yellow",
+          "verdict": "Small",
+          "q": "Compliance barrier has value, but too cyclical."
+        },
+        {
+          "name": "Buffett",
+          "color": "red",
+          "verdict": "Won't touch",
+          "q": "Does not invest in crypto-related assets."
+        },
+        {
+          "name": "Munger",
+          "color": "red",
+          "verdict": "Not approved",
+          "q": "Critical of crypto assets."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2025-12-31",
+      "revenue": "$1.8B",
+      "revenueYoY": "-21.6%",
+      "grossMarginQ": "76.5%",
+      "netIncome": "-$667M",
+      "netMarginQ": "-37.4%",
+      "reportDate": "2025-12-31"
+    },
+    "financialHealth": {
+      "cash": "$11.6B",
+      "debt": "$7.9B",
+      "debtEquity": "0.53",
+      "currentRatio": "2.34",
+      "grade": "B"
+    },
+    "moat": {
+      "zh": "美国合规牌照+BTC ETF托管+机构关系",
+      "en": "US regulatory licenses + BTC ETF custody + institutional relationships"
+    },
+    "valuation": {
+      "zh": "周期底部估值。BTC回暖时弹性巨大。",
+      "en": "Trough valuation. Massive upside if BTC recovers."
+    },
+    "peg": "—",
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 197.22
   },
   "CRM": {
-    "exchange": "NYSE",
-    "desc": { "zh": "企业CRM SaaS龙头，Agentforce AI Agent平台驱动下一波增长", "en": "Enterprise CRM SaaS leader; Agentforce AI Agent platform driving next growth wave" },
+    "exchange": "NASDAQ",
+    "desc": {
+      "zh": "企业CRM SaaS龙头，Agentforce AI Agent平台驱动下一波增长",
+      "en": "Enterprise CRM SaaS leader; Agentforce AI Agent platform driving next growth wave"
+    },
     "revGrowth": "+12.1%",
     "epsEst": "$7.80 → fwd $14.91",
     "grossMargin": "77.7%",
@@ -548,39 +1750,133 @@
     "evEbitda": "15.5x",
     "ps": "4.6x",
     "netMargin": "18.0%",
-    "roe": "12.4%",
+    "roe": "12%",
     "fcfYield": "8.6%",
-    "divYield": "0.87%",
-    "valuationPctl": 25,
-    "summary": { "zh": "CRM Q4营收$11.2B(+12.1%)，FCF $5.3B(margin 47.5%惊人)。$202距52周高$296跌32%。Fwd PE仅13.6x，FCF yield 8.6%。Agentforce AI Agent产品即将放量。被严重低估。", "en": "CRM Q4 revenue $11.2B (+12.1%), FCF $5.3B (47.5% margin stunning). At $202, 32% off 52wk high $296. Fwd PE only 13.6x, FCF yield 8.6%. Agentforce AI Agent product about to scale. Severely undervalued." },
-    "verdict": { "zh": "强烈买入 — 13.6x PE+8.6% FCF Yield=最被低估的SaaS", "en": "STRONG BUY — 13.6x PE + 8.6% FCF Yield = most undervalued SaaS" },
+    "divYield": "87.00%",
+    "valuationPctl": 58,
+    "summary": {
+      "zh": "CRM Q4营收$11.2B(+12.1%)，FCF $5.3B(margin 47.5%惊人)。$202距52周高$296跌32%。Fwd PE仅13.6x，FCF yield 8.6%。Agentforce AI Agent产品即将放量。被严重低估。",
+      "en": "CRM Q4 revenue $11.2B (+12.1%), FCF $5.3B (47.5% margin stunning). At $202, 32% off 52wk high $296. Fwd PE only 13.6x, FCF yield 8.6%. Agentforce AI Agent product about to scale. Severely undervalued."
+    },
+    "verdict": {
+      "zh": "强烈买入 — 13.6x PE+8.6% FCF Yield=最被低估的SaaS",
+      "en": "STRONG BUY — 13.6x PE + 8.6% FCF Yield = most undervalued SaaS"
+    },
     "verdictColor": "text-green",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 确定", "a": "企业CRM=刚需。Salesforce=行业标准。" },
-      { "status": "positive", "q": "赚得更多？ — 是", "a": "Fwd EPS $14.91(+91%)。Agentforce开启AI upsell。" },
-      { "status": "positive", "q": "护城河？ — 强", "a": "客户数据锁定+生态系统+AI Agent先发优势。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Certain", "a": "Enterprise CRM = necessity. Salesforce = industry standard." },
-      { "status": "positive", "q": "Earning more? — Yes", "a": "Fwd EPS $14.91 (+91%). Agentforce opens AI upsell." },
-      { "status": "positive", "q": "Moat? — Strong", "a": "Customer data lock-in + ecosystem + AI Agent first-mover." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "green", "verdict": "重仓", "q": "最便宜的企业SaaS龙头。8.6% FCF yield罕见。" },
-      { "name": "Buffett", "color": "yellow", "verdict": "未持仓", "q": "SaaS不在能力圈。但认可订阅模式。" },
-      { "name": "Munger", "color": "green", "verdict": "认可", "q": "切换成本高=护城河。47.5% FCF margin=印钞。" }
-    ], "en": [
-      { "name": "DYP", "color": "green", "verdict": "Heavy", "q": "Cheapest enterprise SaaS leader. 8.6% FCF yield is rare." },
-      { "name": "Buffett", "color": "yellow", "verdict": "Not held", "q": "SaaS outside circle. But subscription model approved." },
-      { "name": "Munger", "color": "green", "verdict": "Approved", "q": "High switching costs = moat. 47.5% FCF margin = money printing." }
-    ] },
-    "earnings": { "quarter": "Q4 FY2026 (Jan 2026)", "revenue": "$11.2B", "revenueYoY": "+12.1%", "grossMarginQ": "77.6%", "netIncome": "$1.9B", "netMarginQ": "17.3%", "fcf": "$5.3B", "fcfMarginQ": "47.5%" },
-    "financialHealth": { "cash": "$9.6B", "debt": "$17.7B", "debtEquity": "0.30", "currentRatio": "0.76", "grade": "B+" },
-    "moat": { "zh": "CRM数据锁定+AppExchange生态+Agentforce AI", "en": "CRM data lock-in + AppExchange ecosystem + Agentforce AI" },
-    "valuation": { "zh": "13.6x Fwd PE是5年最低。8.6% FCF yield超过大多数债券。", "en": "13.6x Fwd PE is 5-year low. 8.6% FCF yield exceeds most bonds." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 确定",
+          "a": "企业CRM=刚需。Salesforce=行业标准。"
+        },
+        {
+          "status": "positive",
+          "q": "赚得更多？ — 是",
+          "a": "Fwd EPS $14.91(+91%)。Agentforce开启AI upsell。"
+        },
+        {
+          "status": "positive",
+          "q": "护城河？ — 强",
+          "a": "客户数据锁定+生态系统+AI Agent先发优势。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Certain",
+          "a": "Enterprise CRM = necessity. Salesforce = industry standard."
+        },
+        {
+          "status": "positive",
+          "q": "Earning more? — Yes",
+          "a": "Fwd EPS $14.91 (+91%). Agentforce opens AI upsell."
+        },
+        {
+          "status": "positive",
+          "q": "Moat? — Strong",
+          "a": "Customer data lock-in + ecosystem + AI Agent first-mover."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "重仓",
+          "q": "最便宜的企业SaaS龙头。8.6% FCF yield罕见。"
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "未持仓",
+          "q": "SaaS不在能力圈。但认可订阅模式。"
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "认可",
+          "q": "切换成本高=护城河。47.5% FCF margin=印钞。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "green",
+          "verdict": "Heavy",
+          "q": "Cheapest enterprise SaaS leader. 8.6% FCF yield is rare."
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "Not held",
+          "q": "SaaS outside circle. But subscription model approved."
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "Approved",
+          "q": "High switching costs = moat. 47.5% FCF margin = money printing."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2026-01-31",
+      "revenue": "$11.2B",
+      "revenueYoY": "+12.1%",
+      "grossMarginQ": "77.6%",
+      "netIncome": "$1.9B",
+      "netMarginQ": "17.3%",
+      "fcf": "$5.3B",
+      "fcfMarginQ": "47.5%",
+      "reportDate": "2026-01-31"
+    },
+    "financialHealth": {
+      "cash": "$9.6B",
+      "debt": "$17.7B",
+      "debtEquity": "0.30",
+      "currentRatio": "0.76",
+      "grade": "B+"
+    },
+    "moat": {
+      "zh": "CRM数据锁定+AppExchange生态+Agentforce AI",
+      "en": "CRM data lock-in + AppExchange ecosystem + Agentforce AI"
+    },
+    "valuation": {
+      "zh": "13.6x Fwd PE是5年最低。8.6% FCF yield超过大多数债券。",
+      "en": "13.6x Fwd PE is 5-year low. 8.6% FCF yield exceeds most bonds."
+    },
+    "peg": "—",
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 202.11
   },
   "UNH": {
     "exchange": "NYSE",
-    "desc": { "zh": "美国最大健康保险公司+Optum医疗服务/数据/药房", "en": "Largest US health insurer + Optum health services/data/pharmacy" },
+    "desc": {
+      "zh": "美国最大健康保险公司+Optum医疗服务/数据/药房",
+      "en": "Largest US health insurer + Optum health services/data/pharmacy"
+    },
     "revGrowth": "+12.3%",
     "epsEst": "$13.24 → fwd $20.03",
     "grossMargin": "18.5%",
@@ -588,39 +1884,133 @@
     "evEbitda": "14.9x",
     "ps": "0.6x",
     "netMargin": "2.7%",
-    "roe": "12.5%",
+    "roe": "13%",
     "fcfYield": "5.3%",
-    "divYield": "3.09%",
-    "valuationPctl": 15,
-    "summary": { "zh": "UNH $286距52周高$606暴跌53%。Q4净利几乎为零(-99.8% YoY)。DOJ调查+Medicare成本压力。但Fwd PE 14.3x+3.09%股息=长期价值。⚠️高风险高回报。", "en": "UNH at $286, 53% crash from 52wk high $606. Q4 net income near zero (-99.8% YoY). DOJ investigation + Medicare cost pressure. But Fwd PE 14.3x + 3.09% dividend = long-term value. ⚠️ High risk, high reward." },
-    "verdict": { "zh": "观望 — 基本面恶化中，等DOJ调查明朗", "en": "WATCH — Fundamentals deteriorating, wait for DOJ clarity" },
+    "divYield": "309.00%",
+    "valuationPctl": 42,
+    "summary": {
+      "zh": "UNH $286距52周高$606暴跌53%。Q4净利几乎为零(-99.8% YoY)。DOJ调查+Medicare成本压力。但Fwd PE 14.3x+3.09%股息=长期价值。⚠️高风险高回报。",
+      "en": "UNH at $286, 53% crash from 52wk high $606. Q4 net income near zero (-99.8% YoY). DOJ investigation + Medicare cost pressure. But Fwd PE 14.3x + 3.09% dividend = long-term value. ⚠️ High risk, high reward."
+    },
+    "verdict": {
+      "zh": "观望 — 基本面恶化中，等DOJ调查明朗",
+      "en": "WATCH — Fundamentals deteriorating, wait for DOJ clarity"
+    },
     "verdictColor": "text-red",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 大概率", "a": "美国医疗体系核心=不会消失。" },
-      { "status": "negative", "q": "赚得更多？ — 短期不", "a": "Q4净利几乎归零。成本压力+调查风险。" },
-      { "status": "uncertain", "q": "护城河？ — 受威胁", "a": "规模优势仍在，但政策风险大增。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Likely", "a": "Core of US healthcare system = won't disappear." },
-      { "status": "negative", "q": "Earning more? — Not near-term", "a": "Q4 net income near zero. Cost pressure + investigation risk." },
-      { "status": "uncertain", "q": "Moat? — Threatened", "a": "Scale advantage remains but policy risk increased significantly." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "red", "verdict": "回避", "q": "DOJ调查是重大不确定性。等明朗再看。" },
-      { "name": "Buffett", "color": "yellow", "verdict": "未持仓", "q": "医疗保险有政策风险。" },
-      { "name": "Munger", "color": "yellow", "verdict": "观望", "q": "好公司遇到大麻烦。价值陷阱可能性。" }
-    ], "en": [
-      { "name": "DYP", "color": "red", "verdict": "Avoid", "q": "DOJ investigation is major uncertainty. Wait for clarity." },
-      { "name": "Buffett", "color": "yellow", "verdict": "Not held", "q": "Health insurance has policy risk." },
-      { "name": "Munger", "color": "yellow", "verdict": "Watch", "q": "Good company facing big trouble. Value trap possible." }
-    ] },
-    "earnings": { "quarter": "Q4 2025 (Dec 2025)", "revenue": "$113.2B", "revenueYoY": "+12.3%", "grossMarginQ": "16.3%", "netIncome": "$10M", "netMarginQ": "0.0%", "fcf": "$160M", "fcfMarginQ": "0.1%" },
-    "financialHealth": { "cash": "$28.1B", "debt": "$83.0B", "debtEquity": "0.82", "currentRatio": "0.79", "grade": "B-" },
-    "moat": { "zh": "规模+Optum垂直整合+数据壁垒（受DOJ威胁）", "en": "Scale + Optum vertical integration + data moat (threatened by DOJ)" },
-    "valuation": { "zh": "14.3x Fwd PE是10年最低。如果DOJ风险解除则极低估。", "en": "14.3x Fwd PE is 10-year low. Extremely undervalued if DOJ risk clears." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 大概率",
+          "a": "美国医疗体系核心=不会消失。"
+        },
+        {
+          "status": "negative",
+          "q": "赚得更多？ — 短期不",
+          "a": "Q4净利几乎归零。成本压力+调查风险。"
+        },
+        {
+          "status": "uncertain",
+          "q": "护城河？ — 受威胁",
+          "a": "规模优势仍在，但政策风险大增。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Likely",
+          "a": "Core of US healthcare system = won't disappear."
+        },
+        {
+          "status": "negative",
+          "q": "Earning more? — Not near-term",
+          "a": "Q4 net income near zero. Cost pressure + investigation risk."
+        },
+        {
+          "status": "uncertain",
+          "q": "Moat? — Threatened",
+          "a": "Scale advantage remains but policy risk increased significantly."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "red",
+          "verdict": "回避",
+          "q": "DOJ调查是重大不确定性。等明朗再看。"
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "未持仓",
+          "q": "医疗保险有政策风险。"
+        },
+        {
+          "name": "Munger",
+          "color": "yellow",
+          "verdict": "观望",
+          "q": "好公司遇到大麻烦。价值陷阱可能性。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "red",
+          "verdict": "Avoid",
+          "q": "DOJ investigation is major uncertainty. Wait for clarity."
+        },
+        {
+          "name": "Buffett",
+          "color": "yellow",
+          "verdict": "Not held",
+          "q": "Health insurance has policy risk."
+        },
+        {
+          "name": "Munger",
+          "color": "yellow",
+          "verdict": "Watch",
+          "q": "Good company facing big trouble. Value trap possible."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2025-12-31",
+      "revenue": "$113.2B",
+      "revenueYoY": "+12.3%",
+      "grossMarginQ": "16.3%",
+      "netIncome": "$10M",
+      "netMarginQ": "0.0%",
+      "fcf": "$160M",
+      "fcfMarginQ": "0.1%",
+      "reportDate": "2025-12-31"
+    },
+    "financialHealth": {
+      "cash": "$28.1B",
+      "debt": "$83.0B",
+      "debtEquity": "0.82",
+      "currentRatio": "0.79",
+      "grade": "B-"
+    },
+    "moat": {
+      "zh": "规模+Optum垂直整合+数据壁垒（受DOJ威胁）",
+      "en": "Scale + Optum vertical integration + data moat (threatened by DOJ)"
+    },
+    "valuation": {
+      "zh": "14.3x Fwd PE是10年最低。如果DOJ风险解除则极低估。",
+      "en": "14.3x Fwd PE is 10-year low. Extremely undervalued if DOJ risk clears."
+    },
+    "peg": "—",
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 286.48
   },
   "XOM": {
     "exchange": "NYSE",
-    "desc": { "zh": "全球最大上市石油公司，上游+下游+化工全产业链", "en": "World's largest listed oil company; upstream + downstream + chemicals full chain" },
+    "desc": {
+      "zh": "全球最大上市石油公司，上游+下游+化工全产业链",
+      "en": "World's largest listed oil company; upstream + downstream + chemicals full chain"
+    },
     "revGrowth": "-1.3%",
     "epsEst": "$6.70 → fwd $8.38",
     "grossMargin": "31.0%",
@@ -628,34 +2018,125 @@
     "evEbitda": "11.4x",
     "ps": "1.9x",
     "netMargin": "8.9%",
-    "roe": "11.1%",
+    "roe": "11%",
     "fcfYield": "1.9%",
-    "divYield": "2.72%",
-    "valuationPctl": 60,
-    "summary": { "zh": "XOM $151逼近52周高$160，受中东地缘+WTI $85+推升。2.72%股息+持续回购。原油$90时盈利弹性更大。beta仅0.35=低波动避风港。", "en": "XOM at $151 approaching 52wk high $160, boosted by Middle East + WTI above $85. 2.72% dividend + ongoing buybacks. Even more earnings upside at $90 oil. Beta only 0.35 = low-vol safe haven." },
-    "verdict": { "zh": "持有 — 地缘红利+高股息，但注意油价回落", "en": "HOLD — Geopolitical premium + high dividend, but watch oil pullback" },
+    "divYield": "272.00%",
+    "valuationPctl": 42,
+    "summary": {
+      "zh": "XOM $151逼近52周高$160，受中东地缘+WTI $85+推升。2.72%股息+持续回购。原油$90时盈利弹性更大。beta仅0.35=低波动避风港。",
+      "en": "XOM at $151 approaching 52wk high $160, boosted by Middle East + WTI above $85. 2.72% dividend + ongoing buybacks. Even more earnings upside at $90 oil. Beta only 0.35 = low-vol safe haven."
+    },
+    "verdict": {
+      "zh": "持有 — 地缘红利+高股息，但注意油价回落",
+      "en": "HOLD — Geopolitical premium + high dividend, but watch oil pullback"
+    },
     "verdictColor": "text-yellow",
-    "questions": { "zh": [
-      { "status": "positive", "q": "10年后还赚钱？ — 是", "a": "化石能源不会消失。XOM在碳捕捉有布局。" },
-      { "status": "uncertain", "q": "赚得更多？ — 看油价周期", "a": "当前地缘推高但不持久。长期看$70-80油价。" },
-      { "status": "positive", "q": "护城河？ — 中强", "a": "全球最大储量+炼油网络+品牌。" }
-    ], "en": [
-      { "status": "positive", "q": "Profitable in 10yr? — Yes", "a": "Fossil fuels won't disappear. XOM investing in carbon capture." },
-      { "status": "uncertain", "q": "Earning more? — Oil cycle dependent", "a": "Current geopolitical boost not durable. Long-term $70-80 oil." },
-      { "status": "positive", "q": "Moat? — Medium-strong", "a": "Largest global reserves + refining network + brand." }
-    ] },
-    "crossVal": { "zh": [
-      { "name": "DYP", "color": "yellow", "verdict": "小仓", "q": "周期性。当前受益地缘。" },
-      { "name": "Buffett", "color": "green", "verdict": "曾重仓", "q": "能源=长期价值。已转向CVX。" },
-      { "name": "Munger", "color": "green", "verdict": "认可", "q": "能源=必需品。2.72%股息安全。" }
-    ], "en": [
-      { "name": "DYP", "color": "yellow", "verdict": "Small", "q": "Cyclical. Currently benefiting from geopolitics." },
-      { "name": "Buffett", "color": "green", "verdict": "Was heavy", "q": "Energy = long-term value. Shifted to CVX." },
-      { "name": "Munger", "color": "green", "verdict": "Approved", "q": "Energy = necessity. 2.72% dividend safe." }
-    ] },
-    "earnings": { "quarter": "Q4 2025 (Dec 2025)", "revenue": "$80.0B", "revenueYoY": "-1.3%", "grossMarginQ": "20.0%", "netIncome": "$6.5B", "netMarginQ": "8.1%", "fcf": "$5.2B", "fcfMarginQ": "6.5%" },
-    "financialHealth": { "cash": "$10.7B", "debt": "$50.5B", "debtEquity": "0.19", "currentRatio": "1.15", "grade": "B+" },
-    "moat": { "zh": "全球储量+Permian盆地+炼油网络+化工", "en": "Global reserves + Permian Basin + refining network + chemicals" },
-    "valuation": { "zh": "18x Fwd PE+2.72%股息。油价$85+时处于公允水平。", "en": "18x Fwd PE + 2.72% dividend. Fair at $85+ oil." }
+    "questions": {
+      "zh": [
+        {
+          "status": "positive",
+          "q": "10年后还赚钱？ — 是",
+          "a": "化石能源不会消失。XOM在碳捕捉有布局。"
+        },
+        {
+          "status": "uncertain",
+          "q": "赚得更多？ — 看油价周期",
+          "a": "当前地缘推高但不持久。长期看$70-80油价。"
+        },
+        {
+          "status": "positive",
+          "q": "护城河？ — 中强",
+          "a": "全球最大储量+炼油网络+品牌。"
+        }
+      ],
+      "en": [
+        {
+          "status": "positive",
+          "q": "Profitable in 10yr? — Yes",
+          "a": "Fossil fuels won't disappear. XOM investing in carbon capture."
+        },
+        {
+          "status": "uncertain",
+          "q": "Earning more? — Oil cycle dependent",
+          "a": "Current geopolitical boost not durable. Long-term $70-80 oil."
+        },
+        {
+          "status": "positive",
+          "q": "Moat? — Medium-strong",
+          "a": "Largest global reserves + refining network + brand."
+        }
+      ]
+    },
+    "crossVal": {
+      "zh": [
+        {
+          "name": "DYP",
+          "color": "yellow",
+          "verdict": "小仓",
+          "q": "周期性。当前受益地缘。"
+        },
+        {
+          "name": "Buffett",
+          "color": "green",
+          "verdict": "曾重仓",
+          "q": "能源=长期价值。已转向CVX。"
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "认可",
+          "q": "能源=必需品。2.72%股息安全。"
+        }
+      ],
+      "en": [
+        {
+          "name": "DYP",
+          "color": "yellow",
+          "verdict": "Small",
+          "q": "Cyclical. Currently benefiting from geopolitics."
+        },
+        {
+          "name": "Buffett",
+          "color": "green",
+          "verdict": "Was heavy",
+          "q": "Energy = long-term value. Shifted to CVX."
+        },
+        {
+          "name": "Munger",
+          "color": "green",
+          "verdict": "Approved",
+          "q": "Energy = necessity. 2.72% dividend safe."
+        }
+      ]
+    },
+    "earnings": {
+      "quarter": "2025-12-31",
+      "revenue": "$80.0B",
+      "revenueYoY": "-1.3%",
+      "grossMarginQ": "20.0%",
+      "netIncome": "$6.5B",
+      "netMarginQ": "8.1%",
+      "fcf": "$5.2B",
+      "fcfMarginQ": "6.5%",
+      "reportDate": "2025-12-31"
+    },
+    "financialHealth": {
+      "cash": "$10.7B",
+      "debt": "$50.5B",
+      "debtEquity": "0.19",
+      "currentRatio": "1.15",
+      "grade": "B+"
+    },
+    "moat": {
+      "zh": "全球储量+Permian盆地+炼油网络+化工",
+      "en": "Global reserves + Permian Basin + refining network + chemicals"
+    },
+    "valuation": {
+      "zh": "18x Fwd PE+2.72%股息。油价$85+时处于公允水平。",
+      "en": "18x Fwd PE + 2.72% dividend. Fair at $85+ oil."
+    },
+    "peg": "—",
+    "_updatedAt": "2026-03-08T07:35:50.274Z",
+    "_price": 151.21
   }
 }

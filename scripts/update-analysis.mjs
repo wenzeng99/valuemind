@@ -34,7 +34,7 @@ for (const [sym, s] of Object.entries(sd)) {
   a.exchange = s.sector === 'Technology' || s.sector === 'Communication Services' ? 'NASDAQ' : 'NYSE';
 
   // Update financialHealth with real data
-  if (a.financialHealth) {
+  if (a.financialHealth?.zh && a.financialHealth?.en) {
     const cash = fmtNum(s.cashPosition);
     const debt = fmtNum(s.totalDebt);
     const netCash = s.cashPosition && s.totalDebt ? fmtNum(s.cashPosition - s.totalDebt) : '—';
